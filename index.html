@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Immortal Vault</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black:   #060606;
+            --dark:    #0c0c0c;
+            --surface: #111;
+            --border:  #1c1c1c;
+            --red:     #8b0000;
+            --red2:    #a31515;
+            --dim:     #6b0000;
+            --text:    #d8d4ce;
+            --muted:   #4a4a4a;
+            --mono:    'Share Tech Mono', monospace;
+            --serif:   'DM Serif Display', serif;
+            --sans:    'Inter', sans-serif;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--black);
+            color: var(--text);
+            font-family: var(--sans);
+            font-weight: 300;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Scanline overlay */
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.025) 2px,
+                rgba(0,0,0,0.025) 4px
+            );
+            pointer-events: none;
+            z-index: 9000;
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 64px;
+            padding: 0 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--black);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .nav-logo::after {
+            content: "_";
+            color: var(--red2);
+            animation: blink 1.2s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0; }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-links a::before { content: "/ "; color: var(--red); opacity: 0; transition: opacity 0.2s; }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a:hover::before { opacity: 1; }
+
+        /* ── Hamburger ── */
+        .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+        .hamburger span { display: block; width: 20px; height: 1px; background: var(--text); transition: all 0.3s; }
+        .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); background: var(--red2); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); background: var(--red2); }
+
+        .mobile-menu {
+            position: fixed; inset: 0;
+            background: var(--black);
+            z-index: 999;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 36px;
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .mobile-menu.open { max-height: 100vh; }
+        .mobile-menu a {
+            font-family: var(--mono);
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--muted);
+            transition: color 0.2s;
+        }
+        .mobile-menu a:hover { color: var(--red2); }
+
+        /* ── Hero ── */
+        .hero {
+            height: calc(100vh - 64px);
+            min-height: 500px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 60px 70px;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg-placeholder {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--border);
+        }
+
+        .hero-vignette {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(6,6,6,0.96) 0%,
+                rgba(6,6,6,0.5) 40%,
+                transparent 100%
+            );
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--red2);
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.3s forwards;
+        }
+
+        .hero-title {
+            font-family: var(--serif);
+            font-size: clamp(3.5rem, 9vw, 8rem);
+            line-height: 1;
+            color: var(--text);
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.5s forwards;
+        }
+
+        .hero-title em { font-style: italic; color: var(--red2); }
+
+        .hero-sub {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-top: 24px;
+            line-height: 2;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.8s forwards;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 70px;
+            right: 60px;
+            z-index: 2;
+            font-family: var(--mono);
+            font-size: 0.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+            writing-mode: vertical-rl;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 1.2s forwards;
+        }
+
+        .hero-scroll::after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 40px;
+            background: var(--muted);
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Four Panel Gateway ── */
+        .vault-panels {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            height: 100vh;
+            min-height: 560px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .vault-panel {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 40px 32px;
+            text-decoration: none;
+            color: var(--text);
+            overflow: hidden;
+            border-right: 1px solid var(--border);
+            cursor: pointer;
+            transition: background 0.4s ease;
+        }
+
+        .vault-panel:last-child { border-right: none; }
+
+        /* Each panel gets a unique dark background tint */
+        .vault-panel:nth-child(1) { background: #090608; }
+        .vault-panel:nth-child(2) { background: #060609; }
+        .vault-panel:nth-child(3) { background: #090908; }
+        .vault-panel:nth-child(4) { background: #080609; }
+
+        /* Hover: red wash from bottom */
+        .vault-panel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(139,0,0,0.18) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .vault-panel:hover::before { opacity: 1; }
+
+        /* Red left border on hover */
+        .vault-panel::after {
+            content: "";
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 2px;
+            background: var(--red2);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.4s ease;
+            z-index: 2;
+        }
+
+        .vault-panel:hover::after { transform: scaleY(1); }
+
+        /* Panel image area */
+        .panel-image {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.15;
+            transition: opacity 0.4s ease;
+        }
+
+        .vault-panel:hover .panel-image { opacity: 0.25; }
+
+        .panel-image span {
+            font-family: var(--mono);
+            font-size: 0.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* Panel content */
+        .panel-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .panel-num {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 3px;
+            color: var(--red);
+            margin-bottom: 16px;
+            opacity: 0.7;
+        }
+
+        .panel-title {
+            font-family: var(--serif);
+            font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+            line-height: 1.1;
+            color: var(--text);
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+
+        .vault-panel:hover .panel-title { color: #fff; }
+
+        .panel-desc {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .panel-cta {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            opacity: 0.6;
+            transition: opacity 0.3s ease, gap 0.3s ease;
+        }
+
+        .vault-panel:hover .panel-cta { opacity: 1; }
+
+        .panel-cta-line {
+            display: block;
+            width: 20px; height: 1px;
+            background: var(--red2);
+            transition: width 0.3s;
+        }
+
+        .vault-panel:hover .panel-cta-line { width: 32px; }
+
+        /* Large ghosted type behind each panel */
+        .panel-ghost {
+            position: absolute;
+            bottom: 20px;
+            right: -10px;
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 7rem;
+            line-height: 1;
+            color: rgba(139,0,0,0.04);
+            pointer-events: none;
+            user-select: none;
+            transition: color 0.4s ease;
+            z-index: 0;
+        }
+
+        .vault-panel:hover .panel-ghost { color: rgba(139,0,0,0.08); }
+
+        /* ── Divider ── */
+        .divider { height: 1px; background: var(--border); margin: 0 60px; }
+
+        /* ── Creator Section ── */
+        .creator-section {
+            padding: 100px 60px;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 80px;
+            align-items: start;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .creator-photo {
+            aspect-ratio: 3/4;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .creator-photo::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(139,0,0,0.03);
+        }
+
+        .creator-photo span {
+            font-family: var(--mono);
+            font-size: 0.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--border);
+            position: relative;
+            z-index: 1;
+        }
+
+        .creator-text {}
+
+        .creator-label {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--red2);
+            margin-bottom: 20px;
+        }
+
+        .creator-headline {
+            font-family: var(--serif);
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            line-height: 1.2;
+            color: var(--text);
+            margin-bottom: 28px;
+        }
+
+        .creator-headline em { font-style: italic; color: var(--red2); }
+
+        .creator-body {
+            font-size: 0.85rem;
+            color: var(--muted);
+            line-height: 2;
+            max-width: 540px;
+        }
+
+        .creator-body + .creator-body { margin-top: 16px; }
+
+        .creator-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 36px;
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--muted);
+            transition: color 0.2s, gap 0.3s;
+        }
+
+        .creator-cta:hover { color: var(--red2); gap: 18px; }
+
+        .creator-cta-line {
+            display: block;
+            width: 28px; height: 1px;
+            background: currentColor;
+            transition: width 0.3s;
+        }
+
+        .creator-cta:hover .creator-cta-line { width: 44px; }
+
+        /* ── Blog / Dispatch ── */
+        .dispatch-section {
+            padding: 100px 60px;
+            background: var(--dark);
+        }
+
+        .dispatch-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 48px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+        }
+
+        .dispatch-heading {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+        }
+
+        .dispatch-num {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            color: var(--red);
+        }
+
+        .dispatch-title {
+            font-family: var(--serif);
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            color: var(--text);
+        }
+
+        .dispatch-title em { font-style: italic; color: var(--red2); }
+
+        .dispatch-all {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--muted);
+            transition: color 0.2s;
+        }
+
+        .dispatch-all:hover { color: var(--red2); }
+
+        .dispatch-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+        }
+
+        .dispatch-card {
+            background: var(--dark);
+            padding: 36px;
+            text-decoration: none;
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: background 0.3s;
+            position: relative;
+        }
+
+        .dispatch-card:hover { background: var(--surface); }
+
+        .dispatch-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: var(--red);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .dispatch-card:hover::before { transform: scaleX(1); }
+
+        .dispatch-card-date {
+            font-family: var(--mono);
+            font-size: 0.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red);
+        }
+
+        .dispatch-card-title {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            line-height: 1.25;
+            color: var(--text);
+        }
+
+        .dispatch-card-excerpt {
+            font-size: 0.8rem;
+            color: var(--muted);
+            line-height: 1.8;
+            flex: 1;
+        }
+
+        .dispatch-card-read {
+            font-family: var(--mono);
+            font-size: 0.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 8px;
+            transition: color 0.2s;
+        }
+
+        .dispatch-card:hover .dispatch-card-read { color: var(--red2); }
+
+        /* ── Contact ── */
+        .contact-section {
+            padding: 120px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: "ENTER";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--serif);
+            font-size: clamp(5rem, 18vw, 14rem);
+            color: rgba(139,0,0,0.04);
+            white-space: nowrap;
+            pointer-events: none;
+            letter-spacing: 12px;
+        }
+
+        .contact-label {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--red2);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .contact-headline {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: var(--text);
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .contact-headline em { font-style: italic; color: var(--red2); }
+
+        .contact-sub {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            color: var(--muted);
+            margin-bottom: 48px;
+            position: relative;
+        }
+
+        .contact-email {
+            display: inline-block;
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(1.4rem, 3vw, 2.4rem);
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s;
+            position: relative;
+            margin-bottom: 48px;
+        }
+
+        .contact-email:hover { color: var(--red2); }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            padding: 16px 32px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .contact-btn:hover { border-color: var(--red); color: var(--red2); }
+
+        /* ── Footer ── */
+        footer {
+            padding: 28px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-logo {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        .footer-logo span { color: var(--red); }
+
+        .footer-copy {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 2px;
+            color: var(--muted);
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 900px) {
+            nav { padding: 0 24px; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .hero { padding: 0 24px 60px; }
+            .hero-scroll { display: none; }
+            .vault-panels { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; height: auto; min-height: 0; }
+            .vault-panel { min-height: 260px; border-bottom: 1px solid var(--border); }
+            .vault-panel:nth-child(2) { border-right: none; }
+            .panel-ghost { font-size: 4rem; }
+            .creator-section { grid-template-columns: 1fr; padding: 70px 24px; gap: 40px; }
+            .creator-photo { max-width: 280px; }
+            .dispatch-grid { grid-template-columns: 1fr; }
+            .dispatch-section { padding: 70px 24px; }
+            .divider { margin: 0 24px; }
+            .contact-section { padding: 80px 24px; }
+            footer { flex-direction: column; gap: 10px; text-align: center; padding: 28px 24px; }
+        }
+
+        @media (max-width: 480px) {
+            .vault-panels { grid-template-columns: 1fr; grid-template-rows: repeat(4, 1fr); }
+            .vault-panel { border-right: none !important; min-height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <a href="/" class="nav-logo">THE IMMORTAL VAULT</a>
+        <ul class="nav-links">
+            <li><a href="/films">Films</a></li>
+            <li><a href="/audio-dramas">Audio Dramas</a></li>
+            <li><a href="/screenplays">Screenplays</a></li>
+            <li><a href="/stories">Stories</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="/films">Films</a>
+        <a href="/audio-dramas">Audio Dramas</a>
+        <a href="/screenplays">Screenplays</a>
+        <a href="/stories">Stories</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg">
+            <!-- Replace with: <img src="hero.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
+            <span class="hero-bg-placeholder">Add hero image here</span>
+        </div>
+        <div class="hero-vignette"></div>
+        <div class="hero-content">
+            <p class="hero-tag">Horror &nbsp;/&nbsp; Film &nbsp;/&nbsp; Audio &nbsp;/&nbsp; Fiction</p>
+            <h1 class="hero-title">The<br><em>Immortal</em><br>Vault</h1>
+            <p class="hero-sub">Stories that endure. &nbsp;Darkness that lingers.</p>
+        </div>
+        <div class="hero-scroll">Scroll</div>
+    </section>
+
+    <!-- Four Panel Gateway -->
+    <div class="vault-panels">
+        <a href="/films" class="vault-panel">
+            <div class="panel-image">
+    <img src="Lauren.png" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div class="panel-ghost">I</div>
+            <div class="panel-content">
+                <div class="panel-num">01</div>
+                <div class="panel-title">Films</div>
+                <div class="panel-desc">Horror short &amp;<br>feature films</div>
+                <div class="panel-cta"><span class="panel-cta-line"></span> Enter</div>
+            </div>
+        </a>
+        <a href="/audio-dramas" class="vault-panel">
+            <div class="panel-image">
+    <img src="Mic.jpg" style="width:100%;height:100%;object-fit:cover;">
+</div>
+            <div class="panel-ghost">II</div>
+            <div class="panel-content">
+                <div class="panel-num">02</div>
+                <div class="panel-title">Audio<br>Dramas</div>
+                <div class="panel-desc">Podcast &amp;<br>audio productions</div>
+                <div class="panel-cta"><span class="panel-cta-line"></span> Listen</div>
+            </div>
+        </a>
+        <a href="/screenplays" class="vault-panel">
+            <div class="panel-image">
+    <img src="sedonaspage.png" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+            <div class="panel-ghost">III</div>
+            <div class="panel-content">
+                <div class="panel-num">03</div>
+                <div class="panel-title">Screen&shy;plays</div>
+                <div class="panel-desc">Original horror<br>scripts &amp; treatments</div>
+                <div class="panel-cta"><span class="panel-cta-line"></span> Read</div>
+            </div>
+        </a>
+        <a href="/stories" class="vault-panel">
+            <div class="panel-image">
+    <img src="Story.png" style="width:100%;height:100%;object-fit:cover;">
+</div>
+            <div class="panel-ghost">IV</div>
+            <div class="panel-content">
+                <div class="panel-num">04</div>
+                <div class="panel-title">Stories</div>
+                <div class="panel-desc">Short fiction,<br>novellas &amp; prose</div>
+                <div class="panel-cta"><span class="panel-cta-line"></span> Read</div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Creator / About -->
+    <section class="creator-section">
+        <div class="creator-photo"><span>Your Photo</span></div>
+        <div class="creator-text">
+            <p class="creator-label">// The Creator</p>
+            <h2 class="creator-headline">Writer. Director.<br><em>Architect of Dread.</em></h2>
+            <p class="creator-body">Add your bio here. Talk about what drives your horror work, your influences, and what keeps you coming back to the dark.</p>
+            <p class="creator-body">The Immortal Vault is a personal archive — every film, script, story, and audio drama produced under one roof. Welcome.</p>
+            <a href="/about" class="creator-cta">
+                <span class="creator-cta-line"></span>
+                Full Bio
+            </a>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Dispatch / Blog -->
+    <section class="dispatch-section">
+        <div class="dispatch-header">
+            <div class="dispatch-heading">
+                <span class="dispatch-num">05</span>
+                <h2 class="dispatch-title">The <em>Dispatch</em></h2>
+            </div>
+            <a href="/dispatch" class="dispatch-all">View All →</a>
+        </div>
+        <div class="dispatch-grid">
+            <a href="#" class="dispatch-card">
+                <div class="dispatch-card-date">Feb 2026</div>
+                <div class="dispatch-card-title">Post Title Here</div>
+                <div class="dispatch-card-excerpt">A short excerpt from the post goes here. Keep it one or two sentences — enough to draw them in.</div>
+                <div class="dispatch-card-read">Read →</div>
+            </a>
+            <a href="#" class="dispatch-card">
+                <div class="dispatch-card-date">Jan 2026</div>
+                <div class="dispatch-card-title">Post Title Here</div>
+                <div class="dispatch-card-excerpt">A short excerpt from the post goes here. Keep it one or two sentences — enough to draw them in.</div>
+                <div class="dispatch-card-read">Read →</div>
+            </a>
+            <a href="#" class="dispatch-card">
+                <div class="dispatch-card-date">Dec 2025</div>
+                <div class="dispatch-card-title">Post Title Here</div>
+                <div class="dispatch-card-excerpt">A short excerpt from the post goes here. Keep it one or two sentences — enough to draw them in.</div>
+                <div class="dispatch-card-read">Read →</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section">
+        <p class="contact-label">// Open the Door</p>
+        <h2 class="contact-headline">Step <em>Inside</em></h2>
+        <p class="contact-sub">Collaborations, rights inquiries, or just a conversation about the dark.</p>
+        <br><br>
+        <a href="/cdn-cgi/l/email-protection#95fdf0f9f9fad5e1fdf0fcf8f8fae7e1f4f9e3f4e0f9e1bbf6faf8" class="contact-email"><span class="__cf_email__" data-cfemail="9ef6fbf2f2f1deeaf6fbf7f3f3f1eceafff2e8ffebf2eab0fdf1f3">[email&#160;protected]</span></a>
+        <br><br>
+        <a href="/contact" class="contact-btn">Get In Touch</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">THE <span>IMMORTAL</span> VAULT</div>
+        <div class="footer-copy">&copy; 2026 — All Works Reserved</div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        const btn = document.getElementById('hamburger');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { btn.classList.toggle('open'); menu.classList.toggle('open'); });
+        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { btn.classList.remove('open'); menu.classList.remove('open'); }));
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.style.opacity = '1';
+                    e.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.08 });
+
+        document.querySelectorAll('.dispatch-card').f
