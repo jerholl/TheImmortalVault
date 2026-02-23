@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — The Immortal Vault</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black:#060606; --dark:#0c0c0c; --surface:#111;
+            --border:#1c1c1c; --red:#8b0000; --red2:#a31515;
+            --text:#d8d4ce; --muted:#4a4a4a;
+            --mono:'Share Tech Mono',monospace; --serif:'DM Serif Display',serif; --sans:'Inter',sans-serif;
+        }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        html{scroll-behavior:smooth;}
+        body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden;}
+        body::after{content:"";position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.025) 2px,rgba(0,0,0,0.025) 4px);pointer-events:none;z-index:9000;}
+
+        nav{position:sticky;top:0;z-index:1000;height:64px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;background:var(--black);border-bottom:1px solid var(--border);}
+        .nav-logo{font-family:var(--mono);font-size:0.85rem;letter-spacing:4px;text-transform:uppercase;text-decoration:none;color:var(--text);white-space:nowrap;}
+        .nav-logo::after{content:"_";color:var(--red2);animation:blink 1.2s step-end infinite;}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+        .nav-links{display:flex;gap:28px;list-style:none;}
+        .nav-links a{text-decoration:none;color:var(--muted);font-family:var(--mono);font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s;white-space:nowrap;}
+        .nav-links a::before{content:"/ ";color:var(--red);opacity:0;transition:opacity 0.2s;}
+        .nav-links a:hover,.nav-links a.active{color:var(--text);}
+        .nav-links a:hover::before,.nav-links a.active::before{opacity:1;}
+        .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0;}
+        .hamburger span{display:block;width:20px;height:1px;background:var(--text);transition:all 0.3s;}
+        .hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg);background:var(--red2);}
+        .hamburger.open span:nth-child(2){opacity:0;}
+        .hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);background:var(--red2);}
+        .mobile-menu{position:fixed;inset:0;background:var(--black);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+        .mobile-menu.open{max-height:100vh;}
+        .mobile-menu a{font-family:var(--mono);font-size:1.1rem;letter-spacing:4px;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color 0.2s;}
+        .mobile-menu a:hover{color:var(--red2);}
+
+        /* ── Contact Layout ── */
+        .contact-wrap {
+            min-height: calc(100vh - 64px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        /* Left panel */
+        .contact-left {
+            padding: 100px 80px;
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-eyebrow { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--red2); margin-bottom: 20px; }
+        .contact-title { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1; color: var(--text); margin-bottom: 32px; }
+        .contact-title em { font-style: italic; color: var(--red2); }
+        .contact-body { font-size: 0.85rem; color: var(--muted); line-height: 2; max-width: 380px; margin-bottom: 60px; }
+
+        .contact-info { display: flex; flex-direction: column; gap: 32px; }
+        .contact-info-item {}
+        .contact-info-label { font-family: var(--mono); font-size: 0.5rem; letter-spacing: 4px; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+        .contact-info-value { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--text); text-decoration: none; transition: color 0.2s; }
+        a.contact-info-value:hover { color: var(--red2); }
+        .contact-info-note { font-family: var(--mono); font-size: 0.48rem; letter-spacing: 2px; color: var(--muted); margin-top: 4px; }
+
+        /* Right panel — form */
+        .contact-right {
+            padding: 100px 80px;
+            background: var(--dark);
+        }
+
+        .form-label { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); margin-bottom: 40px; display: block; }
+
+        .form-group { margin-bottom: 32px; }
+        .form-field-label { font-family: var(--mono); font-size: 0.5rem; letter-spacing: 3px; text-transform: uppercase; color: var(--red2); margin-bottom: 10px; display: block; }
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            background: var(--black);
+            border: none;
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            color: var(--text);
+            font-family: var(--sans);
+            font-size: 0.9rem;
+            font-weight: 300;
+            outline: none;
+            transition: border-color 0.2s;
+            appearance: none;
+        }
+        .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: var(--red2); }
+        .form-textarea { resize: vertical; min-height: 120px; }
+        .form-select { cursor: pointer; background-image: none; color: var(--muted); }
+        .form-select option { background: var(--black); }
+
+        .form-submit {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text);
+            background: none;
+            border: 1px solid var(--border);
+            padding: 16px 32px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 8px;
+        }
+        .form-submit:hover { border-color: var(--red2); color: var(--red2); }
+        .form-submit-line { display: block; width: 20px; height: 1px; background: currentColor; transition: width 0.3s; }
+        .form-submit:hover .form-submit-line { width: 32px; }
+
+        /* Success message */
+        .form-success {
+            display: none;
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red2);
+            margin-top: 20px;
+        }
+
+        footer{padding:28px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);}
+        .footer-logo{font-family:var(--mono);font-size:0.7rem;letter-spacing:4px;color:var(--muted);text-transform:uppercase;}
+        .footer-logo span{color:var(--red);}
+        .footer-copy{font-family:var(--mono);font-size:0.55rem;letter-spacing:2px;color:var(--muted);}
+
+        @media(max-width:900px){
+            nav{padding:0 24px;} .nav-links{display:none;} .hamburger{display:flex;}
+            .contact-wrap{grid-template-columns:1fr;min-height:auto;}
+            .contact-left{padding:60px 24px;border-right:none;border-bottom:1px solid var(--border);}
+            .contact-right{padding:60px 24px;}
+            footer{flex-direction:column;gap:10px;text-align:center;padding:28px 24px;}
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-logo">THE IMMORTAL VAULT</a>
+        <ul class="nav-links">
+            <li><a href="/films">Films</a></li>
+            <li><a href="/audio-dramas">Audio Dramas</a></li>
+            <li><a href="/narrative-fiction">Narrative Fiction</a></li>
+            <li><a href="/games">Games</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact" class="active">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="/films">Films</a><a href="/audio-dramas">Audio Dramas</a>
+        <a href="/narrative-fiction">Narrative Fiction</a><a href="/games">Games</a>
+        <a href="/about">About</a><a href="/contact">Contact</a>
+    </div>
+
+    <div class="contact-wrap">
+
+        <!-- Left: Info -->
+        <div class="contact-left">
+            <div>
+                <p class="contact-eyebrow">// Open the Door</p>
+                <h1 class="contact-title">Step <em>Inside</em></h1>
+                <p class="contact-body">Collaborations, rights inquiries, production partnerships, or just a conversation about the dark. The vault is open.</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-info-item">
+                    <div class="contact-info-label">// Email</div>
+                    <a href="mailto:hello@beckllen.com" class="contact-info-value">hello@beckllen.com</a>
+                    <div class="contact-info-note">Typically responds within 48 hours</div>
+                </div>
+                <div class="contact-info-item">
+                    <div class="contact-info-label">// For</div>
+                    <div class="contact-info-value" style="font-style:normal;font-family:var(--mono);font-size:0.7rem;color:var(--muted);line-height:2;">
+                        Collaboration &nbsp;/&nbsp; Rights &nbsp;/&nbsp; Production<br>
+                        Film &nbsp;/&nbsp; Audio &nbsp;/&nbsp; Games &nbsp;/&nbsp; Fiction
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="contact-right">
+            <span class="form-label">// Transmission Form</span>
+
+            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="YOUR-WEB3FORMS-KEY-HERE">
+                <input type="hidden" name="subject" value="New message from The Immortal Vault">
+                <input type="hidden" name="redirect" value="">
+
+                <div class="form-group">
+                    <label class="form-field-label" for="name">// Name</label>
+                    <input class="form-input" type="text" id="name" name="name" required placeholder="Your name">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-field-label" for="email">// Email</label>
+                    <input class="form-input" type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-field-label" for="reason">// Regarding</label>
+                    <select class="form-select" id="reason" name="reason">
+                        <option value="">Select a reason</option>
+                        <option value="collaboration">Collaboration</option>
+                        <option value="rights">Rights Inquiry</option>
+                        <option value="production">Production Partnership</option>
+                        <option value="press">Press / Media</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-field-label" for="message">// Message</label>
+                    <textarea class="form-textarea" id="message" name="message" required placeholder="What's on your mind..."></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">
+                    <span class="form-submit-line"></span>
+                    Send Transmission
+                </button>
+                <div class="form-success" id="form-success">// Message received. We'll be in touch.</div>
+            </form>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-logo">THE <span>IMMORTAL</span> VAULT</div>
+        <div class="footer-copy">&copy; 2026 — All Works Reserved</div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('hamburger');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { btn.classList.toggle('open'); menu.classList.toggle('open'); });
+        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { btn.classList.remove('open'); menu.classList.remove('open'); }));
+
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const data = new FormData(this);
+            const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+            if (res.ok) {
+                this.reset();
+                document.getElementById('form-success').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

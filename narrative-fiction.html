@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narrative Fiction — The Immortal Vault</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black:#060606; --dark:#0c0c0c; --surface:#111;
+            --border:#1c1c1c; --red:#8b0000; --red2:#a31515;
+            --text:#d8d4ce; --muted:#4a4a4a;
+            --mono:'Share Tech Mono',monospace; --serif:'DM Serif Display',serif; --sans:'Inter',sans-serif;
+        }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        html{scroll-behavior:smooth;}
+        body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden;}
+        body::after{content:"";position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.025) 2px,rgba(0,0,0,0.025) 4px);pointer-events:none;z-index:9000;}
+
+        nav{position:sticky;top:0;z-index:1000;height:64px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;background:var(--black);border-bottom:1px solid var(--border);}
+        .nav-logo{font-family:var(--mono);font-size:0.85rem;letter-spacing:4px;text-transform:uppercase;text-decoration:none;color:var(--text);white-space:nowrap;}
+        .nav-logo::after{content:"_";color:var(--red2);animation:blink 1.2s step-end infinite;}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+        .nav-links{display:flex;gap:28px;list-style:none;}
+        .nav-links a{text-decoration:none;color:var(--muted);font-family:var(--mono);font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s;white-space:nowrap;}
+        .nav-links a::before{content:"/ ";color:var(--red);opacity:0;transition:opacity 0.2s;}
+        .nav-links a:hover,.nav-links a.active{color:var(--text);}
+        .nav-links a:hover::before,.nav-links a.active::before{opacity:1;}
+        .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0;}
+        .hamburger span{display:block;width:20px;height:1px;background:var(--text);transition:all 0.3s;}
+        .hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg);background:var(--red2);}
+        .hamburger.open span:nth-child(2){opacity:0;}
+        .hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);background:var(--red2);}
+        .mobile-menu{position:fixed;inset:0;background:var(--black);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+        .mobile-menu.open{max-height:100vh;}
+        .mobile-menu a{font-family:var(--mono);font-size:1.1rem;letter-spacing:4px;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color 0.2s;}
+        .mobile-menu a:hover{color:var(--red2);}
+
+        .page-header{padding:80px 60px 60px;border-bottom:1px solid var(--border);display:flex;align-items:flex-end;justify-content:space-between;gap:40px;}
+        .page-eyebrow{font-family:var(--mono);font-size:0.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--red2);margin-bottom:16px;}
+        .page-title{font-family:var(--serif);font-size:clamp(2.5rem,6vw,5.5rem);line-height:1;color:var(--text);}
+        .page-title em{font-style:italic;color:var(--red2);}
+        .page-count{font-family:var(--mono);font-size:0.6rem;letter-spacing:3px;color:var(--muted);text-transform:uppercase;white-space:nowrap;}
+
+        /* ── Filter Bar ── */
+        .filter-bar{padding:20px 60px;border-bottom:1px solid var(--border);display:flex;gap:4px;background:var(--dark);}
+        .filter-btn{font-family:var(--mono);font-size:0.55rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);background:none;border:1px solid transparent;padding:8px 16px;cursor:pointer;transition:all 0.2s;}
+        .filter-btn:hover{color:var(--text);border-color:var(--border);}
+        .filter-btn.active{color:var(--red2);border-color:var(--red);}
+
+        /* ── Writing List ── */
+        .writing-list { padding: 0 60px 80px; }
+
+        .writing-item {
+            display: grid;
+            grid-template-columns: 56px 1fr 180px auto;
+            align-items: center;
+            gap: 32px;
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
+            transition: background 0.2s;
+            position: relative;
+        }
+        .writing-item:hover { background: rgba(139,0,0,0.02); }
+
+        /* Red left bar */
+        .writing-item::before {
+            content: "";
+            position: absolute;
+            left: -60px; top: 0; bottom: 0;
+            width: 2px;
+            background: var(--red2);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.3s ease;
+        }
+        .writing-item:hover::before { transform: scaleY(1); }
+
+        .writing-num { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 2px; color: var(--muted); text-align: right; }
+
+        .writing-main {}
+        .writing-tag-pill {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: 0.45rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red2);
+            border: 1px solid var(--red);
+            padding: 3px 8px;
+            margin-bottom: 8px;
+        }
+        .writing-title { font-family: var(--serif); font-size: clamp(1.1rem,2vw,1.5rem); color: var(--text); margin-bottom: 8px; line-height: 1.15; }
+        .writing-excerpt { font-size: 0.8rem; color: var(--muted); line-height: 1.7; max-width: 500px; }
+
+        .writing-stats { text-align: right; }
+        .writing-stat-main { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 2px; color: var(--text); margin-bottom: 4px; }
+        .writing-stat-sub { font-family: var(--mono); font-size: 0.48rem; letter-spacing: 2px; color: var(--muted); }
+
+        .writing-cta { font-family: var(--mono); font-size: 0.5rem; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 10px 18px; transition: all 0.2s; white-space: nowrap; }
+        .writing-item:hover .writing-cta { border-color: var(--red); color: var(--red2); }
+
+        footer{padding:28px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);}
+        .footer-logo{font-family:var(--mono);font-size:0.7rem;letter-spacing:4px;color:var(--muted);text-transform:uppercase;}
+        .footer-logo span{color:var(--red);}
+        .footer-copy{font-family:var(--mono);font-size:0.55rem;letter-spacing:2px;color:var(--muted);}
+
+        @media(max-width:900px){
+            nav{padding:0 24px;} .nav-links{display:none;} .hamburger{display:flex;}
+            .page-header{padding:50px 24px 40px;flex-direction:column;align-items:flex-start;gap:16px;}
+            .filter-bar{padding:16px 24px;flex-wrap:wrap;}
+            .writing-list{padding:0 24px 60px;}
+            .writing-item{grid-template-columns:40px 1fr;gap:16px;}
+            .writing-stats,.writing-cta{display:none;}
+            .writing-item::before{left:-24px;}
+            footer{flex-direction:column;gap:10px;text-align:center;padding:28px 24px;}
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-logo">THE IMMORTAL VAULT</a>
+        <ul class="nav-links">
+            <li><a href="/films">Films</a></li>
+            <li><a href="/audio-dramas">Audio Dramas</a></li>
+            <li><a href="/narrative-fiction" class="active">Narrative Fiction</a></li>
+            <li><a href="/games">Games</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="/films">Films</a><a href="/audio-dramas">Audio Dramas</a>
+        <a href="/narrative-fiction">Narrative Fiction</a><a href="/games">Games</a>
+        <a href="/about">About</a><a href="/contact">Contact</a>
+    </div>
+
+    <div class="page-header">
+        <div>
+            <p class="page-eyebrow">// 03 — The Vault</p>
+            <h1 class="page-title">Narrative <em>Fiction</em></h1>
+        </div>
+        <div class="page-count">— 00 Works</div>
+    </div>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="screenplay">Screenplay</button>
+        <button class="filter-btn" data-filter="short-story">Short Story</button>
+        <button class="filter-btn" data-filter="novella">Novella</button>
+    </div>
+
+    <div class="writing-list">
+
+        <!-- Screenplay entry -->
+        <a href="#" class="writing-item" data-type="screenplay">
+            <span class="writing-num">01</span>
+            <div class="writing-main">
+                <div class="writing-tag-pill">Screenplay</div>
+                <div class="writing-title">Title of Screenplay Here</div>
+                <div class="writing-excerpt">A one or two line logline or description. Keep it dark, keep it intriguing — just enough to make someone want to read it.</div>
+            </div>
+            <div class="writing-stats">
+                <div class="writing-stat-main">Feature &nbsp;·&nbsp; 2026</div>
+                <div class="writing-stat-sub">Horror / Psychological</div>
+            </div>
+            <div class="writing-cta">Read →</div>
+        </a>
+
+        <!-- Short Story entry -->
+        <a href="#" class="writing-item" data-type="short-story">
+            <span class="writing-num">02</span>
+            <div class="writing-main">
+                <div class="writing-tag-pill">Short Story</div>
+                <div class="writing-title">Title of Story Here</div>
+                <div class="writing-excerpt">A one or two line description. Keep it dark, keep it intriguing — just enough to make someone want to read it.</div>
+            </div>
+            <div class="writing-stats">
+                <div class="writing-stat-main">~3,200 words &nbsp;·&nbsp; 2026</div>
+                <div class="writing-stat-sub">Horror / Supernatural</div>
+            </div>
+            <div class="writing-cta">Read →</div>
+        </a>
+
+        <!-- Novella entry -->
+        <a href="#" class="writing-item" data-type="novella">
+            <span class="writing-num">03</span>
+            <div class="writing-main">
+                <div class="writing-tag-pill">Novella</div>
+                <div class="writing-title">Title of Novella Here</div>
+                <div class="writing-excerpt">A one or two line description. Keep it dark, keep it intriguing — just enough to make someone want to read it.</div>
+            </div>
+            <div class="writing-stats">
+                <div class="writing-stat-main">~18,000 words &nbsp;·&nbsp; 2025</div>
+                <div class="writing-stat-sub">Horror / Thriller</div>
+            </div>
+            <div class="writing-cta">Read →</div>
+        </a>
+
+        <a href="#" class="writing-item" data-type="screenplay">
+            <span class="writing-num">04</span>
+            <div class="writing-main">
+                <div class="writing-tag-pill">Screenplay</div>
+                <div class="writing-title">Title of Screenplay Here</div>
+                <div class="writing-excerpt">A one or two line logline or description. Keep it dark, keep it intriguing — just enough to make someone want to read it.</div>
+            </div>
+            <div class="writing-stats">
+                <div class="writing-stat-main">Short &nbsp;·&nbsp; 2025</div>
+                <div class="writing-stat-sub">Horror / Folk</div>
+            </div>
+            <div class="writing-cta">Read →</div>
+        </a>
+
+        <a href="#" class="writing-item" data-type="short-story">
+            <span class="writing-num">05</span>
+            <div class="writing-main">
+                <div class="writing-tag-pill">Short Story</div>
+                <div class="writing-title">Title of Story Here</div>
+                <div class="writing-excerpt">A one or two line description. Keep it dark, keep it intriguing — just enough to make someone want to read it.</div>
+            </div>
+            <div class="writing-stats">
+                <div class="writing-stat-main">~2,800 words &nbsp;·&nbsp; 2024</div>
+                <div class="writing-stat-sub">Horror / Cosmic</div>
+            </div>
+            <div class="writing-cta">Read →</div>
+        </a>
+
+    </div>
+
+    <footer>
+        <div class="footer-logo">THE <span>IMMORTAL</span> VAULT</div>
+        <div class="footer-copy">&copy; 2026 — All Works Reserved</div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('hamburger');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { btn.classList.toggle('open'); menu.classList.toggle('open'); });
+        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { btn.classList.remove('open'); menu.classList.remove('open'); }));
+
+        const filters = document.querySelectorAll('.filter-btn');
+        const items = document.querySelectorAll('.writing-item');
+        filters.forEach(f => {
+            f.addEventListener('click', () => {
+                filters.forEach(b => b.classList.remove('active'));
+                f.classList.add('active');
+                const val = f.dataset.filter;
+                items.forEach(i => { i.style.display = (val === 'all' || i.dataset.type === val) ? 'grid' : 'none'; });
+            });
+        });
+    </script>
+</body>
+</html>
