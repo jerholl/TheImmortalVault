@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispatch Post - The Immortal Vault</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #060606;
+            --dark: #0c0c0c;
+            --surface: #111;
+            --border: #1c1c1c;
+            --red: #8b0000;
+            --red2: #a31515;
+            --text: #d8d4ce;
+            --muted: #4a4a4a;
+            --mono: "Share Tech Mono", monospace;
+            --serif: "DM Serif Display", serif;
+            --sans: "Inter", sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--black);
+            color: var(--text);
+            font-family: var(--sans);
+            line-height: 1.8;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 64px;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            background: var(--black);
+        }
+        .nav-logo {
+            color: var(--text);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: var(--mono);
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+        }
+        .back-link {
+            color: var(--muted);
+            text-decoration: none;
+            font-family: var(--mono);
+            font-size: 0.58rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .back-link:hover { color: var(--text); }
+
+        main {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 60px 26px 90px;
+        }
+        .post-date {
+            color: var(--red2);
+            font-family: var(--mono);
+            font-size: 0.54rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+        .excerpt {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 34px;
+        }
+        .body p {
+            margin-bottom: 18px;
+            color: var(--text);
+        }
+        .status {
+            font-family: var(--mono);
+            color: var(--muted);
+            font-size: 0.58rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">The Immortal Vault</a>
+        <a href="dispatch.html" class="back-link">Back to Dispatch</a>
+    </nav>
+    <main>
+        <p class="status" id="status">Loading post...</p>
+        <article id="post" hidden>
+            <p class="post-date" id="post-date"></p>
+            <h1 id="post-title"></h1>
+            <p class="excerpt" id="post-excerpt"></p>
+            <div class="body" id="post-body"></div>
+        </article>
+    </main>
+
+    <script type="module">
+        const SANITY_PROJECT_ID = "yourProjectId";
+        const SANITY_DATASET = "production";
+        const SANITY_API_VERSION = "2023-10-01";
+
+        const statusEl = document.getElementById("status");
+        const postEl = document.getElementById("post");
+        const postDateEl = document.getElementById("post-date");
+        const postTitleEl = document.getElementById("post-title");
+        const postExcerptEl = document.getElementById("post-excerpt");
+        const postBodyEl = document.getElementById("post-body");
+        const slug = new URLSearchParams(window.location.search).get("slug");
+
+        function plainPortableText(blocks) {
+            if (!Array.isArray(blocks)) return "";
+            return blocks
+                .filter((block) => block && block._type === "block" && Array.isArray(block.children))
+                .map((block) => block.children.map((child) => child.text || "").join("").trim())
+                .filter(Boolean)
+                .map((text) => `<p>${text}</p>`)
+                .join("");
+        }
+
+        if (!slug) {
+            statusEl.textContent = "Missing post slug.";
+        } else if (SANITY_PROJECT_ID === "yourProjectId") {
+            statusEl.textContent = "Set SANITY_PROJECT_ID in dispatch pages to load posts.";
+        } else {
+            const query = `*[_type == "post" && slug.current == "${slug}"][0]{title, publishedAt, excerpt, body}`;
+            const url = `https://${SANITY_PROJECT_ID}.api.sanity.io/v${SANITY_API_VERSION}/data/query/${SANITY_DATASET}?query=${encodeURIComponent(query)}`;
+
+            fetch(url)
+                .then((res) => res.json())
+                .then((data) => {
+                    const post = data.result;
+                    if (!post) {
+                        statusEl.textContent = "Post not found.";
+                        return;
+                    }
+
+                    document.title = `${post.title || "Dispatch Post"} - The Immortal Vault`;
+                    postDateEl.textContent = new Date(post.publishedAt).toLocaleDateString(undefined, {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric"
+                    });
+                    postTitleEl.textContent = post.title || "Untitled post";
+                    postExcerptEl.textContent = post.excerpt || "";
+                    postBodyEl.innerHTML = plainPortableText(post.body);
+                    statusEl.hidden = true;
+                    postEl.hidden = false;
+                })
+                .catch(() => {
+                    statusEl.textContent = "Unable to load post. Check your Sanity project settings.";
+                });
+        }
+    </script>
+</body>
+</html>

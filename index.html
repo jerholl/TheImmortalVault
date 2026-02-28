@@ -254,7 +254,7 @@
         /* ── Four Panel Gateway ── */
         .vault-panels {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             height: 100vh;
             min-height: 560px;
             border-bottom: 1px solid var(--border);
@@ -279,7 +279,6 @@
         .vault-panel:nth-child(1) { background: #090608; }
         .vault-panel:nth-child(2) { background: #060609; }
         .vault-panel:nth-child(3) { background: #090908; }
-        .vault-panel:nth-child(4) { background: #080609; }
 
         /* Red wash on hover */
         .vault-panel::before {
@@ -738,19 +737,17 @@
             .hero { padding: 0 24px 50px; min-height: 70vh; }
             .hero-scroll { display: none; }
 
-            /* 2×2 panel grid */
+            /* single column grid for reliable stacking */
             .vault-panels {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
                 height: auto;
             }
             .vault-panel {
                 min-height: 320px;
                 border-bottom: 1px solid var(--border);
+                border-right: none;
             }
-            .vault-panel:nth-child(2),
-            .vault-panel:nth-child(4) { border-right: none; }
-            .vault-panel:nth-child(3),
-            .vault-panel:nth-child(4) { border-bottom: none; }
+            .vault-panel:last-child { border-bottom: none; }
             .panel-ghost { font-size: 3.5rem; bottom: 10px; }
 
             .creator-section { grid-template-columns: 1fr; padding: 60px 24px; gap: 36px; }
@@ -800,15 +797,14 @@
 
     <!-- Nav -->
     <nav>
-        <a href="/" class="nav-logo">THE IMMORTAL VAULT</a>
+        <a href="index.html" class="nav-logo">THE IMMORTAL VAULT</a>
         <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-         <li><a href="films">Films</a></li>
-         <li><a href="audio-dramas">Audio Dramas</a></li>
-         <li><a href="narrative-fiction">Narrative Fiction</a></li>
-          <li><a href="games">Games</a></li>
-         <li><a href="about">About</a></li>
-         <li><a href="contact">Contact</a></li>
+         <li><a href="films.html">Films</a></li>
+         <li><a href="audio-dramas.html">Audio Dramas</a></li>
+         <li><a href="narrative-fiction.html">Narrative Fiction</a></li>
+         <li><a href="about.html">About</a></li>
+         <li><a href="contact.html">Contact</a></li>
          </ul>
         <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span><span></span><span></span>
@@ -817,12 +813,11 @@
 
     <div class="mobile-menu" id="mobile-menu">
          <a href="index.html">Home</a>
-         <a href="films">Films</a>
-         <a href="audio-dramas">Audio Dramas</a>
-         <a href="narrative-fiction">Narrative Fiction</a>
-         <a href="games">Games</a>
-         <a href="about">About</a>
-         <a href="contact">Contact</a>
+         <a href="films.html">Films</a>
+         <a href="audio-dramas.html">Audio Dramas</a>
+         <a href="narrative-fiction.html">Narrative Fiction</a>
+         <a href="about.html">About</a>
+         <a href="contact.html">Contact</a>
      </div>
 
     <!-- Hero -->
@@ -834,7 +829,7 @@
 </div>
         <div class="hero-vignette"></div>
         <div class="hero-content">
-            <p class="hero-tag">Horror &nbsp;/&nbsp; Film &nbsp;/&nbsp; Audio &nbsp;/&nbsp; Fiction &nbsp;/&nbsp; Games</p>
+            <p class="hero-tag">Horror &nbsp;/&nbsp; Film &nbsp;/&nbsp; Audio &nbsp;/&nbsp; Fiction</p>
             <h1 class="hero-title">The<br><em>Immortal</em><br>Vault</h1>
             <p class="hero-sub">Stories that endure. &nbsp;Darkness that lingers.</p>
         </div>
@@ -845,7 +840,7 @@
     <div class="vault-panels">
 
         <!-- Panel 1: Films -->
-        <a href="/films" class="vault-panel">
+        <a href="films.html" class="vault-panel">
             <div class="panel-image">
                 <img src="Lauren.png" alt="Films">
             </div>
@@ -859,7 +854,7 @@
         </a>
 
         <!-- Panel 2: Audio Dramas -->
-        <a href="/audio-dramas" class="vault-panel">
+        <a href="audio-dramas.html" class="vault-panel">
             <div class="panel-image">
                 <img src="Mic.jpg" alt="Audio Dramas">
             </div>
@@ -873,7 +868,7 @@
         </a>
 
         <!-- Panel 3: Narrative Fiction (Screenplays + Stories combined) -->
-        <a href="/narrative-fiction" class="vault-panel">
+        <a href="narrative-fiction.html" class="vault-panel">
             <div class="panel-image">
                 <img src="sedonaspage.png" alt="Narrative Fiction">
             </div>
@@ -883,20 +878,6 @@
                 <div class="panel-title">Narrative<br>Fiction</div>
                 <div class="panel-desc">Screenplays, short<br>fiction &amp; novellas</div>
                 <div class="panel-cta"><span class="panel-cta-line"></span> Read</div>
-            </div>
-        </a>
-
-        <!-- Panel 4: Games -->
-        <a href="/games" class="vault-panel">
-            <div class="panel-image">
-                <img src="game.png" alt="Narrative Fiction">
-            </div>
-            <div class="panel-ghost">IV</div>
-            <div class="panel-content">
-                <div class="panel-num">04</div>
-                <div class="panel-title">Games</div>
-                <div class="panel-desc">Horror video<br>game projects</div>
-                <div class="panel-cta"><span class="panel-cta-line"></span> Play</div>
             </div>
         </a>
 
@@ -912,8 +893,8 @@
             <p class="creator-label">// The Creator</p>
             <h2 class="creator-headline">Writer. Director.<br><em>Jeremy Hollenbeck</em></h2>
             <p class="creator-body">Jeremy has spent 20+ years making horror films.</p>
-            <p class="creator-body">The Immortal Vault is a personal archive — every film, script, story, audio drama, and game produced under one roof. Welcome.</p>
-            <a href="/about" class="creator-cta">
+            <p class="creator-body">The Immortal Vault is a personal archive — every film, script, story, and audio drama produced under one roof. Welcome.</p>
+            <a href="about.html" class="creator-cta">
                 <span class="creator-cta-line"></span>
                 Full Bio
             </a>
@@ -929,22 +910,22 @@
                 <span class="dispatch-num">05</span>
                 <h2 class="dispatch-title">The <em>Dispatch</em></h2>
             </div>
-            <a href="/dispatch" class="dispatch-all">View All →</a>
+            <a href="dispatch.html" class="dispatch-all">View All →</a>
         </div>
         <div class="dispatch-grid">
-            <a href="#" class="dispatch-card">
+            <a href="dispatch.html" class="dispatch-card">
                 <div class="dispatch-card-date">Feb 2026</div>
                 <div class="dispatch-card-title">Post Title Here</div>
                 <div class="dispatch-card-excerpt">A short excerpt from the post goes here — enough to draw them in.</div>
                 <div class="dispatch-card-read">Read →</div>
             </a>
-            <a href="#" class="dispatch-card">
+            <a href="dispatch.html" class="dispatch-card">
                 <div class="dispatch-card-date">Jan 2026</div>
                 <div class="dispatch-card-title">Post Title Here</div>
                 <div class="dispatch-card-excerpt">A short excerpt from the post goes here — enough to draw them in.</div>
                 <div class="dispatch-card-read">Read →</div>
             </a>
-            <a href="#" class="dispatch-card">
+            <a href="dispatch.html" class="dispatch-card">
                 <div class="dispatch-card-date">Dec 2025</div>
                 <div class="dispatch-card-title">Post Title Here</div>
                 <div class="dispatch-card-excerpt">A short excerpt from the post goes here — enough to draw them in.</div>
@@ -961,7 +942,7 @@
         <br><br>
         <a href="mailto:hello@beckllen.com" class="contact-email">hello@beckllen.com</a>
         <br><br>
-        <a href="/contact" class="contact-btn">Get In Touch</a>
+        <a href="contact.html" class="contact-btn">Get In Touch</a>
     </section>
 
     <!-- Footer -->

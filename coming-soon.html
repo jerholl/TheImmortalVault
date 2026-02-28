@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - The Immortal Vault</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black:#060606; --dark:#0c0c0c; --border:#1c1c1c;
+            --red:#8b0000; --red2:#a31515; --text:#d8d4ce; --muted:#4a4a4a;
+            --mono:"Share Tech Mono", monospace; --serif:"DM Serif Display", serif; --sans:"Inter", sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            min-height: 100vh;
+            background: var(--black);
+            color: var(--text);
+            font-family: var(--sans);
+            display: grid;
+            place-items: center;
+            padding: 24px;
+        }
+        .card {
+            width: min(760px, 100%);
+            border: 1px solid var(--border);
+            background: var(--dark);
+            padding: 40px;
+        }
+        .label {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red2);
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        h1 em { color: var(--red2); font-style: italic; }
+        p {
+            color: var(--muted);
+            line-height: 1.9;
+            margin-bottom: 22px;
+        }
+        .item {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            color: var(--text);
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        .back {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 0.58rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: 1px solid var(--border);
+            padding: 12px 18px;
+        }
+        .back:hover { color: var(--red2); border-color: var(--red); }
+    </style>
+</head>
+<body>
+    <section class="card">
+        <p class="label">// Archive In Progress</p>
+        <h1>This entry is <em>coming soon</em>.</h1>
+        <p>The destination page exists and is wired, but the final content has not been published yet.</p>
+        <p class="item" id="item">Item: unpublished</p>
+        <a class="back" href="index.html">Back to Home</a>
+    </section>
+
+    <script>
+        const item = new URLSearchParams(window.location.search).get("item");
+        if (item) {
+            document.getElementById("item").textContent = `Item: ${item.replace(/[-_]/g, " ")}`;
+        }
+    </script>
+</body>
+</html>

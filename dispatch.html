@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dispatch - The Immortal Vault</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #060606;
+            --dark: #0c0c0c;
+            --surface: #111;
+            --border: #1c1c1c;
+            --red: #8b0000;
+            --red2: #a31515;
+            --text: #d8d4ce;
+            --muted: #4a4a4a;
+            --mono: "Share Tech Mono", monospace;
+            --serif: "DM Serif Display", serif;
+            --sans: "Inter", sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--black);
+            color: var(--text);
+            font-family: var(--sans);
+            line-height: 1.6;
+        }
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.025) 2px, rgba(0, 0, 0, 0.025) 4px);
+            pointer-events: none;
+            z-index: 9000;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 64px;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: var(--black);
+        }
+        .nav-logo {
+            color: var(--text);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: var(--mono);
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+        }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: var(--mono);
+            font-size: 0.58rem;
+            letter-spacing: 2px;
+        }
+        .nav-links a:hover,
+        .nav-links a.active { color: var(--text); }
+
+        .page-header {
+            padding: 70px 40px 30px;
+            border-bottom: 1px solid var(--border);
+        }
+        .eyebrow {
+            font-family: var(--mono);
+            color: var(--red2);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 0.58rem;
+            margin-bottom: 14px;
+        }
+        h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.3rem, 6vw, 4rem);
+            line-height: 1.1;
+        }
+        h1 em { color: var(--red2); font-style: italic; }
+
+        .status {
+            margin: 24px 40px 0;
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 0.58rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .posts-grid {
+            margin: 24px 40px 70px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1px;
+            background: var(--border);
+        }
+        .post-card {
+            background: var(--dark);
+            color: var(--text);
+            text-decoration: none;
+            padding: 26px;
+            min-height: 230px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: background 0.2s;
+        }
+        .post-card:hover { background: var(--surface); }
+        .post-date {
+            color: var(--red2);
+            font-family: var(--mono);
+            font-size: 0.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .post-title {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            line-height: 1.2;
+        }
+        .post-excerpt {
+            color: var(--muted);
+            font-size: 0.86rem;
+            line-height: 1.8;
+            flex: 1;
+        }
+        .post-read {
+            font-family: var(--mono);
+            font-size: 0.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 24px 40px;
+            display: flex;
+            justify-content: space-between;
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 0.52rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 900px) {
+            nav, .page-header, footer { padding-left: 22px; padding-right: 22px; }
+            .posts-grid, .status { margin-left: 22px; margin-right: 22px; }
+            .posts-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">The Immortal Vault</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="films.html">Films</a></li>
+            <li><a href="audio-dramas.html">Audio Dramas</a></li>
+            <li><a href="narrative-fiction.html">Narrative Fiction</a></li>
+            <li><a href="dispatch.html" class="active">Dispatch</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <p class="eyebrow">// The Journal</p>
+        <h1>The <em>Dispatch</em></h1>
+    </header>
+
+    <p class="status" id="status">Loading posts...</p>
+    <section class="posts-grid" id="posts"></section>
+
+    <footer>
+        <span>The Immortal Vault</span>
+        <span>&copy; 2026 - All Works Reserved</span>
+    </footer>
+
+    <script type="module">
+        const SANITY_PROJECT_ID = "yourProjectId";
+        const SANITY_DATASET = "production";
+        const SANITY_API_VERSION = "2023-10-01";
+        const statusEl = document.getElementById("status");
+        const postsEl = document.getElementById("posts");
+
+        if (SANITY_PROJECT_ID === "yourProjectId") {
+            statusEl.textContent = "Set SANITY_PROJECT_ID in dispatch pages to load posts.";
+        } else {
+            const query = '*[_type == "post"] | order(publishedAt desc) {title, "slug": slug.current, publishedAt, excerpt}';
+            const url = `https://${SANITY_PROJECT_ID}.api.sanity.io/v${SANITY_API_VERSION}/data/query/${SANITY_DATASET}?query=${encodeURIComponent(query)}`;
+
+            fetch(url)
+                .then((res) => res.json())
+                .then((data) => {
+                    const posts = data.result || [];
+                    if (!posts.length) {
+                        statusEl.textContent = "No posts published yet.";
+                        return;
+                    }
+
+                    statusEl.textContent = `${posts.length} post${posts.length === 1 ? "" : "s"} published`;
+                    postsEl.innerHTML = posts.map((post) => {
+                        const dateLabel = new Date(post.publishedAt).toLocaleDateString(undefined, {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric"
+                        });
+                        return `
+                            <a class="post-card" href="dispatch-post.html?slug=${encodeURIComponent(post.slug)}">
+                                <div class="post-date">${dateLabel}</div>
+                                <h2 class="post-title">${post.title || "Untitled post"}</h2>
+                                <p class="post-excerpt">${post.excerpt || ""}</p>
+                                <div class="post-read">Read -></div>
+                            </a>
+                        `;
+                    }).join("");
+                })
+                .catch(() => {
+                    statusEl.textContent = "Unable to load posts. Check your Sanity project settings.";
+                });
+        }
+    </script>
+</body>
+</html>
