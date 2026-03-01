@@ -867,55 +867,68 @@
         const PROJECT_ID = 'xeqvf5vl';
         const DATASET    = 'production';
         const API_VER    = '2023-10-01';
+        const grid       = document.getElementById('dispatch-grid');
 
-        const grid = document.getElementById('dispatch-grid');
-
-        // Use Sanity's HTTP API directly — no SDK needed, no CORS issues
+        // Simple query — no pt::text(), no complex functions, maximum compatibility
         const query = encodeURIComponent(
-            `*[_type == "post"] | order(publishedAt desc) [0..2] {
+            `*[_type == "post"] | order(publishedAt desc) [0...3] {
                 title,
                 "slug": slug.current,
                 publishedAt,
-                "excerpt": coalesce(
-                    excerpt,
-                    pt::text(body)[0..160]
-                )
+                excerpt
             }`
         );
 
         const url = `https://${PROJECT_ID}.api.sanity.io/v${API_VER}/data/query/${DATASET}?query=${query}`;
 
         try {
-            const res   = await fetch(url);
-            const data  = await res.json();
+            const res  = await fetch(url);
+            const data = await res.json();
             const posts = data.result || [];
 
             if (!posts.length) {
-                grid.innerHTML = `<div class="dispatch-card"><div class="dispatch-card-title">No posts yet</div><div class="dispatch-card-excerpt">Check back soon.</div></div>`;
-            } else {
-                const fmt = d => d ? new Date(d).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : '';
-                grid.innerHTML = posts.map(p => `
-                    <a href="/dispatch-post?slug=${encodeURIComponent(p.slug)}" class="dispatch-card">
-                        <div class="dispatch-card-date">${fmt(p.publishedAt)}</div>
-                        <div class="dispatch-card-title">${p.title || 'Untitled'}</div>
-                        <div class="dispatch-card-excerpt">${(p.excerpt || '').substring(0, 140)}…</div>
-                        <div class="dispatch-card-read">Read →</div>
-                    </a>`).join('');
-
-                // Animate cards in
-                grid.querySelectorAll('.dispatch-card').forEach(c => {
-                    c.style.opacity = '0';
-                    c.style.transform = 'translateY(14px)';
-                    c.style.transition = 'opacity 0.6s ease, transform 0.6s ease, background 0.3s';
-                    const obs = new IntersectionObserver(entries => {
-                        if (entries[0].isIntersecting) { c.style.opacity='1'; c.style.transform='translateY(0)'; obs.disconnect(); }
-                    }, { threshold: 0.08 });
-                    obs.observe(c);
-                });
+                grid.innerHTML = `
+                    <div class="dispatch-card">
+                        <div class="dispatch-card-title">No posts yet</div>
+                        <div class="dispatch-card-excerpt">Check back soon.</div>
+                    </div>`;
+                return;
             }
-        } catch(e) {
-            console.error('Sanity fetch error:', e);
-            grid.innerHTML = `<div class="dispatch-card"><div class="dispatch-card-title">Could not load posts</div><div class="dispatch-card-excerpt">Check browser console for details.</div></div>`;
+
+            const fmt = d => d
+                ? new Date(d).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+                : '';
+
+            grid.innerHTML = posts.map(p => `
+                <a href="/dispatch-post?slug=${encodeURIComponent(p.slug)}" class="dispatch-card">
+                    <div class="dispatch-card-date">${fmt(p.publishedAt)}</div>
+                    <div class="dispatch-card-title">${p.title || 'Untitled'}</div>
+                    <div class="dispatch-card-excerpt">${(p.excerpt || '').substring(0, 140)}${p.excerpt && p.excerpt.length > 140 ? '…' : ''}</div>
+                    <div class="dispatch-card-read">Read →</div>
+                </a>`).join('');
+
+            // Animate cards
+            grid.querySelectorAll('.dispatch-card').forEach((c, i) => {
+                c.style.opacity = '0';
+                c.style.transform = 'translateY(14px)';
+                c.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s, background 0.3s`;
+                const obs = new IntersectionObserver(entries => {
+                    if (entries[0].isIntersecting) {
+                        c.style.opacity = '1';
+                        c.style.transform = 'translateY(0)';
+                        obs.disconnect();
+                    }
+                }, { threshold: 0.08 });
+                obs.observe(c);
+            });
+
+        } catch(err) {
+            console.error('Sanity fetch failed:', err);
+            grid.innerHTML = `
+                <div class="dispatch-card">
+                    <div class="dispatch-card-title">Could not load posts</div>
+                    <div class="dispatch-card-excerpt">CORS may not be configured for this domain. Check manage.sanity.io → API → CORS Origins.</div>
+                </div>`;
         }
     </script>
 
