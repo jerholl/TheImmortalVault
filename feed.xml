@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Creature Feature Lab — The Immortal Vault</title>
+    <link>https://theimmortalvault.com/dispatch</link>
+    <description>Horror production notes, filmmaking insights, and new story dispatches from The Immortal Vault.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Mar 2026 16:06:28 GMT</lastBuildDate>
+    <atom:link href="https://theimmortalvault.com/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Shooting Short Films</title>
+      <link>https://theimmortalvault.com/dispatch-post?slug=shooting-short-films</link>
+      <guid isPermaLink="true">https://theimmortalvault.com/dispatch-post?slug=shooting-short-films</guid>
+      <pubDate>Sun, 01 Mar 2026 00:44:00 GMT</pubDate>
+      <description>Short films are fun but..</description>
+      <enclosure url="https://cdn.sanity.io/images/xeqvf5vl/production/64b6a9181cf077a6579fdfbbd043729b3458caf3-1758x928.png" type="image/jpeg" />
+    </item>
+    <item>
+      <title>The Master of Horror has Arrived!</title>
+      <link>https://theimmortalvault.com/dispatch-post?slug=the-master-of-horror-has-arrived</link>
+      <guid isPermaLink="true">https://theimmortalvault.com/dispatch-post?slug=the-master-of-horror-has-arrived</guid>
+      <pubDate>Sun, 01 Mar 2026 00:27:00 GMT</pubDate>
+      <description>Hello friends and foes!</description>
+      <enclosure url="https://cdn.sanity.io/images/xeqvf5vl/production/4a5404419daffd03c517ac3b71d1ffead82014de-1534x1119.png" type="image/jpeg" />
+    </item>
+  </channel>
+</rss>
