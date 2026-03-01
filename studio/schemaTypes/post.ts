@@ -38,6 +38,20 @@ export const postType = defineType({
       options: {hotspot: true}
     }),
     defineField({
+      name: "category",
+      title: "Category",
+      type: "string",
+      options: {
+        list: [
+          { title: "Films", value: "films" },
+          { title: "Books", value: "books" },
+          { title: "Games", value: "games" },
+          { title: "Audio Dramas", value: "audio-dramas" }
+        ],
+        layout: "dropdown"
+      }
+    }),
+    defineField({
       name: "body",
       title: "Body",
       type: "array",

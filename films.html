@@ -162,13 +162,16 @@
         }
         .film-card:hover::before { transform: scaleY(1); }
 
+        .film-card.hidden { display: none !important; }
+
         /* ── Footer ── */
         footer { padding: 28px 60px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); }
         .footer-logo { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 4px; color: var(--muted); text-transform: uppercase; }
         .footer-logo span { color: var(--red); }
         .footer-copy { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 2px; color: var(--muted); }
         .footer-social { display: flex; align-items: center; gap: 8px; }
-        .social-icon { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--red2); background: rgba(163,21,21,0.2); color: #f3eee8; text-decoration: none; font-family: var(--mono); font-size: 1rem; font-weight: 600; letter-spacing: 1px; transition: all 0.2s; }
+        .social-icon { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--red2); background: rgba(163,21,21,0.2); color: #f3eee8; text-decoration: none; transition: all 0.2s; }
+        .social-icon svg { width: 18px; height: 18px; fill: currentColor; }
         .social-icon:hover { color: #fff; border-color: #d32626; background: rgba(163,21,21,0.45); transform: translateY(-1px); }
         .footer-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
         .footer-email { font-family: var(--mono); font-size: 0.52rem; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
@@ -197,7 +200,7 @@
   <li><a href="/">Home</a></li>
   <li><a href="/films">Films</a></li>
   <li><a href="/audio-dramas">Audio Dramas</a></li>
-  <li><a href="/narrative-fiction">Narrative Fiction</a></li>
+  <li><a href="/narrative-fiction">Written Works</a></li>
   <li><a href="/about">About</a></li>
   <li><a href="/contact">Contact</a></li>
  </ul>
@@ -207,7 +210,7 @@
   <a href="/">Home</a>
   <a href="/films">Films</a>
   <a href="/audio-dramas">Audio Dramas</a>
-  <a href="/narrative-fiction">Narrative Fiction</a>
+  <a href="/narrative-fiction">Written Works</a>
   <a href="/about">About</a>
   <a href="/contact">Contact</a>
  </div>
@@ -218,7 +221,7 @@
             <p class="page-eyebrow">// 01 — The Vault</p>
             <h1 class="page-title"><em>Films</em></h1>
         </div>
-        <div class="page-count">— 00 Projects</div>
+        <div class="page-count">— 06 Projects</div>
     </div>
 
     <!-- Filter Bar -->
@@ -232,61 +235,69 @@
     <!-- Film Grid -->
     <div class="films-grid">
 
-        <!-- Example card — duplicate and fill in for each film -->
         <a href="/coming-soon?item=film-project-01" class="film-card" data-type="short">
             <div class="film-card-img">
-                <!-- <img src="film-poster.jpg" alt="Film Title"> -->
-                <span>Poster</span>
+                <img src="Nightmare.png" alt="Nightmare on Lane St.">
             </div>
             <div class="film-card-overlay"></div>
             <div class="film-card-body">
                 <div class="film-card-tag">Short Film</div>
-                <div class="film-card-title">Film Title Here</div>
+                <div class="film-card-title">Nightmare on Lane St.</div>
                 <div class="film-card-meta">2026 &nbsp;·&nbsp; 18 min</div>
             </div>
         </a>
 
-        <a href="/coming-soon!?item=film-project-02" class="film-card" data-type="feature">
-            <div class="film-card-img"><span>Poster</span></div>
+        <a href="/coming-soon?item=film-project-02" class="film-card" data-type="feature">
+            <div class="film-card-img"><img src="BRIGHT LIGHTSPOSTER.png" alt="Bright Lights"></div>
             <div class="film-card-overlay"></div>
             <div class="film-card-body">
                 <div class="film-card-tag">Feature Film</div>
-                <div class="film-card-title">Film Title Here</div>
+                <div class="film-card-title">Bright Lights</div>
                 <div class="film-card-meta">2025 &nbsp;·&nbsp; 94 min</div>
             </div>
         </a>
 
         <a href="/coming-soon?item=film-project-03" class="film-card" data-type="short">
-            <div class="film-card-img"><span>Poster</span></div>
+            <div class="film-card-img"><img src="FATHERPOSTER.png" alt="Father"></div>
             <div class="film-card-overlay"></div>
             <div class="film-card-body">
                 <div class="film-card-tag">Short Film</div>
-                <div class="film-card-title">Film Title Here</div>
+                <div class="film-card-title">Father</div>
                 <div class="film-card-meta">2025 &nbsp;·&nbsp; 22 min</div>
             </div>
         </a>
 
         <a href="/coming-soon?item=film-project-04" class="film-card" data-type="documentary">
-            <div class="film-card-img"><span>Poster</span></div>
+            <div class="film-card-img"><img src="HikerPoster.png" alt="Hiker"></div>
             <div class="film-card-overlay"></div>
             <div class="film-card-body">
                 <div class="film-card-tag">Documentary</div>
-                <div class="film-card-title">Film Title Here</div>
+                <div class="film-card-title">Hiker</div>
                 <div class="film-card-meta">2024 &nbsp;·&nbsp; 61 min</div>
             </div>
         </a>
 
         <a href="/coming-soon?item=film-project-05" class="film-card" data-type="short">
-            <div class="film-card-img"><span>Poster</span></div>
+            <div class="film-card-img"><img src="PARK BENCH.png" alt="Park Bench"></div>
             <div class="film-card-overlay"></div>
             <div class="film-card-body">
                 <div class="film-card-tag">Short Film</div>
-                <div class="film-card-title">Film Title Here</div>
+                <div class="film-card-title">Park Bench</div>
                 <div class="film-card-meta">2024 &nbsp;·&nbsp; 14 min</div>
             </div>
         </a>
 
-        <a href="/coming-soon?item=film-project-06" class="film-card" data-type="feature">
+        <a href="/coming-soon?item=film-project-06" class="film-card" data-type="short">
+            <div class="film-card-img"><img src="H i k e r 2.png" alt="Hiker 2"></div>
+            <div class="film-card-overlay"></div>
+            <div class="film-card-body">
+                <div class="film-card-tag">Short Film</div>
+                <div class="film-card-title">Hiker 2</div>
+                <div class="film-card-meta">2024 &nbsp;·&nbsp; TBD</div>
+            </div>
+        </a>
+
+        <a href="/coming-soon?item=film-project-07" class="film-card hidden" data-type="feature">
             <div class="film-card-img"><span>Poster</span></div>
             <div class="film-card-overlay"></div>
             <div class="film-card-body">
@@ -301,9 +312,10 @@
     <footer>
         <div class="footer-logo">THE <span>IMMORTAL</span> VAULT</div>
         <div class="footer-social" aria-label="Social media">
-            <a class="social-icon" href="https://www.facebook.com/theimmortalvault/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
-            <a class="social-icon" href="https://www.instagram.com/theimmortalvault/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸</a>
-            <a class="social-icon" href="https://bsky.app/profile/theimmortalvault.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">🦋</a>
+            <a class="social-icon" href="https://www.facebook.com/theimmortalvault/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a class="social-icon" href="https://www.instagram.com/theimmortalvault/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a class="social-icon" href="https://bsky.app/profile/theimmortalvault.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65 6.722 9.035 3.607 1.938 6.055 3.274 4.786 6.076.703.482 4.907 1.134 6.927-4.458 1.722-4.77 1.063-6.45.063-7.23-.765-.59-3.783-1.428-5.488-.003zm-.005 2.205c-.483.123-.996.077-1.287-.155-.29-.231-.384-.675-.217-1.02.167-.345.545-.544 1.028-.667.484-.123.997-.078 1.287.154.29.231.384.676.217 1.021-.167.344-.545.543-1.027.667zm.179 2.34c-.559.14-1.153.086-1.492-.155-.34-.241-.451-.693-.248-1.084.203-.39.661-.614 1.22-.754.559-.14 1.153-.085 1.493.155.339.241.45.694.247 1.084-.203.39-.662.614-1.22.754z"/></svg></a>
+            <a class="social-icon" href="https://www.youtube.com/@TheImmortalVault" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
         </div>
         <div class="footer-right">
             <div class="footer-email">inquiries@theimmortalvault.com</div>
@@ -328,6 +340,7 @@
                 f.classList.add('active');
                 const val = f.dataset.filter;
                 cards.forEach(c => {
+                    if (c.classList.contains('hidden')) return;
                     if (val === 'all' || c.dataset.type === val) {
                         c.style.display = 'block';
                     } else {
