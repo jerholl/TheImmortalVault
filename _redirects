@@ -1,0 +1,19 @@
+/index.html /
+/films.html /films
+/audio-dramas.html /audio-dramas
+/narrative-fiction.html /narrative-fiction
+/about.html /about
+/contact.html /contact
+/dispatch.html /dispatch
+/dispatch-post.html /dispatch-post
+/coming-soon.html /coming-soon
+
+/ /index.html 200
+/films /films.html 200
+/audio-dramas /audio-dramas.html 200
+/narrative-fiction /narrative-fiction.html 200
+/about /about.html 200
+/contact /contact.html 200
+/dispatch /dispatch.html 200
+/dispatch-post /dispatch-post.html 200
+/coming-soon /coming-soon.html 200

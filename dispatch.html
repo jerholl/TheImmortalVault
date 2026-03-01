@@ -163,15 +163,15 @@
 </head>
 <body>
     <nav>
-        <a href="index.html" class="nav-logo">The Immortal Vault</a>
+        <a href="/" class="nav-logo">The Immortal Vault</a>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="films.html">Films</a></li>
-            <li><a href="audio-dramas.html">Audio Dramas</a></li>
-            <li><a href="narrative-fiction.html">Narrative Fiction</a></li>
-            <li><a href="dispatch.html" class="active">Dispatch</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/films">Films</a></li>
+            <li><a href="/audio-dramas">Audio Dramas</a></li>
+            <li><a href="/narrative-fiction">Narrative Fiction</a></li>
+            <li><a href="/dispatch" class="active">Dispatch</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>
 
@@ -218,7 +218,7 @@
                             day: "numeric"
                         });
                         return `
-                            <a class="post-card" href="dispatch-post.html?slug=${encodeURIComponent(post.slug)}">
+                            <a class="post-card" href="/dispatch-post?slug=${encodeURIComponent(post.slug)}">
                                 <div class="post-date">${dateLabel}</div>
                                 <h2 class="post-title">${post.title || "Untitled post"}</h2>
                                 <p class="post-excerpt">${post.excerpt || ""}</p>
