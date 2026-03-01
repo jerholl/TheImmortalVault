@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dispatch Post - The Immortal Vault</title>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Creature Feature Lab Post - The Immortal Vault</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --black: #060606;
@@ -50,10 +50,11 @@
         .back-link {
             color: var(--muted);
             text-decoration: none;
-            font-family: var(--mono);
+            font-family: "Montserrat", var(--sans);
             font-size: 0.58rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
         }
         .back-link:hover { color: var(--text); }
 
@@ -97,7 +98,7 @@
 <body>
     <nav>
         <a href="/" class="nav-logo">The Immortal Vault</a>
-        <a href="/dispatch" class="back-link">Back to Dispatch</a>
+        <a href="/dispatch" class="back-link">Back to Creature Feature Lab</a>
     </nav>
     <main>
         <p class="status" id="status">Loading post...</p>
@@ -149,7 +150,7 @@
                         return;
                     }
 
-                    document.title = `${post.title || "Dispatch Post"} - The Immortal Vault`;
+                    document.title = `${post.title || "Creature Feature Lab Post"} - The Immortal Vault`;
                     postDateEl.textContent = new Date(post.publishedAt).toLocaleDateString(undefined, {
                         year: "numeric",
                         month: "short",

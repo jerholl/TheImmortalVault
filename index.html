@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Immortal Vault</title>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --black:   #060606;
@@ -539,11 +539,14 @@
         }
 
         .dispatch-title {
-            font-family: var(--serif);
+            font-family: "Montserrat", var(--sans);
             font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             color: var(--text);
         }
-        .dispatch-title em { font-style: italic; color: var(--red2); }
+        .dispatch-title em { font-style: normal; color: var(--red2); }
 
         .dispatch-all {
             font-family: var(--mono);
@@ -907,7 +910,7 @@
         <div class="dispatch-header">
             <div class="dispatch-heading">
                 <span class="dispatch-num">05</span>
-                <h2 class="dispatch-title">The <em>Dispatch</em></h2>
+                <h2 class="dispatch-title">Creature <em>Feature Lab</em></h2>
             </div>
             <a href="/dispatch" class="dispatch-all">View All →</a>
         </div>
