@@ -33,7 +33,6 @@
             overflow-x: hidden;
         }
 
-        /* Scanline overlay */
         body::after {
             content: "";
             position: fixed;
@@ -105,7 +104,6 @@
         .nav-links a:hover { color: var(--text); }
         .nav-links a:hover::before { opacity: 1; }
 
-        /* ── Hamburger ── */
         .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; flex-shrink: 0; }
         .hamburger span { display: block; width: 20px; height: 1px; background: var(--text); transition: all 0.3s; }
         .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); background: var(--red2); }
@@ -147,26 +145,18 @@
             border-bottom: 1px solid var(--border);
         }
 
+        /* ── FIX: Single hero-bg, correctly structured ── */
         .hero-bg {
             position: absolute;
             inset: 0;
             background: var(--dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .hero-bg img {
-            width: 100%; height: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-        }
-
-        .hero-bg-placeholder {
-            font-family: var(--mono);
-            font-size: 0.55rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--border);
+            display: block;
         }
 
         .hero-vignette {
@@ -251,7 +241,7 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── Four Panel Gateway ── */
+        /* ── Vault Panels ── */
         .vault-panels {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -275,12 +265,10 @@
         }
 
         .vault-panel:last-child { border-right: none; }
-
         .vault-panel:nth-child(1) { background: #090608; }
         .vault-panel:nth-child(2) { background: #060609; }
         .vault-panel:nth-child(3) { background: #090908; }
 
-        /* Red wash on hover */
         .vault-panel::before {
             content: "";
             position: absolute;
@@ -292,7 +280,6 @@
         }
         .vault-panel:hover::before { opacity: 1; }
 
-        /* Red left border */
         .vault-panel::after {
             content: "";
             position: absolute;
@@ -306,15 +293,11 @@
         }
         .vault-panel:hover::after { transform: scaleY(1); }
 
-        /* Panel background image */
         .panel-image {
             position: absolute;
             inset: 0;
             opacity: 0.18;
             transition: opacity 0.4s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         .vault-panel:hover .panel-image { opacity: 0.3; }
 
@@ -330,19 +313,7 @@
             transform: scale(1.04);
         }
 
-        .panel-image span {
-            font-family: var(--mono);
-            font-size: 0.5rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--muted);
-        }
-
-        /* Panel text */
-        .panel-content {
-            position: relative;
-            z-index: 3;
-        }
+        .panel-content { position: relative; z-index: 3; }
 
         .panel-num {
             font-family: var(--mono);
@@ -395,7 +366,6 @@
         }
         .vault-panel:hover .panel-cta-line { width: 32px; }
 
-        /* Ghost numeral */
         .panel-ghost {
             position: absolute;
             bottom: 20px;
@@ -429,10 +399,6 @@
             aspect-ratio: 3/4;
             background: var(--surface);
             border: 1px solid var(--border);
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            padding-bottom: 16px;
             position: relative;
             overflow: hidden;
         }
@@ -442,6 +408,7 @@
             object-fit: cover;
             position: absolute;
             inset: 0;
+            display: block;
         }
 
         .creator-photo::after {
@@ -449,16 +416,6 @@
             position: absolute;
             inset: 0;
             background: rgba(139,0,0,0.03);
-        }
-
-        .creator-photo span {
-            font-family: var(--mono);
-            font-size: 0.5rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--border);
-            position: relative;
-            z-index: 1;
         }
 
         .creator-label {
@@ -525,11 +482,7 @@
             padding-bottom: 20px;
         }
 
-        .dispatch-heading {
-            display: flex;
-            align-items: baseline;
-            gap: 16px;
-        }
+        .dispatch-heading { display: flex; align-items: baseline; gap: 16px; }
 
         .dispatch-num {
             font-family: var(--mono);
@@ -727,109 +680,73 @@
             color: var(--muted);
         }
 
-        /* ══════════════════════════════
-           MOBILE
-        ══════════════════════════════ */
-
-        /* ── Tablet (≤900px) ── */
+        /* ── Mobile ── */
         @media (max-width: 900px) {
             nav { padding: 0 24px; }
             .nav-links { display: none; }
             .hamburger { display: flex; }
-
             .hero { padding: 0 24px 50px; min-height: 70vh; }
             .hero-scroll { display: none; }
-
-            /* single column grid for reliable stacking */
-            .vault-panels {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-            .vault-panel {
-                min-height: 320px;
-                border-bottom: 1px solid var(--border);
-                border-right: none;
-            }
+            .vault-panels { grid-template-columns: 1fr; height: auto; }
+            .vault-panel { min-height: 320px; border-bottom: 1px solid var(--border); border-right: none; }
             .vault-panel:last-child { border-bottom: none; }
             .panel-ghost { font-size: 3.5rem; bottom: 10px; }
-
             .creator-section { grid-template-columns: 1fr; padding: 60px 24px; gap: 36px; }
             .creator-photo { max-width: 260px; }
-
             .dispatch-section { padding: 60px 24px; }
             .dispatch-grid { grid-template-columns: 1fr; }
-
             .divider { margin: 0 24px; }
             .contact-section { padding: 70px 24px; }
             footer { flex-direction: column; gap: 10px; text-align: center; padding: 28px 24px; }
         }
 
-        /* ── Phone (≤600px) ── */
         @media (max-width: 600px) {
-            .nav-logo { font-size: 0.65rem; letter-spacing: 2px; }
-
             .hero { min-height: 60vh; padding: 0 20px 44px; }
-
-            /* Single column panels */
             .vault-panels { grid-template-columns: 1fr; }
-            .vault-panel {
-                min-height: 210px;
-                border-right: none !important;
-                border-bottom: 1px solid var(--border);
-            }
+            .vault-panel { min-height: 210px; border-right: none !important; border-bottom: 1px solid var(--border); }
             .vault-panel:last-child { border-bottom: none; }
             .panel-title { font-size: 1.4rem; }
-            .panel-desc { font-size: 0.48rem; }
             .panel-ghost { display: none; }
-
             .creator-section { padding: 50px 20px; gap: 28px; }
             .creator-photo { max-width: 200px; margin: 0 auto; }
-
             .dispatch-section { padding: 50px 20px; }
             .dispatch-card { padding: 24px; }
-
             .contact-section { padding: 60px 20px; }
-            .contact-section::before { font-size: 3rem; }
-
             footer { padding: 24px 20px; }
-            .footer-logo { font-size: 0.6rem; letter-spacing: 2px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Nav -->
     <nav>
         <a href="/" class="nav-logo">THE IMMORTAL VAULT</a>
         <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-         <li><a href="/films">Films</a></li>
-         <li><a href="/audio-dramas">Audio Dramas</a></li>
-         <li><a href="/narrative-fiction">Narrative Fiction</a></li>
-         <li><a href="/about">About</a></li>
-         <li><a href="/contact">Contact</a></li>
-         </ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/films">Films</a></li>
+            <li><a href="/audio-dramas">Audio Dramas</a></li>
+            <li><a href="/narrative-fiction">Narrative Fiction</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
         <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
     </nav>
 
     <div class="mobile-menu" id="mobile-menu">
-         <a href="/">Home</a>
-         <a href="/films">Films</a>
-         <a href="/audio-dramas">Audio Dramas</a>
-         <a href="/narrative-fiction">Narrative Fiction</a>
-         <a href="/about">About</a>
-         <a href="/contact">Contact</a>
-     </div>
+        <a href="/">Home</a>
+        <a href="/films">Films</a>
+        <a href="/audio-dramas">Audio Dramas</a>
+        <a href="/narrative-fiction">Narrative Fiction</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </div>
 
-    <!-- Hero -->
+    <!-- Hero — FIXED: single hero-bg, no nesting, vignette and content outside it -->
     <section class="hero">
         <div class="hero-bg">
-            <!-- Replace span with: <img src="your-hero.jpg"> -->
-            <div class="hero-bg">
-  <img src="Lauren.png" alt="The Immortal Vault" style="width:100%; height:100%; object-fit:cover;">
-</div>
+            <img src="Lauren.png" alt="The Immortal Vault">
+        </div>
         <div class="hero-vignette"></div>
         <div class="hero-content">
             <p class="hero-tag">Horror &nbsp;/&nbsp; Film &nbsp;/&nbsp; Audio &nbsp;/&nbsp; Fiction</p>
@@ -839,14 +756,10 @@
         <div class="hero-scroll">Scroll</div>
     </section>
 
-    <!-- Four Panel Gateway -->
+    <!-- Three Panel Gateway -->
     <div class="vault-panels">
-
-        <!-- Panel 1: Films -->
         <a href="/films" class="vault-panel">
-            <div class="panel-image">
-                <img src="Lauren.png" alt="Films">
-            </div>
+            <div class="panel-image"><img src="Lauren.png" alt="Films"></div>
             <div class="panel-ghost">I</div>
             <div class="panel-content">
                 <div class="panel-num">01</div>
@@ -855,12 +768,8 @@
                 <div class="panel-cta"><span class="panel-cta-line"></span> Enter</div>
             </div>
         </a>
-
-        <!-- Panel 2: Audio Dramas -->
         <a href="/audio-dramas" class="vault-panel">
-            <div class="panel-image">
-                <img src="Mic.jpg" alt="Audio Dramas">
-            </div>
+            <div class="panel-image"><img src="Mic.jpg" alt="Audio Dramas"></div>
             <div class="panel-ghost">II</div>
             <div class="panel-content">
                 <div class="panel-num">02</div>
@@ -869,12 +778,8 @@
                 <div class="panel-cta"><span class="panel-cta-line"></span> Listen</div>
             </div>
         </a>
-
-        <!-- Panel 3: Narrative Fiction (Screenplays + Stories combined) -->
         <a href="/narrative-fiction" class="vault-panel">
-            <div class="panel-image">
-                <img src="sedonaspage.png" alt="Narrative Fiction">
-            </div>
+            <div class="panel-image"><img src="sedonaspage.png" alt="Narrative Fiction"></div>
             <div class="panel-ghost">III</div>
             <div class="panel-content">
                 <div class="panel-num">03</div>
@@ -883,10 +788,9 @@
                 <div class="panel-cta"><span class="panel-cta-line"></span> Read</div>
             </div>
         </a>
-
     </div>
 
-    <!-- Creator / About -->
+    <!-- Creator -->
     <section class="creator-section">
         <div class="creator-photo">
             <img src="lee.jpg" alt="Lee Beck portrait">
@@ -905,7 +809,7 @@
 
     <div class="divider"></div>
 
-    <!-- The Dispatch / Blog -->
+    <!-- Blog / Dispatch — pulls from Sanity -->
     <section class="dispatch-section">
         <div class="dispatch-header">
             <div class="dispatch-heading">
@@ -914,25 +818,13 @@
             </div>
             <a href="/dispatch" class="dispatch-all">View All →</a>
         </div>
-        <div class="dispatch-grid">
-            <a href="/dispatch" class="dispatch-card">
-                <div class="dispatch-card-date">Feb 2026</div>
-                <div class="dispatch-card-title">Post Title Here</div>
-                <div class="dispatch-card-excerpt">A short excerpt from the post goes here — enough to draw them in.</div>
-                <div class="dispatch-card-read">Read →</div>
-            </a>
-            <a href="/dispatch" class="dispatch-card">
-                <div class="dispatch-card-date">Jan 2026</div>
-                <div class="dispatch-card-title">Post Title Here</div>
-                <div class="dispatch-card-excerpt">A short excerpt from the post goes here — enough to draw them in.</div>
-                <div class="dispatch-card-read">Read →</div>
-            </a>
-            <a href="/dispatch" class="dispatch-card">
-                <div class="dispatch-card-date">Dec 2025</div>
-                <div class="dispatch-card-title">Post Title Here</div>
-                <div class="dispatch-card-excerpt">A short excerpt from the post goes here — enough to draw them in.</div>
-                <div class="dispatch-card-read">Read →</div>
-            </a>
+        <div class="dispatch-grid" id="dispatch-grid">
+            <!-- filled by JS below -->
+            <div class="dispatch-card">
+                <div class="dispatch-card-date">Loading…</div>
+                <div class="dispatch-card-title">Fetching latest posts</div>
+                <div class="dispatch-card-excerpt">Stand by.</div>
+            </div>
         </div>
     </section>
 
@@ -947,18 +839,19 @@
         <a href="/contact" class="contact-btn">Get In Touch</a>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-logo">THE <span>IMMORTAL</span> VAULT</div>
         <div class="footer-copy">&copy; 2026 — All Works Reserved</div>
     </footer>
 
     <script>
+        // Nav hamburger
         const btn = document.getElementById('hamburger');
         const menu = document.getElementById('mobile-menu');
         btn.addEventListener('click', () => { btn.classList.toggle('open'); menu.classList.toggle('open'); });
         menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { btn.classList.remove('open'); menu.classList.remove('open'); }));
 
+        // Dispatch card scroll entrance
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => {
                 if (e.isIntersecting) {
@@ -967,13 +860,63 @@
                 }
             });
         }, { threshold: 0.08 });
+    </script>
 
-        document.querySelectorAll('.dispatch-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(14px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
+    <!-- Sanity blog posts for homepage dispatch section -->
+    <script type="module">
+        const PROJECT_ID = 'xeqvf5vl';
+        const DATASET    = 'production';
+        const API_VER    = '2023-10-01';
+
+        const grid = document.getElementById('dispatch-grid');
+
+        // Use Sanity's HTTP API directly — no SDK needed, no CORS issues
+        const query = encodeURIComponent(
+            `*[_type == "post"] | order(publishedAt desc) [0..2] {
+                title,
+                "slug": slug.current,
+                publishedAt,
+                "excerpt": coalesce(
+                    excerpt,
+                    pt::text(body)[0..160]
+                )
+            }`
+        );
+
+        const url = `https://${PROJECT_ID}.api.sanity.io/v${API_VER}/data/query/${DATASET}?query=${query}`;
+
+        try {
+            const res   = await fetch(url);
+            const data  = await res.json();
+            const posts = data.result || [];
+
+            if (!posts.length) {
+                grid.innerHTML = `<div class="dispatch-card"><div class="dispatch-card-title">No posts yet</div><div class="dispatch-card-excerpt">Check back soon.</div></div>`;
+            } else {
+                const fmt = d => d ? new Date(d).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : '';
+                grid.innerHTML = posts.map(p => `
+                    <a href="/dispatch-post?slug=${encodeURIComponent(p.slug)}" class="dispatch-card">
+                        <div class="dispatch-card-date">${fmt(p.publishedAt)}</div>
+                        <div class="dispatch-card-title">${p.title || 'Untitled'}</div>
+                        <div class="dispatch-card-excerpt">${(p.excerpt || '').substring(0, 140)}…</div>
+                        <div class="dispatch-card-read">Read →</div>
+                    </a>`).join('');
+
+                // Animate cards in
+                grid.querySelectorAll('.dispatch-card').forEach(c => {
+                    c.style.opacity = '0';
+                    c.style.transform = 'translateY(14px)';
+                    c.style.transition = 'opacity 0.6s ease, transform 0.6s ease, background 0.3s';
+                    const obs = new IntersectionObserver(entries => {
+                        if (entries[0].isIntersecting) { c.style.opacity='1'; c.style.transform='translateY(0)'; obs.disconnect(); }
+                    }, { threshold: 0.08 });
+                    obs.observe(c);
+                });
+            }
+        } catch(e) {
+            console.error('Sanity fetch error:', e);
+            grid.innerHTML = `<div class="dispatch-card"><div class="dispatch-card-title">Could not load posts</div><div class="dispatch-card-excerpt">Check browser console for details.</div></div>`;
+        }
     </script>
 
 </body>
