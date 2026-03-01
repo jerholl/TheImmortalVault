@@ -43,7 +43,7 @@
         .nav-logo::after{content:"_";color:var(--red2);animation:blink 1.2s step-end infinite;}
         @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
         .nav-links{display:flex;gap:28px;list-style:none;}
-        .nav-links a{text-decoration:none;color:var(--muted);font-family:var(--mono);font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s;white-space:nowrap;}
+        .nav-links a{text-decoration:none;color:#e0e0e0;font-family:var(--mono);font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s;white-space:nowrap;}
         .nav-links a::before{content:"/ ";color:var(--red);opacity:0;transition:opacity 0.2s;}
         .nav-links a:hover,.nav-links a.active{color:var(--text);}
         .nav-links a:hover::before,.nav-links a.active::before{opacity:1;}
@@ -63,51 +63,63 @@
         .page-title em{font-style:italic;color:var(--red2);}
         .page-count{font-family:var(--mono);font-size:0.6rem;letter-spacing:3px;color:var(--muted);text-transform:uppercase;white-space:nowrap;}
 
-        /* ── Filter Bar ── */
-        .filter-bar{padding:20px 60px;border-bottom:1px solid var(--border);display:flex;gap:4px;background:var(--dark);}
-        .filter-btn{font-family:var(--mono);font-size:0.55rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);background:none;border:1px solid transparent;padding:8px 16px;cursor:pointer;transition:all 0.2s;}
-        .filter-btn:hover{color:var(--text);border-color:var(--border);}
-        .filter-btn.active{color:var(--red2);border-color:var(--red);}
+        /* ── Vault Sections ── */
+        .vault-section { padding: 0 60px; }
 
-        /* ── Writing List ── */
-        .writing-list { padding: 0 60px 80px; }
+        .section-label {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--red2);
+            margin: 48px 0 24px;
+        }
 
-        .writing-item {
+        /* ── Cards Grid ── */
+        .cards-row {
             display: grid;
-            grid-template-columns: 56px 1fr 180px auto;
-            align-items: center;
-            gap: 32px;
-            padding: 32px 0;
-            border-bottom: 1px solid var(--border);
+            gap: 2px;
+            background: var(--border);
+            margin-bottom: 0;
+        }
+        .cards-row.large { grid-template-columns: repeat(3, 1fr); }
+        .cards-row.medium { grid-template-columns: repeat(4, 1fr); }
+        .cards-row.small { grid-template-columns: repeat(2, 1fr); }
+
+        /* ── Card ── */
+        .vault-card {
+            position: relative;
+            background: var(--dark);
+            padding: 36px 28px;
             text-decoration: none;
             color: var(--text);
-            transition: background 0.25s ease, box-shadow 0.25s ease;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
         }
-        .writing-item:hover {
-            background: rgba(139,0,0,0.06);
-            box-shadow: 0 0 24px rgba(139,0,0,0.15);
-        }
-
-        /* Red left bar */
-        .writing-item::before {
+        .vault-card::before {
             content: "";
             position: absolute;
-            left: -60px; top: 0; bottom: 0;
+            left: 0; top: 0; bottom: 0;
             width: 2px;
             background: var(--red2);
             transform: scaleY(0);
             transform-origin: bottom;
             transition: transform 0.3s ease;
         }
-        .writing-item:hover::before { transform: scaleY(1); }
+        .vault-card:hover {
+            background: rgba(139,0,0,0.08);
+            box-shadow: 0 0 32px rgba(139,0,0,0.2), inset 0 0 60px rgba(139,0,0,0.04);
+        }
+        .vault-card:hover::before { transform: scaleY(1); }
 
-        .writing-num { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 2px; color: var(--muted); text-align: right; transition: color 0.2s; }
-        .writing-item:hover .writing-num { color: var(--red2); }
+        .cards-row.large .vault-card { min-height: 340px; padding: 40px 32px; }
+        .cards-row.medium .vault-card { min-height: 280px; padding: 32px 24px; }
+        .cards-row.small .vault-card { min-height: 240px; padding: 28px 24px; }
 
-        .writing-main {}
-        .writing-tag-pill {
-            display: inline-block;
+        .card-tag {
             font-family: var(--mono);
             font-size: 0.45rem;
             letter-spacing: 3px;
@@ -115,28 +127,64 @@
             color: var(--red2);
             border: 1px solid var(--red);
             padding: 3px 8px;
-            margin-bottom: 8px;
+            display: inline-block;
+            margin-bottom: 16px;
+            align-self: flex-start;
         }
-        .writing-title { font-family: var(--serif); font-size: clamp(1.1rem,2vw,1.5rem); color: var(--text); margin-bottom: 8px; line-height: 1.15; transition: color 0.2s; }
-        .writing-item:hover .writing-title { color: var(--red2); }
-        .writing-excerpt { font-size: 0.8rem; color: var(--text); line-height: 1.7; max-width: 500px; transition: color 0.2s; }
-        .writing-item:hover .writing-excerpt { color: #e8d4ce; }
+        .card-title {
+            font-family: var(--serif);
+            line-height: 1.1;
+            color: var(--text);
+            margin-bottom: 12px;
+            transition: color 0.25s ease;
+        }
+        .cards-row.large .card-title { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+        .cards-row.medium .card-title { font-size: clamp(1.2rem, 2vw, 1.6rem); }
+        .cards-row.small .card-title { font-size: clamp(1.1rem, 1.8vw, 1.4rem); }
+        .vault-card:hover .card-title { color: var(--red2); }
 
-        .writing-stats { text-align: right; }
-        .writing-stat-main { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 2px; color: var(--text); margin-bottom: 4px; transition: color 0.2s; }
-        .writing-item:hover .writing-stat-main { color: var(--red2); }
-        .writing-stat-sub { font-family: var(--mono); font-size: 0.48rem; letter-spacing: 2px; color: var(--muted); }
+        .card-genre {
+            font-family: var(--mono);
+            font-size: 0.48rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #a8a49e;
+            margin-bottom: 16px;
+        }
+        .card-logline {
+            font-size: 0.82rem;
+            color: var(--text);
+            line-height: 1.75;
+            flex: 1;
+            margin-bottom: 20px;
+        }
+        .cards-row.small .card-logline { font-size: 0.78rem; }
 
-        .writing-cta { font-family: var(--mono); font-size: 0.5rem; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 10px 18px; transition: all 0.2s; white-space: nowrap; }
-        .writing-item:hover .writing-cta { border-color: var(--red); color: var(--red2); }
+        .card-cta {
+            font-family: var(--mono);
+            font-size: 0.48rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            padding: 10px 16px;
+            display: inline-block;
+            align-self: flex-start;
+            transition: all 0.25s ease;
+        }
+        .vault-card:hover .card-cta {
+            border-color: var(--red);
+            color: var(--red2);
+            box-shadow: 0 0 12px rgba(139,0,0,0.25);
+        }
 
-        /* Section divider — film strip / barbed wire style */
+        /* ── Section Divider — film strip style ── */
         .vault-divider {
-            padding: 48px 60px 16px;
+            padding: 0 60px;
             margin: 0;
         }
         .vault-divider-inner {
-            height: 16px;
+            height: 18px;
             background: repeating-linear-gradient(
                 90deg,
                 var(--border) 0,
@@ -163,15 +211,7 @@
         .vault-divider-inner::before { left: 12%; }
         .vault-divider-inner::after { right: 12%; }
 
-        .writing-section-label {
-            font-family: var(--mono);
-            font-size: 0.5rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--red2);
-            margin-bottom: 24px;
-            padding-left: 60px;
-        }
+        .vault-bottom-pad { padding-bottom: 80px; }
 
         footer{padding:28px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);}
         .footer-logo{font-family:var(--mono);font-size:0.7rem;letter-spacing:4px;color:var(--muted);text-transform:uppercase;}
@@ -186,16 +226,20 @@
         .footer-link{font-family:var(--mono);font-size:0.52rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;text-decoration:none;border-bottom:1px solid transparent;transition:all 0.2s;}
         .footer-link:hover{color:#fff;border-color:var(--red2);}
 
+        @media(max-width:1100px){
+            .cards-row.medium { grid-template-columns: repeat(2, 1fr); }
+        }
         @media(max-width:900px){
             nav{padding:0 24px;} .nav-links{display:none;} .hamburger{display:flex;}
             .page-header{padding:50px 24px 40px;flex-direction:column;align-items:flex-start;gap:16px;}
-            .filter-bar{padding:16px 24px;flex-wrap:wrap;}
-            .writing-list{padding:0 24px 60px;}
-            .writing-item{grid-template-columns:40px 1fr;gap:16px;}
-            .writing-stats,.writing-cta{display:none;}
-            .writing-item::before{left:-24px;}
-            .vault-divider{padding:32px 24px 0;}
-            .writing-section-label{padding-left:24px;}
+            .vault-section{padding:0 24px;}
+            .vault-divider{padding:0 24px;}
+            .cards-row.large,
+            .cards-row.medium,
+            .cards-row.small { grid-template-columns: 1fr; }
+            .cards-row.large .vault-card,
+            .cards-row.medium .vault-card,
+            .cards-row.small .vault-card { min-height: auto; }
             footer{flex-direction:column;gap:10px;text-align:center;padding:28px 24px;}
             .footer-right{justify-content:center;}
         }
@@ -232,147 +276,116 @@
         <div class="page-count">— 09 Works</div>
     </div>
 
-    <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="screenplay">Screenplay</button>
-        <button class="filter-btn" data-filter="novel">Novel</button>
-    </div>
+    <div class="vault-section">
 
-    <div class="writing-list">
+        <!-- ═══ THE HEAVY HITTERS ═══ -->
+        <p class="section-label">// The Heavy Hitters — Feature Screenplays</p>
+        <div class="cards-row large">
+            <a href="/written-work.html?item=rein" class="vault-card">
+                <div>
+                    <span class="card-tag">Feature Screenplay</span>
+                    <h2 class="card-title">REIN</h2>
+                    <p class="card-genre">Supernatural Drama / Horror</p>
+                    <p class="card-logline">Cursed by a 17th-century ritual gone wrong, a father and daughter are bound in a cycle of spiritual immortality. In every reincarnated life, he is driven by a dark providence to murder her to "save" her soul—a grisly pattern they must break before their divinity consumes them both.</p>
+                </div>
+                <span class="card-cta">Enter the Vault</span>
+            </a>
+            <a href="/written-work.html?item=alive-again" class="vault-card">
+                <div>
+                    <span class="card-tag">Feature Screenplay</span>
+                    <h2 class="card-title">ALIVE AGAIN</h2>
+                    <p class="card-genre">Psychological Thriller / Horror</p>
+                    <p class="card-logline">A 12-year-old girl begins recovering traumatic memories of a past life, leading her on a chilling quest to prove that a local elderly man is the serial killer who murdered her decades ago.</p>
+                </div>
+                <span class="card-cta">Enter the Vault</span>
+            </a>
+            <a href="/written-work.html?item=sedona" class="vault-card">
+                <div>
+                    <span class="card-tag">Feature Screenplay</span>
+                    <h2 class="card-title">SEDONA</h2>
+                    <p class="card-genre">Action / Horror</p>
+                    <p class="card-logline">To find her missing sister, a relentless monster hunter must form an uneasy alliance with a werewolf—the very creature she was trained to kill.</p>
+                </div>
+                <span class="card-cta">Enter the Vault</span>
+            </a>
+        </div>
 
-        <div class="writing-section-label" data-section="screenplay">Feature Screenplays</div>
-        <a href="/written-work.html?item=sedona" class="writing-item" data-type="screenplay">
-            <span class="writing-num">01</span>
-            <div class="writing-main">
-                <div class="writing-tag-pill">Screenplay</div>
-                <div class="writing-title">SEDONA</div>
-                <div class="writing-excerpt">To find her missing sister, a relentless monster hunter must form an uneasy alliance with a werewolf—the very creature she was trained to kill.</div>
-            </div>
-            <div class="writing-stats">
-                <div class="writing-stat-main">Feature &nbsp;·&nbsp; —</div>
-                <div class="writing-stat-sub">Action / Horror</div>
-            </div>
-            <div class="writing-cta">Enter the Vault</div>
-        </a>
-
-        <a href="/written-work.html?item=ghost-hunter" class="writing-item" data-type="screenplay">
-            <span class="writing-num">02</span>
-            <div class="writing-main">
-                <div class="writing-tag-pill">Screenplay</div>
-                <div class="writing-title">GHOST HUNTER</div>
-                <div class="writing-excerpt">A desperate paranormal streamer tries to save his plummeting views by bringing a cynical skeptic on a live-hunted investigation, only to accidentally unleash a real ancient curse for a global audience.</div>
-            </div>
-            <div class="writing-stats">
-                <div class="writing-stat-main">Feature &nbsp;·&nbsp; —</div>
-                <div class="writing-stat-sub">Horror / Comedy (Found Footage)</div>
-            </div>
-            <div class="writing-cta">Enter the Vault</div>
-        </a>
-
-        <a href="/written-work.html?item=alive-again" class="writing-item" data-type="screenplay">
-            <span class="writing-num">03</span>
-            <div class="writing-main">
-                <div class="writing-tag-pill">Screenplay</div>
-                <div class="writing-title">ALIVE AGAIN</div>
-                <div class="writing-excerpt">A 12-year-old girl begins recovering traumatic memories of a past life, leading her on a chilling quest to prove that a local elderly man is the serial killer who murdered her decades ago.</div>
-            </div>
-            <div class="writing-stats">
-                <div class="writing-stat-main">Feature &nbsp;·&nbsp; —</div>
-                <div class="writing-stat-sub">Psychological Thriller / Horror</div>
-            </div>
-            <div class="writing-cta">Enter the Vault</div>
-        </a>
-
-        <a href="/written-work.html?item=streamed" class="writing-item" data-type="screenplay">
-            <span class="writing-num">04</span>
-            <div class="writing-main">
-                <div class="writing-tag-pill">Screenplay</div>
-                <div class="writing-title">STREAMED</div>
-                <div class="writing-excerpt">When a popular streamer's remote barn-house broadcast is hijacked by a masked killer, the millions of viewers watching online refuse to call for help, convinced the brutal murders are just a sophisticated Halloween prank.</div>
-            </div>
-            <div class="writing-stats">
-                <div class="writing-stat-main">Feature &nbsp;·&nbsp; —</div>
-                <div class="writing-stat-sub">Slasher / Horror</div>
-            </div>
-            <div class="writing-cta">Enter the Vault</div>
-        </a>
-
-        <a href="/written-work.html?item=the-memory-box" class="writing-item" data-type="screenplay">
-            <span class="writing-num">05</span>
-            <div class="writing-main">
-                <div class="writing-tag-pill">Screenplay</div>
-                <div class="writing-title">THE MEMORY BOX</div>
-                <div class="writing-excerpt">A disgraced journalist discovers an artifact that allows him to physically experience the memories of the deceased, forcing him to relive a series of cold-case murders to identify a killer who is still on the prowl.</div>
-            </div>
-            <div class="writing-stats">
-                <div class="writing-stat-main">Feature &nbsp;·&nbsp; —</div>
-                <div class="writing-stat-sub">Horror / Thriller</div>
-            </div>
-            <div class="writing-cta">Enter the Vault</div>
-        </a>
-
-        <a href="/written-work.html?item=house-of-mirrors" class="writing-item" data-type="screenplay">
-            <span class="writing-num">06</span>
-            <div class="writing-main">
-                <div class="writing-tag-pill">Screenplay</div>
-                <div class="writing-title">HOUSE OF MIRRORS</div>
-                <div class="writing-excerpt">As a young man's battle with depression spirals into terrifying hallucinations, his dilapidated family home begins to physically deteriorate alongside his mind—blurring the line between a haunting and a breakdown.</div>
-            </div>
-            <div class="writing-stats">
-                <div class="writing-stat-main">Feature &nbsp;·&nbsp; —</div>
-                <div class="writing-stat-sub">Psychological Horror</div>
-            </div>
-            <div class="writing-cta">Enter the Vault</div>
-        </a>
-
-        <a href="/written-work.html?item=rein" class="writing-item" data-type="screenplay">
-            <span class="writing-num">07</span>
-            <div class="writing-main">
-                <div class="writing-tag-pill">Screenplay</div>
-                <div class="writing-title">REIN</div>
-                <div class="writing-excerpt">Cursed by a 17th-century ritual gone wrong, a father and daughter are bound in a cycle of spiritual immortality. In every reincarnated life, he is driven by a dark providence to murder her to "save" her soul—a grisly pattern they must break before their divinity consumes them both.</div>
-            </div>
-            <div class="writing-stats">
-                <div class="writing-stat-main">Feature &nbsp;·&nbsp; —</div>
-                <div class="writing-stat-sub">Supernatural Drama / Horror</div>
-            </div>
-            <div class="writing-cta">Enter the Vault</div>
-        </a>
-
-        <a href="/written-work.html?item=malify" class="writing-item" data-type="screenplay">
-            <span class="writing-num">08</span>
-            <div class="writing-main">
-                <div class="writing-tag-pill">Screenplay</div>
-                <div class="writing-title">MALIFY</div>
-                <div class="writing-excerpt">After a 500-year slumber triggered by a bad breakup, an ancient vampire wakes up beneath a bustling modern city and struggles to adapt to the 21st century while living in a chaotic group house with his bloodthirsty old friends.</div>
-            </div>
-            <div class="writing-stats">
-                <div class="writing-stat-main">Feature &nbsp;·&nbsp; —</div>
-                <div class="writing-stat-sub">Horror / Comedy</div>
-            </div>
-            <div class="writing-cta">Enter the Vault</div>
-        </a>
-
-        <div class="vault-divider" data-section="novel" aria-hidden="true">
+        <!-- ═══ DIVIDER ═══ -->
+        <div class="vault-divider" aria-hidden="true" style="padding:0;margin:0;">
             <div class="vault-divider-inner"></div>
         </div>
 
-        <div class="writing-section-label" data-section="novel">Novels & Short Stories</div>
-        <a href="/written-work.html?item=spooky-town" class="writing-item" data-type="novel">
-            <span class="writing-num">09</span>
-            <div class="writing-main">
-                <div class="writing-tag-pill">Novel</div>
-                <div class="writing-title">SPOOKY TOWN</div>
-                <div class="writing-excerpt">After moving to a foggy new town for her father's work, 13-year-old Maya realizes her dad is missing and the neighbors are acting... beastly. Alongside a group of misfit friends, she uncovers a dark secret: the entire town is under a curse that turned monsters into oblivious humans—and Maya might be the scariest one of them all.</div>
-            </div>
-            <div class="writing-stats">
-                <div class="writing-stat-main">Novel &nbsp;·&nbsp; —</div>
-                <div class="writing-stat-sub">Middle Grade Horror</div>
-            </div>
-            <div class="writing-cta">Enter the Vault</div>
-        </a>
+        <!-- ═══ GHOST TRAIN ═══ -->
+        <p class="section-label">// Ghost Train</p>
+        <div class="cards-row medium">
+            <a href="/written-work.html?item=ghost-hunter" class="vault-card">
+                <div>
+                    <span class="card-tag">Feature Screenplay</span>
+                    <h2 class="card-title">GHOST HUNTER</h2>
+                    <p class="card-genre">Horror / Comedy (Found Footage)</p>
+                    <p class="card-logline">A desperate paranormal streamer tries to save his plummeting views by bringing a cynical skeptic on a live-hunted investigation, only to accidentally unleash a real ancient curse for a global audience.</p>
+                </div>
+                <span class="card-cta">Enter the Vault</span>
+            </a>
+            <a href="/written-work.html?item=streamed" class="vault-card">
+                <div>
+                    <span class="card-tag">Feature Screenplay</span>
+                    <h2 class="card-title">STREAMED</h2>
+                    <p class="card-genre">Slasher / Horror</p>
+                    <p class="card-logline">When a popular streamer's remote barn-house broadcast is hijacked by a masked killer, the millions of viewers watching online refuse to call for help, convinced the brutal murders are just a sophisticated Halloween prank.</p>
+                </div>
+                <span class="card-cta">Enter the Vault</span>
+            </a>
+            <a href="/written-work.html?item=the-memory-box" class="vault-card">
+                <div>
+                    <span class="card-tag">Feature Screenplay</span>
+                    <h2 class="card-title">THE MEMORY BOX</h2>
+                    <p class="card-genre">Horror / Thriller</p>
+                    <p class="card-logline">A disgraced journalist discovers an artifact that allows him to physically experience the memories of the deceased, forcing him to relive a series of cold-case murders to identify a killer who is still on the prowl.</p>
+                </div>
+                <span class="card-cta">Enter the Vault</span>
+            </a>
+            <a href="/written-work.html?item=house-of-mirrors" class="vault-card">
+                <div>
+                    <span class="card-tag">Feature Screenplay</span>
+                    <h2 class="card-title">HOUSE OF MIRRORS</h2>
+                    <p class="card-genre">Psychological Horror</p>
+                    <p class="card-logline">As a young man's battle with depression spirals into terrifying hallucinations, his dilapidated family home begins to physically deteriorate alongside his mind—blurring the line between a haunting and a breakdown.</p>
+                </div>
+                <span class="card-cta">Enter the Vault</span>
+            </a>
+        </div>
+
+        <!-- ═══ DIVIDER ═══ -->
+        <div class="vault-divider" aria-hidden="true" style="padding:0;margin:0;">
+            <div class="vault-divider-inner"></div>
+        </div>
+
+        <!-- ═══ THE ARCHIVES ═══ -->
+        <p class="section-label">// The Archives — Deep Lore</p>
+        <div class="cards-row small">
+            <a href="/written-work.html?item=spooky-town" class="vault-card">
+                <div>
+                    <span class="card-tag">Novel</span>
+                    <h2 class="card-title">SPOOKY TOWN</h2>
+                    <p class="card-genre">Middle Grade Horror</p>
+                    <p class="card-logline">After moving to a foggy new town for her father's work, 13-year-old Maya realizes her dad is missing and the neighbors are acting... beastly. Alongside a group of misfit friends, she uncovers a dark secret: the entire town is under a curse that turned monsters into oblivious humans—and Maya might be the scariest one of them all.</p>
+                </div>
+                <span class="card-cta">Enter the Vault</span>
+            </a>
+            <a href="/written-work.html?item=malify" class="vault-card">
+                <div>
+                    <span class="card-tag">Feature Screenplay</span>
+                    <h2 class="card-title">MALIFY</h2>
+                    <p class="card-genre">Horror / Comedy</p>
+                    <p class="card-logline">After a 500-year slumber triggered by a bad breakup, an ancient vampire wakes up beneath a bustling modern city and struggles to adapt to the 21st century while living in a chaotic group house with his bloodthirsty old friends.</p>
+                </div>
+                <span class="card-cta">Enter the Vault</span>
+            </a>
+        </div>
 
     </div>
+    <div class="vault-bottom-pad"></div>
 
     <footer>
         <div class="footer-logo">THE <span>IMMORTAL</span> VAULT</div>
@@ -395,19 +408,20 @@
         btn.addEventListener('click', () => { btn.classList.toggle('open'); menu.classList.toggle('open'); });
         menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { btn.classList.remove('open'); menu.classList.remove('open'); }));
 
-        const filters = document.querySelectorAll('.filter-btn');
-        const items = document.querySelectorAll('.writing-item');
-        const sectionLabels = document.querySelectorAll('.writing-section-label');
-        const dividers = document.querySelectorAll('.vault-divider');
-        filters.forEach(f => {
-            f.addEventListener('click', () => {
-                filters.forEach(b => b.classList.remove('active'));
-                f.classList.add('active');
-                const val = f.dataset.filter;
-                items.forEach(i => { i.style.display = (val === 'all' || i.dataset.type === val) ? 'grid' : 'none'; });
-                sectionLabels.forEach(s => { s.style.display = (val === 'all' || s.dataset.section === val) ? 'block' : 'none'; });
-                dividers.forEach(d => { d.style.display = val === 'all' ? 'block' : 'none'; });
+        const cards = document.querySelectorAll('.vault-card');
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.style.opacity = '1';
+                    e.target.style.transform = 'translateY(0)';
+                }
             });
+        }, { threshold: 0.05 });
+        cards.forEach(c => {
+            c.style.opacity = '0';
+            c.style.transform = 'translateY(16px)';
+            c.style.transition = 'opacity 0.5s ease, transform 0.5s ease, background 0.3s ease, box-shadow 0.3s ease';
+            obs.observe(c);
         });
     </script>
 </body>
