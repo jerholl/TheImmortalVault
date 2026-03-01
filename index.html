@@ -577,7 +577,7 @@
             font-family: var(--mono);
             font-size: 0.6rem;
             letter-spacing: 2px;
-            color: var(--muted);
+            color: #8d8d8d;
             margin-bottom: 48px;
             position: relative;
         }
@@ -604,13 +604,14 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             text-decoration: none;
-            color: var(--muted);
-            border: 1px solid var(--border);
+            color: #f0ece5;
+            border: 1px solid var(--red2);
+            background: rgba(163, 21, 21, 0.2);
             padding: 16px 32px;
             transition: all 0.3s;
             position: relative;
         }
-        .contact-btn:hover { border-color: var(--red); color: var(--red2); }
+        .contact-btn:hover { border-color: #d32626; color: #fff; background: rgba(163, 21, 21, 0.4); }
 
         /* ── Footer ── */
         footer {
@@ -636,6 +637,51 @@
             letter-spacing: 2px;
             color: var(--muted);
         }
+        .footer-social {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .social-icon {
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            text-decoration: none;
+            font-family: var(--mono);
+            font-size: 0.45rem;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+        }
+        .social-icon:hover { color: #fff; border-color: var(--red2); background: rgba(163, 21, 21, 0.2); }
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        .footer-email {
+            font-family: var(--mono);
+            font-size: 0.52rem;
+            letter-spacing: 2px;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+        .footer-link {
+            font-family: var(--mono);
+            font-size: 0.52rem;
+            letter-spacing: 2px;
+            color: var(--muted);
+            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s;
+        }
+        .footer-link:hover { color: #fff; border-color: var(--red2); }
 
         /* ── Mobile ── */
         @media (max-width: 900px) {
@@ -652,6 +698,7 @@
             .dispatch-grid { grid-template-columns: 1fr; }
             .contact-section { padding: 70px 24px; }
             footer { flex-direction: column; gap: 10px; text-align: center; padding: 28px 24px; }
+            .footer-right { justify-content: center; }
         }
 
         @media (max-width: 600px) {
@@ -778,7 +825,17 @@
 
     <footer>
         <div class="footer-logo">THE <span>IMMORTAL</span> VAULT</div>
-        <div class="footer-copy">&copy; 2026 — All Works Reserved</div>
+        <div class="footer-social" aria-label="Social media">
+            <a class="social-icon" href="#" aria-label="Instagram">IG</a>
+            <a class="social-icon" href="#" aria-label="TikTok">TT</a>
+            <a class="social-icon" href="#" aria-label="YouTube">YT</a>
+            <a class="social-icon" href="#" aria-label="X">X</a>
+        </div>
+        <div class="footer-right">
+            <div class="footer-email">inquiries@theimmortalvault.com</div>
+            <a class="footer-link" href="/privacy-policy">Privacy Policy</a>
+            <div class="footer-copy">&copy; 2026 — All Works Reserved</div>
+        </div>
     </footer>
 
     <script>

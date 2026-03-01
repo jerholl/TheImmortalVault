@@ -149,6 +149,13 @@
         .footer-logo{font-family:var(--mono);font-size:0.7rem;letter-spacing:4px;color:var(--muted);text-transform:uppercase;}
         .footer-logo span{color:var(--red);}
         .footer-copy{font-family:var(--mono);font-size:0.55rem;letter-spacing:2px;color:var(--muted);}
+        .footer-social{display:flex;align-items:center;gap:8px;}
+        .social-icon{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border);color:var(--muted);text-decoration:none;font-family:var(--mono);font-size:0.45rem;letter-spacing:1px;transition:all 0.2s;}
+        .social-icon:hover{color:#fff;border-color:var(--red2);background:rgba(163,21,21,0.2);}
+        .footer-right{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end;}
+        .footer-email{font-family:var(--mono);font-size:0.52rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
+        .footer-link{font-family:var(--mono);font-size:0.52rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;text-decoration:none;border-bottom:1px solid transparent;transition:all 0.2s;}
+        .footer-link:hover{color:#fff;border-color:var(--red2);}
 
         @media(max-width:900px){
             nav{padding:0 24px;} .nav-links{display:none;} .hamburger{display:flex;}
@@ -156,6 +163,7 @@
             .contact-left{padding:60px 24px;border-right:none;border-bottom:1px solid var(--border);}
             .contact-right{padding:60px 24px;}
             footer{flex-direction:column;gap:10px;text-align:center;padding:28px 24px;}
+            .footer-right{justify-content:center;}
         }
     </style>
 </head>
@@ -254,7 +262,17 @@
 
     <footer>
         <div class="footer-logo">THE <span>IMMORTAL</span> VAULT</div>
-        <div class="footer-copy">&copy; 2026 — All Works Reserved</div>
+        <div class="footer-social" aria-label="Social media">
+            <a class="social-icon" href="#" aria-label="Instagram">IG</a>
+            <a class="social-icon" href="#" aria-label="TikTok">TT</a>
+            <a class="social-icon" href="#" aria-label="YouTube">YT</a>
+            <a class="social-icon" href="#" aria-label="X">X</a>
+        </div>
+        <div class="footer-right">
+            <div class="footer-email">inquiries@theimmortalvault.com</div>
+            <a class="footer-link" href="/privacy-policy">Privacy Policy</a>
+            <div class="footer-copy">&copy; 2026 — All Works Reserved</div>
+        </div>
     </footer>
 
     <script>
