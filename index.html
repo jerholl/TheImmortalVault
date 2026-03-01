@@ -475,14 +475,13 @@
 
         .dispatch-header {
             display: flex;
-            align-items: baseline;
-            justify-content: space-between;
+            align-items: center;
             margin-bottom: 48px;
             border-bottom: 1px solid var(--border);
             padding-bottom: 20px;
         }
 
-        .dispatch-heading { display: flex; align-items: baseline; gap: 16px; }
+        .dispatch-heading { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 
         .dispatch-num {
             font-family: var(--mono);
@@ -507,10 +506,12 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             text-decoration: none;
-            color: var(--muted);
-            transition: color 0.2s;
+            color: var(--red2);
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
         }
-        .dispatch-all:hover { color: var(--red2); }
+        .dispatch-all:hover { color: #fff; border-color: var(--red2); background: rgba(163, 21, 21, 0.15); }
 
         .dispatch-grid {
             display: grid;
@@ -542,6 +543,26 @@
             transition: transform 0.3s ease;
         }
         .dispatch-card:hover::before { transform: scaleX(1); }
+        .dispatch-card-image {
+            width: calc(100% + 72px);
+            margin: -36px -36px 16px;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+            background: #090909;
+        }
+        .dispatch-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0.9;
+            transition: transform 0.35s ease, opacity 0.35s ease;
+        }
+        .dispatch-card:hover .dispatch-card-image img {
+            transform: scale(1.03);
+            opacity: 1;
+        }
 
         .dispatch-card-date {
             font-family: var(--mono);
@@ -711,6 +732,10 @@
             .creator-photo { max-width: 200px; margin: 0 auto; }
             .dispatch-section { padding: 50px 20px; }
             .dispatch-card { padding: 24px; }
+            .dispatch-card-image {
+                width: calc(100% + 48px);
+                margin: -24px -24px 14px;
+            }
             .contact-section { padding: 60px 20px; }
             footer { padding: 24px 20px; }
         }
@@ -815,8 +840,8 @@
             <div class="dispatch-heading">
                 <span class="dispatch-num">05</span>
                 <h2 class="dispatch-title">Creature <em>Feature Lab</em></h2>
+                <a href="/dispatch" class="dispatch-all">View All →</a>
             </div>
-            <a href="/dispatch" class="dispatch-all">View All →</a>
         </div>
         <div class="dispatch-grid" id="dispatch-grid">
             <!-- filled by JS below -->
@@ -875,6 +900,7 @@
                 title,
                 "slug": slug.current,
                 publishedAt,
+                "coverImageUrl": coverImage.asset->url,
                 excerpt
             }`
         );
@@ -899,6 +925,7 @@
 
                 grid.innerHTML = posts.map(p => `
                     <a href="/dispatch-post?slug=${encodeURIComponent(p.slug)}" class="dispatch-card">
+                        ${p.coverImageUrl ? `<div class="dispatch-card-image"><img src="${p.coverImageUrl}" alt="${p.title || 'Post image'}" loading="lazy"></div>` : ''}
                         <div class="dispatch-card-date">${fmt(p.publishedAt)}</div>
                         <div class="dispatch-card-title">${p.title || 'Untitled'}</div>
                         <div class="dispatch-card-excerpt">${(p.excerpt || '').substring(0, 140)}${p.excerpt && p.excerpt.length > 140 ? '…' : ''}</div>
