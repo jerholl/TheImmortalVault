@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — The Immortal Vault</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#060606">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black:#060606; --dark:#0c0c0c; --border:#1c1c1c;
+            --red:#8b0000; --red2:#a31515; --text:#d8d4ce; --muted:#4a4a4a;
+            --mono:'Share Tech Mono',monospace; --serif:'DM Serif Display',serif; --sans:'Inter',sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            min-height: 100vh;
+            background: var(--black);
+            color: var(--text);
+            font-family: var(--sans);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 24px;
+        }
+        .content { max-width: 480px; }
+        .code {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            color: var(--red2);
+            margin-bottom: 24px;
+        }
+        h1 {
+            font-family: var(--serif);
+            font-size: clamp(4rem, 15vw, 8rem);
+            line-height: 1;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+        h1 em { font-style: italic; color: var(--red2); }
+        p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        .links a {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            padding: 12px 20px;
+            transition: all 0.2s;
+        }
+        .links a:hover { color: var(--red2); border-color: var(--red); }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <p class="code">// Error 404</p>
+        <h1>Lost in the <em>Vault</em></h1>
+        <p>This page doesn't exist or has been moved. The shadows have claimed it.</p>
+        <div class="links">
+            <a href="/">Home</a>
+            <a href="/films">Films</a>
+            <a href="/narrative-fiction">Written Works</a>
+            <a href="/about">About</a>
+        </div>
+    </div>
+</body>
+</html>
