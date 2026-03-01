@@ -403,91 +403,6 @@
         }
         .vault-panel:hover .panel-ghost { color: rgba(139,0,0,0.09); }
 
-        /* ── Divider ── */
-        .divider { height: 1px; background: var(--border); margin: 0 60px; }
-
-        /* ── Creator Section ── */
-        .creator-section {
-            padding: 100px 60px;
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 80px;
-            align-items: start;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .creator-photo {
-            aspect-ratio: 3/4;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .creator-photo img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            position: absolute;
-            inset: 0;
-            display: block;
-        }
-
-        .creator-photo::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(139,0,0,0.03);
-        }
-
-        .creator-label {
-            font-family: var(--mono);
-            font-size: 0.6rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--red2);
-            margin-bottom: 20px;
-        }
-
-        .creator-headline {
-            font-family: var(--serif);
-            font-size: clamp(1.8rem, 3vw, 2.8rem);
-            line-height: 1.2;
-            color: var(--text);
-            margin-bottom: 28px;
-        }
-        .creator-headline em { font-style: italic; color: var(--red2); }
-
-        .creator-body {
-            font-size: 0.85rem;
-            color: var(--muted);
-            line-height: 2;
-            max-width: 540px;
-        }
-        .creator-body + .creator-body { margin-top: 16px; }
-
-        .creator-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 36px;
-            font-family: var(--mono);
-            font-size: 0.6rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: var(--muted);
-            transition: color 0.2s, gap 0.3s;
-        }
-        .creator-cta:hover { color: var(--red2); gap: 18px; }
-
-        .creator-cta-line {
-            display: block;
-            width: 28px; height: 1px;
-            background: currentColor;
-            transition: width 0.3s;
-        }
-        .creator-cta:hover .creator-cta-line { width: 44px; }
-
         /* ── Dispatch / Blog ── */
         .dispatch-section {
             padding: 100px 60px;
@@ -733,11 +648,8 @@
             .vault-panel { min-height: 320px; border-bottom: 1px solid var(--border); border-right: none; }
             .vault-panel:last-child { border-bottom: none; }
             .panel-ghost { font-size: 3.5rem; bottom: 10px; }
-            .creator-section { grid-template-columns: 1fr; padding: 60px 24px; gap: 36px; }
-            .creator-photo { max-width: 260px; }
             .dispatch-section { padding: 60px 24px; }
             .dispatch-grid { grid-template-columns: 1fr; }
-            .divider { margin: 0 24px; }
             .contact-section { padding: 70px 24px; }
             footer { flex-direction: column; gap: 10px; text-align: center; padding: 28px 24px; }
         }
@@ -749,8 +661,6 @@
             .vault-panel:last-child { border-bottom: none; }
             .panel-title { font-size: 1.4rem; }
             .panel-ghost { display: none; }
-            .creator-section { padding: 50px 20px; gap: 28px; }
-            .creator-photo { max-width: 200px; margin: 0 auto; }
             .dispatch-section { padding: 50px 20px; }
             .dispatch-card { padding: 24px; }
             .dispatch-card-image {
@@ -835,25 +745,6 @@
             </div>
         </a>
     </div>
-
-    <!-- Creator -->
-    <section class="creator-section">
-        <div class="creator-photo">
-            <img src="lee.jpg" alt="Lee Beck portrait">
-        </div>
-        <div class="creator-text">
-            <p class="creator-label">// The Creator</p>
-            <h2 class="creator-headline">Writer. Director.<br><em>Lee Beck</em></h2>
-            <p class="creator-body">Lee has spent 20+ years making horror films.</p>
-            <p class="creator-body">The Immortal Vault is a personal archive — every film, script, story, and audio drama produced under one roof. Welcome.</p>
-            <a href="/about" class="creator-cta">
-                <span class="creator-cta-line"></span>
-                Full Bio
-            </a>
-        </div>
-    </section>
-
-    <div class="divider"></div>
 
     <!-- Blog / Dispatch — pulls from Sanity -->
     <section class="dispatch-section">
