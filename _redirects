@@ -7,6 +7,7 @@
 /dispatch.html /dispatch
 /dispatch-post.html /dispatch-post
 /coming-soon.html /coming-soon
+/written-work.html /work
 
 / /index.html 200
 /films /films.html 200
@@ -17,3 +18,4 @@
 /dispatch /dispatch.html 200
 /dispatch-post /dispatch-post.html 200
 /coming-soon /coming-soon.html 200
+/work /written-work.html 200
