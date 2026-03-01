@@ -126,6 +126,56 @@
             90% { transform: translateY(120px); opacity: 0.6; }
         }
 
+        /* ── In Development ── */
+        .in-dev-section {
+            padding: 0 60px 80px;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .in-dev-eyebrow {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--red2);
+            margin-bottom: 24px;
+        }
+        .in-dev-card {
+            border: 1px solid var(--border);
+            background: var(--dark);
+            padding: 40px;
+            transition: border-color 0.2s;
+        }
+        .in-dev-card:hover { border-color: var(--red); }
+        .in-dev-tag {
+            font-family: var(--mono);
+            font-size: 0.48rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red2);
+            margin-bottom: 12px;
+        }
+        .in-dev-title {
+            font-family: var(--serif);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--text);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .in-dev-title span { font-size: 0.7em; color: var(--muted); font-family: var(--sans); font-weight: 400; }
+        .in-dev-logline {
+            font-size: 0.9rem;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .in-dev-summary {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.9;
+        }
+
         /* ── Series List ── */
         .series-list { padding: 0 60px 80px; }
 
@@ -231,7 +281,9 @@
         @media(max-width:900px){
             nav{padding:0 24px;} .nav-links{display:none;} .hamburger{display:flex;}
             .page-header{padding:50px 24px 40px;flex-direction:column;align-items:flex-start;gap:16px;}
-            .coming-soon-block{padding:80px 24px 120px;}
+            .coming-soon-block{padding:80px 24px 80px;}
+            .in-dev-section{padding:0 24px 60px;}
+            .in-dev-card{padding:28px;}
             .series-list{padding:0 24px 60px;}
             .series-header{grid-template-columns:120px 1fr auto;gap:20px;padding:28px 0;}
             footer{flex-direction:column;gap:10px;text-align:center;padding:28px 24px;}
@@ -283,6 +335,19 @@
         </div>
         <h2>Coming <em>Soon</em></h2>
         <p>Horror audio productions are in the works. Stay tuned.</p>
+    </div>
+
+    <div class="in-dev-section">
+        <p class="in-dev-eyebrow">// In Development</p>
+        <div class="in-dev-card">
+            <div class="in-dev-tag">Horror Audio Drama (Series) &nbsp;·&nbsp; Supernatural Horror / Mystery</div>
+            <h3 class="in-dev-title">CULBURN <span>(Working Title)</span></h3>
+            <p class="in-dev-logline">When a cynical foster kid travels to a town that doesn't appear on any map to claim his estranged mother's estate, he discovers he's been lured into a predatory sanctuary run by ancient vampires who feed on the life force of their "devout" congregation.</p>
+            <div class="in-dev-summary">
+                <p>Milo Evans, a young man who grew up in the foster system and remembers little of his birth mother, is contacted by a mysterious lawyer regarding her estate in the remote town of Culburn. Upon arrival, he finds a community where the local gas station attendant has never heard of the town he's standing in, and the town itself seems to exist in a warped reality.</p>
+                <p style="margin-top: 16px;">As Milo attempts to settle his mother's affairs, he is relentlessly pressured into attending the local church by a cast of "friendly" but unsettling neighbors. He soon realizes the town is a feeding ground: the charismatic Reverend Parker is a psychic vampire who drains the life force of his patrons, while the seemingly sweet diner owner, Georgina Sweets, is a blood-crazed vampire who maintains her youth by feeding on "misbehaved" children. Trapped by a local mechanic who sabotages his car to prevent escape, Milo must navigate a web of ancient predators and childhood trauma to uncover the truth about his mother's "madness" and his own forgotten past before he becomes the next permanent resident of Culburn.</p>
+            </div>
+        </div>
     </div>
 
     <div class="series-list" style="display:none;">
