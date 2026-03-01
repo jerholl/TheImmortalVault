@@ -81,10 +81,13 @@
             border-bottom: 1px solid var(--border);
             text-decoration: none;
             color: var(--text);
-            transition: background 0.2s;
+            transition: background 0.25s ease, box-shadow 0.25s ease;
             position: relative;
         }
-        .writing-item:hover { background: rgba(139,0,0,0.02); }
+        .writing-item:hover {
+            background: rgba(139,0,0,0.06);
+            box-shadow: 0 0 24px rgba(139,0,0,0.15);
+        }
 
         /* Red left bar */
         .writing-item::before {
@@ -99,7 +102,8 @@
         }
         .writing-item:hover::before { transform: scaleY(1); }
 
-        .writing-num { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 2px; color: var(--muted); text-align: right; }
+        .writing-num { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 2px; color: var(--muted); text-align: right; transition: color 0.2s; }
+        .writing-item:hover .writing-num { color: var(--red2); }
 
         .writing-main {}
         .writing-tag-pill {
@@ -113,15 +117,61 @@
             padding: 3px 8px;
             margin-bottom: 8px;
         }
-        .writing-title { font-family: var(--serif); font-size: clamp(1.1rem,2vw,1.5rem); color: var(--text); margin-bottom: 8px; line-height: 1.15; }
-        .writing-excerpt { font-size: 0.8rem; color: var(--text); line-height: 1.7; max-width: 500px; }
+        .writing-title { font-family: var(--serif); font-size: clamp(1.1rem,2vw,1.5rem); color: var(--text); margin-bottom: 8px; line-height: 1.15; transition: color 0.2s; }
+        .writing-item:hover .writing-title { color: var(--red2); }
+        .writing-excerpt { font-size: 0.8rem; color: var(--text); line-height: 1.7; max-width: 500px; transition: color 0.2s; }
+        .writing-item:hover .writing-excerpt { color: #e8d4ce; }
 
         .writing-stats { text-align: right; }
-        .writing-stat-main { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 2px; color: var(--text); margin-bottom: 4px; }
+        .writing-stat-main { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 2px; color: var(--text); margin-bottom: 4px; transition: color 0.2s; }
+        .writing-item:hover .writing-stat-main { color: var(--red2); }
         .writing-stat-sub { font-family: var(--mono); font-size: 0.48rem; letter-spacing: 2px; color: var(--muted); }
 
         .writing-cta { font-family: var(--mono); font-size: 0.5rem; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 10px 18px; transition: all 0.2s; white-space: nowrap; }
         .writing-item:hover .writing-cta { border-color: var(--red); color: var(--red2); }
+
+        /* Section divider — film strip / barbed wire style */
+        .vault-divider {
+            padding: 48px 60px 16px;
+            margin: 0;
+        }
+        .vault-divider-inner {
+            height: 16px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--border) 0,
+                var(--border) 1px,
+                var(--dark) 1px,
+                var(--dark) 20px
+            );
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+        .vault-divider-inner::before,
+        .vault-divider-inner::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--red);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            opacity: 0.8;
+        }
+        .vault-divider-inner::before { left: 12%; }
+        .vault-divider-inner::after { right: 12%; }
+
+        .writing-section-label {
+            font-family: var(--mono);
+            font-size: 0.5rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--red2);
+            margin-bottom: 24px;
+            padding-left: 60px;
+        }
 
         footer{padding:28px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);}
         .footer-logo{font-family:var(--mono);font-size:0.7rem;letter-spacing:4px;color:var(--muted);text-transform:uppercase;}
@@ -144,6 +194,8 @@
             .writing-item{grid-template-columns:40px 1fr;gap:16px;}
             .writing-stats,.writing-cta{display:none;}
             .writing-item::before{left:-24px;}
+            .vault-divider{padding:32px 24px 0;}
+            .writing-section-label{padding-left:24px;}
             footer{flex-direction:column;gap:10px;text-align:center;padding:28px 24px;}
             .footer-right{justify-content:center;}
         }
@@ -188,8 +240,8 @@
 
     <div class="writing-list">
 
-        <!-- Feature Screenplays -->
-        <a href="/work?item=sedona" class="writing-item" data-type="screenplay">
+        <div class="writing-section-label" data-section="screenplay">Feature Screenplays</div>
+        <a href="/written-work.html?item=sedona" class="writing-item" data-type="screenplay">
             <span class="writing-num">01</span>
             <div class="writing-main">
                 <div class="writing-tag-pill">Screenplay</div>
@@ -200,10 +252,10 @@
                 <div class="writing-stat-main">Feature &nbsp;·&nbsp; —</div>
                 <div class="writing-stat-sub">Action / Horror</div>
             </div>
-            <div class="writing-cta">Read →</div>
+            <div class="writing-cta">Enter the Vault</div>
         </a>
 
-        <a href="/work?item=ghost-hunter" class="writing-item" data-type="screenplay">
+        <a href="/written-work.html?item=ghost-hunter" class="writing-item" data-type="screenplay">
             <span class="writing-num">02</span>
             <div class="writing-main">
                 <div class="writing-tag-pill">Screenplay</div>
@@ -214,10 +266,10 @@
                 <div class="writing-stat-main">Feature &nbsp;·&nbsp; —</div>
                 <div class="writing-stat-sub">Horror / Comedy (Found Footage)</div>
             </div>
-            <div class="writing-cta">Read →</div>
+            <div class="writing-cta">Enter the Vault</div>
         </a>
 
-        <a href="/work?item=alive-again" class="writing-item" data-type="screenplay">
+        <a href="/written-work.html?item=alive-again" class="writing-item" data-type="screenplay">
             <span class="writing-num">03</span>
             <div class="writing-main">
                 <div class="writing-tag-pill">Screenplay</div>
@@ -228,10 +280,10 @@
                 <div class="writing-stat-main">Feature &nbsp;·&nbsp; —</div>
                 <div class="writing-stat-sub">Psychological Thriller / Horror</div>
             </div>
-            <div class="writing-cta">Read →</div>
+            <div class="writing-cta">Enter the Vault</div>
         </a>
 
-        <a href="/work?item=streamed" class="writing-item" data-type="screenplay">
+        <a href="/written-work.html?item=streamed" class="writing-item" data-type="screenplay">
             <span class="writing-num">04</span>
             <div class="writing-main">
                 <div class="writing-tag-pill">Screenplay</div>
@@ -242,10 +294,10 @@
                 <div class="writing-stat-main">Feature &nbsp;·&nbsp; —</div>
                 <div class="writing-stat-sub">Slasher / Horror</div>
             </div>
-            <div class="writing-cta">Read →</div>
+            <div class="writing-cta">Enter the Vault</div>
         </a>
 
-        <a href="/work?item=the-memory-box" class="writing-item" data-type="screenplay">
+        <a href="/written-work.html?item=the-memory-box" class="writing-item" data-type="screenplay">
             <span class="writing-num">05</span>
             <div class="writing-main">
                 <div class="writing-tag-pill">Screenplay</div>
@@ -256,10 +308,10 @@
                 <div class="writing-stat-main">Feature &nbsp;·&nbsp; —</div>
                 <div class="writing-stat-sub">Horror / Thriller</div>
             </div>
-            <div class="writing-cta">Read →</div>
+            <div class="writing-cta">Enter the Vault</div>
         </a>
 
-        <a href="/work?item=house-of-mirrors" class="writing-item" data-type="screenplay">
+        <a href="/written-work.html?item=house-of-mirrors" class="writing-item" data-type="screenplay">
             <span class="writing-num">06</span>
             <div class="writing-main">
                 <div class="writing-tag-pill">Screenplay</div>
@@ -270,10 +322,10 @@
                 <div class="writing-stat-main">Feature &nbsp;·&nbsp; —</div>
                 <div class="writing-stat-sub">Psychological Horror</div>
             </div>
-            <div class="writing-cta">Read →</div>
+            <div class="writing-cta">Enter the Vault</div>
         </a>
 
-        <a href="/work?item=rein" class="writing-item" data-type="screenplay">
+        <a href="/written-work.html?item=rein" class="writing-item" data-type="screenplay">
             <span class="writing-num">07</span>
             <div class="writing-main">
                 <div class="writing-tag-pill">Screenplay</div>
@@ -284,10 +336,10 @@
                 <div class="writing-stat-main">Feature &nbsp;·&nbsp; —</div>
                 <div class="writing-stat-sub">Supernatural Drama / Horror</div>
             </div>
-            <div class="writing-cta">Read →</div>
+            <div class="writing-cta">Enter the Vault</div>
         </a>
 
-        <a href="/work?item=malify" class="writing-item" data-type="screenplay">
+        <a href="/written-work.html?item=malify" class="writing-item" data-type="screenplay">
             <span class="writing-num">08</span>
             <div class="writing-main">
                 <div class="writing-tag-pill">Screenplay</div>
@@ -298,11 +350,15 @@
                 <div class="writing-stat-main">Feature &nbsp;·&nbsp; —</div>
                 <div class="writing-stat-sub">Horror / Comedy</div>
             </div>
-            <div class="writing-cta">Read →</div>
+            <div class="writing-cta">Enter the Vault</div>
         </a>
 
-        <!-- Novels & Short Stories -->
-        <a href="/work?item=spooky-town" class="writing-item" data-type="novel">
+        <div class="vault-divider" data-section="novel" aria-hidden="true">
+            <div class="vault-divider-inner"></div>
+        </div>
+
+        <div class="writing-section-label" data-section="novel">Novels & Short Stories</div>
+        <a href="/written-work.html?item=spooky-town" class="writing-item" data-type="novel">
             <span class="writing-num">09</span>
             <div class="writing-main">
                 <div class="writing-tag-pill">Novel</div>
@@ -313,7 +369,7 @@
                 <div class="writing-stat-main">Novel &nbsp;·&nbsp; —</div>
                 <div class="writing-stat-sub">Middle Grade Horror</div>
             </div>
-            <div class="writing-cta">Read →</div>
+            <div class="writing-cta">Enter the Vault</div>
         </a>
 
     </div>
@@ -341,12 +397,16 @@
 
         const filters = document.querySelectorAll('.filter-btn');
         const items = document.querySelectorAll('.writing-item');
+        const sectionLabels = document.querySelectorAll('.writing-section-label');
+        const dividers = document.querySelectorAll('.vault-divider');
         filters.forEach(f => {
             f.addEventListener('click', () => {
                 filters.forEach(b => b.classList.remove('active'));
                 f.classList.add('active');
                 const val = f.dataset.filter;
                 items.forEach(i => { i.style.display = (val === 'all' || i.dataset.type === val) ? 'grid' : 'none'; });
+                sectionLabels.forEach(s => { s.style.display = (val === 'all' || s.dataset.section === val) ? 'block' : 'none'; });
+                dividers.forEach(d => { d.style.display = val === 'all' ? 'block' : 'none'; });
             });
         });
     </script>

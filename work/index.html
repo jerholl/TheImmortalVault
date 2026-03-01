@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Written Work — The Immortal Vault</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MSCZ5M4Z4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1MSCZ5M4Z4');
+    </script>
+    <meta name="description" content="Written works from The Immortal Vault — screenplays and novels.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#060606">
+    <meta property="og:site_name" content="The Immortal Vault">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black:#060606; --dark:#0c0c0c; --surface:#111;
+            --border:#1c1c1c; --red:#8b0000; --red2:#a31515;
+            --text:#d8d4ce; --muted:#4a4a4a;
+            --mono:'Share Tech Mono',monospace; --serif:'DM Serif Display',serif; --sans:'Inter',sans-serif;
+        }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        html{scroll-behavior:smooth;}
+        body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden;}
+        body::after{content:"";position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.025) 2px,rgba(0,0,0,0.025) 4px);pointer-events:none;z-index:9000;}
+
+        nav{position:sticky;top:0;z-index:1000;height:64px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;background:var(--black);border-bottom:1px solid var(--border);}
+        .nav-logo{font-family:var(--mono);font-size:0.85rem;letter-spacing:4px;text-transform:uppercase;text-decoration:none;color:var(--text);white-space:nowrap;}
+        .nav-logo::after{content:"_";color:var(--red2);animation:blink 1.2s step-end infinite;}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+        .nav-links{display:flex;gap:28px;list-style:none;}
+        .nav-links a{text-decoration:none;color:var(--muted);font-family:var(--mono);font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s;white-space:nowrap;}
+        .nav-links a::before{content:"/ ";color:var(--red);opacity:0;transition:opacity 0.2s;}
+        .nav-links a:hover,.nav-links a.active{color:var(--text);}
+        .nav-links a:hover::before,.nav-links a.active::before{opacity:1;}
+        .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0;}
+        .hamburger span{display:block;width:20px;height:1px;background:var(--text);transition:all 0.3s;}
+        .hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg);background:var(--red2);}
+        .hamburger.open span:nth-child(2){opacity:0;}
+        .hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);background:var(--red2);}
+        .mobile-menu{position:fixed;inset:0;background:var(--black);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+        .mobile-menu.open{max-height:100vh;}
+        .mobile-menu a{font-family:var(--mono);font-size:1.1rem;letter-spacing:4px;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color 0.2s;}
+        .mobile-menu a:hover{color:var(--red2);}
+
+        .work-hero{min-height:calc(100vh - 64px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 60px 100px;}
+        .work-eyebrow{font-family:var(--mono);font-size:0.55rem;letter-spacing:4px;text-transform:uppercase;color:var(--red2);margin-bottom:24px;}
+        .work-title{font-family:var(--serif);font-size:clamp(2.5rem,8vw,5rem);line-height:1.05;color:var(--text);margin-bottom:20px;letter-spacing:0.02em;}
+        .work-title em{font-style:italic;color:var(--red2);}
+        .work-genre{font-family:var(--mono);font-size:0.55rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:48px;}
+        .work-logline{font-family:var(--serif);font-size:clamp(1.25rem,2.5vw,1.75rem);line-height:1.6;color:var(--text);max-width:680px;margin:0 auto 48px;font-style:italic;}
+        .work-back{display:inline-block;text-decoration:none;color:var(--muted);font-family:var(--mono);font-size:0.58rem;letter-spacing:3px;text-transform:uppercase;border:1px solid var(--border);padding:12px 24px;transition:all 0.2s;}
+        .work-back:hover{color:var(--red2);border-color:var(--red);}
+
+        footer{padding:28px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);}
+        .footer-logo{font-family:var(--mono);font-size:0.7rem;letter-spacing:4px;color:var(--muted);text-transform:uppercase;}
+        .footer-logo span{color:var(--red);}
+        .footer-copy{font-family:var(--mono);font-size:0.55rem;letter-spacing:2px;color:var(--muted);}
+        .footer-social{display:flex;align-items:center;gap:8px;}
+        .social-icon{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--red2);background:rgba(163,21,21,0.2);color:#f3eee8;text-decoration:none;transition:all 0.2s;}
+        .social-icon svg{width:18px;height:18px;fill:currentColor;}
+        .social-icon:hover{color:#fff;border-color:#d32626;background:rgba(163,21,21,0.45);transform:translateY(-1px);}
+        .footer-right{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end;}
+        .footer-email{font-family:var(--mono);font-size:0.52rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
+        .footer-link{font-family:var(--mono);font-size:0.52rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;text-decoration:none;border-bottom:1px solid transparent;transition:all 0.2s;}
+        .footer-link:hover{color:#fff;border-color:var(--red2);}
+        @media(max-width:900px){nav{padding:0 24px;} .nav-links{display:none;} .hamburger{display:flex;} .work-hero{padding:60px 24px 80px;} footer{flex-direction:column;gap:10px;text-align:center;padding:28px 24px;} .footer-right{justify-content:center;}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="nav-logo">THE IMMORTAL VAULT</a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/films">Films</a></li>
+            <li><a href="/audio-dramas">Audio Dramas</a></li>
+            <li><a href="/narrative-fiction">Written Works</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="/">Home</a><a href="/films">Films</a><a href="/audio-dramas">Audio Dramas</a><a href="/narrative-fiction">Written Works</a><a href="/about">About</a><a href="/contact">Contact</a>
+    </div>
+    <main class="work-hero">
+        <p class="work-eyebrow" id="work-eyebrow">// Written Work</p>
+        <h1 class="work-title" id="work-title">—</h1>
+        <p class="work-genre" id="work-genre">—</p>
+        <p class="work-logline" id="work-logline">—</p>
+        <a href="/narrative-fiction" class="work-back">← Back to Written Works</a>
+    </main>
+    <footer>
+        <div class="footer-logo">THE <span>IMMORTAL</span> VAULT</div>
+        <div class="footer-social" aria-label="Social media">
+            <a class="social-icon" href="https://www.facebook.com/theimmortalvault/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a class="social-icon" href="https://www.instagram.com/theimmortalvault/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a class="social-icon" href="https://bsky.app/profile/theimmortalvault.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky"><svg viewBox="0 0 24 24"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65 6.722 9.035 3.607 1.938 6.055 3.274 4.786 6.076.703.482 4.907 1.134 6.927-4.458 1.722-4.77 1.063-6.45.063-7.23-.765-.59-3.783-1.428-5.488-.003zm-.005 2.205c-.483.123-.996.077-1.287-.155-.29-.231-.384-.675-.217-1.02.167-.345.545-.544 1.028-.667.484-.123.997-.078 1.287.154.29.231.384.676.217 1.021-.167.344-.545.543-1.027.667zm.179 2.34c-.559.14-1.153.086-1.492-.155-.34-.241-.451-.693-.248-1.084.203-.39.661-.614 1.22-.754.559-.14 1.153-.085 1.493.155.339.241.45.694.247 1.084-.203.39-.662.614-1.22.754z"/></svg></a>
+            <a class="social-icon" href="https://www.youtube.com/@TheImmortalVault" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+        <div class="footer-right">
+            <div class="footer-email">inquiries@theimmortalvault.com</div>
+            <a class="footer-link" href="/privacy-policy">Privacy Policy</a>
+            <div class="footer-copy">&copy; 2026 — All Works Reserved</div>
+        </div>
+    </footer>
+    <script>
+        const WORKS = {
+            sedona: { type: 'Screenplay', title: 'SEDONA', genre: 'Action / Horror', logline: 'To find her missing sister, a relentless monster hunter must form an uneasy alliance with a werewolf—the very creature she was trained to kill.' },
+            'ghost-hunter': { type: 'Screenplay', title: 'GHOST HUNTER', genre: 'Horror / Comedy (Found Footage)', logline: 'A desperate paranormal streamer tries to save his plummeting views by bringing a cynical skeptic on a live-hunted investigation, only to accidentally unleash a real ancient curse for a global audience.' },
+            'alive-again': { type: 'Screenplay', title: 'ALIVE AGAIN', genre: 'Psychological Thriller / Horror', logline: 'A 12-year-old girl begins recovering traumatic memories of a past life, leading her on a chilling quest to prove that a local elderly man is the serial killer who murdered her decades ago.' },
+            streamed: { type: 'Screenplay', title: 'STREAMED', genre: 'Slasher / Horror', logline: "When a popular streamer's remote barn-house broadcast is hijacked by a masked killer, the millions of viewers watching online refuse to call for help, convinced the brutal murders are just a sophisticated Halloween prank." },
+            'the-memory-box': { type: 'Screenplay', title: 'THE MEMORY BOX', genre: 'Horror / Thriller', logline: 'A disgraced journalist discovers an artifact that allows him to physically experience the memories of the deceased, forcing him to relive a series of cold-case murders to identify a killer who is still on the prowl.' },
+            'house-of-mirrors': { type: 'Screenplay', title: 'HOUSE OF MIRRORS', genre: 'Psychological Horror', logline: "As a young man's battle with depression spirals into terrifying hallucinations, his dilapidated family home begins to physically deteriorate alongside his mind—blurring the line between a haunting and a breakdown." },
+            rein: { type: 'Screenplay', title: 'REIN', genre: 'Supernatural Drama / Horror', logline: 'Cursed by a 17th-century ritual gone wrong, a father and daughter are bound in a cycle of spiritual immortality. In every reincarnated life, he is driven by a dark providence to murder her to "save" her soul—a grisly pattern they must break before their divinity consumes them both.' },
+            malify: { type: 'Screenplay', title: 'MALIFY', genre: 'Horror / Comedy', logline: 'After a 500-year slumber triggered by a bad breakup, an ancient vampire wakes up beneath a bustling modern city and struggles to adapt to the 21st century while living in a chaotic group house with his bloodthirsty old friends.' },
+            'spooky-town': { type: 'Novel', title: 'SPOOKY TOWN', genre: 'Middle Grade Horror', logline: "After moving to a foggy new town for her father's work, 13-year-old Maya realizes her dad is missing and the neighbors are acting... beastly. Alongside a group of misfit friends, she uncovers a dark secret: the entire town is under a curse that turned monsters into oblivious humans—and Maya might be the scariest one of them all." }
+        };
+        const slug = new URLSearchParams(window.location.search).get('item');
+        const work = slug && WORKS[slug];
+        if (work) {
+            document.getElementById('work-eyebrow').textContent = '// ' + work.type;
+            document.getElementById('work-title').textContent = work.title;
+            document.getElementById('work-genre').textContent = work.genre;
+            document.getElementById('work-logline').textContent = work.logline;
+            document.title = work.title + ' — The Immortal Vault';
+        } else {
+            window.location.href = '/narrative-fiction';
+        }
+        const btn = document.getElementById('hamburger');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { btn.classList.toggle('open'); menu.classList.toggle('open'); });
+        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { btn.classList.remove('open'); menu.classList.remove('open'); }));
+    </script>
+</body>
+</html>
