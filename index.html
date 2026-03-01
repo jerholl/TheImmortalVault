@@ -892,35 +892,34 @@
                         <div class="dispatch-card-title">No posts yet</div>
                         <div class="dispatch-card-excerpt">Check back soon.</div>
                     </div>`;
-                return;
+            } else {
+                const fmt = d => d
+                    ? new Date(d).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+                    : '';
+
+                grid.innerHTML = posts.map(p => `
+                    <a href="/dispatch-post?slug=${encodeURIComponent(p.slug)}" class="dispatch-card">
+                        <div class="dispatch-card-date">${fmt(p.publishedAt)}</div>
+                        <div class="dispatch-card-title">${p.title || 'Untitled'}</div>
+                        <div class="dispatch-card-excerpt">${(p.excerpt || '').substring(0, 140)}${p.excerpt && p.excerpt.length > 140 ? '…' : ''}</div>
+                        <div class="dispatch-card-read">Read →</div>
+                    </a>`).join('');
+
+                // Animate cards
+                grid.querySelectorAll('.dispatch-card').forEach((c, i) => {
+                    c.style.opacity = '0';
+                    c.style.transform = 'translateY(14px)';
+                    c.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s, background 0.3s`;
+                    const obs = new IntersectionObserver(entries => {
+                        if (entries[0].isIntersecting) {
+                            c.style.opacity = '1';
+                            c.style.transform = 'translateY(0)';
+                            obs.disconnect();
+                        }
+                    }, { threshold: 0.08 });
+                    obs.observe(c);
+                });
             }
-
-            const fmt = d => d
-                ? new Date(d).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
-                : '';
-
-            grid.innerHTML = posts.map(p => `
-                <a href="/dispatch-post?slug=${encodeURIComponent(p.slug)}" class="dispatch-card">
-                    <div class="dispatch-card-date">${fmt(p.publishedAt)}</div>
-                    <div class="dispatch-card-title">${p.title || 'Untitled'}</div>
-                    <div class="dispatch-card-excerpt">${(p.excerpt || '').substring(0, 140)}${p.excerpt && p.excerpt.length > 140 ? '…' : ''}</div>
-                    <div class="dispatch-card-read">Read →</div>
-                </a>`).join('');
-
-            // Animate cards
-            grid.querySelectorAll('.dispatch-card').forEach((c, i) => {
-                c.style.opacity = '0';
-                c.style.transform = 'translateY(14px)';
-                c.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s, background 0.3s`;
-                const obs = new IntersectionObserver(entries => {
-                    if (entries[0].isIntersecting) {
-                        c.style.opacity = '1';
-                        c.style.transform = 'translateY(0)';
-                        obs.disconnect();
-                    }
-                }, { threshold: 0.08 });
-                obs.observe(c);
-            });
 
         } catch(err) {
             console.error('Sanity fetch failed:', err);

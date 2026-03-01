@@ -140,23 +140,22 @@
 
             if (!posts.length) {
                 statusEl.textContent = 'No posts published yet.';
-                return;
+            } else {
+                statusEl.textContent = `${posts.length} post${posts.length === 1 ? '' : 's'} published`;
+
+                const fmt = d => d
+                    ? new Date(d).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
+                    : '';
+
+                postsEl.innerHTML = posts.map(p => `
+                    <a class="post-card" href="/dispatch-post?slug=${encodeURIComponent(p.slug)}">
+                        <div class="post-date">${fmt(p.publishedAt)}</div>
+                        <h2 class="post-title">${p.title || 'Untitled post'}</h2>
+                        <p class="post-excerpt">${(p.excerpt || '').substring(0, 160)}…</p>
+                        <div class="post-read">Read →</div>
+                    </a>
+                `).join('');
             }
-
-            statusEl.textContent = `${posts.length} post${posts.length === 1 ? '' : 's'} published`;
-
-            const fmt = d => d
-                ? new Date(d).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
-                : '';
-
-            postsEl.innerHTML = posts.map(p => `
-                <a class="post-card" href="/dispatch-post?slug=${encodeURIComponent(p.slug)}">
-                    <div class="post-date">${fmt(p.publishedAt)}</div>
-                    <h2 class="post-title">${p.title || 'Untitled post'}</h2>
-                    <p class="post-excerpt">${(p.excerpt || '').substring(0, 160)}…</p>
-                    <div class="post-read">Read →</div>
-                </a>
-            `).join('');
 
         } catch(err) {
             console.error('Sanity error:', err);
