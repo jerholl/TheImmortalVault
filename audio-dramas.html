@@ -129,7 +129,7 @@
         /* ── In Development ── */
         .in-dev-section {
             padding: 0 60px 80px;
-            max-width: 720px;
+            max-width: 960px;
             margin: 0 auto;
         }
         .in-dev-eyebrow {
@@ -143,10 +143,35 @@
         .in-dev-card {
             border: 1px solid var(--border);
             background: var(--dark);
-            padding: 40px;
+            padding: 36px;
             transition: border-color 0.2s;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 36px;
+            align-items: flex-start;
         }
         .in-dev-card:hover { border-color: var(--red); }
+        .in-dev-poster {
+            width: 100%;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            background: #030303;
+            box-shadow: 0 10px 28px rgba(0,0,0,0.7);
+        }
+        .in-dev-poster img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .in-dev-card:hover .in-dev-poster img {
+            transform: scale(1.03);
+        }
+        @media (max-width: 768px) {
+            .in-dev-card { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
+            .in-dev-poster { max-width: 240px; margin: 0 auto; }
+        }
         .in-dev-tag {
             font-family: var(--mono);
             font-size: 0.48rem;
@@ -342,12 +367,17 @@
     <div class="in-dev-section">
         <p class="in-dev-eyebrow">// In Development</p>
         <div class="in-dev-card">
-            <div class="in-dev-tag">Horror Audio Drama (Series) &nbsp;·&nbsp; Supernatural Horror / Mystery</div>
-            <h3 class="in-dev-title">CULBURN <span>(Working Title)</span></h3>
-            <p class="in-dev-logline">When a cynical foster kid travels to a town that doesn't appear on any map to claim his estranged mother's estate, he discovers he's been lured into a predatory sanctuary run by ancient vampires who feed on the life force of their "devout" congregation.</p>
-            <div class="in-dev-summary">
-                <p>Milo Evans, a young man who grew up in the foster system and remembers little of his birth mother, is contacted by a mysterious lawyer regarding her estate in the remote town of Culburn. Upon arrival, he finds a community where the local gas station attendant has never heard of the town he's standing in, and the town itself seems to exist in a warped reality.</p>
-                <p style="margin-top: 16px;">As Milo attempts to settle his mother's affairs, he is relentlessly pressured into attending the local church by a cast of "friendly" but unsettling neighbors. He soon realizes the town is a feeding ground: the charismatic Reverend Parker is a psychic vampire who drains the life force of his patrons, while the seemingly sweet diner owner, Georgina Sweets, is a blood-crazed vampire who maintains her youth by feeding on "misbehaved" children. Trapped by a local mechanic who sabotages his car to prevent escape, Milo must navigate a web of ancient predators and childhood trauma to uncover the truth about his mother's "madness" and his own forgotten past before he becomes the next permanent resident of Culburn.</p>
+            <div class="in-dev-poster">
+                <img src="CulburnPoster.png" alt="Culburn" loading="lazy">
+            </div>
+            <div class="in-dev-content">
+                <div class="in-dev-tag">Horror Audio Drama (Series) &nbsp;·&nbsp; Supernatural Horror / Mystery</div>
+                <h3 class="in-dev-title">CULBURN <span>(Working Title)</span></h3>
+                <p class="in-dev-logline">When a cynical foster kid travels to a town that doesn't appear on any map to claim his estranged mother's estate, he discovers he's been lured into a predatory sanctuary run by ancient vampires who feed on the life force of their "devout" congregation.</p>
+                <div class="in-dev-summary">
+                    <p>Milo Evans, a young man who grew up in the foster system and remembers little of his birth mother, is contacted by a mysterious lawyer regarding her estate in the remote town of Culburn. Upon arrival, he finds a community where the local gas station attendant has never heard of the town he's standing in, and the town itself seems to exist in a warped reality.</p>
+                    <p style="margin-top: 16px;">As Milo attempts to settle his mother's affairs, he is relentlessly pressured into attending the local church by a cast of "friendly" but unsettling neighbors. He soon realizes the town is a feeding ground: the charismatic Reverend Parker is a psychic vampire who drains the life force of his patrons, while the seemingly sweet diner owner, Georgina Sweets, is a blood-crazed vampire who maintains her youth by feeding on "misbehaved" children. Trapped by a local mechanic who sabotages his car to prevent escape, Milo must navigate a web of ancient predators and childhood trauma to uncover the truth about his mother's "madness" and his own forgotten past before he becomes the next permanent resident of Culburn.</p>
+                </div>
             </div>
         </div>
     </div>

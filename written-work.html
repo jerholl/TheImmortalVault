@@ -135,8 +135,9 @@
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/films">Films</a></li>
+            <li><a href="/films?filter=short">Short Films</a></li>
+            <li><a href="/narrative-fiction" class="active">Novels</a></li>
             <li><a href="/audio-dramas">Audio Dramas</a></li>
-            <li><a href="/narrative-fiction">Written Works</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
@@ -145,14 +146,18 @@
     <div class="mobile-menu" id="mobile-menu">
         <a href="/">Home</a>
         <a href="/films">Films</a>
+        <a href="/films?filter=short">Short Films</a>
+        <a href="/narrative-fiction">Novels</a>
         <a href="/audio-dramas">Audio Dramas</a>
-        <a href="/narrative-fiction">Written Works</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
     </div>
 
     <main class="work-hero">
         <p class="work-eyebrow" id="work-eyebrow">// Written Work</p>
+        <div id="work-poster-wrap" style="display:none; margin: 0 auto 32px; max-width: 280px;">
+            <img id="work-poster" src="" alt="" style="width: 100%; height: auto; border: 1px solid var(--border); box-shadow: 0 12px 32px rgba(0,0,0,0.85); display: block;">
+        </div>
         <h1 class="work-title" id="work-title">—</h1>
         <p class="work-genre" id="work-genre">—</p>
         <p class="work-logline" id="work-logline">—</p>
@@ -176,6 +181,8 @@
 
     <script>
         const WORKS = {
+            astrals: { type: 'Novel', title: 'ASTRALS', genre: 'Middle Grade / Portal Fantasy', logline: 'When an ordinary kid and their spirited companion stumble upon a mysterious portal, they are pulled into an ethereal realm fraught with shadowy creatures and ancient cosmic secrets.', poster: 'AstralsPoster.png' },
+            
             sedona: { type: 'Screenplay', title: 'SEDONA', genre: 'Action / Horror', logline: 'To rescue her kidnapped sister, an uncompromising monster hunter must forge a reluctant alliance with a rogue werewolf—the very creature she was trained to kill.' },
             rein: { type: 'Screenplay', title: 'REIN', genre: 'Supernatural Drama / Horror', logline: 'Bound by a botched seventeenth-century ritual, an immortal father is cursed to hunt down and murder his reincarnated daughter in every lifetime to "cleanse" her soul—a grisly cycle they must break before their power destroys them both.' },
             'remember-me': { type: 'Screenplay', title: 'REMEMBER ME', genre: 'Supernatural / Psychological Horror', logline: 'When a ten-year-old girl’s violent night terrors escalate into vivid memories of a past life, her protective father is horrified when an elderly stranger recognizes her as a murder victim from decades ago.' },
@@ -183,7 +190,7 @@
             halloweenastreamathon: { type: 'Screenplay', title: 'HALLOWEENASTREAMATHON', genre: 'Slasher / Horror', logline: 'When a collective of popular content creators stages a citywide Halloween hide-and-seek event, their live broadcast turns into a desperate fight for survival against an active serial killer.' },
             'vintage-antique': { type: 'Screenplay', title: 'VINTAGE ANTIQUE', genre: 'Supernatural Horror', logline: 'An eccentric antique dealer sells seemingly harmless curios to unsuspecting shoppers, unaware each relic carries a bespoke curse designed to consume its new owner.' },
             'the-town-of-burnwill': { type: 'Screenplay', title: 'THE TOWN OF BURNWILL', genre: 'Slasher / Horror', logline: 'Upon moving to an isolated community where locals systematically slaughter each graduating class, a newly arrived high school senior and her classmates must fight their way through graduation night alive.' },
-            blackmailed: { type: 'Screenplay', title: 'BLACKMAILED', genre: 'Crime / Thriller', logline: 'Targeted by an anonymous cyber-extortionist holding their darkest secrets hostage, a clique of teenagers is coerced into executing an escalating series of violent kidnappings and contract killings.' },
+            blackmailed: { type: 'Screenplay', title: 'BLACKMAILED', genre: 'Crime / Thriller', logline: 'Targeted by an anonymous cyber-extortionist holding their darkest secrets hostage, a clique of teenagers is coerced into executing an escalating series of violent kidnappings and contract killings.', poster: 'BlackmailedPoster.png' },
             'locked-in': { type: 'Screenplay', title: 'LOCKED IN', genre: 'Horror / Thriller', logline: 'Lured to a creator incubator inside an eccentric billionaire’s compound, a squad of online influencers discovers they are hostages in a sadistic survival game where disobedience carries lethal consequences on camera.' },
             maladaptive: { type: 'Screenplay', title: 'MALADAPTIVE', genre: 'Psychological Horror', logline: 'Reeling from a toxic relationship, a reclusive man relies on excessive daydreaming to cope—until the boundary between fantasy and reality erodes, allowing his violent imaginary constructs to bleed into the physical world.' },
             'ghost-hunter': { type: 'Screenplay', title: 'GHOST HUNTER', genre: 'Horror / Comedy (Found Footage)', logline: 'Facing plummeting view counts, a desperate paranormal vlogger pairs with an aggressive skeptic for a live-streamed investigation, inadvertently unleashing a demonic entity in front of a global audience.' },
