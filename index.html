@@ -266,7 +266,7 @@
         /* ── Vault Panels ── */
         .vault-panels {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             height: 100vh;
             min-height: 560px;
             border-bottom: 1px solid var(--border);
@@ -277,7 +277,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            padding: 40px 32px;
+            padding: 40px 28px;
             text-decoration: none;
             color: var(--text);
             overflow: hidden;
@@ -289,7 +289,8 @@
         .vault-panel:last-child { border-right: none; }
         .vault-panel:nth-child(1) { background: #090608; }
         .vault-panel:nth-child(2) { background: #060609; }
-        .vault-panel:nth-child(3) { background: #090908; }
+        .vault-panel:nth-child(3) { background: #080907; }
+        .vault-panel:nth-child(4) { background: #090908; }
 
         .vault-panel::before {
             content: "";
@@ -858,7 +859,7 @@
             .hamburger { display: flex; }
             .hero { padding: 0 24px 50px; min-height: 70vh; }
             .hero-scroll { display: none; }
-            .vault-panels { grid-template-columns: 1fr; height: auto; }
+            .vault-panels { grid-template-columns: repeat(2, 1fr); height: auto; }
             .vault-panel { min-height: 320px; border-bottom: 1px solid var(--border); border-right: none; }
             .vault-panel:last-child { border-bottom: none; }
             .panel-ghost { font-size: 3.5rem; bottom: 10px; }
@@ -899,6 +900,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/films">Films</a></li>
             <li><a href="/films?filter=short">Short Films</a></li>
+            <li><a href="/narrative-fiction">Novels</a></li>
             <li><a href="/audio-dramas">Audio Dramas</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
@@ -912,6 +914,7 @@
         <a href="/">Home</a>
         <a href="/films">Films</a>
         <a href="/films?filter=short">Short Films</a>
+        <a href="/narrative-fiction">Novels</a>
         <a href="/audio-dramas">Audio Dramas</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
@@ -931,7 +934,7 @@
         <div class="hero-scroll">Scroll</div>
     </section>
 
-    <!-- Three Panel Gateway -->
+    <!-- Four Panel Gateway -->
     <div class="vault-panels">
         <a href="/films" class="vault-panel">
             <div class="panel-image"><img src="Lauren.png" alt="Films"></div>
@@ -953,11 +956,21 @@
                 <div class="panel-cta"><span class="panel-cta-line"></span> Watch</div>
             </div>
         </a>
-        <a href="/audio-dramas" class="vault-panel">
-            <div class="panel-image"><img src="Mic.jpg" alt="Audio Dramas"></div>
+        <a href="/narrative-fiction" class="vault-panel">
+            <div class="panel-image"><img src="sedonaspage.png" alt="Novels"></div>
             <div class="panel-ghost">III</div>
             <div class="panel-content">
                 <div class="panel-num">03</div>
+                <div class="panel-title">Novels</div>
+                <div class="panel-desc">Original fiction,<br>novellas &amp; dark lore</div>
+                <div class="panel-cta"><span class="panel-cta-line"></span> Read</div>
+            </div>
+        </a>
+        <a href="/audio-dramas" class="vault-panel">
+            <div class="panel-image"><img src="Mic.jpg" alt="Audio Dramas"></div>
+            <div class="panel-ghost">IV</div>
+            <div class="panel-content">
+                <div class="panel-num">04</div>
                 <div class="panel-title">Audio<br>Dramas</div>
                 <div class="panel-desc">Podcast &amp;<br>audio productions</div>
                 <div class="panel-cta"><span class="panel-cta-line"></span> Listen</div>
@@ -965,35 +978,24 @@
         </a>
     </div>
 
-    <!-- 04 — New Films Section -->
+    <!-- 05 — New Films Section -->
     <section class="new-films-section" id="new-films">
         <div class="new-films-header">
             <div class="new-films-heading">
-                <span class="new-films-num">04</span>
+                <span class="new-films-num">05</span>
                 <h2 class="new-films-title">New <em>Films</em></h2>
             </div>
             <a href="/films" class="new-films-all">All Films →</a>
         </div>
         <div class="new-films-grid">
-            <a href="/coming-soon/?item=film-project-07" class="new-film-card">
+            <a href="/coming-soon/?item=film-project-10" class="new-film-card">
                 <div class="new-film-img">
-                    <div class="poster-blur" style="background-image: url('TheRustlePoster.jpg');"></div>
-                    <img src="TheRustlePoster.jpg" alt="The Rustle" class="poster-main" loading="lazy">
+                    <div class="poster-blur" style="background-image: url('TheBrutePoster.jpg');"></div>
+                    <img src="TheBrutePoster.jpg" alt="The Brute" class="poster-main" loading="lazy">
                 </div>
                 <div class="new-film-body">
                     <div class="new-film-tag">Short Film</div>
-                    <div class="new-film-title">The Rustle</div>
-                    <div class="new-film-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
-                </div>
-            </a>
-            <a href="/coming-soon/?item=film-project-08" class="new-film-card">
-                <div class="new-film-img">
-                    <div class="poster-blur" style="background-image: url('TheMimicPoster.jpg');"></div>
-                    <img src="TheMimicPoster.jpg" alt="The Mimic" class="poster-main" loading="lazy">
-                </div>
-                <div class="new-film-body">
-                    <div class="new-film-tag">Short Film</div>
-                    <div class="new-film-title">The Mimic</div>
+                    <div class="new-film-title">The Brute</div>
                     <div class="new-film-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
                 </div>
             </a>
@@ -1008,14 +1010,25 @@
                     <div class="new-film-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
                 </div>
             </a>
-            <a href="/coming-soon/?item=film-project-10" class="new-film-card">
+            <a href="/coming-soon/?item=film-project-08" class="new-film-card">
                 <div class="new-film-img">
-                    <div class="poster-blur" style="background-image: url('TheBrutePoster.jpg');"></div>
-                    <img src="TheBrutePoster.jpg" alt="The Brute" class="poster-main" loading="lazy">
+                    <div class="poster-blur" style="background-image: url('TheMimicPoster.jpg');"></div>
+                    <img src="TheMimicPoster.jpg" alt="The Mimic" class="poster-main" loading="lazy">
                 </div>
                 <div class="new-film-body">
                     <div class="new-film-tag">Short Film</div>
-                    <div class="new-film-title">The Brute</div>
+                    <div class="new-film-title">The Mimic</div>
+                    <div class="new-film-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-07" class="new-film-card">
+                <div class="new-film-img">
+                    <div class="poster-blur" style="background-image: url('TheRustlePoster.jpg');"></div>
+                    <img src="TheRustlePoster.jpg" alt="The Rustle" class="poster-main" loading="lazy">
+                </div>
+                <div class="new-film-body">
+                    <div class="new-film-tag">Short Film</div>
+                    <div class="new-film-title">The Rustle</div>
                     <div class="new-film-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
                 </div>
             </a>
@@ -1026,7 +1039,7 @@
     <section class="dispatch-section">
         <div class="dispatch-header">
             <div class="dispatch-heading">
-                <span class="dispatch-num">05</span>
+                <span class="dispatch-num">06</span>
                 <h2 class="dispatch-title">Creature <em>Feature Lab</em></h2>
                 <a href="/dispatch" class="dispatch-all">View All →</a>
             </div>
