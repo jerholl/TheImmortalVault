@@ -217,11 +217,9 @@
             align-items: center;
             justify-content: center;
         }
-        .feature-card-img {
-            aspect-ratio: 2 / 3;
-        }
+        .feature-card-img,
         .short-card-img {
-            aspect-ratio: 4 / 3;
+            aspect-ratio: 2 / 3;
         }
 
         /* Ambient blurred backdrop */
@@ -366,13 +364,13 @@
             <div class="page-eyebrow">The Archive // Motion Pictures</div>
             <h1 class="page-title">Films &amp; <em>Shorts</em></h1>
         </div>
-        <div class="page-count" id="header-count">32 Projects Archived</div>
+        <div class="page-count" id="header-count">30 Projects Archived</div>
     </header>
 
     <!-- Sticky Filter Bar -->
     <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All Projects (32)</button>
-        <button class="filter-btn" data-filter="feature">Feature Films (17)</button>
+        <button class="filter-btn active" data-filter="all">All Projects (30)</button>
+        <button class="filter-btn" data-filter="feature">Feature Films (15)</button>
         <button class="filter-btn" data-filter="short">Short Films (15)</button>
     </div>
 
@@ -383,20 +381,9 @@
                 <div class="section-eyebrow">01 // Feature Length</div>
                 <h2 class="section-title">Feature <em>Films</em></h2>
             </div>
-            <div class="section-badge">17 Archived Productions</div>
+            <div class="section-badge">15 Archived Productions</div>
         </div>
         <div class="films-grid" id="feature-films-grid">
-            <a href="/coming-soon/?item=film-project-parallel" class="film-card feature-film-card">
-                <div class="film-card-img feature-card-img">
-                    <div class="poster-blur" style="background-image: url('ParallelPoster.png');"></div>
-                    <img src="ParallelPoster.png" alt="Parallel" class="poster-main" loading="lazy">
-                </div>
-                <div class="film-card-body">
-                    <div class="film-card-tag">Sci-Fi / Thriller</div>
-                    <div class="film-card-title">Parallel</div>
-                    <div class="film-card-meta">Feature Film // In Development</div>
-                </div>
-            </a>
             <a href="/coming-soon/?item=film-project-traveler" class="film-card feature-film-card">
                 <div class="film-card-img feature-card-img">
                     <div class="poster-blur" style="background-image: url('TravelerPoster.png');"></div>
@@ -416,17 +403,6 @@
                 <div class="film-card-body">
                     <div class="film-card-tag">Sci-Fi / Thriller</div>
                     <div class="film-card-title">The Other Place</div>
-                    <div class="film-card-meta">Feature Film // In Development</div>
-                </div>
-            </a>
-            <a href="/coming-soon/?item=film-project-quantum-travellers" class="film-card feature-film-card">
-                <div class="film-card-img feature-card-img">
-                    <div class="poster-blur" style="background-image: url('QuantumTravellersPoster.png');"></div>
-                    <img src="QuantumTravellersPoster.png" alt="Quantum Travellers" class="poster-main" loading="lazy">
-                </div>
-                <div class="film-card-body">
-                    <div class="film-card-tag">Middle Grade Sci-Fi</div>
-                    <div class="film-card-title">Quantum Travellers</div>
                     <div class="film-card-meta">Feature Film // In Development</div>
                 </div>
             </a>
@@ -562,10 +538,10 @@
                     <div class="film-card-meta">Feature Film // Pre-Production</div>
                 </div>
             </a>
-            <a href="/narrative-fiction/?item=film-sedona" class="film-card feature-film-card">
+            <a href="/coming-soon/?item=film-sedona" class="film-card feature-film-card">
                 <div class="film-card-img feature-card-img">
-                    <div class="poster-blur" style="background-image: url('sedonaspage.png');"></div>
-                    <img src="sedonaspage.png" alt="Sedona" class="poster-main" loading="lazy">
+                    <div class="poster-blur" style="background-image: url('SedonaPoster.png');"></div>
+                    <img src="SedonaPoster.png" alt="Sedona" class="poster-main" loading="lazy">
                 </div>
                 <div class="film-card-body">
                     <div class="film-card-tag">Action / Horror</div>
@@ -714,8 +690,8 @@
             </a>
             <a href="/coming-soon/?item=film-short-the-rot" class="film-card short-film-card">
                 <div class="film-card-img short-card-img">
-                    <div class="poster-blur" style="background-image: url('TheRotPoster.jpg');"></div>
-                    <img src="TheRotPoster.jpg" alt="The Rot" class="poster-main" loading="lazy">
+                    <div class="poster-blur" style="background-image: url('TheRotPoster.png');"></div>
+                    <img src="TheRotPoster.png" alt="The Rot" class="poster-main" loading="lazy">
                 </div>
                 <div class="film-card-body">
                     <div class="film-card-tag">Horror / Zombie</div>
@@ -799,12 +775,12 @@
                 featureGroup.style.display = 'block';
                 shortGroup.style.display = 'block';
                 vaultDivider.style.display = 'flex';
-                headerCount.textContent = '32 Projects Archived';
+                headerCount.textContent = '30 Projects Archived';
             } else if (filter === 'feature') {
                 featureGroup.style.display = 'block';
                 shortGroup.style.display = 'none';
                 vaultDivider.style.display = 'none';
-                headerCount.textContent = '17 Feature Films Archived';
+                headerCount.textContent = '15 Feature Films Archived';
             } else if (filter === 'short') {
                 featureGroup.style.display = 'none';
                 shortGroup.style.display = 'block';

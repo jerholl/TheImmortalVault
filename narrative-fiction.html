@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Written Works — The Immortal Vault</title>
+    <title>Novels &amp; Literature — The Immortal Vault</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MSCZ5M4Z4"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -11,255 +11,351 @@
         gtag('js', new Date());
         gtag('config', 'G-1MSCZ5M4Z4');
     </script>
-    <meta name="description" content="Read written works from The Immortal Vault, including stories, scripts, and dark speculative works.">
+    <meta name="description" content="Explore original horror, sci-fi, and dark fantasy novels from The Immortal Vault by Jeremy Hollenbeck.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://theimmortalvault.com/narrative-fiction">
     <meta name="theme-color" content="#060606">
     <meta property="og:site_name" content="The Immortal Vault">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Written Works — The Immortal Vault">
-    <meta property="og:description" content="Explore stories and scripts in The Immortal Vault written works archive.">
+    <meta property="og:title" content="Novels &amp; Literature — The Immortal Vault">
+    <meta property="og:description" content="Explore original horror, sci-fi, and dark fantasy novels from The Immortal Vault.">
     <meta property="og:url" content="https://theimmortalvault.com/narrative-fiction">
-    <meta property="og:image" content="https://theimmortalvault.com/sedonaspage.png">
+    <meta property="og:image" content="https://theimmortalvault.com/ParallelPoster.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Written Works — The Immortal Vault">
-    <meta name="twitter:description" content="Written works, stories and scripts from The Immortal Vault.">
-    <meta name="twitter:image" content="https://theimmortalvault.com/sedonaspage.png">
+    <meta name="twitter:title" content="Novels &amp; Literature — The Immortal Vault">
+    <meta name="twitter:description" content="Explore original horror, sci-fi, and dark fantasy novels from The Immortal Vault.">
+    <meta name="twitter:image" content="https://theimmortalvault.com/ParallelPoster.png">
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --black:#060606; --dark:#0c0c0c; --surface:#111;
-            --border:#1c1c1c; --red:#8b0000; --red2:#a31515;
-            --text:#d8d4ce; --muted:#4a4a4a;
-            --mono:'Share Tech Mono',monospace; --serif:'DM Serif Display',serif; --sans:'Inter',sans-serif;
+            --black:  #060606; --dark: #0c0c0c; --surface: #111;
+            --border: #1c1c1c; --red: #8b0000; --red2: #a31515;
+            --text:   #d8d4ce; --muted: #4a4a4a;
+            --mono: 'Share Tech Mono', monospace;
+            --serif: 'DM Serif Display', serif;
+            --sans: 'Inter', sans-serif;
         }
-        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-        html{scroll-behavior:smooth;}
-        body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden;}
-        body::after{content:"";position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.025) 2px,rgba(0,0,0,0.025) 4px);pointer-events:none;z-index:9000;}
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--black); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+        body::after { content: ""; position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.025) 2px, rgba(0,0,0,0.025) 4px); pointer-events: none; z-index: 9000; }
 
-        nav{position:sticky;top:0;z-index:1000;height:64px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;background:var(--black);border-bottom:1px solid var(--border);}
-        .nav-logo{font-family:var(--mono);font-size:0.85rem;letter-spacing:4px;text-transform:uppercase;text-decoration:none;color:var(--text);white-space:nowrap;}
-        .nav-logo::after{content:"_";color:var(--red2);animation:blink 1.2s step-end infinite;}
-        @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-        .nav-links{display:flex;gap:28px;list-style:none;}
-        .nav-links a{text-decoration:none;color:#e0e0e0;font-family:var(--mono);font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s;white-space:nowrap;}
-        .nav-links a::before{content:"/ ";color:var(--red);opacity:0;transition:opacity 0.2s;}
-        .nav-links a:hover,.nav-links a.active{color:var(--text);}
-        .nav-links a:hover::before,.nav-links a.active::before{opacity:1;}
-        .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0;}
-        .hamburger span{display:block;width:20px;height:1px;background:var(--text);transition:all 0.3s;}
-        .hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg);background:var(--red2);}
-        .hamburger.open span:nth-child(2){opacity:0;}
-        .hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);background:var(--red2);}
-        .mobile-menu{position:fixed;inset:0;background:var(--black);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
-        .mobile-menu.open{max-height:100vh;}
-        .mobile-menu a{font-family:var(--mono);font-size:1.1rem;letter-spacing:4px;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color 0.2s;}
-        .mobile-menu a:hover{color:var(--red2);}
+        /* ── Nav ── */
+        nav { position: sticky; top: 0; z-index: 1000; height: 64px; padding: 0 60px; display: flex; align-items: center; justify-content: space-between; background: var(--black); border-bottom: 1px solid var(--border); }
+        .nav-logo { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 4px; text-transform: uppercase; text-decoration: none; color: var(--text); white-space: nowrap; }
+        .nav-logo::after { content: "_"; color: var(--red2); animation: blink 1.2s step-end infinite; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a { text-decoration: none; color: #e0e0e0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
+        .nav-links a::before { content: "/ "; color: var(--red); opacity: 0; transition: opacity 0.2s; }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a:hover::before { opacity: 1; }
+        .nav-links a.active { color: var(--text); }
+        .nav-links a.active::before { opacity: 1; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; flex-shrink: 0; }
+        .hamburger span { display: block; width: 20px; height: 1px; background: var(--text); transition: all 0.3s; }
+        .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); background: var(--red2); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); background: var(--red2); }
+        .mobile-menu { position: fixed; inset: 0; background: var(--black); z-index: 999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 36px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .mobile-menu.open { max-height: 100vh; }
+        .mobile-menu a { font-family: var(--mono); font-size: 1.1rem; letter-spacing: 4px; text-transform: uppercase; text-decoration: none; color: var(--muted); transition: color 0.2s; }
+        .mobile-menu a:hover { color: var(--red2); }
 
-        .page-header{padding:80px 60px 60px;border-bottom:1px solid var(--border);display:flex;align-items:flex-end;justify-content:space-between;gap:40px;}
-        .page-eyebrow{font-family:var(--mono);font-size:0.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--red2);margin-bottom:16px;}
-        .page-title{font-family:var(--serif);font-size:clamp(2.5rem,6vw,5.5rem);line-height:1;color:var(--text);}
-        .page-title em{font-style:italic;color:var(--red2);}
-        .page-count{font-family:var(--mono);font-size:0.6rem;letter-spacing:3px;color:var(--muted);text-transform:uppercase;white-space:nowrap;}
+        /* ── Page Header ── */
+        .page-header {
+            padding: 80px 60px 48px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .page-eyebrow { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--red2); margin-bottom: 14px; }
+        .page-title { font-family: var(--serif); font-size: clamp(3rem, 7vw, 5.8rem); line-height: 1; color: var(--text); }
+        .page-title em { font-style: italic; color: var(--red2); }
+        .page-count { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; white-space: nowrap; }
 
-        /* ── Vault Sections ── */
-        .vault-section { padding: 0 60px; }
+        /* ── Filter Bar ── */
+        .filter-bar {
+            padding: 18px 60px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 12px;
+            background: var(--dark);
+            position: sticky;
+            top: 64px;
+            z-index: 900;
+        }
+        .filter-btn {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+            background: none;
+            border: 1px solid var(--border);
+            padding: 10px 22px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .filter-btn:hover { color: var(--text); border-color: var(--red2); background: rgba(163,21,21,0.1); }
+        .filter-btn.active { color: #fff; border-color: var(--red2); background: rgba(163,21,21,0.35); font-weight: 500; }
 
-        .section-label {
+        /* ── Section Heading Bar ── */
+        .section-heading-bar {
+            padding: 48px 60px 24px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            background: var(--dark);
+        }
+        .section-eyebrow {
             font-family: var(--mono);
             font-size: 0.55rem;
             letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--red2);
-            margin: 48px 0 24px;
+            margin-bottom: 8px;
+        }
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 3.8vw, 3rem);
+            line-height: 1.1;
+            color: var(--text);
+        }
+        .section-title em {
+            font-style: italic;
+            color: var(--red2);
+        }
+        .section-badge {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 3px;
+            color: var(--muted);
+            text-transform: uppercase;
+            white-space: nowrap;
         }
 
-        /* ── Cards Grid ── */
-        .cards-row {
-            display: grid;
-            gap: 2px;
-            background: var(--border);
-            margin-bottom: 0;
-        }
-        .cards-row.large { grid-template-columns: repeat(3, 1fr); }
-        .cards-row.medium { grid-template-columns: repeat(4, 1fr); }
-        .cards-row.small { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-
-        /* ── Card ── */
-        .vault-card {
+        .vault-divider {
             position: relative;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--black);
+            padding: 0 60px;
+            border-bottom: 1px solid var(--border);
+        }
+        .vault-divider-inner {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--border) 20%, var(--border) 80%, transparent 100%);
+            position: relative;
+        }
+        .vault-divider-inner::after {
+            content: "◆";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--black);
+            padding: 0 16px;
+            color: var(--red2);
+            font-size: 0.65rem;
+        }
+
+        /* ── Novels Grids ── */
+        .films-grid {
+            padding: 48px 60px 72px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+            background: var(--black);
+        }
+
+        .film-card {
             background: var(--dark);
-            padding: 36px 28px;
+            border: 1px solid var(--border);
             text-decoration: none;
             color: var(--text);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
             overflow: hidden;
-        }
-        .vault-card::before {
-            content: "";
-            position: absolute;
-            left: 0; top: 0; bottom: 0;
-            width: 2px;
-            background: var(--red2);
-            transform: scaleY(0);
-            transform-origin: bottom;
-            transition: transform 0.3s ease;
-        }
-        .vault-card:hover {
-            background: rgba(139,0,0,0.08);
-            box-shadow: 0 0 32px rgba(139,0,0,0.2), inset 0 0 60px rgba(139,0,0,0.04);
-        }
-        .vault-card:hover::before { transform: scaleY(1); }
-
-        .cards-row.large .vault-card { min-height: 340px; padding: 40px 32px; }
-        .cards-row.medium .vault-card { min-height: 280px; padding: 32px 24px; }
-        .cards-row.small .vault-card { min-height: 240px; padding: 28px 24px; }
-
-        .card-tag {
-            font-family: var(--mono);
-            font-size: 0.45rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--red2);
-            border: 1px solid var(--red);
-            padding: 3px 8px;
-            display: inline-block;
-            margin-bottom: 16px;
-            align-self: flex-start;
-        }
-        .card-title {
-            font-family: var(--serif);
-            line-height: 1.1;
-            color: var(--text);
-            margin-bottom: 12px;
-            transition: color 0.25s ease;
-        }
-        .cards-row.large .card-title { font-size: clamp(1.6rem, 3vw, 2.2rem); }
-        .cards-row.medium .card-title { font-size: clamp(1.2rem, 2vw, 1.6rem); }
-        .cards-row.small .card-title { font-size: clamp(1.1rem, 1.8vw, 1.4rem); }
-        .vault-card:hover .card-title { color: var(--red2); }
-
-        .card-genre {
-            font-family: var(--mono);
-            font-size: 0.48rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #a8a49e;
-            margin-bottom: 16px;
-        }
-        .card-logline {
-            font-size: 0.82rem;
-            color: var(--text);
-            line-height: 1.75;
-            flex: 1;
-            margin-bottom: 20px;
-        }
-        .cards-row.small .card-logline { font-size: 0.78rem; }
-
-        .card-cta {
-            font-family: var(--mono);
-            font-size: 0.48rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--muted);
-            border: 1px solid var(--border);
-            padding: 10px 16px;
-            display: inline-block;
-            align-self: flex-start;
-            transition: all 0.25s ease;
-        }
-        .vault-card:hover .card-cta {
-            border-color: var(--red);
-            color: var(--red2);
-            box-shadow: 0 0 12px rgba(139,0,0,0.25);
-        }
-
-        /* ── Section Divider — film strip style ── */
-        .vault-divider {
-            padding: 0 60px;
-            margin: 0;
-        }
-        .vault-divider-inner {
-            height: 18px;
-            background: repeating-linear-gradient(
-                90deg,
-                var(--border) 0,
-                var(--border) 1px,
-                var(--dark) 1px,
-                var(--dark) 20px
-            );
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
             position: relative;
+            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .vault-divider-inner::before,
-        .vault-divider-inner::after {
+        .film-card:hover {
+            border-color: var(--red2);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.85);
+        }
+
+        .film-card::before {
             content: "";
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 8px;
-            height: 8px;
-            background: var(--red);
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-            opacity: 0.8;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--red2);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+            z-index: 3;
         }
-        .vault-divider-inner::before { left: 12%; }
-        .vault-divider-inner::after { right: 12%; }
-
-        .vault-bottom-pad { padding-bottom: 80px; }
-
-        footer{padding:28px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);}
-        .footer-logo{font-family:var(--mono);font-size:0.7rem;letter-spacing:4px;color:var(--muted);text-transform:uppercase;}
-        .footer-logo span{color:var(--red);}
-        .footer-copy{font-family:var(--mono);font-size:0.55rem;letter-spacing:2px;color:var(--muted);}
-        .footer-social{display:flex;align-items:center;gap:8px;}
-        .social-icon{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--red2);background:rgba(163,21,21,0.2);color:#f3eee8;text-decoration:none;transition:all 0.2s;}
-.social-icon svg{width:18px;height:18px;fill:currentColor;}
-        .social-icon:hover{color:#fff;border-color:#d32626;background:rgba(163,21,21,0.45);transform:translateY(-1px);}
-        .footer-right{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end;}
-        .footer-email{font-family:var(--mono);font-size:0.52rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
-        .footer-link{font-family:var(--mono);font-size:0.52rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;text-decoration:none;border-bottom:1px solid transparent;transition:all 0.2s;}
-        .footer-link:hover{color:#fff;border-color:var(--red2);}
-
-        @media(max-width:1100px){
-            .cards-row.medium { grid-template-columns: repeat(2, 1fr); }
+        .film-card:hover::before {
+            transform: scaleX(1);
         }
-        @media(max-width:900px){
-            nav{padding:0 24px;} .nav-links{display:none;} .hamburger{display:flex;}
-            .page-header{padding:50px 24px 40px;flex-direction:column;align-items:flex-start;gap:16px;}
-            .vault-section{padding:0 24px;}
-            .vault-divider{padding:0 24px;}
-            .cards-row.large,
-            .cards-row.medium,
-            .cards-row.small { grid-template-columns: 1fr; }
-            .cards-row.large .vault-card,
-            .cards-row.medium .vault-card,
-            .cards-row.small .vault-card { min-height: auto; }
-            footer{flex-direction:column;gap:10px;text-align:center;padding:28px 24px;}
-            .footer-right{justify-content:center;}
+
+        /* Card Poster Image Frame */
+        .film-card-img {
+            position: relative;
+            width: 100%;
+            background: #040404;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+        .feature-card-img,
+        .short-card-img {
+            aspect-ratio: 2 / 3;
+        }
+
+        /* Ambient blurred backdrop */
+        .poster-blur {
+            position: absolute;
+            inset: -14px;
+            background-size: cover;
+            background-position: center;
+            filter: blur(22px) brightness(0.3) saturate(1.25);
+            transform: scale(1.15);
+            opacity: 0.9;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Uncropped centered crisp poster */
+        .poster-main {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            filter: grayscale(10%);
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+        .film-card:hover .poster-main {
+            transform: scale(1.03);
+            filter: grayscale(0%);
+        }
+
+        .film-card-body {
+            padding: 22px 20px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background: var(--dark);
+            border-top: 1px solid var(--border);
+            flex: 1;
+        }
+        .film-card-tag {
+            font-family: var(--mono);
+            font-size: 0.52rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red2);
+        }
+        .film-card-title {
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            line-height: 1.2;
+            color: var(--text);
+            transition: color 0.2s;
+        }
+        .film-card:hover .film-card-title {
+            color: #fff;
+        }
+        .film-card-meta {
+            font-family: var(--mono);
+            font-size: 0.52rem;
+            letter-spacing: 2px;
+            color: var(--muted);
+            margin-top: auto;
+            padding-top: 8px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1200px) {
+            .films-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; padding: 40px 40px 60px; }
+            .page-header, .filter-bar, .section-heading-bar, .vault-divider { padding-left: 40px; padding-right: 40px; }
+            nav { padding: 0 40px; }
+        }
+        @media (max-width: 850px) {
+            .films-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; padding: 32px 24px 50px; }
+            .page-header, .filter-bar, .section-heading-bar, .vault-divider { padding-left: 24px; padding-right: 24px; }
+            nav { padding: 0 24px; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .filter-bar { gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .filter-btn { padding: 8px 14px; font-size: 0.54rem; white-space: nowrap; }
+            .page-title { font-size: 3rem; }
+            .section-title { font-size: 2rem; }
+        }
+        @media (max-width: 540px) {
+            .films-grid { grid-template-columns: 1fr; gap: 20px; padding: 24px 18px 40px; }
+            .page-header, .filter-bar, .section-heading-bar, .vault-divider { padding-left: 18px; padding-right: 18px; }
+            nav { padding: 0 18px; }
+            .page-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .section-heading-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+        }
+
+        footer {
+            padding: 28px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+            background: var(--black);
+        }
+        .footer-logo { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 4px; color: var(--muted); text-transform: uppercase; }
+        .footer-logo span { color: var(--red); }
+        .footer-copy { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 2px; color: var(--muted); }
+        .footer-social { display: flex; align-items: center; gap: 8px; }
+        .social-icon svg { width: 18px; height: 18px; fill: currentColor; }
+        .social-icon {
+            width: 40px; height: 40px;
+            display: inline-flex; align-items: center; justify-content: center;
+            border: 1px solid var(--red2); background: rgba(163, 21, 21, 0.2);
+            color: #f3eee8; text-decoration: none; font-family: var(--mono);
+            font-size: 1rem; font-weight: 600; letter-spacing: 1px; transition: all 0.2s;
+        }
+        .social-icon:hover { color: #fff; border-color: #d32626; background: rgba(163, 21, 21, 0.45); transform: translateY(-1px); }
+        .footer-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+        .footer-email { font-family: var(--mono); font-size: 0.52rem; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
     </style>
 </head>
 <body>
 
+    <!-- Main Navigation -->
     <nav>
         <a href="/" class="nav-logo">THE IMMORTAL VAULT</a>
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/films">Films</a></li>
             <li><a href="/films?filter=short">Short Films</a></li>
-            <li><a href="/narrative-fiction">Novels</a></li>
+            <li><a href="/narrative-fiction" class="active">Novels</a></li>
             <li><a href="/audio-dramas">Audio Dramas</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
-        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
+
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobile-menu">
         <a href="/">Home</a>
         <a href="/films">Films</a>
@@ -270,164 +366,120 @@
         <a href="/contact">Contact</a>
     </div>
 
-    <div class="page-header">
+    <!-- Header -->
+    <header class="page-header">
         <div>
-            <p class="page-eyebrow">// 03 — The Vault</p>
-            <h1 class="page-title">Written <em>Works</em></h1>
+            <div class="page-eyebrow">The Archive // Published Literature &amp; Fiction</div>
+            <h1 class="page-title">Novels &amp; <em>Literature</em></h1>
         </div>
-        <div class="page-count">— 12 Works</div>
+        <div class="page-count" id="header-count">6 Works Archived</div>
+    </header>
+
+    <!-- Sticky Filter Bar -->
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Works (6)</button>
+        <button class="filter-btn" data-filter="novel">Novels (4)</button>
+        <button class="filter-btn" data-filter="fiction">Short Fiction &amp; Lore (2)</button>
     </div>
 
-    <div class="vault-section">
-
-        <!-- ═══ THE HEAVY HITTERS ═══ -->
-        <p class="section-label">// The Heavy Hitters — Feature Screenplays</p>
-        <div class="cards-row large">
-            <a href="/written-work.html?item=rein" class="vault-card">
-                <div>
-                    <span class="card-tag">Feature Screenplay</span>
-                    <h2 class="card-title">REIN</h2>
-                    <p class="card-genre">Supernatural Drama / Horror</p>
-                    <p class="card-logline">Cursed by a 17th-century ritual gone wrong, a father and daughter are bound in a cycle of spiritual immortality. In every reincarnated life, he is driven by a dark providence to murder her to "save" her soul—a grisly pattern they must break before their divinity consumes them both.</p>
+    <!-- 01 NOVELS GROUP -->
+    <div id="novels-group">
+        <div class="section-heading-bar">
+            <div>
+                <div class="section-eyebrow">01 // Full-Length Books</div>
+                <h2 class="section-title">Original <em>Novels</em></h2>
+            </div>
+            <div class="section-badge">4 Novels in Vault</div>
+        </div>
+        <div class="films-grid" id="novels-grid">
+            <a href="/written-work.html?item=parallel" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('ParallelPoster.png');"></div>
+                    <img src="ParallelPoster.png" alt="Parallel" class="poster-main" loading="lazy">
                 </div>
-                <span class="card-cta">Enter the Vault</span>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Sci-Fi / Thriller</div>
+                    <div class="film-card-title">Parallel</div>
+                    <div class="film-card-meta">Original Novel // In Development</div>
+                </div>
             </a>
-            <a href="/written-work.html?item=alive-again" class="vault-card">
-                <div>
-                    <span class="card-tag">Feature Screenplay</span>
-                    <h2 class="card-title">ALIVE AGAIN</h2>
-                    <p class="card-genre">Psychological Thriller / Horror</p>
-                    <p class="card-logline">A 12-year-old girl begins recovering traumatic memories of a past life, leading her on a chilling quest to prove that a local elderly man is the serial killer who murdered her decades ago.</p>
+            <a href="/written-work.html?item=quantum-travellers" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('QuantumTravellersPoster.png');"></div>
+                    <img src="QuantumTravellersPoster.png" alt="Quantum Travellers" class="poster-main" loading="lazy">
                 </div>
-                <span class="card-cta">Enter the Vault</span>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Middle Grade Sci-Fi</div>
+                    <div class="film-card-title">Quantum Travellers</div>
+                    <div class="film-card-meta">Original Novel // In Development</div>
+                </div>
             </a>
-            <a href="/written-work.html?item=sedona" class="vault-card">
-                <div>
-                    <span class="card-tag">Feature Screenplay</span>
-                    <h2 class="card-title">SEDONA</h2>
-                    <p class="card-genre">Action / Horror</p>
-                    <p class="card-logline">To find her missing sister, a relentless monster hunter must form an uneasy alliance with a werewolf—the very creature she was trained to kill.</p>
+            <a href="/written-work.html?item=spooky-town" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('SpookyTownPoster.png');"></div>
+                    <img src="SpookyTownPoster.png" alt="Spooky Town" class="poster-main" loading="lazy">
                 </div>
-                <span class="card-cta">Enter the Vault</span>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Middle Grade Fantasy / Horror</div>
+                    <div class="film-card-title">Spooky Town</div>
+                    <div class="film-card-meta">Original Novel // In Development</div>
+                </div>
+            </a>
+            <a href="/written-work.html?item=astrals" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('AstralsPoster.png');"></div>
+                    <img src="AstralsPoster.png" alt="Astrals" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Middle Grade / Portal Fantasy</div>
+                    <div class="film-card-title">Astrals</div>
+                    <div class="film-card-meta">Original Novel // In Development</div>
+                </div>
             </a>
         </div>
-
-        <!-- ═══ DIVIDER ═══ -->
-        <div class="vault-divider" aria-hidden="true" style="padding:0;margin:0;">
-            <div class="vault-divider-inner"></div>
-        </div>
-
-        <!-- ═══ GHOST TRAIN ═══ -->
-        <p class="section-label">// Dare To Be Scared</p>
-        <div class="cards-row medium">
-            <a href="/written-work.html?item=ghost-train" class="vault-card">
-                <div>
-                    <span class="card-tag">Short Film</span>
-                    <h2 class="card-title">GHOST TRAIN</h2>
-                    <p class="card-genre">Supernatural Horror</p>
-                    <p class="card-logline">Two hikers stumble upon a pristine, luxury train sitting on a rusted, dead-end track in the wilderness. Once they step aboard, the doors seal, and they realize the lively gala happening inside is hosted by passengers who haven't been alive for a century.</p>
-                </div>
-                <span class="card-cta">Enter the Vault</span>
-            </a>
-            <a href="/written-work.html?item=ghost-hunter" class="vault-card">
-                <div>
-                    <span class="card-tag">Feature Screenplay</span>
-                    <h2 class="card-title">GHOST HUNTER</h2>
-                    <p class="card-genre">Horror / Comedy (Found Footage)</p>
-                    <p class="card-logline">A desperate paranormal streamer tries to save his plummeting views by bringing a cynical skeptic on a live-hunted investigation, only to accidentally unleash a real ancient curse for a global audience.</p>
-                </div>
-                <span class="card-cta">Enter the Vault</span>
-            </a>
-            <a href="/written-work.html?item=streamed" class="vault-card">
-                <div>
-                    <span class="card-tag">Feature Screenplay</span>
-                    <h2 class="card-title">STREAMED</h2>
-                    <p class="card-genre">Slasher / Horror</p>
-                    <p class="card-logline">When a popular streamer's remote barn-house broadcast is hijacked by a masked killer, the millions of viewers watching online refuse to call for help, convinced the brutal murders are just a sophisticated Halloween prank.</p>
-                </div>
-                <span class="card-cta">Enter the Vault</span>
-            </a>
-            <a href="/written-work.html?item=the-memory-box" class="vault-card">
-                <div>
-                    <span class="card-tag">Feature Screenplay</span>
-                    <h2 class="card-title">THE MEMORY BOX</h2>
-                    <p class="card-genre">Horror / Thriller</p>
-                    <p class="card-logline">A disgraced journalist discovers an artifact that allows him to physically experience the memories of the deceased, forcing him to relive a series of cold-case murders to identify a killer who is still on the prowl.</p>
-                </div>
-                <span class="card-cta">Enter the Vault</span>
-            </a>
-            <a href="/written-work.html?item=house-of-mirrors" class="vault-card">
-                <div>
-                    <span class="card-tag">Feature Screenplay</span>
-                    <h2 class="card-title">HOUSE OF MIRRORS</h2>
-                    <p class="card-genre">Psychological Horror</p>
-                    <p class="card-logline">As a young man's battle with depression spirals into terrifying hallucinations, his dilapidated family home begins to physically deteriorate alongside his mind—blurring the line between a haunting and a breakdown.</p>
-                </div>
-                <span class="card-cta">Enter the Vault</span>
-            </a>
-        </div>
-
-        <!-- ═══ DIVIDER ═══ -->
-        <div class="vault-divider" aria-hidden="true" style="padding:0;margin:0;">
-            <div class="vault-divider-inner"></div>
-        </div>
-
-        <!-- ═══ THE ARCHIVES ═══ -->
-        <p class="section-label">// The Archives — Deep Lore</p>
-        <div class="cards-row small">
-            <a href="/written-work.html?item=quantum-travellers" class="vault-card">
-                <div>
-                    <span class="card-tag">Novel</span>
-                    <h2 class="card-title">QUANTUM TRAVELLERS</h2>
-                    <p class="card-genre">Middle Grade Sci-Fi</p>
-                    <p class="card-logline">When an eccentric invention rips open an unstable quantum gateway, young adventurers are hurled across alternate dimensions, racing against cosmic anomalies to find their way home.</p>
-                </div>
-                <span class="card-cta">Enter the Vault</span>
-            </a>
-
-            <a href="/written-work.html?item=astrals" class="vault-card">
-                <div>
-                    <span class="card-tag">Novel</span>
-                    <h2 class="card-title">ASTRALS</h2>
-                    <p class="card-genre">Middle Grade / Portal Fantasy</p>
-                    <p class="card-logline">When an ordinary kid and their spirited companion stumble upon a mysterious portal, they are pulled into an ethereal realm fraught with shadowy creatures and ancient cosmic secrets.</p>
-                </div>
-                <span class="card-cta">Enter the Vault</span>
-            </a>
-
-            <a href="/written-work.html?item=spooky-town" class="vault-card">
-                <div>
-                    <span class="card-tag">Novel</span>
-                    <h2 class="card-title">SPOOKY TOWN</h2>
-                    <p class="card-genre">Middle Grade Horror</p>
-                    <p class="card-logline">After moving to a foggy new town for her father's work, 13-year-old Maya realizes her dad is missing and the neighbors are acting... beastly. Alongside a group of misfit friends, she uncovers a dark secret: the entire town is under a curse that turned monsters into oblivious humans—and Maya might be the scariest one of them all.</p>
-                </div>
-                <span class="card-cta">Enter the Vault</span>
-            </a>
-            <a href="/written-work.html?item=malify" class="vault-card">
-                <div>
-                    <span class="card-tag">Feature Screenplay</span>
-                    <h2 class="card-title">MALIFY</h2>
-                    <p class="card-genre">Horror / Comedy</p>
-                    <p class="card-logline">After a 500-year slumber triggered by a bad breakup, an ancient vampire wakes up beneath a bustling modern city and struggles to adapt to the 21st century while living in a chaotic group house with his bloodthirsty old friends.</p>
-                </div>
-                <span class="card-cta">Enter the Vault</span>
-            </a>
-            <a href="/written-work.html?item=the-three-rips" class="vault-card">
-                <div>
-                    <span class="card-tag">Short Story</span>
-                    <h2 class="card-title">THE THREE RIPS</h2>
-                    <p class="card-genre">Sci-Fi / Cosmic Horror</p>
-                    <p class="card-logline">When mysterious cosmic tears fracture the fabric of spacetime, observers are forced to confront the unfathomable horrors lurking beyond the void.</p>
-                </div>
-                <span class="card-cta">Enter the Vault</span>
-            </a>
-
-        </div>
-
     </div>
-    <div class="vault-bottom-pad"></div>
 
+    <!-- VAULT DIVIDER -->
+    <div class="vault-divider" id="vault-divider">
+        <div class="vault-divider-inner"></div>
+    </div>
+
+    <!-- 02 SHORT FICTION & LORE GROUP -->
+    <div id="fiction-group">
+        <div class="section-heading-bar">
+            <div>
+                <div class="section-eyebrow">02 // Short Fiction &amp; Lore</div>
+                <h2 class="section-title">Short <em>Fiction</em></h2>
+            </div>
+            <div class="section-badge">2 Stories Archived</div>
+        </div>
+        <div class="films-grid" id="fiction-grid">
+            <a href="/written-work.html?item=the-three-rips" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('TheThreeRipsPoster.png');"></div>
+                    <img src="TheThreeRipsPoster.png" alt="The Three Rips" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Sci-Fi / Cosmic Horror</div>
+                    <div class="film-card-title">The Three Rips</div>
+                    <div class="film-card-meta">Short Story // Original Production</div>
+                </div>
+            </a>
+            <a href="/written-work.html?item=malify" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('MalifyPoster.png');"></div>
+                    <img src="MalifyPoster.png" alt="Malify" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Horror / Comedy</div>
+                    <div class="film-card-title">Malify</div>
+                    <div class="film-card-meta">Vampire Tale &amp; Screenplay</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-logo">THE <span>IMMORTAL</span> VAULT</div>
         <div class="footer-social" aria-label="Social media">
@@ -438,31 +490,51 @@
         </div>
         <div class="footer-right">
             <div class="footer-email">inquiries@theimmortalvault.com</div>
-            <a class="footer-link" href="/privacy-policy">Privacy Policy</a>
-            <div class="footer-copy">&copy; 2026 — All Works Reserved</div>
         </div>
     </footer>
 
+    <!-- Interactive Filter Script -->
     <script>
-        const btn = document.getElementById('hamburger');
-        const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => { btn.classList.toggle('open'); menu.classList.toggle('open'); });
-        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { btn.classList.remove('open'); menu.classList.remove('open'); }));
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
 
-        const cards = document.querySelectorAll('.vault-card');
-        const obs = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.style.opacity = '1';
-                    e.target.style.transform = 'translateY(0)';
-                }
+        // Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const novelsGroup = document.getElementById('novels-group');
+        const fictionGroup = document.getElementById('fiction-group');
+        const vaultDivider = document.getElementById('vault-divider');
+        const headerCount = document.getElementById('header-count');
+
+        function setFilter(filter) {
+            filterBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+
+            if (filter === 'all') {
+                novelsGroup.style.display = 'block';
+                fictionGroup.style.display = 'block';
+                vaultDivider.style.display = 'flex';
+                headerCount.textContent = '6 Works Archived';
+            } else if (filter === 'novel') {
+                novelsGroup.style.display = 'block';
+                fictionGroup.style.display = 'none';
+                vaultDivider.style.display = 'none';
+                headerCount.textContent = '4 Novels Archived';
+            } else if (filter === 'fiction') {
+                novelsGroup.style.display = 'none';
+                fictionGroup.style.display = 'block';
+                vaultDivider.style.display = 'none';
+                headerCount.textContent = '2 Stories Archived';
+            }
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                setFilter(btn.dataset.filter);
             });
-        }, { threshold: 0.05 });
-        cards.forEach(c => {
-            c.style.opacity = '0';
-            c.style.transform = 'translateY(16px)';
-            c.style.transition = 'opacity 0.5s ease, transform 0.5s ease, background 0.3s ease, box-shadow 0.3s ease';
-            obs.observe(c);
         });
     </script>
 </body>
