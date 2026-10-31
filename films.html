@@ -372,6 +372,8 @@
         <button class="filter-btn active" data-filter="all">All Projects (30)</button>
         <button class="filter-btn" data-filter="feature">Feature Films (15)</button>
         <button class="filter-btn" data-filter="short">Short Films (15)</button>
+        <button class="filter-btn" data-filter="released-shorts">Released Shorts (10)</button>
+        <button class="filter-btn" data-filter="coming-soon-shorts">Coming Soon Shorts (5)</button>
     </div>
 
     <!-- 01 FEATURE FILMS GROUP -->
@@ -559,14 +561,16 @@
 
     <!-- 02 SHORT FILMS GROUP -->
     <div id="short-films-group">
-        <div class="section-heading-bar">
-            <div>
-                <div class="section-eyebrow">02 // Vault Shorts</div>
-                <h2 class="section-title">Short <em>Films</em></h2>
+        <!-- 02A Released Shorts -->
+        <div id="released-shorts-subgroup">
+            <div class="section-heading-bar">
+                <div>
+                    <div class="section-eyebrow">02A // Released Productions</div>
+                    <h2 class="section-title">Released <em>Shorts</em></h2>
+                </div>
+                <div class="section-badge">10 Original Productions</div>
             </div>
-            <div class="section-badge">15 Original Productions</div>
-        </div>
-        <div class="films-grid" id="short-films-grid">
+            <div class="films-grid" id="released-shorts-grid">
             <a href="/coming-soon/?item=film-short-cornfield-brute" class="film-card short-film-card">
                 <div class="film-card-img short-card-img">
                     <div class="poster-blur" style="background-image: url('TheBrutePoster.jpg?v=20261031b');"></div>
@@ -677,6 +681,21 @@
                     <div class="film-card-meta">Short Film // 2026</div>
                 </div>
             </a>
+                    </div>
+        </div>
+
+        <div class="vault-divider" id="shorts-divider"><span>// UPCOMING SHORTS IN DEVELOPMENT //</span></div>
+
+        <!-- 02B Coming Soon Shorts -->
+        <div id="coming-soon-shorts-subgroup">
+            <div class="section-heading-bar">
+                <div>
+                    <div class="section-eyebrow">02B // In Development</div>
+                    <h2 class="section-title">Coming Soon <em>Shorts</em></h2>
+                </div>
+                <div class="section-badge">5 Vault Concepts</div>
+            </div>
+            <div class="films-grid" id="coming-soon-shorts-grid">
             <a href="/coming-soon/?item=film-short-the-door" class="film-card short-film-card">
                 <div class="film-card-img short-card-img">
                     <div class="poster-blur" style="background-image: url('TheDoorPoster.png');"></div>
@@ -732,6 +751,7 @@
                     <div class="film-card-meta">Short Film // Original Production</div>
                 </div>
             </a>
+            </div>
         </div>
     </div>
 
@@ -765,6 +785,9 @@
         const filterBtns = document.querySelectorAll('.filter-btn');
         const featureGroup = document.getElementById('feature-films-group');
         const shortGroup = document.getElementById('short-films-group');
+        const releasedSubgroup = document.getElementById('released-shorts-subgroup');
+        const comingSoonSubgroup = document.getElementById('coming-soon-shorts-subgroup');
+        const shortsDivider = document.getElementById('shorts-divider');
         const vaultDivider = document.getElementById('vault-divider');
         const headerCount = document.getElementById('header-count');
 
@@ -774,18 +797,40 @@
             if (filter === 'all') {
                 featureGroup.style.display = 'block';
                 shortGroup.style.display = 'block';
-                vaultDivider.style.display = 'flex';
+                if (releasedSubgroup) releasedSubgroup.style.display = 'block';
+                if (comingSoonSubgroup) comingSoonSubgroup.style.display = 'block';
+                if (shortsDivider) shortsDivider.style.display = 'flex';
+                if (vaultDivider) vaultDivider.style.display = 'flex';
                 headerCount.textContent = '30 Projects Archived';
             } else if (filter === 'feature') {
                 featureGroup.style.display = 'block';
                 shortGroup.style.display = 'none';
-                vaultDivider.style.display = 'none';
+                if (vaultDivider) vaultDivider.style.display = 'none';
                 headerCount.textContent = '15 Feature Films Archived';
             } else if (filter === 'short') {
                 featureGroup.style.display = 'none';
                 shortGroup.style.display = 'block';
-                vaultDivider.style.display = 'none';
+                if (releasedSubgroup) releasedSubgroup.style.display = 'block';
+                if (comingSoonSubgroup) comingSoonSubgroup.style.display = 'block';
+                if (shortsDivider) shortsDivider.style.display = 'flex';
+                if (vaultDivider) vaultDivider.style.display = 'none';
                 headerCount.textContent = '15 Short Films Archived';
+            } else if (filter === 'released-shorts' || filter === 'released') {
+                featureGroup.style.display = 'none';
+                shortGroup.style.display = 'block';
+                if (releasedSubgroup) releasedSubgroup.style.display = 'block';
+                if (comingSoonSubgroup) comingSoonSubgroup.style.display = 'none';
+                if (shortsDivider) shortsDivider.style.display = 'none';
+                if (vaultDivider) vaultDivider.style.display = 'none';
+                headerCount.textContent = '10 Released Shorts Archived';
+            } else if (filter === 'coming-soon-shorts' || filter === 'coming-soon') {
+                featureGroup.style.display = 'none';
+                shortGroup.style.display = 'block';
+                if (releasedSubgroup) releasedSubgroup.style.display = 'none';
+                if (comingSoonSubgroup) comingSoonSubgroup.style.display = 'block';
+                if (shortsDivider) shortsDivider.style.display = 'none';
+                if (vaultDivider) vaultDivider.style.display = 'none';
+                headerCount.textContent = '5 Coming Soon Shorts Archived';
             }
         }
 
@@ -798,10 +843,14 @@
             });
         });
 
-        // Check query param on load (?filter=short or ?filter=feature)
+        // Check query param on load (?filter=short, ?filter=released-shorts, etc.)
         const params = new URLSearchParams(window.location.search);
         const filterParam = params.get('filter');
-        if (filterParam === 'short' || filterParam === 'shorts') {
+        if (filterParam === 'released-shorts' || filterParam === 'released') {
+            setFilter('released-shorts');
+        } else if (filterParam === 'coming-soon-shorts' || filterParam === 'coming-soon') {
+            setFilter('coming-soon-shorts');
+        } else if (filterParam === 'short' || filterParam === 'shorts') {
             setFilter('short');
         } else if (filterParam === 'feature' || filterParam === 'features' || filterParam === 'film') {
             setFilter('feature');

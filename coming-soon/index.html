@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - The Immortal Vault</title>
+    <title id="page-title">Project Archive — The Immortal Vault</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MSCZ5M4Z4"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -11,140 +11,1238 @@
         gtag('js', new Date());
         gtag('config', 'G-1MSCZ5M4Z4');
     </script>
-    <meta name="description" content="New sections are coming soon to The Immortal Vault.">
-    <meta name="robots" content="noindex, follow">
+    <meta name="description" id="meta-desc" content="Archived motion picture and literary productions from The Immortal Vault.">
+    <meta name="theme-color" content="#040404">
     <link rel="canonical" href="https://theimmortalvault.com/coming-soon">
-    <meta name="theme-color" content="#060606">
     <meta property="og:site_name" content="The Immortal Vault">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Coming Soon - The Immortal Vault">
-    <meta property="og:description" content="New vault entries are on the way.">
-    <meta property="og:url" content="https://theimmortalvault.com/coming-soon">
-    <meta property="og:image" content="https://theimmortalvault.com/Lauren.png">
+    <meta property="og:type" content="video.movie">
+    <meta property="og:title" id="og-title" content="Project Archive — The Immortal Vault">
+    <meta property="og:description" id="og-desc" content="Original productions and vault concepts by Jeremy Hollenbeck.">
+    <meta property="og:image" id="og-img" content="https://theimmortalvault.com/TheBrutePoster.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Coming Soon - The Immortal Vault">
-    <meta name="twitter:description" content="New vault entries are on the way.">
-    <meta name="twitter:image" content="https://theimmortalvault.com/Lauren.png">
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <meta name="twitter:title" id="tw-title" content="Project Archive — The Immortal Vault">
+    <meta name="twitter:description" id="tw-desc" content="Original productions and vault concepts by Jeremy Hollenbeck.">
+    <meta name="twitter:image" id="tw-img" content="https://theimmortalvault.com/TheBrutePoster.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
-            --black:#060606; --dark:#0c0c0c; --border:#1c1c1c;
-            --red:#8b0000; --red2:#a31515; --text:#d8d4ce; --muted:#4a4a4a;
-            --mono:"Share Tech Mono", monospace; --serif:"DM Serif Display", serif; --sans:"Inter", sans-serif;
+            --black: #040404;
+            --dark: #0a0a0a;
+            --surface: #101010;
+            --border: #1c1c1c;
+            --red: #8b0000;
+            --red2: #d32626;
+            --red-glow: rgba(211, 38, 38, 0.35);
+            --text: #e2ddd5;
+            --muted: #6b6660;
+            --mono: "Share Tech Mono", monospace;
+            --display: "Bebas Neue", sans-serif;
+            --serif: "DM Serif Display", serif;
+            --sans: "Inter", sans-serif;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            min-height: 100vh;
-            background: var(--black);
+            background-color: var(--black);
             color: var(--text);
             font-family: var(--sans);
+            font-size: 15px;
+            line-height: 1.6;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Top Navigation ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(4, 4, 4, 0.94);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            padding: 18px 48px;
+            display: flex;
+            align-items: center;
             justify-content: space-between;
-            padding: 24px;
         }
-        .card {
-            width: min(760px, 100%);
+
+        .nav-logo {
+            font-family: var(--display);
+            font-size: 1.45rem;
+            letter-spacing: 2px;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .nav-logo:hover { color: var(--red2); }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-family: var(--mono);
+            font-size: 0.62rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--muted);
+            transition: color 0.2s ease;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--red2); }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger span {
+            width: 22px;
+            height: 1.5px;
+            background: var(--text);
+            transition: 0.3s;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 61px;
+            left: 0;
+            right: 0;
+            background: rgba(4, 4, 4, 0.98);
+            border-bottom: 1px solid var(--border);
+            padding: 24px 32px;
+            flex-direction: column;
+            gap: 18px;
+            z-index: 99;
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--muted);
+        }
+        .mobile-menu a:hover { color: var(--red2); }
+
+        /* ── Breadcrumb / Bar ── */
+        .page-bar {
+            padding: 22px 60px;
+            border-bottom: 1px solid var(--border);
+            background: #070707;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .page-breadcrumb {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .page-breadcrumb a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .page-breadcrumb a:hover { color: var(--red2); }
+        .page-breadcrumb span { color: var(--red2); }
+
+        .page-status-pill {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--red2);
+            border: 1px solid rgba(211, 38, 38, 0.4);
+            background: rgba(211, 38, 38, 0.08);
+            padding: 5px 12px;
+        }
+
+        /* ── Main Showcase Container ── */
+        main {
+            flex: 1;
+            max-width: 1300px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 60px 48px 100px;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        /* ── Poster Frame with Ambient Blur ── */
+        .poster-col {
+            position: relative;
+        }
+        .poster-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 2 / 3;
+            background: #020202;
             border: 1px solid var(--border);
-            background: var(--dark);
-            padding: 40px;
-            margin: auto 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
         }
-        .label {
+        .poster-blur {
+            position: absolute;
+            inset: -20px;
+            background-size: cover;
+            background-position: center;
+            filter: blur(28px) brightness(0.28) saturate(1.3);
+            transform: scale(1.18);
+            opacity: 0.85;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .poster-main {
+            position: relative;
+            z-index: 2;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .poster-badge {
+            margin-top: 14px;
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+        }
+        .poster-badge span { color: var(--red2); }
+
+        /* ── Details Column ── */
+        .details-col {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .project-eyebrow {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--red2);
+        }
+
+        .project-title {
+            font-family: var(--display);
+            font-size: clamp(3.2rem, 7vw, 5.5rem);
+            line-height: 0.95;
+            letter-spacing: 1.5px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .meta-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .meta-pill {
+            font-family: var(--mono);
+            font-size: 0.58rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+        }
+        .meta-pill.highlight {
+            color: #fff;
+            border-color: rgba(211, 38, 38, 0.5);
+            background: rgba(211, 38, 38, 0.12);
+        }
+
+        .synopsis-block {
+            border-left: 2px solid var(--red2);
+            padding: 4px 0 4px 22px;
+        }
+        .synopsis-label {
+            font-family: var(--mono);
+            font-size: 0.54rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red2);
+            margin-bottom: 10px;
+        }
+        .synopsis-text {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: #d6d1c8;
+            font-weight: 300;
+        }
+
+        /* ── Credits Section ── */
+        .credits-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 24px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .credits-title {
             font-family: var(--mono);
             font-size: 0.55rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--red2);
-            margin-bottom: 16px;
-        }
-        h1 {
-            font-family: var(--serif);
-            font-size: clamp(2rem, 5vw, 3rem);
-            line-height: 1.1;
-            margin-bottom: 16px;
-        }
-        h1 em { color: var(--red2); font-style: italic; }
-        p {
             color: var(--muted);
-            line-height: 1.9;
-            margin-bottom: 22px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
         }
-        .item {
+        .credits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px 24px;
+        }
+        .credit-item {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        .credit-role {
             font-family: var(--mono);
-            font-size: 0.6rem;
+            font-size: 0.52rem;
             letter-spacing: 2px;
-            color: var(--text);
             text-transform: uppercase;
-            margin-bottom: 24px;
-        }
-        .back {
-            display: inline-block;
-            text-decoration: none;
             color: var(--muted);
+        }
+        .credit-name {
+            font-size: 0.88rem;
+            color: #fff;
+            font-weight: 400;
+        }
+
+        /* ── Action Buttons ── */
+        .action-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 10px;
+        }
+        .btn {
             font-family: var(--mono);
-            font-size: 0.58rem;
+            font-size: 0.62rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            border: 1px solid var(--border);
-            padding: 12px 18px;
+            text-decoration: none;
+            padding: 13px 24px;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
-        .back:hover { color: var(--red2); border-color: var(--red); }
-        footer { width: min(760px, 100%); margin-top: 22px; border-top: 1px solid var(--border); padding: 18px 0 4px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-        .footer-logo { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 4px; color: var(--muted); text-transform: uppercase; }
-        .footer-logo span { color: var(--red); }
-        .footer-copy { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
-        .footer-social { display: flex; align-items: center; gap: 8px; }
-        .social-icon { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--red2); background: rgba(163,21,21,0.2); color: #f3eee8; text-decoration: none; transition: all 0.2s; }
-        .social-icon svg { width: 18px; height: 18px; fill: currentColor; }
-        .social-icon:hover { color: #fff; border-color: #d32626; background: rgba(163,21,21,0.45); transform: translateY(-1px); }
-        .footer-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
-        .footer-email { font-family: var(--mono); font-size: 0.52rem; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
-        .footer-link { font-family: var(--mono); font-size: 0.52rem; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
-        .footer-link:hover { color: #fff; border-color: var(--red2); }
-        @media (max-width: 900px) {
-            footer { flex-direction: column; text-align: center; }
+        .btn-primary {
+            background: var(--red2);
+            color: #fff;
+            border: 1px solid var(--red2);
+        }
+        .btn-primary:hover {
+            background: #b21e1e;
+            box-shadow: 0 0 20px rgba(211, 38, 38, 0.45);
+        }
+        .btn-ghost {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .btn-ghost:hover {
+            color: #fff;
+            border-color: var(--red2);
+            background: rgba(211, 38, 38, 0.08);
+        }
+
+        /* ── Fallback Card ── */
+        .fallback-card {
+            max-width: 680px;
+            margin: 60px auto;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 48px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+        }
+        .fallback-eyebrow {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red2);
+        }
+        .fallback-title {
+            font-family: var(--display);
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+        .fallback-desc {
+            color: var(--muted);
+            max-width: 480px;
+            font-size: 0.95rem;
+        }
+
+        /* ── Footer ── */
+        footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            background: #060606;
+            padding: 32px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .footer-logo {
+            font-family: var(--display);
+            font-size: 1.15rem;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+        .footer-logo span { color: var(--red2); }
+        .footer-social { display: flex; gap: 8px; }
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
+        .social-icon:hover { color: #fff; border-color: var(--red2); background: rgba(211, 38, 38, 0.15); }
+        .footer-right {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+        .footer-copy {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 2px;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+        .footer-link {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 2px;
+            color: var(--muted);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .footer-link:hover { color: var(--red2); }
+
+        @media (max-width: 960px) {
+            nav { padding: 16px 24px; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .page-bar { padding: 16px 24px; flex-direction: column; align-items: flex-start; gap: 10px; }
+            main { padding: 40px 24px 80px; }
+            .showcase-grid { grid-template-columns: 1fr; gap: 40px; }
+            .poster-col { max-width: 380px; margin: 0 auto; width: 100%; }
+            footer { padding: 24px; flex-direction: column; text-align: center; }
             .footer-right { justify-content: center; }
         }
     </style>
 </head>
 <body>
-    <section class="card">
-        <p class="label">// Archive In Progress</p>
-        <h1>This entry is <em>coming soon</em>.</h1>
-        <p>The destination page exists and is wired, but the final content has not been published yet.</p>
-        <p class="item" id="item">Item: unpublished</p>
-        <a class="back" href="/films" id="back-link">← Back to Films</a>
-    </section>
+    <!-- Nav -->
+    <nav>
+        <a href="/" class="nav-logo">THE IMMORTAL VAULT</a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/films">Films</a></li>
+            <li><a href="/films?filter=short">Short Films</a></li>
+            <li><a href="/narrative-fiction">Novels</a></li>
+            <li><a href="/audio-dramas">Audio Dramas</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="/">Home</a>
+        <a href="/films">Films</a>
+        <a href="/films?filter=short">Short Films</a>
+        <a href="/narrative-fiction">Novels</a>
+        <a href="/audio-dramas">Audio Dramas</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </div>
+
+    <!-- Breadcrumb Bar -->
+    <div class="page-bar">
+        <div class="page-breadcrumb">
+            <a href="/">The Vault</a> &nbsp;/&nbsp;
+            <a href="/films" id="crumb-category">Motion Pictures</a> &nbsp;/&nbsp;
+            <span id="crumb-title">Project Details</span>
+        </div>
+        <div class="page-status-pill" id="status-pill">Archive Record</div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div id="project-container" style="display: none;">
+            <div class="showcase-grid">
+                <!-- Left: Poster -->
+                <div class="poster-col">
+                    <div class="poster-frame">
+                        <div class="poster-blur" id="p-blur"></div>
+                        <img src="" alt="" class="poster-main" id="p-img">
+                    </div>
+                    <div class="poster-badge">
+                        <span>Original Art</span>
+                        <div id="p-format">Vertical 2:3 Key Art</div>
+                    </div>
+                </div>
+
+                <!-- Right: Details -->
+                <div class="details-col">
+                    <div>
+                        <div class="project-eyebrow" id="p-eyebrow">// Short Film — Original Production</div>
+                        <h1 class="project-title" id="p-title">Project Title</h1>
+                    </div>
+
+                    <div class="meta-pills" id="p-pills">
+                        <span class="meta-pill highlight" id="p-genre">Horror</span>
+                        <span class="meta-pill" id="p-status">Released // 2026</span>
+                        <span class="meta-pill" id="p-type">Short Film</span>
+                    </div>
+
+                    <div class="synopsis-block">
+                        <div class="synopsis-label">// Synopsis &amp; Logline</div>
+                        <p class="synopsis-text" id="p-synopsis">Logline text goes here.</p>
+                    </div>
+
+                    <div class="credits-card" id="credits-card">
+                        <div class="credits-title">// Key Production Credits</div>
+                        <div class="credits-list" id="credits-list">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="action-row">
+                        <a href="/films?filter=short" class="btn btn-primary" id="btn-back">← Back to Short Films</a>
+                        <a href="/films" class="btn btn-ghost">Browse Full Vault →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fallback if item not found -->
+        <div id="fallback-container" class="fallback-card" style="display: none;">
+            <div class="fallback-eyebrow">// Archive Record In Progress</div>
+            <h2 class="fallback-title">Vault Entry Coming Soon</h2>
+            <p class="fallback-desc" id="fallback-desc">The destination record is being cataloged in the vault archives. Check back shortly for complete media, key art, and production dispatches.</p>
+            <div class="action-row">
+                <a href="/films" class="btn btn-primary">← Return to Films Archive</a>
+                <a href="/" class="btn btn-ghost">Vault Home</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-logo">THE <span>IMMORTAL</span> VAULT</div>
-        <div class="footer-social" aria-label="Social media">
-            <a class="social-icon" href="https://www.facebook.com/theimmortalvault/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-            <a class="social-icon" href="https://www.instagram.com/theimmortalvault/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-            <a class="social-icon" href="https://bsky.app/profile/theimmortalvault.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65 6.722 9.035 3.607 1.938 6.055 3.274 4.786 6.076.703.482 4.907 1.134 6.927-4.458 1.722-4.77 1.063-6.45.063-7.23-.765-.59-3.783-1.428-5.488-.003zm-.005 2.205c-.483.123-.996.077-1.287-.155-.29-.231-.384-.675-.217-1.02.167-.345.545-.544 1.028-.667.484-.123.997-.078 1.287.154.29.231.384.676.217 1.021-.167.344-.545.543-1.027.667zm.179 2.34c-.559.14-1.153.086-1.492-.155-.34-.241-.451-.693-.248-1.084.203-.39.661-.614 1.22-.754.559-.14 1.153-.085 1.493.155.339.241.45.694.247 1.084-.203.39-.662.614-1.22.754z"/></svg></a>
-            <a class="social-icon" href="https://www.youtube.com/@TheImmortalVault" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <div class="footer-social">
+            <a class="social-icon" href="https://www.facebook.com/theimmortalvault/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a class="social-icon" href="https://www.instagram.com/theimmortalvault" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a class="social-icon" href="https://x.com/immortalvault" target="_blank" rel="noopener noreferrer" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 24.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a class="social-icon" href="https://www.youtube.com/@TheImmortalVault" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
         </div>
         <div class="footer-right">
-            <div class="footer-email">inquiries@theimmortalvault.com</div>
+            <a class="footer-link" href="mailto:theimmortalvault@gmail.com">theimmortalvault@gmail.com</a>
             <a class="footer-link" href="/privacy-policy">Privacy Policy</a>
-            <div class="footer-copy">&copy; 2026 — All Works Reserved</div>
+            <div class="footer-copy">&copy; 2026 The Immortal Vault. All rights reserved.</div>
         </div>
     </footer>
 
+    <!-- Database Script -->
     <script>
-        const item = new URLSearchParams(window.location.search).get("item");
-        const backLink = document.getElementById("back-link");
-        if (item) {
-            document.getElementById("item").textContent = `Item: ${item.replace(/[-_]/g, " ")}`;
-            if (item.startsWith("film-project")) {
-                backLink.href = "/films";
-                backLink.textContent = "← Back to Films";
-            } else if (item.startsWith("fiction-work")) {
-                backLink.href = "/narrative-fiction";
-                backLink.textContent = "← Back to Written Works";
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Comprehensive Vault Database
+        const VAULT_ITEMS = {
+            // ── Released Shorts (Actual Posters) ──
+            'film-short-cornfield-brute': {
+                title: 'The Brute',
+                eyebrow: '// Short Film — Released Original Production',
+                genre: 'Slasher / Horror',
+                status: 'Released // 2026',
+                type: 'Original Short Film',
+                poster: '../TheBrutePoster.jpg?v=20261031b',
+                backLink: '/films?filter=released-shorts',
+                backText: '← Back to Released Shorts',
+                categoryCrumb: 'Short Films',
+                synopsis: 'While driving down an isolated backroad bordering endless cornfields, a family is abruptly stranded as darkness descends. They quickly discover they have crossed into the hunting territory of The Brute—a relentless, burlap-masked harvest entity who stalks his prey from the stalks.',
+                credits: {
+                    'Written & Directed By': 'Jeremy Hollenbeck',
+                    'Edited By': 'Jeremy Hollenbeck',
+                    'Production Studio': 'The Immortal Vault & Knighthawk Studios',
+                    'Starring': 'Aimee Gauley, Nichole Estelle, Joey Mann, Daylen Daly-Rodriguez, Tobey Hollenbeck, Nick Kruse',
+                    'Makeup & FX': 'Evan Youngquist, Andy Youngquist, Christina Farley',
+                    'Sound & Music': 'Garrett Albright (Sound), Garrett Freeman (Music & SFX)',
+                    'Cinematography': 'Jeffrey Daly-Rodriguez (DOP & Camera Operator)'
+                }
+            },
+            'film-project-10': {
+                alias: 'film-short-cornfield-brute'
+            },
+            'film-project-09': {
+                title: 'Date Night',
+                eyebrow: '// Short Film — Released Original Production',
+                genre: 'Horror / Dark Comedy',
+                status: 'Released // 2026',
+                type: 'Original Short Film',
+                poster: '../DateNightPoster.jpg?v=20261031b',
+                backLink: '/films?filter=released-shorts',
+                backText: '← Back to Released Shorts',
+                categoryCrumb: 'Short Films',
+                synopsis: 'What was intended as an intimate, candlelit date night at home spirals into mounting dread when strange occurrences and an unwanted presence outside test the limits of romantic trust, domestic secrets, and personal survival.',
+                credits: {
+                    'Written & Directed By': 'Nichole Estelle',
+                    'Produced By': 'Jeremy Hollenbeck',
+                    'Production Studio': 'The Immortal Vault & Knighthawk Studios',
+                    'Starring': 'Aimee Gauley, Joey Mann',
+                    'Cinematography': 'Evan Youngquist (DOP & Camera Operator)',
+                    'Sound': 'Garrett Albright'
+                }
+            },
+            'film-project-08': {
+                title: 'The Mimic',
+                eyebrow: '// Short Film — Released Original Production',
+                genre: 'Supernatural / Psychological Horror',
+                status: 'Released // 2026',
+                type: 'Original Short Film',
+                poster: '../TheMimicPoster.jpg?v=20261031b',
+                backLink: '/films?filter=released-shorts',
+                backText: '← Back to Released Shorts',
+                categoryCrumb: 'Short Films',
+                synopsis: 'Driving alone along a deserted riverfront at night, a woman makes a frantic call to her partner after noticing a hooded figure standing motionless beneath a bridge. As the night unfolds, she realizes with escalating panic that the stranger is mimicking her every voice, movement, and desperate thought.',
+                credits: {
+                    'A Film By': 'Jeremy Hollenbeck',
+                    'Directed & Edited By': 'Jeremy Hollenbeck',
+                    'Original Idea By': 'Nichole Estelle',
+                    'Production Studio': 'The Immortal Vault & Knighthawk Studios',
+                    'Starring': 'Joey Mann, Nichole Estelle',
+                    'Sound': 'Garrett Albright'
+                }
+            },
+            'film-project-07': {
+                title: 'The Rustle',
+                eyebrow: '// Short Film — Released Original Production',
+                genre: 'Horror / Suspense / Thriller',
+                status: 'Released // 2026',
+                type: 'Original Short Film',
+                poster: '../TheRustlePoster.jpg?v=20261031b',
+                backLink: '/films?filter=released-shorts',
+                backText: '← Back to Released Shorts',
+                categoryCrumb: 'Short Films',
+                synopsis: 'A casual walk down a wooded nature path becomes an ordeal of raw tension when an unnatural rustling sound stalks a couple from the dense foliage. Every time they freeze to listen, the noise draws closer, proving that whatever is hunting them does not belong to the natural world.',
+                credits: {
+                    'Directed & Edited By': 'Jeremy Hollenbeck',
+                    'Original Idea By': 'Nichole Estelle',
+                    'Production Studio': 'The Immortal Vault & Knighthawk Studios',
+                    'Starring': 'Joey Mann, Nichole Estelle',
+                    'Sound': 'Garrett Albright'
+                }
+            },
+            'film-project-02': {
+                title: 'Hiker',
+                eyebrow: '// Short Film — Released Original Production',
+                genre: 'Crime / Thriller',
+                status: 'Released // 2026',
+                type: 'Original Short Film',
+                poster: '../HikerPoster.png',
+                backLink: '/films?filter=released-shorts',
+                backText: '← Back to Released Shorts',
+                categoryCrumb: 'Short Films',
+                synopsis: 'Deep in the backcountry, an isolated trekker crosses paths with a mysterious wanderer on a desolate stretch of trail. What begins as brief trail banter turns into a high-stakes cat-and-mouse struggle for survival miles away from any help.',
+                credits: {
+                    'Written & Directed By': 'Jeremy Hollenbeck',
+                    'Production Studio': 'The Immortal Vault',
+                    'Format': 'Narrative Short'
+                }
+            },
+            'film-project-05': {
+                title: 'Bright Lights',
+                eyebrow: '// Short Film — Released Original Production',
+                genre: 'Sci-Fi / Horror',
+                status: 'Released // 2026',
+                type: 'Original Short Film',
+                poster: '../BRIGHT LIGHTSPOSTER.png',
+                backLink: '/films?filter=released-shorts',
+                backText: '← Back to Released Shorts',
+                categoryCrumb: 'Short Films',
+                synopsis: 'In the stillness of midnight, an unassuming residential house is trapped in the glare of blinding, supernatural lights descending from the sky. As electronic devices fry and gravity begins to falter, the family confronts an extraterrestrial visitation.',
+                credits: {
+                    'Written & Directed By': 'Jeremy Hollenbeck',
+                    'Production Studio': 'The Immortal Vault'
+                }
+            },
+            'film-project-04': {
+                title: 'The Park Bench',
+                eyebrow: '// Short Film — Released Original Production',
+                genre: 'Horror / Thriller',
+                status: 'Released // 2026',
+                type: 'Original Short Film',
+                poster: '../PARK BENCH.png',
+                backLink: '/films?filter=released-shorts',
+                backText: '← Back to Released Shorts',
+                categoryCrumb: 'Short Films',
+                synopsis: 'A seemingly ordinary wooden bench in a quiet municipal park holds a curse: each person who sits down finds their consciousness assaulted by vivid, horrific premonitions that begin to manifest in reality moments after standing up.',
+                credits: {
+                    'Written & Directed By': 'Jeremy Hollenbeck',
+                    'Production Studio': 'The Immortal Vault'
+                }
+            },
+            'film-project-03': {
+                title: 'Father',
+                eyebrow: '// Short Film — Released Original Production',
+                genre: 'Psychological Horror / Thriller',
+                status: 'Released // 2026',
+                type: 'Original Short Film',
+                poster: '../FATHERPOSTER.png',
+                backLink: '/films?filter=released-shorts',
+                backText: '← Back to Released Shorts',
+                categoryCrumb: 'Short Films',
+                synopsis: 'A suffocating domestic study of psychological decline, following a father whose increasingly bizarre security measures to protect his children from an unseen outside evil end up trapping them with the true danger inside.',
+                credits: {
+                    'Written & Directed By': 'Jeremy Hollenbeck',
+                    'Production Studio': 'The Immortal Vault'
+                }
+            },
+            'film-project-06': {
+                title: 'Hiker 2',
+                eyebrow: '// Short Film — Released Original Production',
+                genre: 'Crime / Thriller',
+                status: 'Released // 2026',
+                type: 'Original Short Film',
+                poster: '../H i k e r 2.png',
+                backLink: '/films?filter=released-shorts',
+                backText: '← Back to Released Shorts',
+                categoryCrumb: 'Short Films',
+                synopsis: 'The relentless backcountry pursuit resumes as the survivor navigates treacherous mountainous terrain, facing both the unforgiving elements and a ruthless hunter determined to leave no witnesses.',
+                credits: {
+                    'Written & Directed By': 'Jeremy Hollenbeck',
+                    'Production Studio': 'The Immortal Vault'
+                }
+            },
+            'film-project-01': {
+                title: 'Nightmare on Lane St.',
+                eyebrow: '// Short Film — Released Original Production',
+                genre: 'Horror / Mystery',
+                status: 'Released // 2026',
+                type: 'Original Short Film',
+                poster: '../Nightmare.png',
+                backLink: '/films?filter=released-shorts',
+                backText: '← Back to Released Shorts',
+                categoryCrumb: 'Short Films',
+                synopsis: 'When multiple neighbors vanish without a trace on a dead-end suburban street, an uneasy alliance of local teens investigates the dark, boarded-up house at the end of the road where the shadows seem alive.',
+                credits: {
+                    'Written & Directed By': 'Jeremy Hollenbeck',
+                    'Production Studio': 'The Immortal Vault'
+                }
+            },
+
+            // ── Coming Soon Shorts (Minimalist Posters) ──
+            'film-short-the-door': {
+                title: 'The Door',
+                eyebrow: '// Short Film — In Development',
+                genre: 'Supernatural / Dark Fantasy',
+                status: 'In Development',
+                type: 'Short Film Concept',
+                poster: '../TheDoorPoster.png',
+                backLink: '/films?filter=coming-soon-shorts',
+                backText: '← Back to Coming Soon Shorts',
+                categoryCrumb: 'Coming Soon Shorts',
+                synopsis: 'A lone, freestanding doorway stands in the middle of a barren meadow without walls or foundation. Those who turn its brass knob step across an impossible threshold into a non-Euclidean labyrinth where time runs backward.',
+                credits: {
+                    'Written By': 'Jeremy Hollenbeck',
+                    'Concept & Design': 'The Immortal Vault Presents',
+                    'Phase': 'Pre-Production & Visual Development'
+                }
+            },
+            'film-short-the-rot': {
+                title: 'The Rot',
+                eyebrow: '// Short Film — In Development',
+                genre: 'Horror / Zombie',
+                status: 'In Development',
+                type: 'Short Film Concept',
+                poster: '../TheRotPoster.png',
+                backLink: '/films?filter=coming-soon-shorts',
+                backText: '← Back to Coming Soon Shorts',
+                categoryCrumb: 'Coming Soon Shorts',
+                synopsis: 'In an overgrown graveyard outside an abandoned town, a virulent bioluminescent fungus erupts through the soil, rapidly reanimating organic remains into a hive-mind plague that seeks living flesh.',
+                credits: {
+                    'Written By': 'Jeremy Hollenbeck',
+                    'Concept & Design': 'The Immortal Vault Presents',
+                    'Phase': 'Script Polish & Creature Concept'
+                }
+            },
+            'film-short-ghost-train': {
+                title: 'Ghost Train',
+                eyebrow: '// Short Film — In Development',
+                genre: 'Supernatural Horror',
+                status: 'In Development',
+                type: 'Short Film Concept',
+                poster: '../GhostTrainPoster.png',
+                backLink: '/films?filter=coming-soon-shorts',
+                backText: '← Back to Coming Soon Shorts',
+                categoryCrumb: 'Coming Soon Shorts',
+                synopsis: "Two hikers stumble across an immaculate 1920s luxury locomotive resting silently on overgrown, disconnected rails in the deep woods. Once they step inside to explore the parlor cars, the doors slam shut, and an opulent gala hosted by passengers dead for a century begins to speed toward oblivion.",
+                credits: {
+                    'Written By': 'Jeremy Hollenbeck',
+                    'Concept & Design': 'The Immortal Vault Presents',
+                    'Phase': 'Storyboarding & Production Design'
+                }
+            },
+            'film-short-remembrance': {
+                title: 'Remembrance',
+                eyebrow: '// Short Film — In Development',
+                genre: 'Folk Horror / Thriller',
+                status: 'In Development',
+                type: 'Short Film Concept',
+                poster: '../RemembrancePoster.png',
+                backLink: '/films?filter=coming-soon-shorts',
+                backText: '← Back to Coming Soon Shorts',
+                categoryCrumb: 'Coming Soon Shorts',
+                synopsis: 'An isolated rural settlement holds an annual memorial ceremony around a circle of ancient stone monoliths. A newcomer soon uncovers that the remembrance ritual is not meant to honor ancestors—it is a blood offering demanded by the ancient harvest deity buried beneath the valley floor.',
+                credits: {
+                    'Written By': 'Jeremy Hollenbeck',
+                    'Concept & Design': 'The Immortal Vault Presents',
+                    'Phase': 'Screenplay Draft & Location Scouting'
+                }
+            },
+            'film-short-teddy': {
+                title: 'Teddy',
+                eyebrow: '// Short Film — In Development',
+                genre: 'Micro-Horror Short',
+                status: 'In Development',
+                type: 'Micro-Short Concept',
+                poster: '../TeddyPoster.png',
+                backLink: '/films?filter=coming-soon-shorts',
+                backText: '← Back to Coming Soon Shorts',
+                categoryCrumb: 'Coming Soon Shorts',
+                synopsis: 'A worn teddy bear sits quietly at the foot of a child’s bed. As the lights go out, the closet door creaks open to reveal a pair of burning crimson eyes. The toy stands on stitched legs, acting as the child’s final line of defense against the nightmare in the dark.',
+                credits: {
+                    'Written By': 'Jeremy Hollenbeck',
+                    'Concept & Design': 'The Immortal Vault Presents',
+                    'Phase': 'Practical Effects Concept & Animatic'
+                }
+            },
+
+                        // ── Novels & Fiction ──
+            'parallel': {
+                title: 'Parallel',
+                eyebrow: '// Novel & Screenplay — Original Fiction',
+                genre: 'Sci-Fi / Thriller',
+                status: 'Completed Novel & Screenplay',
+                type: 'Original Fiction',
+                poster: '../ParallelPoster.png',
+                backLink: '/narrative-fiction',
+                backText: '← Back to Novels',
+                categoryCrumb: 'Novels',
+                synopsis: 'Desperate citizens enter permanent VR pods to escape their bleak lives in an ultra-immersive simulation, only for a technician to uncover that paradise traps souls in a shared digital purgatory.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Novel & Feature Screenplay' }
+            },
+            'fiction-work-parallel': { alias: 'parallel' },
+            'quantum-travellers': {
+                title: 'Quantum Travellers',
+                eyebrow: '// Middle Grade Sci-Fi Novel',
+                genre: 'Middle Grade Sci-Fi',
+                status: 'Novel & Screenplay',
+                type: 'Original Fiction',
+                poster: '../QuantumTravellersPoster.png',
+                backLink: '/narrative-fiction',
+                backText: '← Back to Novels',
+                categoryCrumb: 'Novels',
+                synopsis: 'When an eccentric invention rips open an unstable quantum gateway, young adventurers are hurled across alternate dimensions, racing against cosmic anomalies to find their way home.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Middle Grade Novel' }
+            },
+            'fiction-work-quantum-travellers': { alias: 'quantum-travellers' },
+            'astrals': {
+                title: 'Astrals',
+                eyebrow: '// Portal Fantasy Novel',
+                genre: 'Middle Grade / Portal Fantasy',
+                status: 'In Development',
+                type: 'Original Fiction',
+                poster: '../AstralsPoster.png',
+                backLink: '/narrative-fiction',
+                backText: '← Back to Novels',
+                categoryCrumb: 'Novels',
+                synopsis: 'When an ordinary kid and their spirited companion stumble upon a mysterious portal, they are pulled into an ethereal realm fraught with shadowy creatures and ancient cosmic secrets.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Portal Fantasy Novel' }
+            },
+            'fiction-work-astrals': { alias: 'astrals' },
+            'spooky-town': {
+                title: 'Spooky Town',
+                eyebrow: '// Middle Grade Fantasy & Horror Novel',
+                genre: 'Middle Grade Fantasy / Horror',
+                status: 'Original Novel',
+                type: 'Original Fiction',
+                poster: '../SpookyTownPoster.png',
+                backLink: '/narrative-fiction',
+                backText: '← Back to Novels',
+                categoryCrumb: 'Novels',
+                synopsis: "After moving to a foggy new town for her father's work, 13-year-old Maya realizes her dad is missing and the neighbors are acting... beastly. Alongside a group of misfit friends, she uncovers a dark secret: the entire town is under a curse that turned monsters into oblivious humans—and Maya might be the scariest one of them all.",
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Original Novel' }
+            },
+            'fiction-work-spooky-town': { alias: 'spooky-town' },
+            'the-three-rips': {
+                title: 'The Three Rips',
+                eyebrow: '// Short Story — Cosmic Horror',
+                genre: 'Sci-Fi / Cosmic Horror',
+                status: 'Published Short Story',
+                type: 'Original Fiction',
+                poster: '../TheThreeRipsPoster.png',
+                backLink: '/narrative-fiction',
+                backText: '← Back to Novels',
+                categoryCrumb: 'Novels',
+                synopsis: 'When mysterious cosmic tears fracture the fabric of spacetime, observers are forced to confront the unfathomable horrors lurking beyond the void.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Short Story' }
+            },
+            'fiction-work-the-three-rips': { alias: 'the-three-rips' },
+            'malify': {
+                title: 'Malify',
+                eyebrow: '// Horror / Comedy Screenplay',
+                genre: 'Horror / Comedy',
+                status: 'Completed Screenplay',
+                type: 'Original Fiction',
+                poster: '../MalifyPoster.png',
+                backLink: '/narrative-fiction',
+                backText: '← Back to Novels',
+                categoryCrumb: 'Novels',
+                synopsis: 'After a 500-year slumber triggered by a bad breakup, an ancient vampire wakes up beneath a bustling modern city and struggles to adapt to the 21st century while living in a chaotic group house with his bloodthirsty old friends.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Screenplay' }
+            },
+            'fiction-work-malify': { alias: 'malify' },
+            // ── Feature Films ──
+            'film-sedona': {
+                title: 'Sedona',
+                eyebrow: '// Feature Film — In Development',
+                genre: 'Action / Horror',
+                status: 'In Development',
+                type: 'Feature Film Screenplay',
+                poster: '../SedonaPoster.png',
+                backLink: '/films?filter=feature',
+                backText: '← Back to Feature Films',
+                categoryCrumb: 'Feature Films',
+                synopsis: 'To rescue her kidnapped sister from a subterranean syndicate, an uncompromising monster hunter must forge a reluctant alliance with a rogue werewolf—the very apex predator she was trained since childhood to kill.',
+                credits: {
+                    'Written By': 'Jeremy Hollenbeck',
+                    'Production Studio': 'The Immortal Vault',
+                    'Format': 'Feature Screenplay'
+                }
+            },
+            'film-project-traveler': {
+                title: 'Traveler',
+                eyebrow: '// Feature Film — In Development',
+                genre: 'Sci-Fi / Historical Romance',
+                status: 'In Development',
+                type: 'Feature Film Screenplay',
+                poster: '../TravelerPoster.png',
+                backLink: '/films?filter=feature',
+                backText: '← Back to Feature Films',
+                categoryCrumb: 'Feature Films',
+                synopsis: 'An archivist’s reckless brother triggers an unearthly relic that hurls him across historical eras; as he masters jumping through time, he falls for a woman in an era he can never permanently stay in.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Feature Screenplay' }
+            },
+            'film-project-the-other-place': {
+                title: 'The Other Place',
+                eyebrow: '// Feature Film — In Development',
+                genre: 'Sci-Fi / Thriller',
+                status: 'In Development',
+                type: 'Feature Film Screenplay',
+                poster: '../TheOtherPlacePoster.png',
+                backLink: '/films?filter=feature',
+                backText: '← Back to Feature Films',
+                categoryCrumb: 'Feature Films',
+                synopsis: 'Desperate citizens enter permanent VR pods to escape their bleak lives in an ultra-immersive digital utopia, only to discover that the moment a user’s biological host loses economic utility, the corporation terminates their feed.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Feature Screenplay' }
+            },
+            'film-project-house-of-mirrors': {
+                title: 'House of Mirrors',
+                eyebrow: '// Feature Film — In Development',
+                genre: 'Psychological Horror',
+                status: 'In Development',
+                type: 'Feature Film Screenplay',
+                poster: '../HouseOfMirrorsPoster.png',
+                backLink: '/films?filter=feature',
+                backText: '← Back to Feature Films',
+                categoryCrumb: 'Feature Films',
+                synopsis: 'As an isolated man’s mental state declines, his ancestral home begins to physically rot and reshape itself around him, blurring the line between severe psychotic breakdown and demonic infestation.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Feature Screenplay' }
+            },
+            'film-project-the-memory-box': {
+                title: 'The Memory Box',
+                eyebrow: '// Feature Film — In Development',
+                genre: 'Horror / Mystery',
+                status: 'In Development',
+                type: 'Feature Film Screenplay',
+                poster: '../TheMemoryBoxPoster.png',
+                backLink: '/films?filter=feature',
+                backText: '← Back to Feature Films',
+                categoryCrumb: 'Feature Films',
+                synopsis: 'A disgraced investigative reporter acquires an arcane artifact that forces him to physically inhabit the final moments of homicide victims, drawing him into the crosshairs of an active killer whose cold cases he is reliving.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Feature Screenplay' }
+            },
+            'film-project-streamed': {
+                title: 'Streamed',
+                eyebrow: '// Feature Film — In Development',
+                genre: 'Slasher / Horror',
+                status: 'In Development',
+                type: 'Feature Film Screenplay',
+                poster: '../StreamedPoster.png',
+                backLink: '/films?filter=feature',
+                backText: '← Back to Feature Films',
+                categoryCrumb: 'Feature Films',
+                synopsis: 'When a masked intruder infiltrates a secluded barn-house during a live internet broadcast, millions of viewers assume the slaughter is an elaborate practical joke and ignore the host’s pleas for help.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Feature Screenplay' }
+            },
+            'film-project-ghost-hunter': {
+                title: 'Ghost Hunter',
+                eyebrow: '// Feature Film — In Development',
+                genre: 'Horror / Comedy (Found Footage)',
+                status: 'In Development',
+                type: 'Feature Film Screenplay',
+                poster: '../GhostHunterPoster.png',
+                backLink: '/films?filter=feature',
+                backText: '← Back to Feature Films',
+                categoryCrumb: 'Feature Films',
+                synopsis: 'Facing plummeting view counts, a desperate paranormal vlogger pairs with an aggressive skeptic for a live-streamed investigation, inadvertently unleashing a demonic entity in front of a global audience.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Feature Screenplay' }
+            },
+            'film-project-maladaptive': {
+                title: 'Maladaptive',
+                eyebrow: '// Feature Film — In Development',
+                genre: 'Psychological Horror',
+                status: 'In Development',
+                type: 'Feature Film Screenplay',
+                poster: '../MaladaptivePoster.png',
+                backLink: '/films?filter=feature',
+                backText: '← Back to Feature Films',
+                categoryCrumb: 'Feature Films',
+                synopsis: 'Reeling from a toxic relationship, a reclusive man relies on excessive daydreaming to cope—until the boundary between fantasy and reality erodes, allowing his violent imaginary constructs to bleed into the physical world.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Feature Screenplay' }
+            },
+            'film-project-locked-in': {
+                title: 'Locked In',
+                eyebrow: '// Feature Film — In Development',
+                genre: 'Horror / Thriller',
+                status: 'In Development',
+                type: 'Feature Film Screenplay',
+                poster: '../LockedInPoster.png',
+                backLink: '/films?filter=feature',
+                backText: '← Back to Feature Films',
+                categoryCrumb: 'Feature Films',
+                synopsis: 'Lured to a creator incubator inside an eccentric billionaire’s compound, a squad of online influencers discovers they are hostages in a sadistic survival game where disobedience carries lethal consequences on camera.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Feature Screenplay' }
+            },
+            'film-project-blackmailed': {
+                title: 'Blackmailed',
+                eyebrow: '// Feature Film — In Development',
+                genre: 'Crime / Thriller',
+                status: 'In Development',
+                type: 'Feature Film Screenplay',
+                poster: '../BlackmailedPoster.png',
+                backLink: '/films?filter=feature',
+                backText: '← Back to Feature Films',
+                categoryCrumb: 'Feature Films',
+                synopsis: 'Targeted by an anonymous cyber-extortionist holding their darkest secrets hostage, a clique of teenagers is coerced into executing an escalating series of violent kidnappings and contract killings.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Feature Screenplay' }
+            },
+            'film-project-the-town-of-burnwill': {
+                title: 'The Town of Burnwill',
+                eyebrow: '// Feature Film — In Development',
+                genre: 'Slasher / Horror',
+                status: 'In Development',
+                type: 'Feature Film Screenplay',
+                poster: '../TheTownOfBurnwillPoster.png',
+                backLink: '/films?filter=feature',
+                backText: '← Back to Feature Films',
+                categoryCrumb: 'Feature Films',
+                synopsis: 'Upon moving to an isolated community where locals systematically slaughter each graduating class, a newly arrived high school senior and her classmates must fight their way through graduation night alive.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Feature Screenplay' }
+            },
+            'film-project-vintage-antique': {
+                title: 'Vintage Antique',
+                eyebrow: '// Feature Film — In Development',
+                genre: 'Supernatural Horror',
+                status: 'In Development',
+                type: 'Feature Film Screenplay',
+                poster: '../VintageAntiquePoster.png',
+                backLink: '/films?filter=feature',
+                backText: '← Back to Feature Films',
+                categoryCrumb: 'Feature Films',
+                synopsis: 'An eccentric antique dealer sells seemingly harmless curios to unsuspecting shoppers, unaware each relic carries a bespoke curse designed to consume its new owner.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Feature Screenplay' }
+            },
+            'film-project-halloweenastreamathon': {
+                title: 'Halloweenastreamathon',
+                eyebrow: '// Feature Film — In Development',
+                genre: 'Slasher / Horror',
+                status: 'In Development',
+                type: 'Feature Film Screenplay',
+                poster: '../HalloweenastreamathonPoster.png',
+                backLink: '/films?filter=feature',
+                backText: '← Back to Feature Films',
+                categoryCrumb: 'Feature Films',
+                synopsis: 'When a collective of popular content creators stages a citywide Halloween hide-and-seek event, their live broadcast turns into a desperate fight for survival against an active serial killer.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Feature Screenplay' }
+            },
+            'film-project-remember-me': {
+                title: 'Remember Me',
+                eyebrow: '// Feature Film — In Development',
+                genre: 'Supernatural / Psychological Horror',
+                status: 'In Development',
+                type: 'Feature Film Screenplay',
+                poster: '../RememberMePoster.png',
+                backLink: '/films?filter=feature',
+                backText: '← Back to Feature Films',
+                categoryCrumb: 'Feature Films',
+                synopsis: 'When a ten-year-old girl’s violent night terrors escalate into vivid memories of a past life, her protective father is horrified when an elderly stranger recognizes her as a murder victim from decades ago.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Feature Screenplay' }
+            },
+            'film-project-rein': {
+                title: 'Rein',
+                eyebrow: '// Feature Film — In Development',
+                genre: 'Supernatural Drama / Horror',
+                status: 'In Development',
+                type: 'Feature Film Screenplay',
+                poster: '../ReinPoster.png',
+                backLink: '/films?filter=feature',
+                backText: '← Back to Feature Films',
+                categoryCrumb: 'Feature Films',
+                synopsis: 'Bound by a botched seventeenth-century ritual, an immortal father is cursed to hunt down and murder his reincarnated daughter in every lifetime to "cleanse" her soul—a grisly cycle they must break before their power destroys them both.',
+                credits: { 'Written By': 'Jeremy Hollenbeck', 'Format': 'Feature Screenplay' }
+            }
+        };
+
+        // Render page according to ?item= parameter
+        const params = new URLSearchParams(window.location.search);
+        let itemKey = params.get('item');
+        if (itemKey && VAULT_ITEMS[itemKey] && VAULT_ITEMS[itemKey].alias) {
+            itemKey = VAULT_ITEMS[itemKey].alias;
+        }
+
+        const project = itemKey ? VAULT_ITEMS[itemKey] : null;
+
+        const projContainer = document.getElementById('project-container');
+        const fallbackContainer = document.getElementById('fallback-container');
+
+        if (project) {
+            projContainer.style.display = 'block';
+            fallbackContainer.style.display = 'none';
+
+            // Document titles
+            document.title = project.title + ' — The Immortal Vault';
+            document.getElementById('crumb-title').textContent = project.title;
+            document.getElementById('crumb-category').textContent = project.categoryCrumb || 'Films';
+            document.getElementById('status-pill').textContent = project.status;
+
+            // Poster & Glow
+            let posterSrc = project.poster;
+            // Handle root vs subfolder
+            if (!window.location.pathname.includes('/coming-soon/')) {
+                posterSrc = posterSrc.replace(/^..//, '');
+            }
+            const pImg = document.getElementById('p-img');
+            const pBlur = document.getElementById('p-blur');
+            pImg.src = posterSrc;
+            pImg.alt = project.title;
+            pBlur.style.backgroundImage = 'url("' + posterSrc + '")';
+
+            // Headings & Info
+            document.getElementById('p-eyebrow').textContent = project.eyebrow;
+            document.getElementById('p-title').textContent = project.title;
+            document.getElementById('p-genre').textContent = project.genre;
+            document.getElementById('p-status').textContent = project.status;
+            document.getElementById('p-type').textContent = project.type;
+            document.getElementById('p-synopsis').textContent = project.synopsis;
+
+            // Credits
+            const creditsList = document.getElementById('credits-list');
+            creditsList.innerHTML = '';
+            if (project.credits && Object.keys(project.credits).length > 0) {
+                document.getElementById('credits-card').style.display = 'flex';
+                for (const [role, name] of Object.entries(project.credits)) {
+                    const item = document.createElement('div');
+                    item.className = 'credit-item';
+                    item.innerHTML = '<span class="credit-role">' + role + '</span><span class="credit-name">' + name + '</span>';
+                    creditsList.appendChild(item);
+                }
             } else {
-                backLink.href = "/";
-                backLink.textContent = "← Back to Home";
+                document.getElementById('credits-card').style.display = 'none';
+            }
+
+            // Back button
+            const btnBack = document.getElementById('btn-back');
+            btnBack.href = project.backLink || '/films';
+            btnBack.textContent = project.backText || '← Back to Films';
+
+        } else {
+            projContainer.style.display = 'none';
+            fallbackContainer.style.display = 'flex';
+            if (itemKey) {
+                document.getElementById('fallback-desc').textContent = 'Item record "' + itemKey.replace(/[-_]/g, ' ') + '" is queued for archival publication. Check back soon or browse active vault selections below.';
             }
         }
     </script>
