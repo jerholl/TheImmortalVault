@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Immortal Vault</title>
+    <title>The Immortal Vault — Official Archive</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MSCZ5M4Z4"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -11,7 +11,7 @@
         gtag('js', new Date());
         gtag('config', 'G-1MSCZ5M4Z4');
     </script>
-    <meta name="description" content="The Immortal Vault is the official archive of horror creator Lee Beck, featuring films, audio dramas, narrative fiction, and Creature Feature Lab dispatches.">
+    <meta name="description" content="The Immortal Vault is the official archive of horror creator Jeremy Hollenbeck, featuring films, novels, short films, and audio dramas.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://theimmortalvault.com/">
     <link rel="alternate" type="application/rss+xml" title="Creature Feature Lab RSS" href="https://theimmortalvault.com/feed.xml">
@@ -19,25 +19,28 @@
     <meta property="og:site_name" content="The Immortal Vault">
     <meta property="og:type" content="website">
     <meta property="og:title" content="The Immortal Vault">
-    <meta property="og:description" content="Enter The Immortal Vault: horror films, audio dramas, narrative fiction, and creator dispatches from Lee Beck.">
+    <meta property="og:description" content="Enter The Immortal Vault: horror films, original novels, short films, and audio dramas by Jeremy Hollenbeck.">
     <meta property="og:url" content="https://theimmortalvault.com/">
-    <meta property="og:image" content="https://theimmortalvault.com/Lauren.png">
+    <meta property="og:image" content="https://theimmortalvault.com/SedonaPoster.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The Immortal Vault">
-    <meta name="twitter:description" content="Horror films, audio dramas, narrative fiction, and behind-the-scenes dispatches.">
-    <meta name="twitter:image" content="https://theimmortalvault.com/Lauren.png">
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <meta name="twitter:description" content="Horror films, original novels, short films, and audio dramas.">
+    <meta name="twitter:image" content="https://theimmortalvault.com/SedonaPoster.png">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --black:   #060606;
-            --dark:    #0c0c0c;
-            --surface: #111;
-            --border:  #1c1c1c;
+            --dark:    #0a0a0c;
+            --surface: #111114;
+            --border:  #18181c;
             --red:     #8b0000;
-            --red2:    #a31515;
-            --dim:     #6b0000;
-            --text:    #d8d4ce;
-            --muted:   #4a4a4a;
+            --red2:    #d32626;
+            --cyan:    #38bdf8;
+            --green:   #22c55e;
+            --yellow:  #eab308;
+            --text:    #f0ece5;
+            --muted:   #66666d;
+            --display: 'Bebas Neue', sans-serif;
             --mono:    'Share Tech Mono', monospace;
             --serif:   'DM Serif Display', serif;
             --sans:    'Inter', sans-serif;
@@ -53,21 +56,6 @@
             font-weight: 300;
             line-height: 1.6;
             overflow-x: hidden;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 2px,
-                rgba(0,0,0,0.025) 2px,
-                rgba(0,0,0,0.025) 4px
-            );
-            pointer-events: none;
-            z-index: 9000;
         }
 
         /* ── Nav ── */
@@ -113,7 +101,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #e0e0e0;
+            color: #b5b1aa;
             font-family: var(--mono);
             font-size: 0.6rem;
             letter-spacing: 2px;
@@ -122,9 +110,9 @@
             white-space: nowrap;
         }
 
-        .nav-links a::before { content: "/ "; color: var(--red); opacity: 0; transition: opacity 0.2s; }
-        .nav-links a:hover { color: var(--text); }
-        .nav-links a:hover::before { opacity: 1; }
+        .nav-links a::before { content: "/ "; color: var(--red2); opacity: 0; transition: opacity 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+        .nav-links a:hover::before, .nav-links a.active::before { opacity: 1; }
 
         .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; flex-shrink: 0; }
         .hamburger span { display: block; width: 20px; height: 1px; background: var(--text); transition: all 0.3s; }
@@ -138,7 +126,7 @@
             z-index: 999;
             display: flex; flex-direction: column;
             align-items: center; justify-content: center;
-            gap: 36px;
+            gap: 32px;
             max-height: 0; overflow: hidden;
             transition: max-height 0.4s ease;
         }
@@ -154,318 +142,498 @@
         }
         .mobile-menu a:hover { color: var(--red2); }
 
-        /* ── Hero ── */
+        /* ── Hero: Minimalist Graphic Aesthetic ── */
         .hero {
-            height: calc(100vh - 64px);
-            min-height: 500px;
             position: relative;
+            min-height: calc(100vh - 64px);
+            padding: 80px 60px 70px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 0 60px 70px;
-            overflow: hidden;
             border-bottom: 1px solid var(--border);
+            overflow: hidden;
+            background: #050507;
         }
 
-        /* ── FIX: Single hero-bg, correctly structured ── */
-        .hero-bg {
+        /* Minimalist Graphic Element Inspired by Sedona / Poster Art */
+        .hero-graphic {
             position: absolute;
             inset: 0;
-            background: var(--dark);
-        }
-
-        .hero-bg img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .hero-vignette {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                to top,
-                rgba(6,6,6,0.96) 0%,
-                rgba(6,6,6,0.5) 40%,
-                transparent 100%
-            );
+            pointer-events: none;
             z-index: 1;
+        }
+
+        .hero-sun {
+            position: absolute;
+            width: clamp(300px, 46vw, 600px);
+            height: clamp(300px, 46vw, 600px);
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 50%, #d32626 0%, #991b1b 65%, #450a0a 100%);
+            top: 48%;
+            right: 8%;
+            transform: translateY(-50%);
+            box-shadow: 0 0 120px rgba(211, 38, 38, 0.28);
+            opacity: 0.95;
+            animation: pulseSun 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseSun {
+            0% { transform: translateY(-50%) scale(1); filter: drop-shadow(0 0 30px rgba(211,38,38,0.2)); }
+            100% { transform: translateY(-50%) scale(1.03); filter: drop-shadow(0 0 60px rgba(211,38,38,0.4)); }
+        }
+
+        .hero-horizon {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 32%;
+            background: linear-gradient(to top, #050507 80%, rgba(5,5,7,0.85) 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 2;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
+            max-width: 850px;
         }
 
         .hero-tag {
             font-family: var(--mono);
-            font-size: 0.6rem;
-            letter-spacing: 4px;
+            font-size: 0.65rem;
+            letter-spacing: 5px;
             text-transform: uppercase;
             color: var(--red2);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             opacity: 0;
-            animation: fadeUp 0.8s ease 0.3s forwards;
+            animation: fadeUp 0.8s ease 0.2s forwards;
         }
 
         .hero-title {
-            font-family: var(--serif);
-            font-size: clamp(3.5rem, 9vw, 8rem);
-            line-height: 1;
-            color: var(--text);
+            font-family: var(--display);
+            font-size: clamp(4.5rem, 11vw, 9.5rem);
+            line-height: 0.92;
+            letter-spacing: 2px;
+            color: #fff;
+            text-transform: uppercase;
             opacity: 0;
-            animation: fadeUp 0.8s ease 0.5s forwards;
+            animation: fadeUp 0.8s ease 0.4s forwards;
         }
-
-        .hero-title em { font-style: italic; color: var(--red2); }
+        .hero-title em {
+            font-style: normal;
+            color: var(--red2);
+        }
 
         .hero-sub {
             font-family: var(--mono);
-            font-size: 0.6rem;
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            color: #d1cdc7;
+            text-transform: uppercase;
+            margin-top: 24px;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.6s forwards;
+        }
+
+        .hero-author {
+            font-family: var(--mono);
+            font-size: 0.58rem;
             letter-spacing: 3px;
             color: var(--muted);
             text-transform: uppercase;
-            margin-top: 24px;
-            line-height: 2;
+            margin-top: 8px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.7s forwards;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
             opacity: 0;
             animation: fadeUp 0.8s ease 0.8s forwards;
+        }
+
+        .hero-btn {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 13px 26px;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+        .hero-btn.primary {
+            background: var(--red2);
+            color: #fff;
+            border: 1px solid var(--red2);
+        }
+        .hero-btn.primary:hover {
+            background: #b91c1c;
+            box-shadow: 0 0 25px rgba(211,38,38,0.5);
+            transform: translateY(-2px);
+        }
+        .hero-btn.ghost {
+            background: rgba(255,255,255,0.03);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .hero-btn.ghost:hover {
+            border-color: #fff;
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-2px);
         }
 
         .hero-scroll {
             position: absolute;
             bottom: 70px;
             right: 60px;
-            z-index: 2;
+            z-index: 3;
             font-family: var(--mono);
-            font-size: 0.5rem;
+            font-size: 0.52rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--muted);
             writing-mode: vertical-rl;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             opacity: 0;
-            animation: fadeUp 0.8s ease 1.2s forwards;
+            animation: fadeUp 0.8s ease 1s forwards;
         }
 
         .hero-scroll::after {
             content: "";
             display: block;
             width: 1px;
-            height: 40px;
+            height: 44px;
             background: var(--muted);
         }
 
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(18px); }
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── Vault Panels ── */
+        /* ── 00 // POSTER SHOWCASE STRIP ── */
+        .showcase-section {
+            background: var(--dark);
+            border-bottom: 1px solid var(--border);
+            padding: 56px 0 64px;
+            overflow: hidden;
+        }
+
+        .showcase-header {
+            padding: 0 60px 28px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .showcase-eyebrow {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--red2);
+            margin-bottom: 6px;
+        }
+
+        .showcase-title {
+            font-family: var(--display);
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            line-height: 1;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+        .showcase-title em {
+            font-style: normal;
+            color: var(--red2);
+        }
+
+        .showcase-link {
+            font-family: var(--mono);
+            font-size: 0.58rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--red2);
+            border: 1px solid var(--border);
+            padding: 10px 18px;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+        .showcase-link:hover {
+            color: #fff;
+            border-color: var(--red2);
+            background: rgba(211,38,38,0.15);
+        }
+
+        .showcase-scroll-wrap {
+            width: 100%;
+            overflow-x: auto;
+            padding: 12px 60px 20px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border) transparent;
+        }
+        .showcase-scroll-wrap::-webkit-scrollbar { height: 6px; }
+        .showcase-scroll-wrap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+        .showcase-track {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+        }
+
+        .showcase-item {
+            width: 200px;
+            flex-shrink: 0;
+            background: #040404;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .showcase-item:hover {
+            border-color: var(--red2);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 36px rgba(0,0,0,0.9);
+        }
+        .showcase-item img {
+            width: 100%;
+            aspect-ratio: 2 / 3;
+            object-fit: contain;
+            display: block;
+            background: #000;
+            transition: transform 0.35s ease;
+        }
+        .showcase-item:hover img {
+            transform: scale(1.03);
+        }
+        .showcase-info {
+            padding: 12px 14px;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .showcase-tag {
+            font-family: var(--mono);
+            font-size: 0.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--red2);
+        }
+        .showcase-name {
+            font-family: var(--display);
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* ── Minimalist Gateway Panels (01 Films / 02 Shorts / 03 Novels / 04 Audio) ── */
         .vault-panels {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            height: 100vh;
-            min-height: 560px;
+            min-height: 520px;
             border-bottom: 1px solid var(--border);
+            background: var(--black);
         }
 
         .vault-panel {
             position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            padding: 40px 28px;
+            justify-content: space-between;
+            padding: 44px 32px 40px;
             text-decoration: none;
             color: var(--text);
-            overflow: hidden;
             border-right: 1px solid var(--border);
-            cursor: pointer;
-            transition: background 0.4s ease;
+            background: #08080a;
+            overflow: hidden;
+            transition: background 0.35s ease, border-color 0.35s ease;
         }
-
         .vault-panel:last-child { border-right: none; }
-        .vault-panel:nth-child(1) { background: #090608; }
-        .vault-panel:nth-child(2) { background: #060609; }
-        .vault-panel:nth-child(3) { background: #080907; }
-        .vault-panel:nth-child(4) { background: #090908; }
 
+        /* Accent top line on hover */
         .vault-panel::before {
             content: "";
             position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(139,0,0,0.18) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.35s ease;
+            z-index: 4;
+        }
+        .vault-panel:nth-child(1)::before { background: var(--red2); }
+        .vault-panel:nth-child(2)::before { background: var(--cyan); }
+        .vault-panel:nth-child(3)::before { background: var(--green); }
+        .vault-panel:nth-child(4)::before { background: var(--yellow); }
+
+        .vault-panel:hover::before { transform: scaleX(1); }
+
+        /* Subtle ambient poster art in background */
+        .panel-artwork {
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            width: 70%;
+            aspect-ratio: 2 / 3;
+            opacity: 0.18;
+            filter: grayscale(40%) contrast(1.1);
+            transform: rotate(-3deg) scale(0.95);
+            transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease;
+            pointer-events: none;
             z-index: 1;
         }
-        .vault-panel:hover::before { opacity: 1; }
-
-        .vault-panel::after {
-            content: "";
-            position: absolute;
-            left: 0; top: 0; bottom: 0;
-            width: 2px;
-            background: var(--red2);
-            transform: scaleY(0);
-            transform-origin: bottom;
-            transition: transform 0.4s ease;
-            z-index: 2;
-        }
-        .vault-panel:hover::after { transform: scaleY(1); }
-
-        .panel-image {
-            position: absolute;
-            inset: 0;
-            opacity: 0.18;
-            transition: opacity 0.4s ease;
-        }
-        .vault-panel:hover .panel-image { opacity: 0.3; }
-
-        .panel-image img {
+        .panel-artwork img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(100%) contrast(110%);
-            transition: filter 0.6s ease, transform 0.6s ease;
+            display: block;
         }
-        .vault-panel:hover .panel-image img {
-            filter: grayscale(20%) contrast(105%);
-            transform: scale(1.04);
+        .vault-panel:hover .panel-artwork {
+            opacity: 0.35;
+            filter: grayscale(0%) contrast(1.15);
+            transform: rotate(0deg) scale(1.02);
         }
 
-        .panel-content { position: relative; z-index: 3; }
-
+        .panel-header {
+            position: relative;
+            z-index: 2;
+        }
         .panel-num {
             font-family: var(--mono);
-            font-size: 0.55rem;
-            letter-spacing: 3px;
-            color: var(--red);
-            margin-bottom: 16px;
-            opacity: 0.7;
-        }
-
-        .panel-title {
-            font-family: var(--serif);
-            font-size: clamp(1.5rem, 2.2vw, 2.2rem);
-            line-height: 1.1;
-            color: var(--text);
-            margin-bottom: 12px;
-            transition: color 0.3s;
-        }
-        .vault-panel:hover .panel-title { color: #fff; }
-
-        .panel-desc {
-            font-family: var(--mono);
-            font-size: 0.52rem;
-            letter-spacing: 2px;
+            font-size: 0.65rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--muted);
-            line-height: 1.9;
+            margin-bottom: 12px;
+            transition: color 0.25s;
+        }
+        .vault-panel:nth-child(1):hover .panel-num { color: var(--red2); }
+        .vault-panel:nth-child(2):hover .panel-num { color: var(--cyan); }
+        .vault-panel:nth-child(3):hover .panel-num { color: var(--green); }
+        .vault-panel:nth-child(4):hover .panel-num { color: var(--yellow); }
+
+        .panel-title {
+            font-family: var(--display);
+            font-size: clamp(2.4rem, 4vw, 3.4rem);
+            line-height: 0.95;
+            letter-spacing: 1px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .panel-footer {
+            position: relative;
+            z-index: 2;
+            margin-top: 48px;
+        }
+
+        .panel-desc {
+            font-size: 0.8rem;
+            color: #9c9a94;
+            line-height: 1.6;
+            margin-bottom: 24px;
         }
 
         .panel-cta {
             font-family: var(--mono);
-            font-size: 0.55rem;
+            font-size: 0.58rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--red2);
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 10px;
-            margin-top: 20px;
-            opacity: 0.5;
-            transition: opacity 0.3s ease, gap 0.3s ease;
+            color: var(--text);
+            transition: color 0.25s, transform 0.25s;
         }
-        .vault-panel:hover .panel-cta { opacity: 1; gap: 14px; }
-
         .panel-cta-line {
-            display: block;
-            width: 20px; height: 1px;
-            background: var(--red2);
-            transition: width 0.3s;
+            width: 20px;
+            height: 1px;
+            background: var(--muted);
+            transition: width 0.25s, background 0.25s;
         }
-        .vault-panel:hover .panel-cta-line { width: 32px; }
+        .vault-panel:hover .panel-cta-line { width: 36px; }
+        .vault-panel:nth-child(1):hover .panel-cta-line { background: var(--red2); }
+        .vault-panel:nth-child(2):hover .panel-cta-line { background: var(--cyan); }
+        .vault-panel:nth-child(3):hover .panel-cta-line { background: var(--green); }
+        .vault-panel:nth-child(4):hover .panel-cta-line { background: var(--yellow); }
 
-        .panel-ghost {
-            position: absolute;
-            bottom: 20px;
-            right: -10px;
-            font-family: var(--serif);
-            font-style: italic;
-            font-size: 7rem;
-            line-height: 1;
-            color: rgba(139,0,0,0.04);
-            pointer-events: none;
-            user-select: none;
-            transition: color 0.4s ease;
-            z-index: 0;
-        }
-        .vault-panel:hover .panel-ghost { color: rgba(139,0,0,0.09); }
-
-        /* ── New Films Section ── */
+        /* ── 05 // New Films / Featured Shorts Section ── */
         .new-films-section {
-            padding: 100px 60px;
+            padding: 80px 60px;
             background: var(--black);
             border-bottom: 1px solid var(--border);
         }
 
         .new-films-header {
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: space-between;
-            margin-bottom: 48px;
+            margin-bottom: 36px;
             border-bottom: 1px solid var(--border);
             padding-bottom: 20px;
         }
 
         .new-films-heading {
             display: flex;
-            align-items: center;
+            align-items: baseline;
             gap: 16px;
-            flex-wrap: wrap;
         }
-
         .new-films-num {
             font-family: var(--mono);
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             letter-spacing: 3px;
-            color: var(--red);
+            color: var(--red2);
         }
-
         .new-films-title {
-            font-family: "Montserrat", var(--sans);
-            font-size: clamp(1.6rem, 3vw, 2.4rem);
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text);
+            font-family: var(--display);
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            line-height: 1;
+            letter-spacing: 1px;
+            color: #fff;
         }
-        .new-films-title em { font-style: normal; color: var(--red2); }
+        .new-films-title em {
+            font-style: normal;
+            color: var(--red2);
+        }
 
         .new-films-all {
             font-family: var(--mono);
-            font-size: 0.55rem;
+            font-size: 0.58rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             text-decoration: none;
             color: var(--red2);
             border: 1px solid var(--border);
-            padding: 8px 12px;
-            transition: color 0.2s, border-color 0.2s, background 0.2s;
+            padding: 10px 18px;
+            transition: all 0.25s ease;
         }
         .new-films-all:hover {
             color: #fff;
             border-color: var(--red2);
-            background: rgba(163, 21, 21, 0.15);
+            background: rgba(211, 38, 38, 0.15);
         }
 
         .new-films-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 24px;
         }
 
         .new-film-card {
@@ -477,11 +645,12 @@
             flex-direction: column;
             overflow: hidden;
             position: relative;
-            transition: border-color 0.3s ease, transform 0.3s ease;
+            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
         .new-film-card:hover {
             border-color: var(--red2);
-            transform: translateY(-4px);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 36px rgba(0,0,0,0.85);
         }
 
         .new-film-card::before {
@@ -495,9 +664,7 @@
             transition: transform 0.3s ease;
             z-index: 3;
         }
-        .new-film-card:hover::before {
-            transform: scaleX(1);
-        }
+        .new-film-card:hover::before { transform: scaleX(1); }
 
         .new-film-img {
             position: relative;
@@ -514,8 +681,8 @@
             inset: -14px;
             background-size: cover;
             background-position: center;
-            filter: blur(20px) brightness(0.35) saturate(1.25);
-            transform: scale(1.12);
+            filter: blur(22px) brightness(0.3) saturate(1.25);
+            transform: scale(1.15);
             opacity: 0.9;
             pointer-events: none;
             z-index: 1;
@@ -527,11 +694,11 @@
             height: 100%;
             object-fit: contain;
             display: block;
-            filter: grayscale(12%);
+            filter: grayscale(10%);
             transition: transform 0.4s ease, filter 0.4s ease;
         }
         .new-film-card:hover .new-film-img img {
-            transform: scale(1.04);
+            transform: scale(1.03);
             filter: grayscale(0%);
         }
 
@@ -541,6 +708,7 @@
             flex-direction: column;
             gap: 6px;
             background: var(--dark);
+            border-top: 1px solid var(--border);
             flex: 1;
         }
         .new-film-tag {
@@ -551,146 +719,122 @@
             color: var(--red2);
         }
         .new-film-title {
-            font-family: var(--serif);
-            font-size: 1.25rem;
-            line-height: 1.2;
+            font-family: var(--display);
+            font-size: 1.4rem;
+            line-height: 1.1;
+            letter-spacing: 0.5px;
             color: var(--text);
             transition: color 0.2s;
         }
-        .new-film-card:hover .new-film-title {
-            color: #fff;
-        }
+        .new-film-card:hover .new-film-title { color: #fff; }
         .new-film-meta {
             font-family: var(--mono);
-            font-size: 0.5rem;
+            font-size: 0.52rem;
             letter-spacing: 2px;
             color: var(--muted);
             margin-top: auto;
             padding-top: 6px;
         }
 
-        /* ── Dispatch / Blog ── */
+        /* ── 06 // Dispatch / Blog Section ── */
         .dispatch-section {
-            padding: 100px 60px;
+            padding: 80px 60px;
             background: var(--dark);
+            border-bottom: 1px solid var(--border);
         }
 
         .dispatch-header {
             display: flex;
-            align-items: center;
-            margin-bottom: 48px;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 36px;
             border-bottom: 1px solid var(--border);
             padding-bottom: 20px;
         }
 
-        .dispatch-heading { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-
+        .dispatch-heading {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+        }
         .dispatch-num {
             font-family: var(--mono);
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             letter-spacing: 3px;
-            color: var(--red);
+            color: var(--red2);
         }
-
         .dispatch-title {
-            font-family: "Montserrat", var(--sans);
-            font-size: clamp(1.6rem, 3vw, 2.4rem);
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text);
+            font-family: var(--display);
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            line-height: 1;
+            letter-spacing: 1px;
+            color: #fff;
         }
         .dispatch-title em { font-style: normal; color: var(--red2); }
 
         .dispatch-all {
             font-family: var(--mono);
-            font-size: 0.55rem;
+            font-size: 0.58rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             text-decoration: none;
             color: var(--red2);
             border: 1px solid var(--border);
-            padding: 8px 12px;
-            transition: color 0.2s, border-color 0.2s, background 0.2s;
+            padding: 10px 18px;
+            transition: all 0.25s ease;
         }
-        .dispatch-all:hover { color: #fff; border-color: var(--red2); background: rgba(163, 21, 21, 0.15); }
+        .dispatch-all:hover {
+            color: #fff;
+            border-color: var(--red2);
+            background: rgba(211, 38, 38, 0.15);
+        }
 
         .dispatch-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: var(--border);
+            gap: 20px;
         }
 
         .dispatch-card {
-            background: var(--dark);
-            padding: 36px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 32px 28px;
             text-decoration: none;
             color: var(--text);
             display: flex;
             flex-direction: column;
             gap: 12px;
-            transition: background 0.3s;
+            transition: border-color 0.3s ease, transform 0.3s ease;
             position: relative;
         }
-        .dispatch-card:hover { background: var(--surface); }
-
-        .dispatch-card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: var(--red);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-        .dispatch-card:hover::before { transform: scaleX(1); }
-        .dispatch-card-image {
-            width: calc(100% + 72px);
-            margin: -36px -36px 16px;
-            aspect-ratio: 16 / 9;
-            overflow: hidden;
-            border-bottom: 1px solid var(--border);
-            background: #090909;
-        }
-        .dispatch-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            opacity: 0.9;
-            transition: transform 0.35s ease, opacity 0.35s ease;
-        }
-        .dispatch-card:hover .dispatch-card-image img {
-            transform: scale(1.03);
-            opacity: 1;
+        .dispatch-card:hover {
+            border-color: var(--red2);
+            transform: translateY(-4px);
         }
 
         .dispatch-card-date {
             font-family: var(--mono);
-            font-size: 0.5rem;
+            font-size: 0.52rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--red);
+            color: var(--red2);
         }
-
         .dispatch-card-title {
-            font-family: var(--serif);
-            font-size: 1.2rem;
-            line-height: 1.25;
-            color: var(--text);
+            font-family: var(--display);
+            font-size: 1.5rem;
+            line-height: 1.15;
+            letter-spacing: 0.5px;
+            color: #fff;
         }
-
         .dispatch-card-excerpt {
-            font-size: 0.8rem;
-            color: var(--muted);
-            line-height: 1.8;
+            font-size: 0.82rem;
+            color: #9c9a94;
+            line-height: 1.6;
             flex: 1;
         }
-
         .dispatch-card-read {
             font-family: var(--mono);
-            font-size: 0.5rem;
+            font-size: 0.52rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--muted);
@@ -701,63 +845,48 @@
 
         /* ── Contact ── */
         .contact-section {
-            padding: 120px 60px;
+            padding: 100px 60px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-section::before {
-            content: "ENTER";
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: var(--serif);
-            font-size: clamp(5rem, 18vw, 14rem);
-            color: rgba(139,0,0,0.04);
-            white-space: nowrap;
-            pointer-events: none;
-            letter-spacing: 12px;
+            background: var(--black);
+            border-bottom: 1px solid var(--border);
         }
 
         .contact-label {
             font-family: var(--mono);
-            font-size: 0.6rem;
+            font-size: 0.62rem;
             letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--red2);
-            margin-bottom: 20px;
-            position: relative;
+            margin-bottom: 12px;
         }
 
         .contact-headline {
-            font-family: var(--serif);
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            color: var(--text);
-            margin-bottom: 16px;
-            position: relative;
+            font-family: var(--display);
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            line-height: 1;
+            letter-spacing: 1px;
+            color: #fff;
+            margin-bottom: 12px;
         }
-        .contact-headline em { font-style: italic; color: var(--red2); }
+        .contact-headline em { font-style: normal; color: var(--red2); }
 
         .contact-sub {
             font-family: var(--mono);
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             letter-spacing: 2px;
-            color: #8d8d8d;
-            margin-bottom: 48px;
-            position: relative;
+            color: #9c9a94;
+            margin-bottom: 36px;
         }
 
         .contact-email {
             display: inline-block;
-            font-family: var(--serif);
-            font-style: italic;
-            font-size: clamp(1.4rem, 3vw, 2.4rem);
-            color: var(--text);
+            font-family: var(--display);
+            font-size: clamp(1.8rem, 4vw, 3.2rem);
+            letter-spacing: 2px;
+            color: #fff;
             text-decoration: none;
             transition: color 0.2s;
-            position: relative;
-            margin-bottom: 48px;
+            margin-bottom: 36px;
         }
         .contact-email:hover { color: var(--red2); }
 
@@ -766,18 +895,22 @@
             align-items: center;
             gap: 12px;
             font-family: var(--mono);
-            font-size: 0.6rem;
+            font-size: 0.62rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             text-decoration: none;
-            color: #f0ece5;
+            color: #fff;
             border: 1px solid var(--red2);
-            background: rgba(163, 21, 21, 0.2);
-            padding: 16px 32px;
-            transition: all 0.3s;
-            position: relative;
+            background: rgba(211, 38, 38, 0.2);
+            padding: 14px 32px;
+            transition: all 0.25s ease;
         }
-        .contact-btn:hover { border-color: #d32626; color: #fff; background: rgba(163, 21, 21, 0.4); }
+        .contact-btn:hover {
+            border-color: #ef4444;
+            background: var(--red2);
+            box-shadow: 0 0 25px rgba(211, 38, 38, 0.45);
+            transform: translateY(-2px);
+        }
 
         /* ── Footer ── */
         footer {
@@ -785,7 +918,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 1px solid var(--border);
+            background: var(--black);
         }
 
         .footer-logo {
@@ -795,37 +928,19 @@
             color: var(--muted);
             text-transform: uppercase;
         }
-        .footer-logo span { color: var(--red); }
+        .footer-logo span { color: var(--red2); }
 
-        .footer-copy {
-            font-family: var(--mono);
-            font-size: 0.55rem;
-            letter-spacing: 2px;
-            color: var(--muted);
-        }
-        .footer-social {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .footer-social { display: flex; align-items: center; gap: 8px; }
         .social-icon svg { width: 18px; height: 18px; fill: currentColor; }
         .social-icon {
-            width: 40px;
-            height: 40px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--red2);
-            background: rgba(163, 21, 21, 0.2);
-            color: #f3eee8;
-            text-decoration: none;
-            font-family: var(--mono);
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: all 0.2s;
+            width: 40px; height: 40px;
+            display: inline-flex; align-items: center; justify-content: center;
+            border: 1px solid var(--red2); background: rgba(211, 38, 38, 0.15);
+            color: #f3eee8; text-decoration: none; font-family: var(--mono);
+            font-size: 1rem; font-weight: 600; letter-spacing: 1px; transition: all 0.2s;
         }
-        .social-icon:hover { color: #fff; border-color: #d32626; background: rgba(163, 21, 21, 0.45); transform: translateY(-1px); }
+        .social-icon:hover { color: #fff; border-color: #ef4444; background: rgba(211, 38, 38, 0.4); transform: translateY(-1px); }
+
         .footer-right {
             display: flex;
             align-items: center;
@@ -847,57 +962,57 @@
             color: var(--muted);
             text-transform: uppercase;
             text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: all 0.2s;
+            transition: color 0.2s;
         }
-        .footer-link:hover { color: #fff; border-color: var(--red2); }
+        .footer-link:hover { color: #fff; }
+        .footer-copy {
+            font-family: var(--mono);
+            font-size: 0.52rem;
+            letter-spacing: 2px;
+            color: var(--muted);
+        }
 
-        /* ── Mobile ── */
-        @media (max-width: 900px) {
+        /* ── Responsive ── */
+        @media (max-width: 1100px) {
+            nav { padding: 0 40px; }
+            .hero { padding: 70px 40px 60px; }
+            .showcase-header { padding: 0 40px 24px; }
+            .showcase-scroll-wrap { padding: 12px 40px 20px; }
+            .vault-panels { grid-template-columns: repeat(2, 1fr); min-height: auto; }
+            .vault-panel { border-bottom: 1px solid var(--border); min-height: 340px; }
+            .vault-panel:nth-child(2) { border-right: none; }
+            .new-films-section, .dispatch-section, .contact-section { padding: 70px 40px; }
+            .new-films-grid { grid-template-columns: repeat(2, 1fr); }
+            .dispatch-grid { grid-template-columns: 1fr; }
+            footer { padding: 28px 40px; }
+        }
+
+        @media (max-width: 768px) {
             nav { padding: 0 24px; }
             .nav-links { display: none; }
             .hamburger { display: flex; }
-            .hero { padding: 0 24px 50px; min-height: 70vh; }
+            .hero { padding: 60px 24px 50px; min-height: 80vh; }
             .hero-scroll { display: none; }
-            .vault-panels { grid-template-columns: repeat(2, 1fr); height: auto; }
-            .vault-panel { min-height: 320px; border-bottom: 1px solid var(--border); border-right: none; }
-            .vault-panel:last-child { border-bottom: none; }
-            .panel-ghost { font-size: 3.5rem; bottom: 10px; }
-            .new-films-section { padding: 60px 24px; }
-            .new-films-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-            .dispatch-section { padding: 60px 24px; }
-            .dispatch-grid { grid-template-columns: 1fr; }
-            .contact-section { padding: 70px 24px; }
-            footer { flex-direction: column; gap: 10px; text-align: center; padding: 28px 24px; }
-            .footer-right { justify-content: center; }
-        }
-
-        @media (max-width: 600px) {
-            .hero { min-height: 60vh; padding: 0 20px 44px; }
+            .hero-sun { width: 260px; height: 260px; top: 38%; right: -20px; }
+            .showcase-header { padding: 0 24px 20px; flex-direction: column; align-items: flex-start; }
+            .showcase-scroll-wrap { padding: 12px 24px 16px; }
             .vault-panels { grid-template-columns: 1fr; }
-            .vault-panel { min-height: 210px; border-right: none !important; border-bottom: 1px solid var(--border); }
-            .vault-panel:last-child { border-bottom: none; }
-            .panel-title { font-size: 1.4rem; }
-            .panel-ghost { display: none; }
-            .new-films-section { padding: 50px 20px; }
-            .new-films-grid { grid-template-columns: 1fr; gap: 14px; }
-            .dispatch-section { padding: 50px 20px; }
-            .dispatch-card { padding: 24px; }
-            .dispatch-card-image {
-                width: calc(100% + 48px);
-                margin: -24px -24px 14px;
-            }
-            .contact-section { padding: 60px 20px; }
-            footer { padding: 24px 20px; }
+            .vault-panel { border-right: none !important; min-height: 260px; padding: 36px 24px; }
+            .new-films-section, .dispatch-section, .contact-section { padding: 60px 24px; }
+            .new-films-header, .dispatch-header { flex-direction: column; align-items: flex-start; gap: 14px; }
+            .new-films-grid { grid-template-columns: 1fr; gap: 18px; }
+            footer { flex-direction: column; gap: 14px; text-align: center; padding: 24px; }
+            .footer-right { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Main Navigation -->
     <nav>
         <a href="/" class="nav-logo">THE IMMORTAL VAULT</a>
         <ul class="nav-links">
-            <li><a href="/">Home</a></li>
+            <li><a href="/" class="active">Home</a></li>
             <li><a href="/films">Films</a></li>
             <li><a href="/films?filter=short">Short Films</a></li>
             <li><a href="/narrative-fiction">Novels</a></li>
@@ -910,6 +1025,7 @@
         </button>
     </nav>
 
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobile-menu">
         <a href="/">Home</a>
         <a href="/films">Films</a>
@@ -920,132 +1036,240 @@
         <a href="/contact">Contact</a>
     </div>
 
-    <!-- Hero — FIXED: single hero-bg, no nesting, vignette and content outside it -->
+    <!-- Hero: Minimalist Graphic Aesthetic -->
     <section class="hero">
-        <div class="hero-bg">
-            <img src="Lauren.png" alt="The Immortal Vault">
+        <div class="hero-graphic" aria-hidden="true">
+            <div class="hero-sun"></div>
+            <div class="hero-horizon"></div>
         </div>
-        <div class="hero-vignette"></div>
         <div class="hero-content">
-            <p class="hero-tag">Horror &nbsp;/&nbsp; Film &nbsp;/&nbsp; Audio &nbsp;/&nbsp; Fiction</p>
-            <h1 class="hero-title">The<br><em>Immortal</em><br>Vault</h1>
+            <p class="hero-tag">Original Productions &nbsp;/&nbsp; Film &nbsp;/&nbsp; Novels &nbsp;/&nbsp; Audio</p>
+            <h1 class="hero-title">The <em>Immortal</em><br>Vault</h1>
             <p class="hero-sub">Stories that endure. &nbsp;Darkness that lingers.</p>
+            <p class="hero-author">Written &amp; Created by Jeremy Hollenbeck</p>
+            <div class="hero-actions">
+                <a href="#showcase" class="hero-btn primary">Explore Showcase</a>
+                <a href="/films" class="hero-btn ghost">All Projects</a>
+            </div>
         </div>
         <div class="hero-scroll">Scroll</div>
     </section>
 
-    <!-- Four Panel Gateway -->
+    <!-- 00 // POSTER SHOWCASE STRIP -->
+    <section class="showcase-section" id="showcase">
+        <div class="showcase-header">
+            <div>
+                <div class="showcase-eyebrow">// Archive Showcase — Original Productions</div>
+                <h2 class="showcase-title">Vault <em>Posters</em></h2>
+            </div>
+            <a href="/films" class="showcase-link">Browse Full Archive &rarr;</a>
+        </div>
+        <div class="showcase-scroll-wrap">
+            <div class="showcase-track">
+                <a href="/coming-soon/?item=film-sedona" class="showcase-item">
+                    <img src="SedonaPoster.png" alt="Sedona" loading="lazy">
+                    <div class="showcase-info">
+                        <span class="showcase-tag">Feature Film</span>
+                        <span class="showcase-name">Sedona</span>
+                    </div>
+                </a>
+                <a href="/written-work.html?item=parallel" class="showcase-item">
+                    <img src="ParallelPoster.png" alt="Parallel" loading="lazy">
+                    <div class="showcase-info">
+                        <span class="showcase-tag">Novel</span>
+                        <span class="showcase-name">Parallel</span>
+                    </div>
+                </a>
+                <a href="/coming-soon/?item=film-short-the-rot" class="showcase-item">
+                    <img src="TheRotPoster.png" alt="The Rot" loading="lazy">
+                    <div class="showcase-info">
+                        <span class="showcase-tag">Short Film</span>
+                        <span class="showcase-name">The Rot</span>
+                    </div>
+                </a>
+                <a href="/coming-soon/?item=film-project-the-other-place" class="showcase-item">
+                    <img src="TheOtherPlacePoster.png" alt="The Other Place" loading="lazy">
+                    <div class="showcase-info">
+                        <span class="showcase-tag">Feature Film</span>
+                        <span class="showcase-name">The Other Place</span>
+                    </div>
+                </a>
+                <a href="/written-work.html?item=spooky-town" class="showcase-item">
+                    <img src="SpookyTownPoster.png" alt="Spooky Town" loading="lazy">
+                    <div class="showcase-info">
+                        <span class="showcase-tag">Novel</span>
+                        <span class="showcase-name">Spooky Town</span>
+                    </div>
+                </a>
+                <a href="/coming-soon/?item=film-project-the-memory-box" class="showcase-item">
+                    <img src="TheMemoryBoxPoster.png" alt="The Memory Box" loading="lazy">
+                    <div class="showcase-info">
+                        <span class="showcase-tag">Feature Film</span>
+                        <span class="showcase-name">The Memory Box</span>
+                    </div>
+                </a>
+                <a href="/coming-soon/?item=film-short-teddy" class="showcase-item">
+                    <img src="TeddyPoster.png" alt="Teddy" loading="lazy">
+                    <div class="showcase-info">
+                        <span class="showcase-tag">Short Film</span>
+                        <span class="showcase-name">Teddy</span>
+                    </div>
+                </a>
+                <a href="/coming-soon/?item=film-short-the-door" class="showcase-item">
+                    <img src="TheDoorPoster.png" alt="The Door" loading="lazy">
+                    <div class="showcase-info">
+                        <span class="showcase-tag">Short Film</span>
+                        <span class="showcase-name">The Door</span>
+                    </div>
+                </a>
+                <a href="/coming-soon/?item=film-project-streamed" class="showcase-item">
+                    <img src="StreamedPoster.png" alt="Streamed" loading="lazy">
+                    <div class="showcase-info">
+                        <span class="showcase-tag">Feature Film</span>
+                        <span class="showcase-name">Streamed</span>
+                    </div>
+                </a>
+                <a href="/written-work.html?item=the-three-rips" class="showcase-item">
+                    <img src="TheThreeRipsPoster.png" alt="The Three Rips" loading="lazy">
+                    <div class="showcase-info">
+                        <span class="showcase-tag">Short Story</span>
+                        <span class="showcase-name">The Three Rips</span>
+                    </div>
+                </a>
+                <a href="/written-work.html?item=quantum-travellers" class="showcase-item">
+                    <img src="QuantumTravellersPoster.png" alt="Quantum Travellers" loading="lazy">
+                    <div class="showcase-info">
+                        <span class="showcase-tag">Novel</span>
+                        <span class="showcase-name">Quantum Travellers</span>
+                    </div>
+                </a>
+                <a href="/written-work.html?item=malify" class="showcase-item">
+                    <img src="MalifyPoster.png" alt="Malify" loading="lazy">
+                    <div class="showcase-info">
+                        <span class="showcase-tag">Comedy / Horror</span>
+                        <span class="showcase-name">Malify</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Four Panel Minimalist Gateway -->
     <div class="vault-panels">
         <a href="/films" class="vault-panel">
-            <div class="panel-image"><img src="Lauren.png" alt="Films"></div>
-            <div class="panel-ghost">I</div>
-            <div class="panel-content">
-                <div class="panel-num">01</div>
+            <div class="panel-artwork"><img src="SedonaPoster.png" alt="Films"></div>
+            <div class="panel-header">
+                <div class="panel-num">01 // Feature Length</div>
                 <div class="panel-title">Films</div>
-                <div class="panel-desc">Horror feature films<br>&amp; full-length cinema</div>
-                <div class="panel-cta"><span class="panel-cta-line"></span> Enter</div>
+            </div>
+            <div class="panel-footer">
+                <div class="panel-desc">Original horror feature films &amp; full-length cinema productions.</div>
+                <div class="panel-cta"><span class="panel-cta-line"></span> Enter Films</div>
             </div>
         </a>
         <a href="/films?filter=short" class="vault-panel">
-            <div class="panel-image"><img src="TheBrutePoster.jpg" alt="Short Films"></div>
-            <div class="panel-ghost">II</div>
-            <div class="panel-content">
-                <div class="panel-num">02</div>
+            <div class="panel-artwork"><img src="TheRotPoster.png" alt="Short Films"></div>
+            <div class="panel-header">
+                <div class="panel-num">02 // Original Shorts</div>
                 <div class="panel-title">Short<br>Films</div>
-                <div class="panel-desc">Vault horror shorts<br>&amp; original productions</div>
-                <div class="panel-cta"><span class="panel-cta-line"></span> Watch</div>
+            </div>
+            <div class="panel-footer">
+                <div class="panel-desc">Vault horror shorts, creature features &amp; original micro-thrillers.</div>
+                <div class="panel-cta"><span class="panel-cta-line"></span> Watch Shorts</div>
             </div>
         </a>
         <a href="/narrative-fiction" class="vault-panel">
-            <div class="panel-image"><img src="SpookyTownPoster.png" alt="Novels"></div>
-            <div class="panel-ghost">III</div>
-            <div class="panel-content">
-                <div class="panel-num">03</div>
+            <div class="panel-artwork"><img src="ParallelPoster.png" alt="Novels"></div>
+            <div class="panel-header">
+                <div class="panel-num">03 // Published Fiction</div>
                 <div class="panel-title">Novels</div>
-                <div class="panel-desc">Original fiction,<br>novellas &amp; dark lore</div>
-                <div class="panel-cta"><span class="panel-cta-line"></span> Read</div>
+            </div>
+            <div class="panel-footer">
+                <div class="panel-desc">Original books, sci-fi thrillers, middle-grade fantasy &amp; deep lore.</div>
+                <div class="panel-cta"><span class="panel-cta-line"></span> Read Novels</div>
             </div>
         </a>
         <a href="/audio-dramas" class="vault-panel">
-            <div class="panel-image"><img src="Mic.jpg" alt="Audio Dramas"></div>
-            <div class="panel-ghost">IV</div>
-            <div class="panel-content">
-                <div class="panel-num">04</div>
+            <div class="panel-artwork"><img src="Mic.jpg" alt="Audio Dramas"></div>
+            <div class="panel-header">
+                <div class="panel-num">04 // Audio Productions</div>
                 <div class="panel-title">Audio<br>Dramas</div>
-                <div class="panel-desc">Podcast &amp;<br>audio productions</div>
-                <div class="panel-cta"><span class="panel-cta-line"></span> Listen</div>
+            </div>
+            <div class="panel-footer">
+                <div class="panel-desc">Immersive horror podcasts, soundscapes &amp; investigative series.</div>
+                <div class="panel-cta"><span class="panel-cta-line"></span> Listen Audio</div>
             </div>
         </a>
     </div>
 
-    <!-- 05 — New Films Section -->
+    <!-- 05 // Featured Shorts Section -->
     <section class="new-films-section" id="new-films">
         <div class="new-films-header">
             <div class="new-films-heading">
                 <span class="new-films-num">05</span>
-                <h2 class="new-films-title">New <em>Films</em></h2>
+                <h2 class="new-films-title">Latest <em>Shorts</em></h2>
             </div>
-            <a href="/films" class="new-films-all">All Films →</a>
+            <a href="/films?filter=short" class="new-films-all">All 15 Shorts &rarr;</a>
         </div>
         <div class="new-films-grid">
-            <a href="/coming-soon/?item=film-project-10" class="new-film-card">
+            <a href="/coming-soon/?item=film-short-the-rot" class="new-film-card">
                 <div class="new-film-img">
-                    <div class="poster-blur" style="background-image: url('TheBrutePoster.jpg');"></div>
-                    <img src="TheBrutePoster.jpg" alt="The Brute" class="poster-main" loading="lazy">
+                    <div class="poster-blur" style="background-image: url('TheRotPoster.png');"></div>
+                    <img src="TheRotPoster.png" alt="The Rot" class="poster-main" loading="lazy">
                 </div>
                 <div class="new-film-body">
-                    <div class="new-film-tag">Short Film</div>
-                    <div class="new-film-title">The Brute</div>
-                    <div class="new-film-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
+                    <div class="new-film-tag">Horror / Zombie</div>
+                    <div class="new-film-title">The Rot</div>
+                    <div class="new-film-meta">2026 &nbsp;&bull;&nbsp; In Development</div>
                 </div>
             </a>
-            <a href="/coming-soon/?item=film-project-09" class="new-film-card">
+            <a href="/coming-soon/?item=film-short-teddy" class="new-film-card">
                 <div class="new-film-img">
-                    <div class="poster-blur" style="background-image: url('DateNightPoster.jpg');"></div>
-                    <img src="DateNightPoster.jpg" alt="Date Night" class="poster-main" loading="lazy">
+                    <div class="poster-blur" style="background-image: url('TeddyPoster.png');"></div>
+                    <img src="TeddyPoster.png" alt="Teddy" class="poster-main" loading="lazy">
                 </div>
                 <div class="new-film-body">
-                    <div class="new-film-tag">Short Film</div>
-                    <div class="new-film-title">Date Night</div>
-                    <div class="new-film-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
+                    <div class="new-film-tag">Micro-Horror Short</div>
+                    <div class="new-film-title">Teddy</div>
+                    <div class="new-film-meta">2026 &nbsp;&bull;&nbsp; Original Production</div>
                 </div>
             </a>
-            <a href="/coming-soon/?item=film-project-08" class="new-film-card">
+            <a href="/coming-soon/?item=film-short-the-door" class="new-film-card">
                 <div class="new-film-img">
-                    <div class="poster-blur" style="background-image: url('TheMimicPoster.jpg');"></div>
-                    <img src="TheMimicPoster.jpg" alt="The Mimic" class="poster-main" loading="lazy">
+                    <div class="poster-blur" style="background-image: url('TheDoorPoster.png');"></div>
+                    <img src="TheDoorPoster.png" alt="The Door" class="poster-main" loading="lazy">
                 </div>
                 <div class="new-film-body">
-                    <div class="new-film-tag">Short Film</div>
-                    <div class="new-film-title">The Mimic</div>
-                    <div class="new-film-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
+                    <div class="new-film-tag">Supernatural / Dark Fantasy</div>
+                    <div class="new-film-title">The Door</div>
+                    <div class="new-film-meta">2026 &nbsp;&bull;&nbsp; Original Production</div>
                 </div>
             </a>
-            <a href="/coming-soon/?item=film-project-07" class="new-film-card">
+            <a href="/coming-soon/?item=film-short-remembrance" class="new-film-card">
                 <div class="new-film-img">
-                    <div class="poster-blur" style="background-image: url('TheRustlePoster.jpg');"></div>
-                    <img src="TheRustlePoster.jpg" alt="The Rustle" class="poster-main" loading="lazy">
+                    <div class="poster-blur" style="background-image: url('RemembrancePoster.png');"></div>
+                    <img src="RemembrancePoster.png" alt="Remembrance" class="poster-main" loading="lazy">
                 </div>
                 <div class="new-film-body">
-                    <div class="new-film-tag">Short Film</div>
-                    <div class="new-film-title">The Rustle</div>
-                    <div class="new-film-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
+                    <div class="new-film-tag">Folk Horror / Thriller</div>
+                    <div class="new-film-title">Remembrance</div>
+                    <div class="new-film-meta">2026 &nbsp;&bull;&nbsp; Original Production</div>
                 </div>
             </a>
         </div>
     </section>
 
-    <!-- Blog / Dispatch — pulls from Sanity -->
+    <!-- 06 // Blog / Dispatch — pulls from Sanity -->
     <section class="dispatch-section">
         <div class="dispatch-header">
             <div class="dispatch-heading">
                 <span class="dispatch-num">06</span>
                 <h2 class="dispatch-title">Creature <em>Feature Lab</em></h2>
-                <a href="/dispatch" class="dispatch-all">View All →</a>
             </div>
+            <a href="/dispatch" class="dispatch-all">View All Dispatches &rarr;</a>
         </div>
         <div class="dispatch-grid" id="dispatch-grid">
-            <!-- filled by JS below -->
+            <!-- filled by Sanity script below -->
             <div class="dispatch-card">
                 <div class="dispatch-card-date">Loading…</div>
                 <div class="dispatch-card-title">Fetching latest posts</div>
@@ -1058,13 +1282,13 @@
     <section class="contact-section">
         <p class="contact-label">// Open the Door</p>
         <h2 class="contact-headline">Step <em>Inside</em></h2>
-        <p class="contact-sub">Collaborations, rights inquiries, or just a conversation about the dark.</p>
-        <br><br>
+        <p class="contact-sub">Collaborations, rights inquiries, or a conversation about original horror productions.</p>
         <a href="mailto:inquiries@theimmortalvault.com" class="contact-email">inquiries@theimmortalvault.com</a>
-        <br><br>
+        <br>
         <a href="/contact" class="contact-btn">Get In Touch</a>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-logo">THE <span>IMMORTAL</span> VAULT</div>
         <div class="footer-social" aria-label="Social media">
@@ -1080,6 +1304,7 @@
         </div>
     </footer>
 
+    <!-- Interactive Scripts -->
     <script>
         // Nav hamburger
         const btn = document.getElementById('hamburger');
@@ -1087,7 +1312,7 @@
         btn.addEventListener('click', () => { btn.classList.toggle('open'); menu.classList.toggle('open'); });
         menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { btn.classList.remove('open'); menu.classList.remove('open'); }));
 
-        // New films entrance animation
+        // Entrance animation for cards
         document.querySelectorAll('.new-film-card').forEach((c, i) => {
             c.style.opacity = '0';
             c.style.transform = 'translateY(16px)';
@@ -1098,19 +1323,9 @@
                     c.style.transform = 'translateY(0)';
                     obs.disconnect();
                 }
-            }, { threshold: 0.08 });
+            });
             obs.observe(c);
         });
-
-        // Dispatch card scroll entrance
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.style.opacity = '1';
-                    e.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.08 });
     </script>
 
     <!-- Sanity blog posts for homepage dispatch section -->
@@ -1118,16 +1333,16 @@
         const PROJECT_ID = 'xeqvf5vl';
         const DATASET    = 'production';
         const API_VER    = '2023-10-01';
-        const grid       = document.getElementById('dispatch-grid');
 
-        // Simple query — no pt::text(), no complex functions, maximum compatibility
         const query = encodeURIComponent(
-            `*[_type == "post"] | order(publishedAt desc) [0...3] {
+            `*[_type == "post"] | order(publishedAt desc)[0...3] {
                 title,
-                "slug": slug.current,
+                slug,
                 publishedAt,
-                "coverImageUrl": coverImage.asset->url,
-                excerpt
+                mainImage,
+                "authorName": author->name,
+                "categories": categories[]->title,
+                "excerpt": pt::text(body)
             }`
         );
 
@@ -1139,50 +1354,43 @@
             const posts = data.result || [];
 
             if (!posts.length) {
-                grid.innerHTML = `
-                    <div class="dispatch-card">
-                        <div class="dispatch-card-title">No posts yet</div>
-                        <div class="dispatch-card-excerpt">Check back soon.</div>
-                    </div>`;
-            } else {
-                const fmt = d => d
-                    ? new Date(d).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
-                    : '';
-
-                grid.innerHTML = posts.map(p => `
-                    <a href="/dispatch-post?slug=${encodeURIComponent(p.slug)}" class="dispatch-card">
-                        ${p.coverImageUrl ? `<div class="dispatch-card-image"><img src="${p.coverImageUrl}" alt="${p.title || 'Post image'}" loading="lazy"></div>` : ''}
-                        <div class="dispatch-card-date">${fmt(p.publishedAt)}</div>
-                        <div class="dispatch-card-title">${p.title || 'Untitled'}</div>
-                        <div class="dispatch-card-excerpt">${(p.excerpt || '').substring(0, 140)}${p.excerpt && p.excerpt.length > 140 ? '…' : ''}</div>
-                        <div class="dispatch-card-read">Read →</div>
-                    </a>`).join('');
-
-                // Animate cards
-                grid.querySelectorAll('.dispatch-card').forEach((c, i) => {
-                    c.style.opacity = '0';
-                    c.style.transform = 'translateY(14px)';
-                    c.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s, background 0.3s`;
-                    const obs = new IntersectionObserver(entries => {
-                        if (entries[0].isIntersecting) {
-                            c.style.opacity = '1';
-                            c.style.transform = 'translateY(0)';
-                            obs.disconnect();
-                        }
-                    }, { threshold: 0.08 });
-                    obs.observe(c);
-                });
+                console.warn('Sanity returned 0 posts');
+                return;
             }
+
+            const grid = document.getElementById('dispatch-grid');
+            grid.innerHTML = posts.map(p => {
+                const date = p.publishedAt
+                    ? new Date(p.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+                    : '';
+                const title   = p.title || 'Untitled';
+                const slug    = p.slug ? p.slug.current : '#';
+                const excerpt = p.excerpt
+                    ? p.excerpt.slice(0, 140) + '…'
+                    : 'Read the latest dispatch from Creature Feature Lab.';
+
+                return `
+                    <a href="/dispatch-post?slug=${slug}" class="dispatch-card">
+                        <div class="dispatch-card-date">${date}</div>
+                        <div class="dispatch-card-title">${title}</div>
+                        <div class="dispatch-card-excerpt">${excerpt}</div>
+                        <div class="dispatch-card-read">Read Dispatch &rarr;</div>
+                    </a>
+                `;
+            }).join('');
 
         } catch(err) {
             console.error('Sanity fetch failed:', err);
-            grid.innerHTML = `
-                <div class="dispatch-card">
-                    <div class="dispatch-card-title">Could not load posts</div>
-                    <div class="dispatch-card-excerpt">CORS may not be configured for this domain. Check manage.sanity.io → API → CORS Origins.</div>
-                </div>`;
+            const grid = document.getElementById('dispatch-grid');
+            if (grid) {
+                grid.innerHTML = `
+                    <div class="dispatch-card">
+                        <div class="dispatch-card-title">Latest Dispatches</div>
+                        <div class="dispatch-card-excerpt">Visit the Creature Feature Lab to read recent creator dispatches and updates.</div>
+                        <a href="/dispatch" class="dispatch-card-read">Go to Dispatches &rarr;</a>
+                    </div>`;
+            }
         }
     </script>
-
 </body>
 </html>
