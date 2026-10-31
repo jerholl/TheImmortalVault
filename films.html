@@ -364,13 +364,13 @@
             <div class="page-eyebrow">The Archive // Motion Pictures</div>
             <h1 class="page-title">Films &amp; <em>Shorts</em></h1>
         </div>
-        <div class="page-count" id="header-count">30 Projects Archived</div>
+        <div class="page-count" id="header-count">31 Projects Archived</div>
     </header>
 
     <!-- Sticky Filter Bar -->
     <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All Projects (30)</button>
-        <button class="filter-btn" data-filter="feature">Feature Films (15)</button>
+        <button class="filter-btn active" data-filter="all">All Projects (31)</button>
+        <button class="filter-btn" data-filter="feature">Feature Films (16)</button>
         <button class="filter-btn" data-filter="short">Short Films (15)</button>
         <button class="filter-btn" data-filter="released-shorts">Released Shorts (10)</button>
         <button class="filter-btn" data-filter="coming-soon-shorts">Coming Soon Shorts (5)</button>
@@ -383,7 +383,7 @@
                 <div class="section-eyebrow">01 // Feature Length</div>
                 <h2 class="section-title">Feature <em>Films</em></h2>
             </div>
-            <div class="section-badge">15 Archived Productions</div>
+            <div class="section-badge">16 Archived Productions</div>
         </div>
         <div class="films-grid" id="feature-films-grid">
             <a href="/coming-soon/?item=film-project-traveler" class="film-card feature-film-card">
@@ -421,8 +421,8 @@
             </a>
             <a href="/coming-soon/?item=film-project-the-memory-box" class="film-card feature-film-card">
                 <div class="film-card-img feature-card-img">
-                    <div class="poster-blur" style="background-image: url('TheMemoryBoxPoster.png');"></div>
-                    <img src="TheMemoryBoxPoster.png" alt="The Memory Box" class="poster-main" loading="lazy">
+                    <div class="poster-blur" style="background-image: url('TheMemoryBoxPoster.png?v=20261031c');"></div>
+                    <img src="TheMemoryBoxPoster.png?v=20261031c" alt="The Memory Box" class="poster-main" loading="lazy">
                 </div>
                 <div class="film-card-body">
                     <div class="film-card-tag">Horror / Mystery</div>
@@ -548,6 +548,17 @@
                 <div class="film-card-body">
                     <div class="film-card-tag">Action / Horror</div>
                     <div class="film-card-title">Sedona</div>
+                    <div class="film-card-meta">Feature Film // In Development</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-malify" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('MalifyPoster.png?v=20261031c');"></div>
+                    <img src="MalifyPoster.png?v=20261031c" alt="Malify" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Horror / Comedy</div>
+                    <div class="film-card-title">Malify</div>
                     <div class="film-card-meta">Feature Film // In Development</div>
                 </div>
             </a>
@@ -720,8 +731,8 @@
             </a>
             <a href="/coming-soon/?item=film-short-ghost-train" class="film-card short-film-card">
                 <div class="film-card-img short-card-img">
-                    <div class="poster-blur" style="background-image: url('GhostTrainPoster.png');"></div>
-                    <img src="GhostTrainPoster.png" alt="Ghost Train" class="poster-main" loading="lazy">
+                    <div class="poster-blur" style="background-image: url('GhostTrainPoster.png?v=20261031c');"></div>
+                    <img src="GhostTrainPoster.png?v=20261031c" alt="Ghost Train" class="poster-main" loading="lazy">
                 </div>
                 <div class="film-card-body">
                     <div class="film-card-tag">Supernatural Horror</div>
@@ -801,12 +812,12 @@
                 if (comingSoonSubgroup) comingSoonSubgroup.style.display = 'block';
                 if (shortsDivider) shortsDivider.style.display = 'flex';
                 if (vaultDivider) vaultDivider.style.display = 'flex';
-                headerCount.textContent = '30 Projects Archived';
+                headerCount.textContent = '31 Projects Archived';
             } else if (filter === 'feature') {
                 featureGroup.style.display = 'block';
                 shortGroup.style.display = 'none';
                 if (vaultDivider) vaultDivider.style.display = 'none';
-                headerCount.textContent = '15 Feature Films Archived';
+                headerCount.textContent = '16 Feature Films Archived';
             } else if (filter === 'short') {
                 featureGroup.style.display = 'none';
                 shortGroup.style.display = 'block';
