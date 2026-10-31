@@ -317,132 +317,6 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── 00 // POSTER SHOWCASE STRIP ── */
-        .showcase-section {
-            background: var(--dark);
-            border-bottom: 1px solid var(--border);
-            padding: 56px 0 64px;
-            overflow: hidden;
-        }
-
-        .showcase-header {
-            padding: 0 60px 28px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .showcase-eyebrow {
-            font-family: var(--mono);
-            font-size: 0.55rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--red2);
-            margin-bottom: 6px;
-        }
-
-        .showcase-title {
-            font-family: var(--display);
-            font-size: clamp(2.4rem, 5vw, 3.8rem);
-            line-height: 1;
-            letter-spacing: 1px;
-            color: #fff;
-        }
-        .showcase-title em {
-            font-style: normal;
-            color: var(--red2);
-        }
-
-        .showcase-link {
-            font-family: var(--mono);
-            font-size: 0.58rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: var(--red2);
-            border: 1px solid var(--border);
-            padding: 10px 18px;
-            transition: all 0.25s ease;
-            white-space: nowrap;
-        }
-        .showcase-link:hover {
-            color: #fff;
-            border-color: var(--red2);
-            background: rgba(211,38,38,0.15);
-        }
-
-        .showcase-scroll-wrap {
-            width: 100%;
-            overflow-x: auto;
-            padding: 12px 60px 20px;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            scrollbar-color: var(--border) transparent;
-        }
-        .showcase-scroll-wrap::-webkit-scrollbar { height: 6px; }
-        .showcase-scroll-wrap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-
-        .showcase-track {
-            display: flex;
-            gap: 20px;
-            width: max-content;
-        }
-
-        .showcase-item {
-            width: 200px;
-            flex-shrink: 0;
-            background: #040404;
-            border: 1px solid var(--border);
-            text-decoration: none;
-            color: var(--text);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .showcase-item:hover {
-            border-color: var(--red2);
-            transform: translateY(-6px);
-            box-shadow: 0 16px 36px rgba(0,0,0,0.9);
-        }
-        .showcase-item img {
-            width: 100%;
-            aspect-ratio: 2 / 3;
-            object-fit: contain;
-            display: block;
-            background: #000;
-            transition: transform 0.35s ease;
-        }
-        .showcase-item:hover img {
-            transform: scale(1.03);
-        }
-        .showcase-info {
-            padding: 12px 14px;
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        .showcase-tag {
-            font-family: var(--mono);
-            font-size: 0.5rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--red2);
-        }
-        .showcase-name {
-            font-family: var(--display);
-            font-size: 1.15rem;
-            letter-spacing: 1px;
-            color: #fff;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
         /* ── Minimalist Gateway Panels (01 Films / 02 Shorts / 03 Novels / 04 Audio) ── */
         .vault-panels {
             display: grid;
@@ -506,7 +380,7 @@
             display: block;
         }
         .vault-panel:hover .panel-artwork {
-            opacity: 0.35;
+            opacity: 0.38;
             filter: grayscale(0%) contrast(1.15);
             transform: rotate(0deg) scale(1.02);
         }
@@ -574,7 +448,7 @@
         .vault-panel:nth-child(3):hover .panel-cta-line { background: var(--green); }
         .vault-panel:nth-child(4):hover .panel-cta-line { background: var(--yellow); }
 
-        /* ── 05 // New Films / Featured Shorts Section ── */
+        /* ── 05 // Latest Shorts Section (The Brute, Date Night, Mimic, Rustle) ── */
         .new-films-section {
             padding: 80px 60px;
             background: var(--black);
@@ -736,10 +610,136 @@
             padding-top: 6px;
         }
 
-        /* ── 06 // Dispatch / Blog Section ── */
+        /* ── 06 // VAULT POSTERS SHOWCASE STRIP (Positioned under Films / Short Films) ── */
+        .showcase-section {
+            background: var(--dark);
+            border-bottom: 1px solid var(--border);
+            padding: 56px 0 64px;
+            overflow: hidden;
+        }
+
+        .showcase-header {
+            padding: 0 60px 28px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .showcase-eyebrow {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--red2);
+            margin-bottom: 6px;
+        }
+
+        .showcase-title {
+            font-family: var(--display);
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            line-height: 1;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+        .showcase-title em {
+            font-style: normal;
+            color: var(--red2);
+        }
+
+        .showcase-link {
+            font-family: var(--mono);
+            font-size: 0.58rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--red2);
+            border: 1px solid var(--border);
+            padding: 10px 18px;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+        .showcase-link:hover {
+            color: #fff;
+            border-color: var(--red2);
+            background: rgba(211,38,38,0.15);
+        }
+
+        .showcase-scroll-wrap {
+            width: 100%;
+            overflow-x: auto;
+            padding: 12px 60px 20px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border) transparent;
+        }
+        .showcase-scroll-wrap::-webkit-scrollbar { height: 6px; }
+        .showcase-scroll-wrap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+        .showcase-track {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+        }
+
+        .showcase-item {
+            width: 200px;
+            flex-shrink: 0;
+            background: #040404;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .showcase-item:hover {
+            border-color: var(--red2);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 36px rgba(0,0,0,0.9);
+        }
+        .showcase-item img {
+            width: 100%;
+            aspect-ratio: 2 / 3;
+            object-fit: contain;
+            display: block;
+            background: #000;
+            transition: transform 0.35s ease;
+        }
+        .showcase-item:hover img {
+            transform: scale(1.03);
+        }
+        .showcase-info {
+            padding: 12px 14px;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .showcase-tag {
+            font-family: var(--mono);
+            font-size: 0.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--red2);
+        }
+        .showcase-name {
+            font-family: var(--display);
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* ── 07 // Dispatch / Blog Section ── */
         .dispatch-section {
             padding: 80px 60px;
-            background: var(--dark);
+            background: var(--surface);
             border-bottom: 1px solid var(--border);
         }
 
@@ -796,7 +796,7 @@
         }
 
         .dispatch-card {
-            background: var(--surface);
+            background: #09090c;
             border: 1px solid var(--border);
             padding: 32px 28px;
             text-decoration: none;
@@ -1048,14 +1048,119 @@
             <p class="hero-sub">Stories that endure. &nbsp;Darkness that lingers.</p>
             <p class="hero-author">Written &amp; Created by Jeremy Hollenbeck</p>
             <div class="hero-actions">
-                <a href="#showcase" class="hero-btn primary">Explore Showcase</a>
-                <a href="/films" class="hero-btn ghost">All Projects</a>
+                <a href="#gateway" class="hero-btn primary">Explore The Vault</a>
+                <a href="#showcase" class="hero-btn ghost">Vault Posters</a>
             </div>
         </div>
         <div class="hero-scroll">Scroll</div>
     </section>
 
-    <!-- 00 // POSTER SHOWCASE STRIP -->
+    <!-- Four Panel Minimalist Gateway -->
+    <div class="vault-panels" id="gateway">
+        <a href="/films" class="vault-panel">
+            <div class="panel-artwork"><img src="SedonaPoster.png" alt="Films"></div>
+            <div class="panel-header">
+                <div class="panel-num">01 // Feature Length</div>
+                <div class="panel-title">Films</div>
+            </div>
+            <div class="panel-footer">
+                <div class="panel-desc">Original horror feature films &amp; full-length cinema productions.</div>
+                <div class="panel-cta"><span class="panel-cta-line"></span> Enter Films</div>
+            </div>
+        </a>
+        <a href="/films?filter=short" class="vault-panel">
+            <div class="panel-artwork"><img src="TheRotPoster.png" alt="Short Films"></div>
+            <div class="panel-header">
+                <div class="panel-num">02 // Original Shorts</div>
+                <div class="panel-title">Short<br>Films</div>
+            </div>
+            <div class="panel-footer">
+                <div class="panel-desc">Vault horror shorts, creature features &amp; original micro-thrillers.</div>
+                <div class="panel-cta"><span class="panel-cta-line"></span> Watch Shorts</div>
+            </div>
+        </a>
+        <a href="/narrative-fiction" class="vault-panel">
+            <div class="panel-artwork"><img src="ParallelPoster.png" alt="Novels"></div>
+            <div class="panel-header">
+                <div class="panel-num">03 // Published Fiction</div>
+                <div class="panel-title">Novels</div>
+            </div>
+            <div class="panel-footer">
+                <div class="panel-desc">Original books, sci-fi thrillers, middle-grade fantasy &amp; deep lore.</div>
+                <div class="panel-cta"><span class="panel-cta-line"></span> Read Novels</div>
+            </div>
+        </a>
+        <a href="/audio-dramas" class="vault-panel">
+            <div class="panel-artwork"><img src="AudioDramasPoster.png" alt="Audio Dramas"></div>
+            <div class="panel-header">
+                <div class="panel-num">04 // Audio Productions</div>
+                <div class="panel-title">Audio<br>Dramas</div>
+            </div>
+            <div class="panel-footer">
+                <div class="panel-desc">Immersive horror podcasts, soundscapes &amp; investigative series.</div>
+                <div class="panel-cta"><span class="panel-cta-line"></span> Listen Audio</div>
+            </div>
+        </a>
+    </div>
+
+    <!-- 05 // Latest Shorts Section (The Brute, Date Night, Mimic, Rustle) -->
+    <section class="new-films-section" id="new-films">
+        <div class="new-films-header">
+            <div class="new-films-heading">
+                <span class="new-films-num">05</span>
+                <h2 class="new-films-title">Latest <em>Shorts</em></h2>
+            </div>
+            <a href="/films?filter=short" class="new-films-all">All 15 Shorts &rarr;</a>
+        </div>
+        <div class="new-films-grid">
+            <a href="/coming-soon/?item=film-project-10" class="new-film-card">
+                <div class="new-film-img">
+                    <div class="poster-blur" style="background-image: url('TheBrutePoster.jpg');"></div>
+                    <img src="TheBrutePoster.jpg" alt="The Cornfield Brute" class="poster-main" loading="lazy">
+                </div>
+                <div class="new-film-body">
+                    <div class="new-film-tag">Slasher / Horror</div>
+                    <div class="new-film-title">The Cornfield Brute</div>
+                    <div class="new-film-meta">Short Film &nbsp;&bull;&nbsp; In Development</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-09" class="new-film-card">
+                <div class="new-film-img">
+                    <div class="poster-blur" style="background-image: url('DateNightPoster.jpg');"></div>
+                    <img src="DateNightPoster.jpg" alt="Date Night" class="poster-main" loading="lazy">
+                </div>
+                <div class="new-film-body">
+                    <div class="new-film-tag">Horror / Comedy</div>
+                    <div class="new-film-title">Date Night</div>
+                    <div class="new-film-meta">Short Film &nbsp;&bull;&nbsp; Original Production</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-08" class="new-film-card">
+                <div class="new-film-img">
+                    <div class="poster-blur" style="background-image: url('TheMimicPoster.jpg');"></div>
+                    <img src="TheMimicPoster.jpg" alt="The Mimic" class="poster-main" loading="lazy">
+                </div>
+                <div class="new-film-body">
+                    <div class="new-film-tag">Supernatural / Creature Horror</div>
+                    <div class="new-film-title">The Mimic</div>
+                    <div class="new-film-meta">Short Film &nbsp;&bull;&nbsp; Original Production</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-07" class="new-film-card">
+                <div class="new-film-img">
+                    <div class="poster-blur" style="background-image: url('TheRustlePoster.jpg');"></div>
+                    <img src="TheRustlePoster.jpg" alt="The Rustle" class="poster-main" loading="lazy">
+                </div>
+                <div class="new-film-body">
+                    <div class="new-film-tag">Supernatural Horror / Suspense</div>
+                    <div class="new-film-title">The Rustle</div>
+                    <div class="new-film-meta">Short Film &nbsp;&bull;&nbsp; Original Production</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- 06 // VAULT POSTERS SHOWCASE STRIP (Positioned under Films / Short Films) -->
     <section class="showcase-section" id="showcase">
         <div class="showcase-header">
             <div>
@@ -1085,6 +1190,13 @@
                     <div class="showcase-info">
                         <span class="showcase-tag">Short Film</span>
                         <span class="showcase-name">The Rot</span>
+                    </div>
+                </a>
+                <a href="/audio-dramas" class="showcase-item">
+                    <img src="AudioDramasPoster.png" alt="Audio Dramas" loading="lazy">
+                    <div class="showcase-info">
+                        <span class="showcase-tag">Audio Drama</span>
+                        <span class="showcase-name">Audio Dramas</span>
                     </div>
                 </a>
                 <a href="/coming-soon/?item=film-project-the-other-place" class="showcase-item">
@@ -1154,116 +1266,11 @@
         </div>
     </section>
 
-    <!-- Four Panel Minimalist Gateway -->
-    <div class="vault-panels">
-        <a href="/films" class="vault-panel">
-            <div class="panel-artwork"><img src="SedonaPoster.png" alt="Films"></div>
-            <div class="panel-header">
-                <div class="panel-num">01 // Feature Length</div>
-                <div class="panel-title">Films</div>
-            </div>
-            <div class="panel-footer">
-                <div class="panel-desc">Original horror feature films &amp; full-length cinema productions.</div>
-                <div class="panel-cta"><span class="panel-cta-line"></span> Enter Films</div>
-            </div>
-        </a>
-        <a href="/films?filter=short" class="vault-panel">
-            <div class="panel-artwork"><img src="TheRotPoster.png" alt="Short Films"></div>
-            <div class="panel-header">
-                <div class="panel-num">02 // Original Shorts</div>
-                <div class="panel-title">Short<br>Films</div>
-            </div>
-            <div class="panel-footer">
-                <div class="panel-desc">Vault horror shorts, creature features &amp; original micro-thrillers.</div>
-                <div class="panel-cta"><span class="panel-cta-line"></span> Watch Shorts</div>
-            </div>
-        </a>
-        <a href="/narrative-fiction" class="vault-panel">
-            <div class="panel-artwork"><img src="ParallelPoster.png" alt="Novels"></div>
-            <div class="panel-header">
-                <div class="panel-num">03 // Published Fiction</div>
-                <div class="panel-title">Novels</div>
-            </div>
-            <div class="panel-footer">
-                <div class="panel-desc">Original books, sci-fi thrillers, middle-grade fantasy &amp; deep lore.</div>
-                <div class="panel-cta"><span class="panel-cta-line"></span> Read Novels</div>
-            </div>
-        </a>
-        <a href="/audio-dramas" class="vault-panel">
-            <div class="panel-artwork"><img src="Mic.jpg" alt="Audio Dramas"></div>
-            <div class="panel-header">
-                <div class="panel-num">04 // Audio Productions</div>
-                <div class="panel-title">Audio<br>Dramas</div>
-            </div>
-            <div class="panel-footer">
-                <div class="panel-desc">Immersive horror podcasts, soundscapes &amp; investigative series.</div>
-                <div class="panel-cta"><span class="panel-cta-line"></span> Listen Audio</div>
-            </div>
-        </a>
-    </div>
-
-    <!-- 05 // Featured Shorts Section -->
-    <section class="new-films-section" id="new-films">
-        <div class="new-films-header">
-            <div class="new-films-heading">
-                <span class="new-films-num">05</span>
-                <h2 class="new-films-title">Latest <em>Shorts</em></h2>
-            </div>
-            <a href="/films?filter=short" class="new-films-all">All 15 Shorts &rarr;</a>
-        </div>
-        <div class="new-films-grid">
-            <a href="/coming-soon/?item=film-short-the-rot" class="new-film-card">
-                <div class="new-film-img">
-                    <div class="poster-blur" style="background-image: url('TheRotPoster.png');"></div>
-                    <img src="TheRotPoster.png" alt="The Rot" class="poster-main" loading="lazy">
-                </div>
-                <div class="new-film-body">
-                    <div class="new-film-tag">Horror / Zombie</div>
-                    <div class="new-film-title">The Rot</div>
-                    <div class="new-film-meta">2026 &nbsp;&bull;&nbsp; In Development</div>
-                </div>
-            </a>
-            <a href="/coming-soon/?item=film-short-teddy" class="new-film-card">
-                <div class="new-film-img">
-                    <div class="poster-blur" style="background-image: url('TeddyPoster.png');"></div>
-                    <img src="TeddyPoster.png" alt="Teddy" class="poster-main" loading="lazy">
-                </div>
-                <div class="new-film-body">
-                    <div class="new-film-tag">Micro-Horror Short</div>
-                    <div class="new-film-title">Teddy</div>
-                    <div class="new-film-meta">2026 &nbsp;&bull;&nbsp; Original Production</div>
-                </div>
-            </a>
-            <a href="/coming-soon/?item=film-short-the-door" class="new-film-card">
-                <div class="new-film-img">
-                    <div class="poster-blur" style="background-image: url('TheDoorPoster.png');"></div>
-                    <img src="TheDoorPoster.png" alt="The Door" class="poster-main" loading="lazy">
-                </div>
-                <div class="new-film-body">
-                    <div class="new-film-tag">Supernatural / Dark Fantasy</div>
-                    <div class="new-film-title">The Door</div>
-                    <div class="new-film-meta">2026 &nbsp;&bull;&nbsp; Original Production</div>
-                </div>
-            </a>
-            <a href="/coming-soon/?item=film-short-remembrance" class="new-film-card">
-                <div class="new-film-img">
-                    <div class="poster-blur" style="background-image: url('RemembrancePoster.png');"></div>
-                    <img src="RemembrancePoster.png" alt="Remembrance" class="poster-main" loading="lazy">
-                </div>
-                <div class="new-film-body">
-                    <div class="new-film-tag">Folk Horror / Thriller</div>
-                    <div class="new-film-title">Remembrance</div>
-                    <div class="new-film-meta">2026 &nbsp;&bull;&nbsp; Original Production</div>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <!-- 06 // Blog / Dispatch — pulls from Sanity -->
+    <!-- 07 // Blog / Dispatch — pulls from Sanity -->
     <section class="dispatch-section">
         <div class="dispatch-header">
             <div class="dispatch-heading">
-                <span class="dispatch-num">06</span>
+                <span class="dispatch-num">07</span>
                 <h2 class="dispatch-title">Creature <em>Feature Lab</em></h2>
             </div>
             <a href="/dispatch" class="dispatch-all">View All Dispatches &rarr;</a>
