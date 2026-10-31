@@ -404,6 +404,156 @@
         }
         .vault-panel:hover .panel-ghost { color: rgba(139,0,0,0.09); }
 
+        /* ── New Films Section ── */
+        .new-films-section {
+            padding: 100px 60px;
+            background: var(--black);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .new-films-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 48px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+        }
+
+        .new-films-heading {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .new-films-num {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            color: var(--red);
+        }
+
+        .new-films-title {
+            font-family: "Montserrat", var(--sans);
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text);
+        }
+        .new-films-title em { font-style: normal; color: var(--red2); }
+
+        .new-films-all {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--red2);
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+        .new-films-all:hover {
+            color: #fff;
+            border-color: var(--red2);
+            background: rgba(163, 21, 21, 0.15);
+        }
+
+        .new-films-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .new-film-card {
+            background: var(--dark);
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+        .new-film-card:hover {
+            border-color: var(--red2);
+            transform: translateY(-4px);
+        }
+
+        .new-film-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--red2);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+            z-index: 3;
+        }
+        .new-film-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .new-film-img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #060606;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .new-film-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            filter: grayscale(20%);
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+        .new-film-card:hover .new-film-img img {
+            transform: scale(1.04);
+            filter: grayscale(0%);
+        }
+
+        .new-film-body {
+            padding: 20px 18px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            background: var(--dark);
+            flex: 1;
+        }
+        .new-film-tag {
+            font-family: var(--mono);
+            font-size: 0.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red2);
+        }
+        .new-film-title {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            line-height: 1.2;
+            color: var(--text);
+            transition: color 0.2s;
+        }
+        .new-film-card:hover .new-film-title {
+            color: #fff;
+        }
+        .new-film-meta {
+            font-family: var(--mono);
+            font-size: 0.5rem;
+            letter-spacing: 2px;
+            color: var(--muted);
+            margin-top: auto;
+            padding-top: 6px;
+        }
+
         /* ── Dispatch / Blog ── */
         .dispatch-section {
             padding: 100px 60px;
@@ -698,6 +848,8 @@
             .vault-panel { min-height: 320px; border-bottom: 1px solid var(--border); border-right: none; }
             .vault-panel:last-child { border-bottom: none; }
             .panel-ghost { font-size: 3.5rem; bottom: 10px; }
+            .new-films-section { padding: 60px 24px; }
+            .new-films-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
             .dispatch-section { padding: 60px 24px; }
             .dispatch-grid { grid-template-columns: 1fr; }
             .contact-section { padding: 70px 24px; }
@@ -712,6 +864,8 @@
             .vault-panel:last-child { border-bottom: none; }
             .panel-title { font-size: 1.4rem; }
             .panel-ghost { display: none; }
+            .new-films-section { padding: 50px 20px; }
+            .new-films-grid { grid-template-columns: 1fr; gap: 14px; }
             .dispatch-section { padding: 50px 20px; }
             .dispatch-card { padding: 24px; }
             .dispatch-card-image {
@@ -797,6 +951,59 @@
         </a>
     </div>
 
+    <!-- 04 — New Films Section -->
+    <section class="new-films-section" id="new-films">
+        <div class="new-films-header">
+            <div class="new-films-heading">
+                <span class="new-films-num">04</span>
+                <h2 class="new-films-title">New <em>Films</em></h2>
+            </div>
+            <a href="/films" class="new-films-all">All Films →</a>
+        </div>
+        <div class="new-films-grid">
+            <a href="/coming-soon/?item=film-project-07" class="new-film-card">
+                <div class="new-film-img">
+                    <img src="TheRustlePoster.jpg" alt="The Rustle" loading="lazy">
+                </div>
+                <div class="new-film-body">
+                    <div class="new-film-tag">Short Film</div>
+                    <div class="new-film-title">The Rustle</div>
+                    <div class="new-film-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-08" class="new-film-card">
+                <div class="new-film-img">
+                    <img src="TheMimicPoster.jpg" alt="The Mimic" loading="lazy">
+                </div>
+                <div class="new-film-body">
+                    <div class="new-film-tag">Short Film</div>
+                    <div class="new-film-title">The Mimic</div>
+                    <div class="new-film-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-09" class="new-film-card">
+                <div class="new-film-img">
+                    <img src="DateNightPoster.jpg" alt="Date Night" loading="lazy">
+                </div>
+                <div class="new-film-body">
+                    <div class="new-film-tag">Short Film</div>
+                    <div class="new-film-title">Date Night</div>
+                    <div class="new-film-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-10" class="new-film-card">
+                <div class="new-film-img">
+                    <img src="TheBrutePoster.jpg" alt="The Brute" loading="lazy">
+                </div>
+                <div class="new-film-body">
+                    <div class="new-film-tag">Short Film</div>
+                    <div class="new-film-title">The Brute</div>
+                    <div class="new-film-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
     <!-- Blog / Dispatch — pulls from Sanity -->
     <section class="dispatch-section">
         <div class="dispatch-header">
@@ -848,6 +1055,21 @@
         const menu = document.getElementById('mobile-menu');
         btn.addEventListener('click', () => { btn.classList.toggle('open'); menu.classList.toggle('open'); });
         menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { btn.classList.remove('open'); menu.classList.remove('open'); }));
+
+        // New films entrance animation
+        document.querySelectorAll('.new-film-card').forEach((c, i) => {
+            c.style.opacity = '0';
+            c.style.transform = 'translateY(16px)';
+            c.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s, border-color 0.3s ease`;
+            const obs = new IntersectionObserver(entries => {
+                if (entries[0].isIntersecting) {
+                    c.style.opacity = '1';
+                    c.style.transform = 'translateY(0)';
+                    obs.disconnect();
+                }
+            }, { threshold: 0.08 });
+            obs.observe(c);
+        });
 
         // Dispatch card scroll entrance
         const observer = new IntersectionObserver((entries) => {
