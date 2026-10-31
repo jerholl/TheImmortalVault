@@ -366,13 +366,13 @@
             <div class="page-eyebrow">The Archive // Motion Pictures</div>
             <h1 class="page-title">Films &amp; <em>Shorts</em></h1>
         </div>
-        <div class="page-count" id="header-count">31 Projects Archived</div>
+        <div class="page-count" id="header-count">32 Projects Archived</div>
     </header>
 
     <!-- Sticky Filter Bar -->
     <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All Projects (31)</button>
-        <button class="filter-btn" data-filter="feature">Feature Films (16)</button>
+        <button class="filter-btn active" data-filter="all">All Projects (32)</button>
+        <button class="filter-btn" data-filter="feature">Feature Films (17)</button>
         <button class="filter-btn" data-filter="short">Short Films (15)</button>
     </div>
 
@@ -383,7 +383,7 @@
                 <div class="section-eyebrow">01 // Feature Length</div>
                 <h2 class="section-title">Feature <em>Films</em></h2>
             </div>
-            <div class="section-badge">16 Archived Productions</div>
+            <div class="section-badge">17 Archived Productions</div>
         </div>
         <div class="films-grid" id="feature-films-grid">
             <a href="/coming-soon/?item=film-project-parallel" class="film-card feature-film-card">
@@ -394,6 +394,17 @@
                 <div class="film-card-body">
                     <div class="film-card-tag">Sci-Fi / Thriller</div>
                     <div class="film-card-title">Parallel</div>
+                    <div class="film-card-meta">Feature Film // In Development</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-traveler" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('TravelerPoster.png');"></div>
+                    <img src="TravelerPoster.png" alt="Traveler" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Sci-Fi / Historical Romance</div>
+                    <div class="film-card-title">Traveler</div>
                     <div class="film-card-meta">Feature Film // In Development</div>
                 </div>
             </a>
@@ -498,8 +509,8 @@
             </a>
             <a href="/coming-soon/?item=film-project-the-town-of-burnwill" class="film-card feature-film-card">
                 <div class="film-card-img feature-card-img">
-                    <div class="poster-blur" style="background-image: url('TheTownOfBurnwillPoster.jpg');"></div>
-                    <img src="TheTownOfBurnwillPoster.jpg" alt="The Town of Burnwill" class="poster-main" loading="lazy">
+                    <div class="poster-blur" style="background-image: url('TheTownOfBurnwillPoster.png');"></div>
+                    <img src="TheTownOfBurnwillPoster.png" alt="The Town of Burnwill" class="poster-main" loading="lazy">
                 </div>
                 <div class="film-card-body">
                     <div class="film-card-tag">Slasher / Horror</div>
@@ -509,8 +520,8 @@
             </a>
             <a href="/coming-soon/?item=film-project-vintage-antique" class="film-card feature-film-card">
                 <div class="film-card-img feature-card-img">
-                    <div class="poster-blur" style="background-image: url('VintageAntiquePoster.jpg');"></div>
-                    <img src="VintageAntiquePoster.jpg" alt="Vintage Antique" class="poster-main" loading="lazy">
+                    <div class="poster-blur" style="background-image: url('VintageAntiquePoster.png');"></div>
+                    <img src="VintageAntiquePoster.png" alt="Vintage Antique" class="poster-main" loading="lazy">
                 </div>
                 <div class="film-card-body">
                     <div class="film-card-tag">Supernatural Horror</div>
@@ -788,12 +799,12 @@
                 featureGroup.style.display = 'block';
                 shortGroup.style.display = 'block';
                 vaultDivider.style.display = 'flex';
-                headerCount.textContent = '31 Projects Archived';
+                headerCount.textContent = '32 Projects Archived';
             } else if (filter === 'feature') {
                 featureGroup.style.display = 'block';
                 shortGroup.style.display = 'none';
                 vaultDivider.style.display = 'none';
-                headerCount.textContent = '16 Feature Films Archived';
+                headerCount.textContent = '17 Feature Films Archived';
             } else if (filter === 'short') {
                 featureGroup.style.display = 'none';
                 shortGroup.style.display = 'block';
