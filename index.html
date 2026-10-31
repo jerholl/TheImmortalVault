@@ -610,133 +610,7 @@
             padding-top: 6px;
         }
 
-        /* ── 06 // VAULT POSTERS SHOWCASE STRIP (Positioned under Films / Short Films) ── */
-        .showcase-section {
-            background: var(--dark);
-            border-bottom: 1px solid var(--border);
-            padding: 56px 0 64px;
-            overflow: hidden;
-        }
-
-        .showcase-header {
-            padding: 0 60px 28px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .showcase-eyebrow {
-            font-family: var(--mono);
-            font-size: 0.55rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--red2);
-            margin-bottom: 6px;
-        }
-
-        .showcase-title {
-            font-family: var(--display);
-            font-size: clamp(2.4rem, 5vw, 3.8rem);
-            line-height: 1;
-            letter-spacing: 1px;
-            color: #fff;
-        }
-        .showcase-title em {
-            font-style: normal;
-            color: var(--red2);
-        }
-
-        .showcase-link {
-            font-family: var(--mono);
-            font-size: 0.58rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: var(--red2);
-            border: 1px solid var(--border);
-            padding: 10px 18px;
-            transition: all 0.25s ease;
-            white-space: nowrap;
-        }
-        .showcase-link:hover {
-            color: #fff;
-            border-color: var(--red2);
-            background: rgba(211,38,38,0.15);
-        }
-
-        .showcase-scroll-wrap {
-            width: 100%;
-            overflow-x: auto;
-            padding: 12px 60px 20px;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            scrollbar-color: var(--border) transparent;
-        }
-        .showcase-scroll-wrap::-webkit-scrollbar { height: 6px; }
-        .showcase-scroll-wrap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-
-        .showcase-track {
-            display: flex;
-            gap: 20px;
-            width: max-content;
-        }
-
-        .showcase-item {
-            width: 200px;
-            flex-shrink: 0;
-            background: #040404;
-            border: 1px solid var(--border);
-            text-decoration: none;
-            color: var(--text);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .showcase-item:hover {
-            border-color: var(--red2);
-            transform: translateY(-6px);
-            box-shadow: 0 16px 36px rgba(0,0,0,0.9);
-        }
-        .showcase-item img {
-            width: 100%;
-            aspect-ratio: 2 / 3;
-            object-fit: contain;
-            display: block;
-            background: #000;
-            transition: transform 0.35s ease;
-        }
-        .showcase-item:hover img {
-            transform: scale(1.03);
-        }
-        .showcase-info {
-            padding: 12px 14px;
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        .showcase-tag {
-            font-family: var(--mono);
-            font-size: 0.5rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--red2);
-        }
-        .showcase-name {
-            font-family: var(--display);
-            font-size: 1.15rem;
-            letter-spacing: 1px;
-            color: #fff;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        /* ── 07 // Dispatch / Blog Section ── */
+/* ── 06 // Dispatch / Blog Section ── */
         .dispatch-section {
             padding: 80px 60px;
             background: var(--surface);
@@ -976,8 +850,6 @@
         @media (max-width: 1100px) {
             nav { padding: 0 40px; }
             .hero { padding: 70px 40px 60px; }
-            .showcase-header { padding: 0 40px 24px; }
-            .showcase-scroll-wrap { padding: 12px 40px 20px; }
             .vault-panels { grid-template-columns: repeat(2, 1fr); min-height: auto; }
             .vault-panel { border-bottom: 1px solid var(--border); min-height: 340px; }
             .vault-panel:nth-child(2) { border-right: none; }
@@ -994,8 +866,6 @@
             .hero { padding: 60px 24px 50px; min-height: 80vh; }
             .hero-scroll { display: none; }
             .hero-sun { width: 260px; height: 260px; top: 38%; right: -20px; }
-            .showcase-header { padding: 0 24px 20px; flex-direction: column; align-items: flex-start; }
-            .showcase-scroll-wrap { padding: 12px 24px 16px; }
             .vault-panels { grid-template-columns: 1fr; }
             .vault-panel { border-right: none !important; min-height: 260px; padding: 36px 24px; }
             .new-films-section, .dispatch-section, .contact-section { padding: 60px 24px; }
@@ -1049,7 +919,7 @@
             <p class="hero-author">Written &amp; Created by Jeremy Hollenbeck</p>
             <div class="hero-actions">
                 <a href="#gateway" class="hero-btn primary">Explore The Vault</a>
-                <a href="#showcase" class="hero-btn ghost">Vault Posters</a>
+                <a href="#new-films" class="hero-btn ghost">Latest Shorts</a>
             </div>
         </div>
         <div class="hero-scroll">Scroll</div>
@@ -1160,145 +1030,11 @@
         </div>
     </section>
 
-    <!-- 06 // VAULT POSTERS SHOWCASE STRIP (Positioned under Films / Short Films) -->
-    <section class="showcase-section" id="showcase">
-        <div class="showcase-header">
-            <div>
-                <div class="showcase-eyebrow">// Archive Showcase — Original Productions</div>
-                <h2 class="showcase-title">Vault <em>Posters</em></h2>
-            </div>
-            <a href="/films" class="showcase-link">Browse Full Archive &rarr;</a>
-        </div>
-        <div class="showcase-scroll-wrap">
-            <div class="showcase-track">
-                <a href="/coming-soon/?item=film-project-10" class="showcase-item">
-                    <img src="TheBrutePoster.jpg?v=20261031b" alt="The Brute" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Short Film</span>
-                        <span class="showcase-name">The Brute</span>
-                    </div>
-                </a>
-                <a href="/coming-soon/?item=film-project-09" class="showcase-item">
-                    <img src="DateNightPoster.jpg?v=20261031b" alt="Date Night" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Short Film</span>
-                        <span class="showcase-name">Date Night</span>
-                    </div>
-                </a>
-                <a href="/coming-soon/?item=film-project-08" class="showcase-item">
-                    <img src="TheMimicPoster.jpg?v=20261031b" alt="Mimic" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Short Film</span>
-                        <span class="showcase-name">Mimic</span>
-                    </div>
-                </a>
-                <a href="/coming-soon/?item=film-project-07" class="showcase-item">
-                    <img src="TheRustlePoster.jpg?v=20261031b" alt="The Rustle" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Short Film</span>
-                        <span class="showcase-name">The Rustle</span>
-                    </div>
-                </a>
-                <a href="/coming-soon/?item=film-sedona" class="showcase-item">
-                    <img src="SedonaPoster.png" alt="Sedona" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Feature Film</span>
-                        <span class="showcase-name">Sedona</span>
-                    </div>
-                </a>
-                <a href="/written-work.html?item=parallel" class="showcase-item">
-                    <img src="ParallelPoster.png" alt="Parallel" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Novel</span>
-                        <span class="showcase-name">Parallel</span>
-                    </div>
-                </a>
-                <a href="/coming-soon/?item=film-short-the-rot" class="showcase-item">
-                    <img src="TheRotPoster.png" alt="The Rot" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Short Film</span>
-                        <span class="showcase-name">The Rot</span>
-                    </div>
-                </a>
-                <a href="/audio-dramas" class="showcase-item">
-                    <img src="CulburnPoster.png" alt="Culburn" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Audio Drama</span>
-                        <span class="showcase-name">Culburn</span>
-                    </div>
-                </a>
-                <a href="/coming-soon/?item=film-project-the-other-place" class="showcase-item">
-                    <img src="TheOtherPlacePoster.png" alt="The Other Place" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Feature Film</span>
-                        <span class="showcase-name">The Other Place</span>
-                    </div>
-                </a>
-                <a href="/written-work.html?item=spooky-town" class="showcase-item">
-                    <img src="SpookyTownPoster.png" alt="Spooky Town" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Novel</span>
-                        <span class="showcase-name">Spooky Town</span>
-                    </div>
-                </a>
-                <a href="/coming-soon/?item=film-project-the-memory-box" class="showcase-item">
-                    <img src="TheMemoryBoxPoster.png" alt="The Memory Box" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Feature Film</span>
-                        <span class="showcase-name">The Memory Box</span>
-                    </div>
-                </a>
-                <a href="/coming-soon/?item=film-short-teddy" class="showcase-item">
-                    <img src="TeddyPoster.png" alt="Teddy" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Short Film</span>
-                        <span class="showcase-name">Teddy</span>
-                    </div>
-                </a>
-                <a href="/coming-soon/?item=film-short-the-door" class="showcase-item">
-                    <img src="TheDoorPoster.png" alt="The Door" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Short Film</span>
-                        <span class="showcase-name">The Door</span>
-                    </div>
-                </a>
-                <a href="/coming-soon/?item=film-project-streamed" class="showcase-item">
-                    <img src="StreamedPoster.png" alt="Streamed" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Feature Film</span>
-                        <span class="showcase-name">Streamed</span>
-                    </div>
-                </a>
-                <a href="/written-work.html?item=the-three-rips" class="showcase-item">
-                    <img src="TheThreeRipsPoster.png" alt="The Three Rips" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Short Story</span>
-                        <span class="showcase-name">The Three Rips</span>
-                    </div>
-                </a>
-                <a href="/written-work.html?item=quantum-travellers" class="showcase-item">
-                    <img src="QuantumTravellersPoster.png" alt="Quantum Travellers" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Novel</span>
-                        <span class="showcase-name">Quantum Travellers</span>
-                    </div>
-                </a>
-                <a href="/written-work.html?item=malify" class="showcase-item">
-                    <img src="MalifyPoster.png" alt="Malify" loading="lazy">
-                    <div class="showcase-info">
-                        <span class="showcase-tag">Comedy / Horror</span>
-                        <span class="showcase-name">Malify</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 07 // Blog / Dispatch — pulls from Sanity -->
+    <!-- 06 // Blog / Dispatch — pulls from Sanity -->
     <section class="dispatch-section">
         <div class="dispatch-header">
             <div class="dispatch-heading">
-                <span class="dispatch-num">07</span>
+                <span class="dispatch-num">06</span>
                 <h2 class="dispatch-title">Creature <em>Feature Lab</em></h2>
             </div>
             <a href="/dispatch" class="dispatch-all">View All Dispatches &rarr;</a>
