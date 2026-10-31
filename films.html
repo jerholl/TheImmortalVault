@@ -100,6 +100,73 @@
         .filter-btn:hover { color: var(--text); border-color: var(--border); }
         .filter-btn.active { color: var(--red2); border-color: var(--red); }
 
+        /* ── Section Heading Bar ── */
+        .section-heading-bar {
+            padding: 50px 60px 24px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            background: var(--dark);
+        }
+        .section-eyebrow {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--red2);
+            margin-bottom: 8px;
+        }
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.1;
+            color: var(--text);
+        }
+        .section-title em {
+            font-style: italic;
+            color: var(--red2);
+        }
+        .section-badge {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 3px;
+            color: var(--muted);
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .vault-divider {
+            position: relative;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--black);
+            padding: 0 60px;
+            border-bottom: 1px solid var(--border);
+        }
+        .vault-divider-inner {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--border) 20%, var(--red) 50%, var(--border) 80%, transparent 100%);
+            position: relative;
+        }
+        .vault-divider-inner::before,
+        .vault-divider-inner::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--red);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            opacity: 0.8;
+        }
+        .vault-divider-inner::before { left: 15%; }
+        .vault-divider-inner::after { right: 15%; }
+
         /* ── Film Grid ── */
         .films-grid {
             padding: 60px;
@@ -182,6 +249,8 @@
         @media (max-width: 900px) {
             nav { padding: 0 24px; } .nav-links { display: none; } .hamburger { display: flex; }
             .page-header { padding: 50px 24px 40px; flex-direction: column; align-items: flex-start; gap: 16px; }
+            .section-heading-bar { padding: 36px 24px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+            .vault-divider { padding: 0 24px; }
             .filter-bar { padding: 16px 24px; flex-wrap: wrap; }
             .films-grid { padding: 24px; grid-template-columns: repeat(2, 1fr); }
             footer { flex-direction: column; gap: 10px; text-align: center; padding: 28px 24px; }
@@ -221,21 +290,183 @@
             <p class="page-eyebrow">// 01 — The Vault</p>
             <h1 class="page-title"><em>Films</em></h1>
         </div>
-        <div class="page-count">— 10 Projects</div>
+        <div class="page-count">— 24 Projects</div>
     </div>
 
     <!-- Filter Bar -->
     <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="feature">Feature</button>
-        <button class="filter-btn" data-filter="short">Short Film</button>
-        <button class="filter-btn" data-filter="documentary">Documentary</button>
+        <button class="filter-btn active" data-filter="all">All Projects (24)</button>
+        <button class="filter-btn" data-filter="feature">Films (14)</button>
+        <button class="filter-btn" data-filter="short">Short Films (10)</button>
+    </div>
+    <!-- ════════════ FILMS (FEATURE FILMS) SECTION ════════════ -->
+    <div class="film-group" id="feature-films-group">
+        <div class="section-heading-bar">
+            <div>
+                <p class="section-eyebrow">// 01 — Feature Length</p>
+                <h2 class="section-title"><em>Films</em></h2>
+            </div>
+            <div class="section-badge">— 14 Projects</div>
+        </div>
+        <div class="films-grid">
+            <a href="/coming-soon/?item=film-project-rein" class="film-card" data-type="feature">
+            <div class="film-card-img"><img src="ReinPoster.jpg" alt="Rein" loading="lazy"></div>
+            <div class="film-card-overlay"></div>
+            <div class="film-card-body">
+                <div class="film-card-tag">Feature Film</div>
+                <div class="film-card-title">Rein</div>
+                <div class="film-card-meta">In Development &nbsp;·&nbsp; Supernatural Drama / Horror</div>
+            </div>
+        </a>
+
+        <a href="/coming-soon/?item=film-project-remember-me" class="film-card" data-type="feature">
+            <div class="film-card-img"><img src="RememberMePoster.jpg" alt="Remember Me" loading="lazy"></div>
+            <div class="film-card-overlay"></div>
+            <div class="film-card-body">
+                <div class="film-card-tag">Feature Film</div>
+                <div class="film-card-title">Remember Me</div>
+                <div class="film-card-meta">In Development &nbsp;·&nbsp; Supernatural / Psychological Horror</div>
+            </div>
+        </a>
+
+        <a href="/coming-soon/?item=film-project-halloweenastreamathon" class="film-card" data-type="feature">
+            <div class="film-card-img"><img src="HalloweenastreamathonPoster.jpg" alt="Halloweenastreamathon" loading="lazy"></div>
+            <div class="film-card-overlay"></div>
+            <div class="film-card-body">
+                <div class="film-card-tag">Feature Film</div>
+                <div class="film-card-title">Halloweenastreamathon</div>
+                <div class="film-card-meta">In Development &nbsp;·&nbsp; Slasher / Horror</div>
+            </div>
+        </a>
+
+        <a href="/coming-soon/?item=film-project-vintage-antique" class="film-card" data-type="feature">
+            <div class="film-card-img"><img src="VintageAntiquePoster.jpg" alt="Vintage Antique" loading="lazy"></div>
+            <div class="film-card-overlay"></div>
+            <div class="film-card-body">
+                <div class="film-card-tag">Feature Film</div>
+                <div class="film-card-title">Vintage Antique</div>
+                <div class="film-card-meta">In Development &nbsp;·&nbsp; Supernatural Horror</div>
+            </div>
+        </a>
+
+        <a href="/coming-soon/?item=film-project-the-town-of-burnwill" class="film-card" data-type="feature">
+            <div class="film-card-img"><img src="TheTownOfBurnwillPoster.jpg" alt="The Town of Burnwill" loading="lazy"></div>
+            <div class="film-card-overlay"></div>
+            <div class="film-card-body">
+                <div class="film-card-tag">Feature Film</div>
+                <div class="film-card-title">The Town of Burnwill</div>
+                <div class="film-card-meta">In Development &nbsp;·&nbsp; Slasher / Horror</div>
+            </div>
+        </a>
+
+        <a href="/coming-soon/?item=film-project-blackmailed" class="film-card" data-type="feature">
+            <div class="film-card-img"><img src="BlackmailedPoster.jpg" alt="Blackmailed" loading="lazy"></div>
+            <div class="film-card-overlay"></div>
+            <div class="film-card-body">
+                <div class="film-card-tag">Feature Film</div>
+                <div class="film-card-title">Blackmailed</div>
+                <div class="film-card-meta">In Development &nbsp;·&nbsp; Crime / Thriller</div>
+            </div>
+        </a>
+
+        <a href="/coming-soon/?item=film-project-locked-in" class="film-card" data-type="feature">
+            <div class="film-card-img"><img src="LockedInPoster.jpg" alt="Locked In" loading="lazy"></div>
+            <div class="film-card-overlay"></div>
+            <div class="film-card-body">
+                <div class="film-card-tag">Feature Film</div>
+                <div class="film-card-title">Locked In</div>
+                <div class="film-card-meta">In Development &nbsp;·&nbsp; Horror / Thriller</div>
+            </div>
+        </a>
+
+        <a href="/coming-soon/?item=film-project-maladaptive" class="film-card" data-type="feature">
+            <div class="film-card-img"><img src="MaladaptivePoster.jpg" alt="Maladaptive" loading="lazy"></div>
+            <div class="film-card-overlay"></div>
+            <div class="film-card-body">
+                <div class="film-card-tag">Feature Film</div>
+                <div class="film-card-title">Maladaptive</div>
+                <div class="film-card-meta">In Development &nbsp;·&nbsp; Psychological Horror</div>
+            </div>
+        </a>
+
+        <a href="/coming-soon/?item=film-project-ghost-hunter" class="film-card" data-type="feature">
+            <div class="film-card-img"><img src="GhostHunterPoster.jpg" alt="Ghost Hunter" loading="lazy"></div>
+            <div class="film-card-overlay"></div>
+            <div class="film-card-body">
+                <div class="film-card-tag">Feature Film</div>
+                <div class="film-card-title">Ghost Hunter</div>
+                <div class="film-card-meta">In Development &nbsp;·&nbsp; Horror / Comedy</div>
+            </div>
+        </a>
+
+        <a href="/coming-soon/?item=film-project-streamed" class="film-card" data-type="feature">
+            <div class="film-card-img"><img src="StreamedPoster.jpg" alt="Streamed" loading="lazy"></div>
+            <div class="film-card-overlay"></div>
+            <div class="film-card-body">
+                <div class="film-card-tag">Feature Film</div>
+                <div class="film-card-title">Streamed</div>
+                <div class="film-card-meta">In Development &nbsp;·&nbsp; Slasher / Horror</div>
+            </div>
+        </a>
+
+        <a href="/coming-soon/?item=film-project-the-memory-box" class="film-card" data-type="feature">
+            <div class="film-card-img"><img src="TheMemoryBoxPoster.jpg" alt="The Memory Box" loading="lazy"></div>
+            <div class="film-card-overlay"></div>
+            <div class="film-card-body">
+                <div class="film-card-tag">Feature Film</div>
+                <div class="film-card-title">The Memory Box</div>
+                <div class="film-card-meta">In Development &nbsp;·&nbsp; Horror / Mystery</div>
+            </div>
+        </a>
+
+        <a href="/coming-soon/?item=film-project-house-of-mirrors" class="film-card" data-type="feature">
+            <div class="film-card-img"><img src="HouseOfMirrorsPoster.jpg" alt="House of Mirrors" loading="lazy"></div>
+            <div class="film-card-overlay"></div>
+            <div class="film-card-body">
+                <div class="film-card-tag">Feature Film</div>
+                <div class="film-card-title">House of Mirrors</div>
+                <div class="film-card-meta">In Development &nbsp;·&nbsp; Psychological Horror</div>
+            </div>
+        </a>
+
+        <a href="/coming-soon/?item=film-project-traveler" class="film-card" data-type="feature">
+            <div class="film-card-img"><img src="TravelerPoster.jpg" alt="Traveler" loading="lazy"></div>
+            <div class="film-card-overlay"></div>
+            <div class="film-card-body">
+                <div class="film-card-tag">Feature Film</div>
+                <div class="film-card-title">Traveler</div>
+                <div class="film-card-meta">In Development &nbsp;·&nbsp; Sci-Fi / Historical Romance</div>
+            </div>
+        </a>
+
+        <a href="/coming-soon/?item=film-project-the-other-place" class="film-card" data-type="feature">
+            <div class="film-card-img"><img src="TheOtherPlacePoster.jpg" alt="The Other Place" loading="lazy"></div>
+            <div class="film-card-overlay"></div>
+            <div class="film-card-body">
+                <div class="film-card-tag">Feature Film</div>
+                <div class="film-card-title">The Other Place</div>
+                <div class="film-card-meta">In Development &nbsp;·&nbsp; Sci-Fi / Thriller</div>
+            </div>
+        </a>
+        </div>
     </div>
 
-    <!-- Film Grid -->
-    <div class="films-grid">
+    <!-- ════════════ VAULT DIVIDER ════════════ -->
+    <div class="vault-divider" id="films-divider" aria-hidden="true">
+        <div class="vault-divider-inner"></div>
+    </div>
 
-        <a href="/coming-soon/?item=film-project-01" class="film-card" data-type="short">
+    <!-- ════════════ SHORT FILMS SECTION ════════════ -->
+    <div class="film-group" id="short-films-group">
+        <div class="section-heading-bar">
+            <div>
+                <p class="section-eyebrow">// 02 — Vault Shorts</p>
+                <h2 class="section-title">Short <em>Films</em></h2>
+            </div>
+            <div class="section-badge">— 10 Projects</div>
+        </div>
+        <div class="films-grid">
+            <a href="/coming-soon/?item=film-project-01" class="film-card" data-type="short">
             <div class="film-card-img">
                 <img src="Nightmare.png" alt="Nightmare on Lane St.">
             </div>
@@ -337,17 +568,7 @@
                 <div class="film-card-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
             </div>
         </a>
-
-        <a href="/coming-soon/?item=film-project-11" class="film-card hidden" data-type="feature">
-            <div class="film-card-img"><span>Poster</span></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Feature Film</div>
-                <div class="film-card-title">Film Title Here</div>
-                <div class="film-card-meta">2023 &nbsp;·&nbsp; 108 min</div>
-            </div>
-        </a>
-
+        </div>
     </div>
 
     <footer>
@@ -374,24 +595,34 @@
 
         // Filter
         const filters = document.querySelectorAll('.filter-btn');
-        const cards = document.querySelectorAll('.film-card');
+        const featureGroup = document.getElementById('feature-films-group');
+        const shortGroup = document.getElementById('short-films-group');
+        const divider = document.getElementById('films-divider');
+
         filters.forEach(f => {
             f.addEventListener('click', () => {
                 filters.forEach(b => b.classList.remove('active'));
                 f.classList.add('active');
                 const val = f.dataset.filter;
-                cards.forEach(c => {
-                    if (c.classList.contains('hidden')) return;
-                    if (val === 'all' || c.dataset.type === val) {
-                        c.style.display = 'block';
-                    } else {
-                        c.style.display = 'none';
-                    }
-                });
-            });
+
+                if (val === 'feature') {
+                    if (featureGroup) featureGroup.style.display = 'block';
+                    if (shortGroup) shortGroup.style.display = 'none';
+                    if (divider) divider.style.display = 'none';
+                } else if (val === 'short') {
+                    if (featureGroup) featureGroup.style.display = 'none';
+                    if (shortGroup) shortGroup.style.display = 'block';
+                    if (divider) divider.style.display = 'none';
+                } else {
+                    if (featureGroup) featureGroup.style.display = 'block';
+                    if (shortGroup) shortGroup.style.display = 'block';
+                    if (divider) divider.style.display = 'flex';
+                }
+                        });
         });
 
         // Scroll fade
+        const cards = document.querySelectorAll('.film-card');
         const obs = new IntersectionObserver(entries => {
             entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } });
         }, { threshold: 0.05 });
