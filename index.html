@@ -499,20 +499,34 @@
         }
 
         .new-film-img {
+            position: relative;
             width: 100%;
             aspect-ratio: 16 / 9;
-            background: #060606;
+            background: #040404;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
         }
+        .new-film-img .poster-blur {
+            position: absolute;
+            inset: -14px;
+            background-size: cover;
+            background-position: center;
+            filter: blur(20px) brightness(0.35) saturate(1.25);
+            transform: scale(1.12);
+            opacity: 0.9;
+            pointer-events: none;
+            z-index: 1;
+        }
         .new-film-img img {
+            position: relative;
+            z-index: 2;
             width: 100%;
             height: 100%;
             object-fit: contain;
             display: block;
-            filter: grayscale(20%);
+            filter: grayscale(12%);
             transition: transform 0.4s ease, filter 0.4s ease;
         }
         .new-film-card:hover .new-film-img img {
@@ -884,8 +898,8 @@
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/films">Films</a></li>
+            <li><a href="/films?filter=short">Short Films</a></li>
             <li><a href="/audio-dramas">Audio Dramas</a></li>
-            <li><a href="/narrative-fiction">Written Works</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
@@ -897,8 +911,8 @@
     <div class="mobile-menu" id="mobile-menu">
         <a href="/">Home</a>
         <a href="/films">Films</a>
+        <a href="/films?filter=short">Short Films</a>
         <a href="/audio-dramas">Audio Dramas</a>
-        <a href="/narrative-fiction">Written Works</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
     </div>
@@ -925,28 +939,28 @@
             <div class="panel-content">
                 <div class="panel-num">01</div>
                 <div class="panel-title">Films</div>
-                <div class="panel-desc">Horror short &amp;<br>feature films</div>
+                <div class="panel-desc">Horror feature films<br>&amp; full-length cinema</div>
                 <div class="panel-cta"><span class="panel-cta-line"></span> Enter</div>
+            </div>
+        </a>
+        <a href="/films?filter=short" class="vault-panel">
+            <div class="panel-image"><img src="TheBrutePoster.jpg" alt="Short Films"></div>
+            <div class="panel-ghost">II</div>
+            <div class="panel-content">
+                <div class="panel-num">02</div>
+                <div class="panel-title">Short<br>Films</div>
+                <div class="panel-desc">Vault horror shorts<br>&amp; original productions</div>
+                <div class="panel-cta"><span class="panel-cta-line"></span> Watch</div>
             </div>
         </a>
         <a href="/audio-dramas" class="vault-panel">
             <div class="panel-image"><img src="Mic.jpg" alt="Audio Dramas"></div>
-            <div class="panel-ghost">II</div>
-            <div class="panel-content">
-                <div class="panel-num">02</div>
-                <div class="panel-title">Audio<br>Dramas</div>
-                <div class="panel-desc">Podcast &amp;<br>audio productions</div>
-                <div class="panel-cta"><span class="panel-cta-line"></span> Listen</div>
-            </div>
-        </a>
-        <a href="/narrative-fiction" class="vault-panel">
-            <div class="panel-image"><img src="sedonaspage.png" alt="Written Works"></div>
             <div class="panel-ghost">III</div>
             <div class="panel-content">
                 <div class="panel-num">03</div>
-                <div class="panel-title">Written<br>Works</div>
-                <div class="panel-desc">Screenplays, short<br>fiction &amp; novellas</div>
-                <div class="panel-cta"><span class="panel-cta-line"></span> Read</div>
+                <div class="panel-title">Audio<br>Dramas</div>
+                <div class="panel-desc">Podcast &amp;<br>audio productions</div>
+                <div class="panel-cta"><span class="panel-cta-line"></span> Listen</div>
             </div>
         </a>
     </div>
@@ -963,7 +977,8 @@
         <div class="new-films-grid">
             <a href="/coming-soon/?item=film-project-07" class="new-film-card">
                 <div class="new-film-img">
-                    <img src="TheRustlePoster.jpg" alt="The Rustle" loading="lazy">
+                    <div class="poster-blur" style="background-image: url('TheRustlePoster.jpg');"></div>
+                    <img src="TheRustlePoster.jpg" alt="The Rustle" class="poster-main" loading="lazy">
                 </div>
                 <div class="new-film-body">
                     <div class="new-film-tag">Short Film</div>
@@ -973,7 +988,8 @@
             </a>
             <a href="/coming-soon/?item=film-project-08" class="new-film-card">
                 <div class="new-film-img">
-                    <img src="TheMimicPoster.jpg" alt="The Mimic" loading="lazy">
+                    <div class="poster-blur" style="background-image: url('TheMimicPoster.jpg');"></div>
+                    <img src="TheMimicPoster.jpg" alt="The Mimic" class="poster-main" loading="lazy">
                 </div>
                 <div class="new-film-body">
                     <div class="new-film-tag">Short Film</div>
@@ -983,7 +999,8 @@
             </a>
             <a href="/coming-soon/?item=film-project-09" class="new-film-card">
                 <div class="new-film-img">
-                    <img src="DateNightPoster.jpg" alt="Date Night" loading="lazy">
+                    <div class="poster-blur" style="background-image: url('DateNightPoster.jpg');"></div>
+                    <img src="DateNightPoster.jpg" alt="Date Night" class="poster-main" loading="lazy">
                 </div>
                 <div class="new-film-body">
                     <div class="new-film-tag">Short Film</div>
@@ -993,7 +1010,8 @@
             </a>
             <a href="/coming-soon/?item=film-project-10" class="new-film-card">
                 <div class="new-film-img">
-                    <img src="TheBrutePoster.jpg" alt="The Brute" loading="lazy">
+                    <div class="poster-blur" style="background-image: url('TheBrutePoster.jpg');"></div>
+                    <img src="TheBrutePoster.jpg" alt="The Brute" class="poster-main" loading="lazy">
                 </div>
                 <div class="new-film-body">
                     <div class="new-film-tag">Short Film</div>

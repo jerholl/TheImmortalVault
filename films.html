@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Films — The Immortal Vault</title>
+    <title>Films &amp; Shorts — The Immortal Vault</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MSCZ5M4Z4"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -11,19 +11,19 @@
         gtag('js', new Date());
         gtag('config', 'G-1MSCZ5M4Z4');
     </script>
-    <meta name="description" content="Browse horror short films and features in The Immortal Vault film collection.">
+    <meta name="description" content="Explore horror feature films and short films from The Immortal Vault archive.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://theimmortalvault.com/films">
     <meta name="theme-color" content="#060606">
     <meta property="og:site_name" content="The Immortal Vault">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Films — The Immortal Vault">
-    <meta property="og:description" content="Explore horror films from The Immortal Vault archive.">
+    <meta property="og:title" content="Films &amp; Shorts — The Immortal Vault">
+    <meta property="og:description" content="Explore horror feature films and short films from The Immortal Vault archive.">
     <meta property="og:url" content="https://theimmortalvault.com/films">
     <meta property="og:image" content="https://theimmortalvault.com/Lauren.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Films — The Immortal Vault">
-    <meta name="twitter:description" content="Horror shorts and features from The Immortal Vault.">
+    <meta name="twitter:title" content="Films &amp; Shorts — The Immortal Vault">
+    <meta name="twitter:description" content="Horror feature films and short films from The Immortal Vault.">
     <meta name="twitter:image" content="https://theimmortalvault.com/Lauren.png">
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -64,45 +64,47 @@
 
         /* ── Page Header ── */
         .page-header {
-            padding: 80px 60px 60px;
+            padding: 80px 60px 48px;
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
             gap: 40px;
         }
-        .page-header-left {}
-        .page-eyebrow { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--red2); margin-bottom: 16px; }
-        .page-title { font-family: var(--serif); font-size: clamp(3rem, 7vw, 6rem); line-height: 1; color: var(--text); }
+        .page-eyebrow { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--red2); margin-bottom: 14px; }
+        .page-title { font-family: var(--serif); font-size: clamp(3rem, 7vw, 5.8rem); line-height: 1; color: var(--text); }
         .page-title em { font-style: italic; color: var(--red2); }
         .page-count { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; white-space: nowrap; }
 
         /* ── Filter Bar ── */
         .filter-bar {
-            padding: 20px 60px;
+            padding: 18px 60px;
             border-bottom: 1px solid var(--border);
             display: flex;
-            gap: 4px;
+            gap: 12px;
             background: var(--dark);
+            position: sticky;
+            top: 64px;
+            z-index: 900;
         }
         .filter-btn {
             font-family: var(--mono);
-            font-size: 0.55rem;
+            font-size: 0.6rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--muted);
             background: none;
-            border: 1px solid transparent;
-            padding: 8px 16px;
+            border: 1px solid var(--border);
+            padding: 10px 22px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.25s ease;
         }
-        .filter-btn:hover { color: var(--text); border-color: var(--border); }
-        .filter-btn.active { color: var(--red2); border-color: var(--red); }
+        .filter-btn:hover { color: var(--text); border-color: var(--red2); background: rgba(163,21,21,0.1); }
+        .filter-btn.active { color: #fff; border-color: var(--red2); background: rgba(163,21,21,0.35); font-weight: 500; }
 
         /* ── Section Heading Bar ── */
         .section-heading-bar {
-            padding: 50px 60px 24px;
+            padding: 48px 60px 24px;
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
@@ -119,7 +121,7 @@
         }
         .section-title {
             font-family: var(--serif);
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(2rem, 3.8vw, 3rem);
             line-height: 1.1;
             color: var(--text);
         }
@@ -138,7 +140,7 @@
 
         .vault-divider {
             position: relative;
-            height: 60px;
+            height: 64px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -164,72 +166,153 @@
             clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
             opacity: 0.8;
         }
-        .vault-divider-inner::before { left: 15%; }
-        .vault-divider-inner::after { right: 15%; }
+        .vault-divider-inner::before { left: 20%; }
+        .vault-divider-inner::after { right: 20%; }
 
-        /* ── Film Grid ── */
+        /* ── Film Grids ── */
         .films-grid {
-            padding: 60px;
+            padding: 48px 60px 72px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2px;
-            background: var(--border);
+            gap: 28px;
+            background: var(--black);
         }
 
         .film-card {
-            position: relative;
-            aspect-ratio: 2/3;
-            background: var(--surface);
-            overflow: hidden;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-        }
-
-        .film-card-img {
-            position: absolute;
-            inset: 0;
             background: var(--dark);
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .film-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--red2);
+            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.85), 0 0 20px rgba(163, 21, 21, 0.25);
+        }
+        .film-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--red2);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+            z-index: 3;
+        }
+        .film-card:hover::before { transform: scaleX(1); }
+
+        /* Poster Frame - Never Cut Off */
+        .film-card-img {
+            position: relative;
+            width: 100%;
+            background: #040404;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .film-card-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%); transition: transform 0.5s ease, filter 0.4s ease; }
-        .film-card-img span { font-family: var(--mono); font-size: 0.5rem; letter-spacing: 3px; color: var(--border); text-transform: uppercase; }
-        .film-card:hover .film-card-img img { transform: scale(1.05); filter: grayscale(0%); }
-
-        .film-card-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(6,6,6,0.95) 0%, rgba(6,6,6,0.3) 50%, transparent 100%);
-            transition: opacity 0.3s;
+        .feature-card-img {
+            aspect-ratio: 2 / 3;
+        }
+        .short-card-img {
+            aspect-ratio: 4 / 3;
         }
 
-        .film-card-body {
+        /* Ambient blurred backdrop */
+        .poster-blur {
             position: absolute;
-            bottom: 0; left: 0; right: 0;
-            padding: 24px 20px;
+            inset: -14px;
+            background-size: cover;
+            background-position: center;
+            filter: blur(22px) brightness(0.3) saturate(1.25);
+            transform: scale(1.15);
+            opacity: 0.9;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Sharp uncropped poster */
+        .poster-main {
+            position: relative;
             z-index: 2;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
-        .film-card-tag { font-family: var(--mono); font-size: 0.48rem; letter-spacing: 3px; text-transform: uppercase; color: var(--red2); margin-bottom: 6px; }
-        .film-card-title { font-family: var(--serif); font-size: 1.15rem; color: var(--text); line-height: 1.15; margin-bottom: 6px; }
-        .film-card-meta { font-family: var(--mono); font-size: 0.48rem; letter-spacing: 2px; color: var(--muted); }
-
-        /* Red left border on hover */
-        .film-card::before {
-            content: "";
-            position: absolute;
-            left: 0; top: 0; bottom: 0;
-            width: 2px;
-            background: var(--red2);
-            transform: scaleY(0);
-            transform-origin: bottom;
-            transition: transform 0.3s ease;
-            z-index: 3;
+        .film-card:hover .poster-main {
+            transform: scale(1.04);
         }
-        .film-card:hover::before { transform: scaleY(1); }
 
-        .film-card.hidden { display: none !important; }
+        /* Film card body sitting below the poster */
+        .film-card-body {
+            padding: 16px 18px 20px;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex-grow: 1;
+        }
+        .film-card-tag {
+            font-family: var(--mono);
+            font-size: 0.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red2);
+        }
+        .film-card-title {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            color: var(--text);
+            line-height: 1.2;
+            transition: color 0.2s ease;
+        }
+        .film-card:hover .film-card-title {
+            color: #fff;
+        }
+        .film-card-meta {
+            font-family: var(--mono);
+            font-size: 0.48rem;
+            letter-spacing: 2px;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1200px) {
+            .films-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; padding: 40px 40px 60px; }
+            .page-header, .filter-bar, .section-heading-bar, .vault-divider { padding-left: 40px; padding-right: 40px; }
+            nav { padding: 0 40px; }
+        }
+        @media (max-width: 850px) {
+            .films-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; padding: 32px 24px 50px; }
+            .page-header, .filter-bar, .section-heading-bar, .vault-divider { padding-left: 24px; padding-right: 24px; }
+            nav { padding: 0 24px; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .filter-bar { gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .filter-btn { padding: 8px 14px; font-size: 0.54rem; white-space: nowrap; }
+            .page-title { font-size: 3rem; }
+            .section-title { font-size: 2rem; }
+        }
+        @media (max-width: 540px) {
+            .films-grid { grid-template-columns: 1fr; gap: 20px; padding: 24px 18px 40px; }
+            .page-header, .filter-bar, .section-heading-bar, .vault-divider { padding-left: 18px; padding-right: 18px; }
+            nav { padding: 0 18px; }
+            .page-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .section-heading-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+        }
 
         /* ── Footer ── */
         footer { padding: 28px 60px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); }
@@ -244,389 +327,487 @@
         .footer-email { font-family: var(--mono); font-size: 0.52rem; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
         .footer-link { font-family: var(--mono); font-size: 0.52rem; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
         .footer-link:hover { color: #fff; border-color: var(--red2); }
-
-        /* ── Mobile ── */
-        @media (max-width: 900px) {
-            nav { padding: 0 24px; } .nav-links { display: none; } .hamburger { display: flex; }
-            .page-header { padding: 50px 24px 40px; flex-direction: column; align-items: flex-start; gap: 16px; }
-            .section-heading-bar { padding: 36px 24px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
-            .vault-divider { padding: 0 24px; }
-            .filter-bar { padding: 16px 24px; flex-wrap: wrap; }
-            .films-grid { padding: 24px; grid-template-columns: repeat(2, 1fr); }
-            footer { flex-direction: column; gap: 10px; text-align: center; padding: 28px 24px; }
-            .footer-right { justify-content: center; }
-        }
-        @media (max-width: 500px) {
-            .films-grid { padding: 16px; grid-template-columns: repeat(2, 1fr); gap: 8px; background: var(--black); }
-        }
+        @media (max-width: 900px) { footer { flex-direction: column; text-align: center; gap: 14px; padding: 28px 24px; } .footer-right { justify-content: center; } }
     </style>
 </head>
 <body>
 
+    <!-- Nav -->
     <nav>
         <a href="/" class="nav-logo">THE IMMORTAL VAULT</a>
         <ul class="nav-links">
-  <li><a href="/">Home</a></li>
-  <li><a href="/films">Films</a></li>
-  <li><a href="/audio-dramas">Audio Dramas</a></li>
-  <li><a href="/narrative-fiction">Written Works</a></li>
-  <li><a href="/about">About</a></li>
-  <li><a href="/contact">Contact</a></li>
- </ul>
-        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            <li><a href="/">Home</a></li>
+            <li><a href="/films" class="active">Films</a></li>
+            <li><a href="/films?filter=short">Short Films</a></li>
+            <li><a href="/audio-dramas">Audio Dramas</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
+
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobile-menu">
-  <a href="/">Home</a>
-  <a href="/films">Films</a>
-  <a href="/audio-dramas">Audio Dramas</a>
-  <a href="/narrative-fiction">Written Works</a>
-  <a href="/about">About</a>
-  <a href="/contact">Contact</a>
- </div>
+        <a href="/">Home</a>
+        <a href="/films">Films</a>
+        <a href="/films?filter=short">Short Films</a>
+        <a href="/audio-dramas">Audio Dramas</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </div>
 
-    <!-- Page Header -->
-    <div class="page-header">
-        <div class="page-header-left">
-            <p class="page-eyebrow">// 01 — The Vault</p>
-            <h1 class="page-title"><em>Films</em></h1>
+    <!-- Header -->
+    <header class="page-header">
+        <div>
+            <div class="page-eyebrow">The Archive // Motion Pictures</div>
+            <h1 class="page-title">Films &amp; <em>Shorts</em></h1>
         </div>
-        <div class="page-count">— 24 Projects</div>
+        <div class="page-count" id="header-count">30 Projects Archived</div>
+    </header>
+
+    <!-- Sticky Filter Bar -->
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Projects (30)</button>
+        <button class="filter-btn" data-filter="feature">Feature Films (15)</button>
+        <button class="filter-btn" data-filter="short">Short Films (15)</button>
     </div>
 
-    <!-- Filter Bar -->
-    <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All Projects (24)</button>
-        <button class="filter-btn" data-filter="feature">Films (14)</button>
-        <button class="filter-btn" data-filter="short">Short Films (10)</button>
-    </div>
-    <!-- ════════════ FILMS (FEATURE FILMS) SECTION ════════════ -->
-    <div class="film-group" id="feature-films-group">
+    <!-- 01 FEATURE FILMS GROUP -->
+    <div id="feature-films-group">
         <div class="section-heading-bar">
             <div>
-                <p class="section-eyebrow">// 01 — Feature Length</p>
-                <h2 class="section-title"><em>Films</em></h2>
+                <div class="section-eyebrow">01 // Feature Length</div>
+                <h2 class="section-title">Feature <em>Films</em></h2>
             </div>
-            <div class="section-badge">— 14 Projects</div>
+            <div class="section-badge">15 Archived Productions</div>
         </div>
-        <div class="films-grid">
-            <a href="/coming-soon/?item=film-project-rein" class="film-card" data-type="feature">
-            <div class="film-card-img"><img src="ReinPoster.jpg" alt="Rein" loading="lazy"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Feature Film</div>
-                <div class="film-card-title">Rein</div>
-                <div class="film-card-meta">In Development &nbsp;·&nbsp; Supernatural Drama / Horror</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-remember-me" class="film-card" data-type="feature">
-            <div class="film-card-img"><img src="RememberMePoster.jpg" alt="Remember Me" loading="lazy"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Feature Film</div>
-                <div class="film-card-title">Remember Me</div>
-                <div class="film-card-meta">In Development &nbsp;·&nbsp; Supernatural / Psychological Horror</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-halloweenastreamathon" class="film-card" data-type="feature">
-            <div class="film-card-img"><img src="HalloweenastreamathonPoster.jpg" alt="Halloweenastreamathon" loading="lazy"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Feature Film</div>
-                <div class="film-card-title">Halloweenastreamathon</div>
-                <div class="film-card-meta">In Development &nbsp;·&nbsp; Slasher / Horror</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-vintage-antique" class="film-card" data-type="feature">
-            <div class="film-card-img"><img src="VintageAntiquePoster.jpg" alt="Vintage Antique" loading="lazy"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Feature Film</div>
-                <div class="film-card-title">Vintage Antique</div>
-                <div class="film-card-meta">In Development &nbsp;·&nbsp; Supernatural Horror</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-the-town-of-burnwill" class="film-card" data-type="feature">
-            <div class="film-card-img"><img src="TheTownOfBurnwillPoster.jpg" alt="The Town of Burnwill" loading="lazy"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Feature Film</div>
-                <div class="film-card-title">The Town of Burnwill</div>
-                <div class="film-card-meta">In Development &nbsp;·&nbsp; Slasher / Horror</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-blackmailed" class="film-card" data-type="feature">
-            <div class="film-card-img"><img src="BlackmailedPoster.jpg" alt="Blackmailed" loading="lazy"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Feature Film</div>
-                <div class="film-card-title">Blackmailed</div>
-                <div class="film-card-meta">In Development &nbsp;·&nbsp; Crime / Thriller</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-locked-in" class="film-card" data-type="feature">
-            <div class="film-card-img"><img src="LockedInPoster.jpg" alt="Locked In" loading="lazy"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Feature Film</div>
-                <div class="film-card-title">Locked In</div>
-                <div class="film-card-meta">In Development &nbsp;·&nbsp; Horror / Thriller</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-maladaptive" class="film-card" data-type="feature">
-            <div class="film-card-img"><img src="MaladaptivePoster.jpg" alt="Maladaptive" loading="lazy"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Feature Film</div>
-                <div class="film-card-title">Maladaptive</div>
-                <div class="film-card-meta">In Development &nbsp;·&nbsp; Psychological Horror</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-ghost-hunter" class="film-card" data-type="feature">
-            <div class="film-card-img"><img src="GhostHunterPoster.jpg" alt="Ghost Hunter" loading="lazy"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Feature Film</div>
-                <div class="film-card-title">Ghost Hunter</div>
-                <div class="film-card-meta">In Development &nbsp;·&nbsp; Horror / Comedy</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-streamed" class="film-card" data-type="feature">
-            <div class="film-card-img"><img src="StreamedPoster.jpg" alt="Streamed" loading="lazy"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Feature Film</div>
-                <div class="film-card-title">Streamed</div>
-                <div class="film-card-meta">In Development &nbsp;·&nbsp; Slasher / Horror</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-the-memory-box" class="film-card" data-type="feature">
-            <div class="film-card-img"><img src="TheMemoryBoxPoster.jpg" alt="The Memory Box" loading="lazy"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Feature Film</div>
-                <div class="film-card-title">The Memory Box</div>
-                <div class="film-card-meta">In Development &nbsp;·&nbsp; Horror / Mystery</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-house-of-mirrors" class="film-card" data-type="feature">
-            <div class="film-card-img"><img src="HouseOfMirrorsPoster.jpg" alt="House of Mirrors" loading="lazy"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Feature Film</div>
-                <div class="film-card-title">House of Mirrors</div>
-                <div class="film-card-meta">In Development &nbsp;·&nbsp; Psychological Horror</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-traveler" class="film-card" data-type="feature">
-            <div class="film-card-img"><img src="TravelerPoster.jpg" alt="Traveler" loading="lazy"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Feature Film</div>
-                <div class="film-card-title">Traveler</div>
-                <div class="film-card-meta">In Development &nbsp;·&nbsp; Sci-Fi / Historical Romance</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-the-other-place" class="film-card" data-type="feature">
-            <div class="film-card-img"><img src="TheOtherPlacePoster.jpg" alt="The Other Place" loading="lazy"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Feature Film</div>
-                <div class="film-card-title">The Other Place</div>
-                <div class="film-card-meta">In Development &nbsp;·&nbsp; Sci-Fi / Thriller</div>
-            </div>
-        </a>
+        <div class="films-grid" id="feature-films-grid">
+            <a href="/narrative-fiction/?item=film-sedona" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('sedonaspage.png');"></div>
+                    <img src="sedonaspage.png" alt="Sedona" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Action / Horror</div>
+                    <div class="film-card-title">Sedona</div>
+                    <div class="film-card-meta">Feature Film // In Development</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-rein" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('ReinPoster.jpg');"></div>
+                    <img src="ReinPoster.jpg" alt="Rein" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Supernatural Drama / Horror</div>
+                    <div class="film-card-title">Rein</div>
+                    <div class="film-card-meta">Feature Film // Pre-Production</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-remember-me" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('RememberMePoster.jpg');"></div>
+                    <img src="RememberMePoster.jpg" alt="Remember Me" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Supernatural / Psychological Horror</div>
+                    <div class="film-card-title">Remember Me</div>
+                    <div class="film-card-meta">Feature Film // In Development</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-halloweenastreamathon" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('HalloweenastreamathonPoster.jpg');"></div>
+                    <img src="HalloweenastreamathonPoster.jpg" alt="Halloweenastreamathon" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Slasher / Horror</div>
+                    <div class="film-card-title">Halloweenastreamathon</div>
+                    <div class="film-card-meta">Feature Film // In Development</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-vintage-antique" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('VintageAntiquePoster.jpg');"></div>
+                    <img src="VintageAntiquePoster.jpg" alt="Vintage Antique" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Supernatural Horror</div>
+                    <div class="film-card-title">Vintage Antique</div>
+                    <div class="film-card-meta">Feature Film // In Development</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-the-town-of-burnwill" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('TheTownOfBurnwillPoster.jpg');"></div>
+                    <img src="TheTownOfBurnwillPoster.jpg" alt="The Town of Burnwill" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Slasher / Horror</div>
+                    <div class="film-card-title">The Town of Burnwill</div>
+                    <div class="film-card-meta">Feature Film // In Development</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-blackmailed" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('BlackmailedPoster.jpg');"></div>
+                    <img src="BlackmailedPoster.jpg" alt="Blackmailed" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Crime / Thriller</div>
+                    <div class="film-card-title">Blackmailed</div>
+                    <div class="film-card-meta">Feature Film // In Development</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-locked-in" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('LockedInPoster.jpg');"></div>
+                    <img src="LockedInPoster.jpg" alt="Locked In" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Horror / Thriller</div>
+                    <div class="film-card-title">Locked In</div>
+                    <div class="film-card-meta">Feature Film // In Development</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-maladaptive" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('MaladaptivePoster.jpg');"></div>
+                    <img src="MaladaptivePoster.jpg" alt="Maladaptive" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Psychological Horror</div>
+                    <div class="film-card-title">Maladaptive</div>
+                    <div class="film-card-meta">Feature Film // In Development</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-ghost-hunter" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('GhostHunterPoster.jpg');"></div>
+                    <img src="GhostHunterPoster.jpg" alt="Ghost Hunter" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Horror / Comedy (Found Footage)</div>
+                    <div class="film-card-title">Ghost Hunter</div>
+                    <div class="film-card-meta">Feature Film // In Development</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-streamed" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('StreamedPoster.jpg');"></div>
+                    <img src="StreamedPoster.jpg" alt="Streamed" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Slasher / Horror</div>
+                    <div class="film-card-title">Streamed</div>
+                    <div class="film-card-meta">Feature Film // In Development</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-the-memory-box" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('TheMemoryBoxPoster.jpg');"></div>
+                    <img src="TheMemoryBoxPoster.jpg" alt="The Memory Box" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Horror / Mystery</div>
+                    <div class="film-card-title">The Memory Box</div>
+                    <div class="film-card-meta">Feature Film // In Development</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-house-of-mirrors" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('HouseOfMirrorsPoster.jpg');"></div>
+                    <img src="HouseOfMirrorsPoster.jpg" alt="House of Mirrors" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Psychological Horror</div>
+                    <div class="film-card-title">House of Mirrors</div>
+                    <div class="film-card-meta">Feature Film // In Development</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-traveler" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('TravelerPoster.jpg');"></div>
+                    <img src="TravelerPoster.jpg" alt="Traveler" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Sci-Fi / Historical Romance</div>
+                    <div class="film-card-title">Traveler</div>
+                    <div class="film-card-meta">Feature Film // In Development</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-the-other-place" class="film-card feature-film-card">
+                <div class="film-card-img feature-card-img">
+                    <div class="poster-blur" style="background-image: url('TheOtherPlacePoster.jpg');"></div>
+                    <img src="TheOtherPlacePoster.jpg" alt="The Other Place" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Sci-Fi / Thriller</div>
+                    <div class="film-card-title">The Other Place</div>
+                    <div class="film-card-meta">Feature Film // In Development</div>
+                </div>
+            </a>
         </div>
     </div>
 
-    <!-- ════════════ VAULT DIVIDER ════════════ -->
-    <div class="vault-divider" id="films-divider" aria-hidden="true">
+    <!-- VAULT DIVIDER -->
+    <div class="vault-divider" id="vault-divider">
         <div class="vault-divider-inner"></div>
     </div>
 
-    <!-- ════════════ SHORT FILMS SECTION ════════════ -->
-    <div class="film-group" id="short-films-group">
+    <!-- 02 SHORT FILMS GROUP -->
+    <div id="short-films-group">
         <div class="section-heading-bar">
             <div>
-                <p class="section-eyebrow">// 02 — Vault Shorts</p>
+                <div class="section-eyebrow">02 // Vault Shorts</div>
                 <h2 class="section-title">Short <em>Films</em></h2>
             </div>
-            <div class="section-badge">— 10 Projects</div>
+            <div class="section-badge">15 Original Productions</div>
         </div>
-        <div class="films-grid">
-            <a href="/coming-soon/?item=film-project-01" class="film-card" data-type="short">
-            <div class="film-card-img">
-                <img src="Nightmare.png" alt="Nightmare on Lane St.">
-            </div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Short Film</div>
-                <div class="film-card-title">Nightmare on Lane St.</div>
-                <div class="film-card-meta">2024 &nbsp;·&nbsp; 2:39 runtime</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-02" class="film-card" data-type="short">
-            <div class="film-card-img"><img src="BRIGHT LIGHTSPOSTER.png" alt="Bright Lights"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Short Film</div>
-                <div class="film-card-title">Bright Lights</div>
-                <div class="film-card-meta">2024 &nbsp;·&nbsp; 3:53 runtime</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-03" class="film-card" data-type="short">
-            <div class="film-card-img"><img src="FATHERPOSTER.png" alt="Father"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Short Film</div>
-                <div class="film-card-title">Father</div>
-                <div class="film-card-meta">2024 &nbsp;·&nbsp; 8:24 runtime</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-04" class="film-card" data-type="short">
-            <div class="film-card-img"><img src="HikerPoster.png" alt="Hiker"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Short Film</div>
-                <div class="film-card-title">Hiker</div>
-                <div class="film-card-meta">2024 &nbsp;·&nbsp; 9:17 runtime
+        <div class="films-grid" id="short-films-grid">
+            <a href="/coming-soon/?item=film-short-cornfield-brute" class="film-card short-film-card">
+                <div class="film-card-img short-card-img">
+                    <div class="poster-blur" style="background-image: url('TheBrutePoster.jpg');"></div>
+                    <img src="TheBrutePoster.jpg" alt="The Cornfield Brute" class="poster-main" loading="lazy">
                 </div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-05" class="film-card" data-type="short">
-            <div class="film-card-img"><img src="PARK BENCH.png" alt="Park Bench"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Short Film</div>
-                <div class="film-card-title">Park Bench</div>
-                <div class="film-card-meta">2024 &nbsp;·&nbsp; 7:01 runtime</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-06" class="film-card" data-type="short">
-            <div class="film-card-img"><img src="H i k e r 2.png" alt="Hiker 2"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Short Film</div>
-                <div class="film-card-title">Hiker 2</div>
-                <div class="film-card-meta">2026 &nbsp;·&nbsp; Coming Sooon</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-07" class="film-card" data-type="short">
-            <div class="film-card-img"><img src="TheRustlePoster.jpg" alt="The Rustle"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Short Film</div>
-                <div class="film-card-title">The Rustle</div>
-                <div class="film-card-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-08" class="film-card" data-type="short">
-            <div class="film-card-img"><img src="TheMimicPoster.jpg" alt="The Mimic"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Short Film</div>
-                <div class="film-card-title">The Mimic</div>
-                <div class="film-card-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-09" class="film-card" data-type="short">
-            <div class="film-card-img"><img src="DateNightPoster.jpg" alt="Date Night"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Short Film</div>
-                <div class="film-card-title">Date Night</div>
-                <div class="film-card-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
-            </div>
-        </a>
-
-        <a href="/coming-soon/?item=film-project-10" class="film-card" data-type="short">
-            <div class="film-card-img"><img src="TheBrutePoster.jpg" alt="The Brute"></div>
-            <div class="film-card-overlay"></div>
-            <div class="film-card-body">
-                <div class="film-card-tag">Short Film</div>
-                <div class="film-card-title">The Brute</div>
-                <div class="film-card-meta">2026 &nbsp;·&nbsp; Coming Soon</div>
-            </div>
-        </a>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Slasher / Horror</div>
+                    <div class="film-card-title">The Cornfield Brute</div>
+                    <div class="film-card-meta">Short Film // Original Production</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-03" class="film-card short-film-card">
+                <div class="film-card-img short-card-img">
+                    <div class="poster-blur" style="background-image: url('FATHERPOSTER.png');"></div>
+                    <img src="FATHERPOSTER.png" alt="Father" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Psychological Horror / Thriller</div>
+                    <div class="film-card-title">Father</div>
+                    <div class="film-card-meta">Short Film // 2026</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-04" class="film-card short-film-card">
+                <div class="film-card-img short-card-img">
+                    <div class="poster-blur" style="background-image: url('PARK BENCH.png');"></div>
+                    <img src="PARK BENCH.png" alt="The Park Bench" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Horror / Thriller</div>
+                    <div class="film-card-title">The Park Bench</div>
+                    <div class="film-card-meta">Short Film // 2026</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-05" class="film-card short-film-card">
+                <div class="film-card-img short-card-img">
+                    <div class="poster-blur" style="background-image: url('BRIGHT LIGHTSPOSTER.png');"></div>
+                    <img src="BRIGHT LIGHTSPOSTER.png" alt="Bright Lights" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Sci-Fi / Horror</div>
+                    <div class="film-card-title">Bright Lights</div>
+                    <div class="film-card-meta">Short Film // 2026</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-02" class="film-card short-film-card">
+                <div class="film-card-img short-card-img">
+                    <div class="poster-blur" style="background-image: url('HikerPoster.png');"></div>
+                    <img src="HikerPoster.png" alt="Hiker" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Crime / Thriller</div>
+                    <div class="film-card-title">Hiker</div>
+                    <div class="film-card-meta">Short Film // 2026</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-short-the-door" class="film-card short-film-card">
+                <div class="film-card-img short-card-img">
+                    <div class="poster-blur" style="background-image: url('TheDoorPoster.jpg');"></div>
+                    <img src="TheDoorPoster.jpg" alt="The Door" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Supernatural / Dark Fantasy</div>
+                    <div class="film-card-title">The Door</div>
+                    <div class="film-card-meta">Short Film // Original Production</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-short-the-rot" class="film-card short-film-card">
+                <div class="film-card-img short-card-img">
+                    <div class="poster-blur" style="background-image: url('TheRotPoster.jpg');"></div>
+                    <img src="TheRotPoster.jpg" alt="The Rot" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Horror / Zombie</div>
+                    <div class="film-card-title">The Rot</div>
+                    <div class="film-card-meta">Short Film // Original Production</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-short-ghost-train" class="film-card short-film-card">
+                <div class="film-card-img short-card-img">
+                    <div class="poster-blur" style="background-image: url('GhostTrainPoster.jpg');"></div>
+                    <img src="GhostTrainPoster.jpg" alt="Ghost Train" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Supernatural Horror</div>
+                    <div class="film-card-title">Ghost Train</div>
+                    <div class="film-card-meta">Short Film // Original Production</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-09" class="film-card short-film-card">
+                <div class="film-card-img short-card-img">
+                    <div class="poster-blur" style="background-image: url('DateNightPoster.jpg');"></div>
+                    <img src="DateNightPoster.jpg" alt="Date Night" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Horror / Dark Comedy</div>
+                    <div class="film-card-title">Date Night</div>
+                    <div class="film-card-meta">Short Film // 2026</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-short-remembrance" class="film-card short-film-card">
+                <div class="film-card-img short-card-img">
+                    <div class="poster-blur" style="background-image: url('RemembrancePoster.jpg');"></div>
+                    <img src="RemembrancePoster.jpg" alt="Remembrance" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Folk Horror / Thriller</div>
+                    <div class="film-card-title">Remembrance</div>
+                    <div class="film-card-meta">Short Film // Original Production</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-short-teddy" class="film-card short-film-card">
+                <div class="film-card-img short-card-img">
+                    <div class="poster-blur" style="background-image: url('TeddyPoster.jpg');"></div>
+                    <img src="TeddyPoster.jpg" alt="Teddy" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Micro-Horror Short</div>
+                    <div class="film-card-title">Teddy</div>
+                    <div class="film-card-meta">Short Film // Original Production</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-07" class="film-card short-film-card">
+                <div class="film-card-img short-card-img">
+                    <div class="poster-blur" style="background-image: url('TheRustlePoster.jpg');"></div>
+                    <img src="TheRustlePoster.jpg" alt="The Rustle" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Horror / Thriller</div>
+                    <div class="film-card-title">The Rustle</div>
+                    <div class="film-card-meta">Short Film // 2026</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-08" class="film-card short-film-card">
+                <div class="film-card-img short-card-img">
+                    <div class="poster-blur" style="background-image: url('TheMimicPoster.jpg');"></div>
+                    <img src="TheMimicPoster.jpg" alt="The Mimic" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Supernatural / Psychological Horror</div>
+                    <div class="film-card-title">The Mimic</div>
+                    <div class="film-card-meta">Short Film // 2026</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-01" class="film-card short-film-card">
+                <div class="film-card-img short-card-img">
+                    <div class="poster-blur" style="background-image: url('Nightmare.png');"></div>
+                    <img src="Nightmare.png" alt="Nightmare on Lane St." class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Horror / Mystery</div>
+                    <div class="film-card-title">Nightmare on Lane St.</div>
+                    <div class="film-card-meta">Short Film // 2026</div>
+                </div>
+            </a>
+            <a href="/coming-soon/?item=film-project-06" class="film-card short-film-card">
+                <div class="film-card-img short-card-img">
+                    <div class="poster-blur" style="background-image: url('H i k e r 2.png');"></div>
+                    <img src="H i k e r 2.png" alt="Hiker 2" class="poster-main" loading="lazy">
+                </div>
+                <div class="film-card-body">
+                    <div class="film-card-tag">Crime / Thriller</div>
+                    <div class="film-card-title">Hiker 2</div>
+                    <div class="film-card-meta">Short Film // 2026</div>
+                </div>
+            </a>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-logo">THE <span>IMMORTAL</span> VAULT</div>
         <div class="footer-social" aria-label="Social media">
             <a class="social-icon" href="https://www.facebook.com/theimmortalvault/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-            <a class="social-icon" href="https://www.instagram.com/theimmortalvault/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-            <a class="social-icon" href="https://bsky.app/profile/theimmortalvault.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65 6.722 9.035 3.607 1.938 6.055 3.274 4.786 6.076.703.482 4.907 1.134 6.927-4.458 1.722-4.77 1.063-6.45.063-7.23-.765-.59-3.783-1.428-5.488-.003zm-.005 2.205c-.483.123-.996.077-1.287-.155-.29-.231-.384-.675-.217-1.02.167-.345.545-.544 1.028-.667.484-.123.997-.078 1.287.154.29.231.384.676.217 1.021-.167.344-.545.543-1.027.667zm.179 2.34c-.559.14-1.153.086-1.492-.155-.34-.241-.451-.693-.248-1.084.203-.39.661-.614 1.22-.754.559-.14 1.153-.085 1.493.155.339.241.45.694.247 1.084-.203.39-.662.614-1.22.754z"/></svg></a>
+            <a class="social-icon" href="https://www.instagram.com/theimmortalvault" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a class="social-icon" href="https://x.com/immortalvault" target="_blank" rel="noopener noreferrer" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 24.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
             <a class="social-icon" href="https://www.youtube.com/@TheImmortalVault" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
         </div>
         <div class="footer-right">
-            <div class="footer-email">inquiries@theimmortalvault.com</div>
+            <a class="footer-email" href="mailto:theimmortalvault@gmail.com">theimmortalvault@gmail.com</a>
             <a class="footer-link" href="/privacy-policy">Privacy Policy</a>
-            <div class="footer-copy">&copy; 2026 — All Works Reserved</div>
+            <a class="footer-link" href="/terms">Terms</a>
         </div>
+        <div class="footer-copy">&copy; 2026 The Immortal Vault. All rights reserved.</div>
     </footer>
 
     <script>
-        // Nav
-        const btn = document.getElementById('hamburger');
-        const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => { btn.classList.toggle('open'); menu.classList.toggle('open'); });
-        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { btn.classList.remove('open'); menu.classList.remove('open'); }));
-
-        // Filter
-        const filters = document.querySelectorAll('.filter-btn');
-        const featureGroup = document.getElementById('feature-films-group');
-        const shortGroup = document.getElementById('short-films-group');
-        const divider = document.getElementById('films-divider');
-
-        filters.forEach(f => {
-            f.addEventListener('click', () => {
-                filters.forEach(b => b.classList.remove('active'));
-                f.classList.add('active');
-                const val = f.dataset.filter;
-
-                if (val === 'feature') {
-                    if (featureGroup) featureGroup.style.display = 'block';
-                    if (shortGroup) shortGroup.style.display = 'none';
-                    if (divider) divider.style.display = 'none';
-                } else if (val === 'short') {
-                    if (featureGroup) featureGroup.style.display = 'none';
-                    if (shortGroup) shortGroup.style.display = 'block';
-                    if (divider) divider.style.display = 'none';
-                } else {
-                    if (featureGroup) featureGroup.style.display = 'block';
-                    if (shortGroup) shortGroup.style.display = 'block';
-                    if (divider) divider.style.display = 'flex';
-                }
-                        });
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
         });
 
-        // Scroll fade
-        const cards = document.querySelectorAll('.film-card');
-        const obs = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } });
-        }, { threshold: 0.05 });
-        cards.forEach(c => { c.style.opacity='0'; c.style.transform='translateY(16px)'; c.style.transition='opacity 0.5s ease, transform 0.5s ease'; obs.observe(c); });
+        // Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const featureGroup = document.getElementById('feature-films-group');
+        const shortGroup = document.getElementById('short-films-group');
+        const vaultDivider = document.getElementById('vault-divider');
+        const headerCount = document.getElementById('header-count');
+
+        function setFilter(filter) {
+            filterBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+
+            if (filter === 'all') {
+                featureGroup.style.display = 'block';
+                shortGroup.style.display = 'block';
+                vaultDivider.style.display = 'flex';
+                headerCount.textContent = '30 Projects Archived';
+            } else if (filter === 'feature') {
+                featureGroup.style.display = 'block';
+                shortGroup.style.display = 'none';
+                vaultDivider.style.display = 'none';
+                headerCount.textContent = '15 Feature Films Archived';
+            } else if (filter === 'short') {
+                featureGroup.style.display = 'none';
+                shortGroup.style.display = 'block';
+                vaultDivider.style.display = 'none';
+                headerCount.textContent = '15 Short Films Archived';
+            }
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                setFilter(filter);
+                const newUrl = filter === 'all' ? '/films' : '/films?filter=' + filter;
+                window.history.replaceState({}, '', newUrl);
+            });
+        });
+
+        // Check query param on load (?filter=short or ?filter=feature)
+        const params = new URLSearchParams(window.location.search);
+        const filterParam = params.get('filter');
+        if (filterParam === 'short' || filterParam === 'shorts') {
+            setFilter('short');
+        } else if (filterParam === 'feature' || filterParam === 'features' || filterParam === 'film') {
+            setFilter('feature');
+        } else if (window.location.hash === '#shorts') {
+            setFilter('short');
+        }
     </script>
 </body>
 </html>
